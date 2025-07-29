@@ -1,0 +1,856 @@
+{
+  "web-design": {
+    "metaTitle": "Web Design: Create Stunning & Responsive Website",
+    "metaDescription": "Learn the principles of modern web design. Create stunning, responsive, and user-friendly websites using the latest design trends and tools.",
+    "title": "Web Design Solutions",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Web Design Solutions",
+            "desc": "Web design is the process of creating the visual and interactive aspects of a website. It involves layout design, color schemes, typography, and user experience (UX) principles to make websites attractive, functional, and user-friendly."
+          }
+        ],
+        "img": "/images/project-middle-1.jpg"
+      },
+      {
+        "content": [
+          {
+            "title": "Projects Summery",
+            "desc": "Web design solutions encompass the creation and management of websites, focusing on visual aesthetics, user experience (UX), and functionality to ensure a website is attractive, user-friendly, and effective."
+          }
+        ],
+        "img": "/images/project-details.jpg"
+      }
+    ]
+  },
+  "plugin-development": {
+    "metaTitle": "Plugin Development: Build Custom Plugins for Websites & Software",
+    "metaDescription": "Learn plugin development to create custom plugins for WordPress, web applications, and software. Extend functionality with powerful integrations.",
+    "title": "Plugin Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "About Plugin Development",
+            "desc": "Plugin development is the process of creating custom extensions that enhance the functionality of websites, applications, or software platforms. Plugins allow users to add new features without modifying the core system."
+          }
+        ],
+        "img": "/images/project-middle-1.jpg"
+      },
+      {
+        "content": [
+          {
+            "title": "Projects Summery",
+            "desc": "Plugin development involves creating software extensions (plugins) that add new features or modify existing functionalities of a software application without altering its core code. These plugins are designed to enhance the capabilities of the host application, allowing users to customize and extend its functionality."
+          }
+        ],
+        "img": "/images/project-details.jpg"
+      }
+    ]
+  },
+  "web-development": {
+    "metaTitle": "Web Development: Learn HTML, CSS & JavaScript | Build Websites",
+    "metaDescription": "Master web development with step-by-step tutorials on HTML, CSS, and JavaScript. Build responsive, modern websites with our expert guides.",
+    "title": "Web Development Solutions",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Web Development ",
+            "desc": "Web development refers to the process of creating, building, and maintaining websites or web applications. It includes various aspects such as web design, coding, content creation, and database management."
+          }
+        ],
+        "img": "/images/project-middle-1.jpg"
+      },
+      {
+        "content": [
+          {
+            "title": "Projects Summery",
+            "desc": "Web development encompasses the creation, building, and maintenance of websites and web applications, involving tasks like coding, scripting, and network configuration, often focusing on front-end (user interface) and back-end (server-side) development."
+          }
+        ],
+        "img": "/images/project-details.jpg"
+      }
+    ]
+  },
+  "mobile-app": {
+    "metaTitle": "Custom Job-Portal, Inernships Development | iOS & Android Solutions",
+    "metaDescription": "Get high-performance Job-Portal, Inernships development for iOS & Android. We build user-friendly, scalable, and feature-rich apps tailored to your business needs. Start your app journey today!",
+    "title": "Job-Portal, Inernships Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "About Our Job-Portal, Inernships Development",
+            "desc": "Welcome to Abaris, your trusted partner in Job-Portal, Inernships development. With a passion for innovation and a commitment to excellence, we specialize in creating high-quality, user-friendly Job-Portal, Inernshipslications for businesses of all sizes. Our expert team combines cutting-edge technology with creative design to deliver apps that not only meet but exceed your expectations."
+          }
+        ],
+        "img": "/images/apps.png"
+      }
+    ],
+    "features": {
+      "title": "System Architecture",
+      "content": [
+        {
+          "title": "iOS App Development",
+          "desc": "Crafting elegant and high-performance iOS apps for the Apple ecosystem"
+        },
+        {
+          "title": "Android App Development",
+          "desc": "Developing robust and scalable Android apps for a wide range of devices."
+        },
+        {
+          "title": "Cross-Platform Development",
+          "desc": "Building versatile apps that work seamlessly on both iOS and Android platforms"
+        },
+        {
+          "title": "UI/UX Design",
+          "desc": "Creating intuitive and engaging user interfaces that enhance the user experience"
+        },
+        {
+          "title": "App Maintenance and Support",
+          "desc": "Providing ongoing support and updates to ensure your app remains competitive and bug-free"
+        },
+        {
+          "title": "Design",
+          "desc": "Our designers craft visually appealing and user-friendly interfaces"
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "desc": "Choosing abaris for your Job-Portal, Inernships development needs means partnering with a team that is dedicated to your success. Here’s why we stand out:",
+      "list": [
+        {
+          "id": "01",
+          "title": "Expertise",
+          "description": "Crafting elegant and high-performance iOS apps for the Apple ecosystem."
+        },
+        {
+          "id": "02",
+          "title": "Innovation",
+          "description": "Pushing boundaries with modern technology to deliver cutting-edge solutions."
+        },
+        {
+          "id": "03",
+          "title": "Customer-Centric Approach",
+          "description": "We focus on understanding and meeting your specific needs and goals."
+        },
+        {
+          "id": "04",
+          "title": "Quality Assurance",
+          "description": "Our rigorous testing ensures the highest quality standards."
+        },
+        {
+          "id": "05",
+          "title": "Transparent Communication",
+          "description": "We keep you informed and involved throughout the development process."
+        }
+      ]
+    }
+  },
+  "cms": {
+    "metaTitle": "Custom CMS Development | Scalable & User-Friendly Solutions",
+    "metaDescription": "Build a powerful and easy-to-manage CMS tailored to your needs. Our CMS development services ensure flexibility, scalability, and seamless content management. Get started today!",
+    "title": "Web Design",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "WORDPRESS DEVELOPMENT",
+            "desc": "Many companies find it difficult to keep the content of their websites updated, often there are delays in getting the latest content online, the sites become stagnant & outmoded and your clients suffer so as your own work. That’s why so many companies are turning to CMS Web Development. If you want to maintain an effective online presence, then you are in right place, as CMS provides easy management of digital content"
+          },
+          {
+            "title": "WHAT EXACTLY CMS IS?",
+            "desc": "Content Management System (CMS) is a unique program that allows publishing, editing, modification as well as maintaining the content on the website from the central interface. It enables the person to control the content within your website without any technical training. It allows a person to make changes in the website like adding or deleting images, editing texts on a fly. One can have an unlimited number of pages. The Content of the Website is something that helps you improve your search engine, this way CMS development lets you manage your website accordingly. Quick changes, a better and simple control panel leads to amplified productivity. It serves great users with no programming or HTML experience"
+          }
+        ],
+        "img": "/images/cms-banner.webp"
+      }
+    ]
+  },
+  "api": {
+    "metaTitle": "API Development & Integration | Secure & Scalable Solutions",
+    "metaDescription": "Build robust and secure APIs for seamless integration. Our API development services ensure high performance, scalability, and smooth communication between applications. Get started today!",
+    "title": "API Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "API Development Services",
+            "desc": "In today's digital landscape, seamless integration between diverse systems is crucial for business success. Our API development services enable your applications to communicate efficiently, ensuring a cohesive and streamlined operation."
+          }
+        ],
+        "img": "/images/api2.png"
+      }
+    ],
+    "apiContent": [
+      {
+        "image": "/images/api3.png",
+        "title": " Quality Assurance",
+        "desc": " We never compromise on quality. Every product/service undergoes rigorous testing to ensure that it meets our stringent quality standards"
+      },
+      {
+        "image": "/images/api4.png",
+        "title": " Customer Satisfaction",
+        "desc": " Your satisfaction is our top priority. Our dedicated customer support team is always available to address any questions or concerns you may have"
+      },
+      {
+        "image": "/images/api5.png",
+        "title": " Quality Assurance",
+        "desc": "We're constantly pushing the boundaries of innovation to bring you the latest and greatest products/services"
+      }
+    ],
+    "whyChooseUs": {
+      "title": "Our API Development Process",
+      "desc": "Choosing abaris for your api development needs means partnering with a team that is dedicated to your success. Here’s why we stand out:",
+      "list": [
+        {
+          "id": "01",
+          "title": "Requirement Analysis",
+          "description": "Understanding your business needs and the desired functionality of the API"
+        },
+        {
+          "id": "02",
+          "title": "Design and Prototyping",
+          "description": "Creating detailed API specifications and mockups to visualize the structure and flow"
+        },
+        {
+          "id": "03",
+          "title": "Development and Testing",
+          "description": "Writing clean, efficient code and rigorously testing the API for performance, security, and reliability"
+        },
+        {
+          "id": "04",
+          "title": "Deployment and Integration",
+          "description": "Deploying the API in your environment and ensuring seamless integration with your existing systems"
+        },
+        {
+          "id": "05",
+          "title": "Maintenance and Support",
+          "description": "Providing ongoing support and updates to keep your API running smoothly and efficiently"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "metaTitle": "Custom Logo Design | Unique & Memorable Brand Identity",
+    "metaDescription": "Get a professionally designed logo that represents your brand's identity. Our custom logo design services ensure creativity, uniqueness, and a lasting impression. Start your branding today!",
+    "title": "Logo Design",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "BUSINESS LOGO DESIGN",
+            "desc": "It is one among our approaches to give a separate identity to businesses through logos that define the services in the best way."
+          },
+          {
+            "title": "LOGO DEVELOPMENT",
+            "desc": "The logo development services from our company majorly focus on providing a separate identity to a brand through exceptionally designed logos."
+          },
+          {
+            "title": "CORPORATE LOGO DESIGN",
+            "desc": "The designs are created keeping to offer corporate identity to the business ranging from medium to larger business identities."
+          },
+          {
+            "title": "COMPANY LOGO DESIGN",
+            "desc": "A company’s logo is its true identity to represent among a crowd of millions of competitors. We create this identity sophisticatedly."
+          },
+          {
+            "title": "CUSTOM LOGO DESIGN",
+            "desc": "Customizing the logos to suit the specific needs of the clients come under our custom logo design services."
+          }
+        ],
+        "img": "/images/logodesign.webp"
+      }
+    ]
+  },
+  "pwa-amp": {
+    "metaTitle": "PWA & AMP Development | Fast, Responsive & Engaging Web Apps",
+    "metaDescription": "Enhance user experience with Progressive Web Apps (PWA) & Accelerated Mobile Pages (AMP). We build lightning-fast, responsive, and SEO-friendly solutions for better performance. Get started today!",
+    "title": "PWA and AMP Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "What is PWA?",
+            "desc": "PWA stands for Progressive Web App. It is designed to give users the look and feel, and the experience of a Job-Portal, Inernshipslication by accessing its web pages on a browser. Simply put, PWA is an optimized web page to provide an app like functionality. PWA works when a platform or its services are accessed on mobile web, but without installing its Job-Portal, Inernships."
+          },
+          {
+            "title": "Next, What is AMP?",
+            "desc": "AMP or Accelerated Mobile Page was introduced by Google in 2015 to create faster loading web pages for mobile devices. Google open-sourced the ‘AMP Project’ to help developers build these web pages. In order to create mobile-friendly websites, the unnecessary (inline) JavaScript is removed. Furthermore, the CSS is limited to 50KB for inline use and Google caches the website content to provide a CDN like functionality. The AMP web component, among other features, also provides (limited) JavaScript insertion as a part of AMP library using which you can add animation to your mobile web pages without risking latency."
+          }
+        ],
+        "img": "/images/logodesign.webp"
+      }
+    ]
+  },
+  "crm": {
+    "metaTitle": "Custom CRM Development | Streamline & Automate Your Business",
+    "metaDescription": "Boost productivity with a tailored CRM solution. Our custom CRM development services help you manage leads, sales, and customer interactions efficiently. Get a scalable CRM today!",
+    "title": "CRM Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "CRM strategy development",
+            "desc": "At Abaris, we understand that the backbone of any successful business is its ability to foster and manage customer relationships effectively. Our CRM services are designed to streamline your customer interactions, optimize your business processes, and drive growth through actionable insights.."
+          }
+        ],
+        "img": "/images/crm-development-banner.png"
+      },
+      {
+        "content": [
+          {
+            "title": "CRM Implementation",
+            "desc": "We offer seamless CRM implementation services to ensure a smooth transition and quick adoption. Our experienced team handles everything from system setup to customization, integrating the CRM with your existing tools and systems."
+          }
+        ],
+        "img": "/images/crm-development-banner.png"
+      },
+      {
+        "content": [
+          {
+            "title": "CRM Integration",
+            "desc": "Maximize the value of your CRM by integrating it with other key business systems. We ensure your CRM communicates effectively with your ERP, marketing automation, and other enterprise systems for a unified view of your customer data."
+          },
+          {
+            "title": "API and third-party integrations:",
+            "desc": "Custom connector development, Real-time data synchronization, Integration with sales, marketing, and service tools"
+          }
+        ],
+        "img": "/images/crm-development-banner.png"
+      }
+    ],
+    "features": {
+      "title": "System Architecture",
+      "content": [
+        {
+          "title": "Contact Management",
+          "desc": "Store and manage customer contact information and interaction history."
+        },
+        {
+          "title": "Sales Management",
+          "desc": "Track leads, opportunities, and sales activities."
+        },
+        {
+          "title": "Ease of Use",
+          "desc": "Ensure the CRM system is user-friendly and easy to implement."
+        },
+        {
+          "title": "Scalability",
+          "desc": "Choose a CRM that can grow with your business."
+        },
+        {
+          "title": "Integration",
+          "desc": "Ensure compatibility with your existing tools and systems."
+        },
+        {
+          "title": "Reporting and Analytics",
+          "desc": "Generate detailed reports and analytics to monitor business performance."
+        }
+      ]
+    }
+  },
+  "graphic": {
+    "metaTitle": "Creative Graphic Design Services | Elevate Your Brand",
+    "metaDescription": "Stand out with stunning graphic design! We create eye-catching visuals, from logos to marketing materials, tailored to your brand's identity. Get professional graphic design today!",
+    "title": "Graphics Design",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Graphics Design",
+            "desc": "Graphic designing companies are in very high demand in Delhi, India. The reason is obvious as Graphics Designing has become important for the fact that the graphics that you put on your website say a lot about Quality that is admired by you and attracts huge traffic to your site. Graphics Designing is a highly creative work. Graphics on your site should not only be attractive but also be relevant to your business and your work type. Graphics designing should involve the Designer and the Customer interaction so that the required message can be conveyed to the targeted masses. Graphics give one shot description of the nature of the website and the reason for which it has been developed. In recent time the task of designing has been neglected by the people, but the advancement in the technology and media, graphics designers with good capability and creativity are in demand."
+          }
+        ],
+        "img": "/images/Graphic-Design-PNG-Clipart.webp"
+      }
+    ]
+  },
+  "digital-marketing": {
+    "metaTitle": "Digital Marketing Services | Grow Your Brand Online",
+    "metaDescription": "Boost your online presence with expert digital marketing services. We specialize in SEO, PPC, social media, and content marketing to drive traffic and increase conversions. Get started today!",
+    "title": "Digital Marketing",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Digital Marketing",
+            "desc": "We are here to help you grow your business revenue. We have unique marketing solutions for your unique business needs."
+          }
+        ],
+        "img": "/images/digital-banner.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "Search Engine Marketing [SEM/PPC/Google Ads]",
+            "desc": "Search Engine Marketing (SEM) is one of the most productive ways to grow any business in this competitive market"
+          },
+          {
+            "title": "",
+            "desc": "It is the best practice for marketing any business using paid advertisements. It will appear on SERPs."
+          },
+          {
+            "title": "",
+            "desc": "Place your unique selling proposition in front of audiences who are most likely to convert when they click on your ads.,"
+          },
+          {
+            "title": "",
+            "desc": "SEM entails the use of pay per click (PPC) listings and advertisements. Thus, setting up PPC campaigns and activities is the way to get leads."
+          }
+        ],
+        "img": "/images/search-engine-marketing.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "Search Engine Optimization [SEO]",
+            "desc": "Search Engine Optimization (SEO) is one of the essential driving factors when it comes to digital marketing."
+          },
+          {
+            "title": "",
+            "desc": "Putting simply, SEO is the fusion of relevant industry keywords and your business content. Hence, cycling you to the top of the search engine charts and continue holding you there."
+          },
+          {
+            "title": "",
+            "desc": "SEO for any business leads to organic results, which includes the good quality of traffic along with the quantity of traffic."
+          },
+          {
+            "title": "",
+            "desc": "Good content and keyword always play a vital role in better search engine optimization results."
+          }
+        ],
+        "img": "/images/search-engine-optimization.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "Email Marketing",
+            "desc": "Email marketing is one of the effective digital marketing strategies for sending emails to the target customers. Effective marketing emails help to convert prospects into permanent customers."
+          },
+          {
+            "title": "",
+            "desc": "Stay top of your customer’s mind with email marketing campaigns drafted & designed as per your business requirements."
+          },
+          {
+            "title": "",
+            "desc": "Carefully curated email marketing strategies will help you directly market your services to the customers & rev up the revenue."
+          },
+          {
+            "title": "",
+            "desc": "It is also a great communication channel between the business owner and the customers. Email marketing always helps to convert better."
+          }
+        ],
+        "img": "/images/email-marketing.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "Social Media Marketing [SMM]",
+            "desc": "Social media marketing (SMM) uses social media platforms to connect with customers. It helps to increase your brand awareness and drive website traffic which results in higher sales."
+          },
+          {
+            "title": "",
+            "desc": "Regardless of what industry you are expertise in, your customers are definitely active on social media in their mundane life. They are online to know what you have to offer, you just need to give them what they want."
+          },
+          {
+            "title": "",
+            "desc": "The core components of social media marketing are Better Strategy, Planning and Publishing, Listening and Engagement, Analytics, Advertising."
+          },
+          {
+            "title": "",
+            "desc": "Well planned & regular content updates/ads with constant engagement with the viewers are the keys to SMM."
+          }
+        ],
+        "img": "/images/social-media-marketing-1.webp"
+      }
+    ],
+    "features": {
+      "title": "Key point for success in Digital Marketing",
+      "desc": "There’s a huge spectrum of tactics and assets when it comes to digital marketing. While you are still budding, handling eCommerce store and marketing on the side could be a lot to take on. You might end up spilling it all and losing the business. We don’t want this for our customers so, we are here as your helping hand.",
+      "content": [
+        {
+          "title": "Valuable Customer Feedback",
+          "desc": "Customer feedback is an important thing that will increase your brand value and also the popularity among the users."
+        },
+        {
+          "title": "Target Right Lead",
+          "desc": "Always prioritize your target audience as they will help you to outgrow your business."
+        },
+        {
+          "title": "Constant Improvement",
+          "desc": "To gain a massive success in the business, you must be lenient on doing the updates as per the market flow."
+        },
+        {
+          "title": "Analyze Growth And Performance",
+          "desc": "Analyzing your business growth and performance will help you to eliminate the loopholes in your system"
+        },
+        {
+          "title": "Effective Content & Blogging",
+          "desc": "The content plays a vital role in your site performance. So be unique and informative while providing the same."
+        },
+        {
+          "title": "Omni-Channel Reach",
+          "desc": "You can increase your brand visibility among your target audience that will result in achieving higher ROI"
+        }
+      ]
+    }
+  },
+  "broucher-design": {
+    "metaTitle": "Professional Brochure Design Services | Custom & Creative Designs",
+    "metaDescription": "Get stunning and professionally designed brochures that captivate your audience. Our custom brochure design services ensure high-quality visuals and impactful messaging. Order your design today!",
+    "title": "Broucher Design",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Broucher Design",
+            "desc": "Abaris is creating all kinds of Advertising Brochures by the way of creative and modern. As an Advertising company, we make eye-catching brochures, Booklets, Flyers and many. We give visual street using your thoughts, its represent your brand. Our Deep understanding of advertising over brochure gives more customers in a surrounding place. Good looking brochures are speaking about your brand and its value. We give the solution to all your ideas. Come with your ideas and we will design it for you. We help to Show your business presence and enlarge it."
+          }
+        ],
+        "img": "/images/broucher.webp"
+      }
+    ]
+  },
+  "figma-scratch-design": {
+    "metaTitle": "Figma Scratch Design Services | UI/UX Prototyping & Custom Designs",
+    "metaDescription": "Get pixel-perfect UI/UX designs from scratch using Figma. We create user-friendly, modern, and fully interactive prototypes tailored to your brand. Start your custom design today!",
+    "title": "Figma Scratch Design",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Figma Scratch Design",
+            "desc": "The frame tool is what allows you to create frames on the canvas. You can nest frames inside each other as well. Let's start by adding a frame. To create a frame, either click on the Frame tool in the toolbar or press one of the following keys - F or A Once you click on the frame tool, you can either choose one of the preset devices from the Properties panel or draw a custom one on the canvas"
+          }
+        ],
+        "img": "/images/figma.png"
+      },
+      {
+        "content": [
+          {
+            "title": "Figma Scratch Design Shape Tools",
+            "desc": "Next up are the Shape tools. You can access all the basic ones via the Shape tools in the toolbar. The shapes available include - Rectangle, Line, Arrow, Ellipse, Polygon and Star. To insert a shape, do the following: Click the Shape tools option and select your preferred shape"
+          }
+        ],
+        "img": "/images/figma-2.png"
+      }
+    ]
+  },
+  "pim-development": {
+    "metaTitle": "PIM Development Services | Efficient Product Information Management",
+    "metaDescription": "Streamline product data with our custom PIM development services. Manage, organize, and distribute product information seamlessly across multiple channels. Get a scalable PIM solution today!",
+    "title": "PIM Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Product Information Management",
+            "desc": "Product Information Management software is critical for modern retail shops. Either eCommerce stores (online/offline) or marketplace."
+          },
+          {
+            "title": "How Abaris helps in boosting online business?",
+            "desc": "Abaris is one of the best eCommerce development company in the world. We provide end-to-end PIM development services and help clients to achieve their business goals."
+          },
+          {
+            "title": "",
+            "desc": "We are recognized globally and have expertise with many years of experience in open-source eCommerce frameworks and enterprise platforms."
+          }
+        ],
+        "img": "/images/pim-hero.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "Expand & grow business by introducing PIM",
+            "desc": "It becomes quite necessary for the store owners to keep a hawk-eye on the product information and deliver a rich content experience to the users."
+          },
+          {
+            "title": "",
+            "desc": "In general, the product data can be collected from different sources in different formats like spreadsheets, CRM, loosely threaded stacks or some other data formats."
+          },
+          {
+            "title": "",
+            "desc": "Apart from this same data can exist as a complete clone when it comes to locale or lingual dependent data management."
+          },
+          {
+            "title": "",
+            "desc": "In such a scenario, it becomes a very complex process to manage the data on different platforms and get quality assured all the time."
+          },
+          {
+            "title": "",
+            "desc": "PIM stands for Product Information Manager which is used to manage complex data at a larger scale. It also collects and stores data, which is provided by different sources in different formats."
+          }
+        ],
+        "img": "/images/ecommerce-pim-integration-2.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "How PIM improves your business?",
+            "desc": "Product Information Management system acts as a commonly shared resource for product data for all the different channels like Job-Portal, Inernships, eCommerce store, physical store, catalogues, PLM or any other channel. It ensures the customer always get the rich and right product data."
+          },
+          {
+            "title": "",
+            "desc": "PIM improves the product presentation quality, increases the efficiency and productivity of the product management process."
+          },
+          {
+            "title": "",
+            "desc": "With PIM, you’ll get a ready to use interface to manage the complex data structure for the products, keeping performance and scalability on the top of everything."
+          }
+        ],
+        "img": "/images/pim-svg.svg"
+      },
+      {
+        "content": [
+          {
+            "title": "Which PIM tool to use?",
+            "desc": "There are several PIM tools and platforms available, but Akeneo and Pimcore are mostly preferred by many online retailers."
+          },
+          {
+            "title": "",
+            "desc": "Akeneo is an open-source enterprise PIM platform based on PHP and built on ORO BAP (Business Application Platform) and Symfony stack"
+          },
+          {
+            "title": "",
+            "desc": "PimCore is the next generation framework for building enterprise eCommerce, CMS, PIM, DAM (Data Asset Management) and MDM (Master Data Management) system."
+          }
+        ],
+        "img": "/images/mi-2.webp"
+      },
+      {
+        "content": [
+          {
+            "title": "PIM Development & Customization",
+            "desc": "Abaris offers end-to-end PIM development and customization. Our services include following open-source PIM software development:"
+          },
+          {
+            "title": "",
+            "desc": "Akeneo development and customization"
+          },
+          {
+            "title": "",
+            "desc": "PimCore integration"
+          },
+          {
+            "title": "",
+            "desc": "We offer a range of services for both of those platforms. We are the largest supplier of Akeneo extensions in the world and offers a range of services."
+          }
+        ],
+        "img": "/images/PIM.png"
+      },
+      {
+        "content": [
+          {
+            "title": "Exporting to Multiple Channels",
+            "desc": "Managing product information using PIM can be a tough job if every other time product data managers or agents need to export and import data to different channels."
+          },
+          {
+            "title": "",
+            "desc": "Abaris has developed a growing list of Akeneo connectors which integrates various platforms of eCommerce, CMS, ERP, Marketplaces, LMS, and others to automate the data flow."
+          }
+        ],
+        "img": "/images/connector.webp"
+      }
+    ],
+    "features": {
+      "title": "PIM has the following set of key advantages",
+      "desc": "Product data is something highly critical for eCommerce shops or marketplaces. That why PIM is more important to manage eCommerce shop or marketplaces",
+      "content": [
+        {
+          "title": "Data Consistency",
+          "desc": "Consistency in measurement of variables throughout the datasets."
+        },
+        {
+          "title": "Error-Free Content",
+          "desc": "Correct and concise product data."
+        },
+        {
+          "title": "Multi-Channel",
+          "desc": "Multi-channel product data on various channels e.g mobile, POS, etc."
+        },
+        {
+          "title": "Digital Asset Management",
+          "desc": "Across every channel from CMS to eCommerce (images, videos, files)."
+        },
+        {
+          "title": "Master Data Management",
+          "desc": "Reusable master data component for segmentation, marketing automation and personalization"
+        },
+        {
+          "title": "Safeguard Content",
+          "desc": "Safeguard content from the exploitation of data on all the channel."
+        }
+      ]
+    }
+  },
+  "android": {
+    "metaTitle": "Android App Development | Custom & Scalable Mobile Solutions",
+    "metaDescription": "Build high-performance Android apps tailored to your business needs. Our expert Android app development services ensure scalability, security, and a seamless user experience. Get started today!",
+    "title": "Android Apps Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Android Apps Development",
+            "desc": "The application development solutions must be able to perform consistently across various platforms and browsers with equal efficiency. This is the only objective behind the application development services at Tihalt. At our platform, we prioritize reliable, organized and dynamic back and front end applications or web portals. We have absolute efficiency in creating enterprise-based automation applications, micro-website or eCommerce business solutions. We offer application development solutions for a variety of business purposes. For instance, if you are looking to simplify your internal process or require a custom solution to promote your platform, we provide users with a multitude of application development services. Our technical experts understand the way around the database management systems (Microsoft SQL, IBM DB2, my SQL, and so on), backend languages (Java, Ruby, PHP) and front end languages (JavaScript, HTML, CSS)."
+          }
+        ],
+        "img": "/images/android-img.webp"
+      }
+    ]
+  },
+  "analytical-analysis": {
+    "metaTitle": "Analytical Analysis Services | Data-Driven Insights for Growth",
+    "metaDescription": "Leverage powerful analytical analysis to make informed decisions. Our data-driven solutions help optimize strategies, improve performance, and drive business growth. Get expert insights today!",
+    "title": "Analytical Analysis",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Leverage Data Across Your Organization",
+            "desc": "Synergistically envisioneer impactful catalysts for change vis-a-vis flexible infrastructures. Rapidiously matrix real-time portals rather than fully researched opportunities. Appropriately implement corporate infrastructures after high-payoff schemas."
+          },
+          {
+            "title": "",
+            "desc": "Customizable to store needs"
+          },
+          {
+            "title": "",
+            "desc": "Extensible easy integrations"
+          },
+          {
+            "title": "",
+            "desc": "Security Accounting Fundamentals"
+          },
+          {
+            "title": "",
+            "desc": "Embedded learning System"
+          },
+          {
+            "title": "",
+            "desc": "Governance and Audit compliant"
+          }
+        ],
+        "img": "/images/analysis.svg"
+      }
+    ]
+  },
+  "wordpress-development": {
+    "metaTitle": "WordPress Development Services | Custom & Scalable Solutions",
+    "metaDescription": "Get expert WordPress development for custom websites, themes, and plugins. We build fast, secure, and SEO-friendly WordPress solutions tailored to your business needs. Start your project today!",
+    "title": "Wordpress Web Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Wordpress Web Development",
+            "desc": "To start an attractive blog or operate a content-rich website Word Press web development is a complete solution. WordPress is free and open-plan. It is a web-based software program and provides a blogging platform. To make an imperishable mark in the online web market, the Wordpress web development service is accepted worldwide. It is one of the software and a playground that ultimately helps you control thousands of features and functionalities. It simply progresses with you, as your work flourishes, one can keep on adding thousands of pages, and yet, the speed will not be hindered. It has great flexibility as there is no limit on the number of design"
+          },
+          {
+            "title": "",
+            "desc": "It is one of the software and a playground that ultimately helps you control thousands of features and functionalities. It simply progresses with you, as your work flourishes, one can keep on adding thousands of pages, and yet, the speed will not be hindered. It has great flexibility as there is no limit on the number of designs and themes. Over the years WordPress has become one of the most popular and largest self-hosted blogging tools in the world."
+          }
+        ],
+        "img": "/images/wordpress.jpeg"
+      },
+      {
+        "content": [
+          {
+            "title": "Why Wordpress Development ?",
+            "desc": "WordPress Web development system satisfies various specific needs and requirements of clients and customers. WordPress sites are usually constructed on relatively simple and accessible technologies, so it’s easy to install on Windows or Linux servers. In WordPress plug-ins allow you to add photo galleries, shopping carts, sliders, forum, maps etc. Clients are served with specialized websites that can be customized using Word press. Word press provides the platform which is very search engine friendly, because of the fact that is let’s easy updating to the site regularly."
+          }
+        ],
+        "img": "/images/wordpress-website-development-service.png"
+      }
+    ]
+  },
+  "eccomerce-development": {
+    "metaTitle": "Ecommerce Development Services | Scalable & Secure Online Stores",
+    "metaDescription": "Build a powerful ecommerce website with our expert development services. We create secure, scalable, and user-friendly online stores tailored to your business needs. Launch your store today!",
+    "title": "ECommerce Development",
+    "sections": [
+      {
+        "content": [
+          {
+            "title": "Innovative E-Commerce Solutions",
+            "desc": "At Arabis, we specialize in creating powerful, scalable, and feature-rich e-commerce platforms that drive sales and enhance customer engagement. Our comprehensive e-commerce development services are designed to help you succeed in the competitive online marketplace."
+          }
+        ],
+        "img": "/images/ecommerce2.png"
+      },
+      {
+        "content": [
+          {
+            "title": "Custom E-Commerce Development",
+            "desc": "We build custom e-commerce solutions tailored to your business needs, ensuring a unique and personalized shopping experience for your customers. Our development team uses the latest technologies to create secure, scalable, and high-performance e-commerce platforms."
+          }
+        ],
+        "img": "/images/ecommerce3.png"
+      }
+    ],
+    "features": {
+      "title": "",
+      "content": [
+        {
+          "title": "Custom E-Commerce Development",
+          "desc": "We build custom e-commerce solutions tailored to your business needs, ensuring a unique and personalized shopping experience for your customers."
+        },
+        {
+          "title": "E-Commerce Platform Integration",
+          "desc": "Whether you’re using Shopify, Magento, WooCommerce, or another platform, we provide seamless integration services that enhance your e-commerce capabilities."
+        },
+        {
+          "title": "E-Commerce Migration",
+          "desc": "Transitioning to a new e-commerce platform can be challenging. Our migration services ensure a smooth and efficient transfer of your store’s data."
+        },
+        {
+          "title": "E-Commerce Maintenance and Support",
+          "desc": "Keep your e-commerce site running seamlessly with our ongoing maintenance and support services."
+        },
+        {
+          "title": "Mobile Commerce Development",
+          "desc": "With the rise of mobile shopping, having a mobile-friendly e-commerce platform is essential."
+        },
+        {
+          "title": "E-Commerce Consulting",
+          "desc": "Our e-commerce experts provide strategic consulting services to help you maximize your online store’s potential."
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "desc": "Choosing abaris for your Job-Portal, Inernships development needs means partnering with a team that is dedicated to your success. Here’s why we stand out:",
+      "list": [
+        {
+          "id": "01",
+          "title": "Expertise and Experience",
+          "description": "Our team of skilled developers and designers has extensive experience in creating successful e-commerce solutions across various industries."
+        },
+        {
+          "id": "02",
+          "title": "Customer-Centric Approach",
+          "description": "We prioritize understanding your business and customers to deliver e-commerce solutions that enhance customer satisfaction and drive sales"
+        },
+        {
+          "id": "03",
+          "title": "Proven Methodology",
+          "description": "Our structured approach ensures successful e-commerce development and deployment, minimizing risk and maximizing return on investment"
+        },
+        {
+          "id": "04",
+          "title": "Innovative Solutions",
+          "description": "Leveraging the latest technologies and trends, we deliver cutting-edge e-commerce solutions that keep you ahead of the competition"
+        },
+        {
+          "id": "05",
+          "title": "Dedicated Support",
+          "description": "We provide continuous support and guidance, helping you navigate challenges and optimize your e-commerce platform over time"
+        }
+      ]
+    }
+  }
+}

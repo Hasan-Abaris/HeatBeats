@@ -1,0 +1,142 @@
+{
+  "recentVideos": [
+    {
+      "title": "Top DevOps Interview Questions And Answers for 2025 [Updated]",
+      "author": "SLA Consultant India!",
+      "date": "Apr 30, 2025",
+      "image": "/images/business.jpeg",
+      "views": "925.5K",
+      "comments": 60
+    },
+    {
+      "title": "Java Interview Questions and Answers",
+      "author": "Aayushi Johari",
+      "date": "Jan 15, 2025",
+      "image": "/images/deveops.jpeg",
+      "views": "2.9M",
+      "comments": 38
+    },
+    {
+      "title": "Setting Up A Multi Node Cluster In Hadoop 2.X",
+      "author": "Aayushi Johari",
+      "date": "Oct 30, 2024",
+      "image": "/images/deveops-1.jpeg",
+      "views": "455.3K",
+      "comments": 30
+    },
+    {
+      "title": "Top 110+ AWS Interview Questions and Answers for 2025",
+      "author": "Damonlang Lamare",
+      "date": "Apr 16, 2025",
+      "image": "/images/deveops-1.jpeg",
+      "views": "587.2K",
+      "comments": 18
+    },
+    {
+      "title": "Python Interview Questions",
+      "author": "Aayushi Johari",
+      "date": "Apr 25, 2025",
+      "image": "/images/deveops-1.jpeg",
+      "views": "3M",
+      "comments": 10
+    },
+    {
+      "title": "10 Reasons Why Big Data Analytics is the Best Career Move",
+      "author": "Sudhaa Gopinath",
+      "date": "Nov 08, 2024",
+      "image": "/images/deveops-1.jpeg",
+      "views": "322K",
+      "comments": 325
+    },
+    {
+      "title": "What is AWS Certification: Top Benefits, Various Certifications, and Job Roles",
+      "author": "Vishnu Anand",
+      "date": "Mar 19, 2025",
+      "image": "/images/deveops-1.jpeg",
+      "views": "294.5K",
+      "comments": 31
+    },
+    {
+      "title": "70+ Angular Interview Questions for Freshers and Experienced",
+      "author": "Swatee Chand",
+      "date": "Mar 25, 2025",
+      "image": "/images/deveops-1.jpeg",
+      "views": "608.7K",
+      "comments": 10
+    }
+  ],
+  "PopularVideos": [
+    {
+      "title": "Python for Big Data Analytics",
+      "author": "Aakanksha Khanna",
+      "date": "Oct 22, 2020",
+      "views": "53.6K",
+      "image": "/images/popv-1.png",
+      "comments": 1,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "Big Data Tutorial – Get Started With Big Data And...",
+      "author": "Pooja Gupta",
+      "date": "Apr 18, 2024",
+      "views": "28.7K",
+      "image": "/images/popv-2.jpeg",
+      "comments": 1,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "Hadoop Tutorial – A Complete Tutorial For Hadoop",
+      "author": "Pooja Gupta",
+      "date": "Oct 05, 2024",
+      "views": "27.7K",
+      "image": "/images/popv-3.png",
+      "comments": 1,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "Selenium Tutorial – A Complete Tutorial on Seleni...",
+      "author": "Pooja Gupta",
+      "date": "Sep 27, 2024",
+      "views": "30.5K",
+      "image": "/images/popv-4.jpeg",
+      "comments": 0,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "Python for Big Data Analytics",
+      "author": "SLA Consultant India",
+      "date": "Apr 29, 2024",
+      "views": "18.8K",
+      "image": "/images/popv-8.png",
+      "comments": 29,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "AWS Tutorial – A Complete Tutorial On Amazon Web...",
+      "author": "SLA Consultant India",
+      "date": "Jul 04, 2024",
+      "views": "18.1K",
+      "image": "/images/popv-6.jpeg",
+      "comments": 1,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "Python Tutorial – All You Need To Know In Python...",
+      "author": "SLA Consultant India",
+      "date": "Jan 27, 2021",
+      "views": "18.4K",
+      "image": "/images/popv-6.jpeg",
+      "comments": 3,
+      "platform": "SLA Consultant India"
+    },
+    {
+      "title": "Apache Kafka With Spark Streaming: Real-Time Analytics...",
+      "author": "Sudhaa Gopinath",
+      "date": "Oct 08, 2020",
+      "views": "11.1K",
+      "image": "/images/pop-7.png",
+      "comments": 1,
+      "platform": "SLA Consultant India"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+
+  {
+    "recentlyArticles": [
+      {
+        "category": "Interview Guide",
+        "image": "/images/samsung-interview-questionsnew.webp",
+        "alt": "Blog Images",
+        "title": "Top 84 Samsung Interview Questions & Answers for Technical, HR, and R&D Roles",
+        "authours": "Shanu Keshari",
+        "link": "/"
+      },
+      {
+        "category": "Interview Guide",
+        "image": "/images/tcs-reactjs-interview-questionsnew.webp",
+        "alt": "Blog Images",
+        "title": "Top 30 TCS ReactJs Interview Questions and Answers",
+        "authours": "Ravindra Prasad",
+        "link": "/"
+      },
+      {
+        "category": "HR Resources",
+        "image": "/images/appointment-letter-for-nurse.webp",
+        "alt": "Blog Images",
+        "title": "Appointment Letter for a Nurse: Essential Components & Samples",
+        "authours": "Priya Mehra",
+        "link": "/"
+      },
+      {
+        "category": "Tips & Tricks",
+        "image": "/images/How-to-Get-an-Internship-with-No-Experience_-620x475.webp",
+        "alt": "Blog Images",
+        "title": "How to Get an Internship with No Experience?",
+        "authours": "Amitabh Joshi",
+        "link": "/"
+      },
+      {
+        "category": "Internship Tips",
+        "image": "/images/How-to-Get-an-Internship-with-No-Experience_-620x475.webp",
+        "alt": "Blog Images",
+        "title": "What is an Internship?: A Complete Guide (2025)",
+        "authours": "Nikita Sharma",
+        "link": "/"
+      },
+      {
+        "category": "Internship Tips",
+        "image": "/images/how-to-get-internship-in-law-firms.webp",
+        "alt": "Blog Images",
+        "title": "How to Get an Internship in Law Firms: A Step-by-Step Guide",
+        "authours": "Rahul Verma",
+        "link": "/"
+      },
+      {
+        "category": "WhatApp Resources",
+        "image": "/images/whatApp.png",
+        "alt": "Blog Images",
+        "title": "Skills You Should Learn To Become A Cloud Engineer",
+        "link": "/"
+      },
+      {
+        "category": " Resources",
+        "image": "/images/post.jpg",
+        "alt": "Blog Images",
+        "title": "GCP vs AWS Cloud: Comparing the Giants in 2025",
+        "authours": "Manoj Desai",
+        "link": "/"
+      }
+    ],
+
+    "popularArticles": [
+      {
+        "title": "Top DevOps Interview Questions And Answers for 2025 [Updated]",
+        "author": "edureka!",
+        "date": "Apr 30, 2025",
+        "image": "/images/whatApp.png",
+        "views": "925.5K",
+        "comments": 60
+      },
+      {
+        "title": "Java Interview Questions and Answers",
+        "author": "Aayushi Johari",
+        "date": "Jan 15, 2025",
+        "image": "/images/whatApp.png",
+        "views": "2.9M",
+        "comments": 38
+      },
+      {
+        "title": "Setting Up A Multi Node Cluster In Hadoop 2.X",
+        "author": "Aayushi Johari",
+        "date": "Oct 30, 2024",
+        "image": "/images/whatApp.png",
+        "views": "455.3K",
+        "comments": 30
+      },
+      {
+        "title": "Top 110+ AWS Interview Questions and Answers for 2025",
+        "author": "Damonlang Lamare",
+        "date": "Apr 16, 2025",
+        "image": "/images/whatApp.png",
+        "views": "587.2K",
+        "comments": 18
+      },
+      {
+        "title": "Python Interview Questions",
+        "author": "Aayushi Johari",
+        "date": "Apr 25, 2025",
+        "image": "/images/whatApp.png",
+        "views": "3M",
+        "comments": 10
+      },
+      {
+        "title": "10 Reasons Why Big Data Analytics is the Best Career Move",
+        "author": "Sudhaa Gopinath",
+        "date": "Nov 08, 2024",
+        "image": "/images/whatApp.png",
+        "views": "322K",
+        "comments": 325
+      },
+      {
+        "title": "What is AWS Certification: Top Benefits, Various Certifications, and Job Roles",
+        "author": "Vishnu Anand",
+        "date": "Mar 19, 2025",
+        "image": "/images/whatApp.png",
+        "views": "294.5K",
+        "comments": 31
+      },
+      {
+        "title": "70+ Angular Interview Questions for Freshers and Experienced",
+        "author": "Swatee Chand",
+        "date": "Mar 25, 2025",
+        "image": "/images/whatApp.png",
+        "views": "608.7K",
+        "comments": 10
+      },
+      {
+        "title": "Top 50+ Tableau Interview Questions And Answers in 2025",
+        "author": "Reshma Ahmed",
+        "date": "Apr 19, 2025",
+        "image": "/images/whatApp.png",
+        "views": "598.9K",
+        "comments": 31
+      },
+      {
+        "title": "React Interview Questions & Answers",
+        "author": "Swatee Chand",
+        "date": "Feb 11, 2025",
+        "image": "/images/whatApp.png",
+        "views": "1.5M",
+        "comments": 12
+      },
+      {
+        "title": "Top Hive Commands with Examples in HQL",
+        "author": "Avanish",
+        "date": "Nov 08, 2024",
+        "image": "/images/whatApp.png",
+        "views": "445.6K",
+        "comments": 62
+      },
+      {
+        "title": "Top 50 Hadoop Interview Questions You Must Prepare In 2024",
+        "author": "Shubham Sinha",
+        "date": "Dec 29, 2024",
+        "image": "/images/whatApp.png",
+        "views": "341.7K",
+        "comments": 28
+      },
+      {
+        "title": "Top 70+ Salesforce Interview Questions and Answers for 2025",
+        "author": "Vardhan",
+        "date": "Apr 16, 2025",
+        "image": "/images/whatApp.png",
+        "views": "643.7K",
+        "comments": 16
+      },
+      {
+        "title": "DevOps Tutorial: A Step-By-Step Guide for Beginners in 2025",
+        "author": "Vineet Chaturvedi",
+        "date": "Apr 16, 2025",
+        "image": "/images/whatApp.png",
+        "views": "288.2K",
+        "comments": 15
+      },
+      {
+        "title": "Object Oriented Programming – Java OOPs Concepts Explained with Examples",
+        "author": "Aayushi Johari",
+        "date": "Feb 29, 2024",
+        "image": "/images/whatApp.png",
+        "views": "395.4K",
+        "comments": 12
+      },
+      {
+        "title": "Angular Tutorial For Beginners",
+        "author": "Shubham Sinha",
+        "date": "Feb 11, 2025",
+        "image": "/images/whatApp.png",
+        "views": "296.6K",
+        "comments": 21
+      }
+    ],
+    "trendingCourses":[
+      {
+        "title": "Full Stack Development Internship Program",
+        "enrolledLearners": "29k",
+        "image": "/images/power-bi.png",
+        "schedule": "Weekend/Weekday",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 11300
+      },
+      {
+        "title": "Cyber Security and Ethical Hacking Internship Program",
+        "enrolledLearners": "15k",
+        "schedule": "Weekend/Weekday",
+        "image": "/images/maintainence.jpeg",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 5650
+      },
+      {
+        "title": "Best Power BI Training Courses by PwC Academy",
+        "enrolledLearners": "103k",
+        "image": "/images/power-bi.png",
+        "schedule": "Weekend",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 33100
+      },
+      {
+        "title": "Best Power BI Training Courses by PwC Academy",
+        "enrolledLearners": "103k",
+        "image": "/images/event.png",
+        "schedule": "Weekend",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 33100
+      },
+      {
+        "title": "Best Power BI Training Courses by PwC Academy",
+        "enrolledLearners": "103k",
+        "image": "/images/power-bi.png",
+        "schedule": "Weekend",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 33100
+      },
+      {
+        "title": "Best Power BI Training Courses by PwC Academy",
+        "enrolledLearners": "103k",
+        "image": "/images/data-business.webp",
+        "schedule": "Weekend",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 33100
+      },
+      {
+        "title": "Best Power BI Training Courses by PwC Academy",
+        "enrolledLearners": "103k",
+        "image": "/images/power-bi.png",
+        "schedule": "Weekend",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 33100
+      },
+      {
+        "title": "Data Science and Machine Learning Internship Program",
+        "enrolledLearners": "22k",
+        "schedule": "Weekend/Weekday",
+        "image": "/images/event.png",
+        "format": "Live Class",
+        "rating": 5,
+        "reviews": 8500
+      }
+    ]
+  }

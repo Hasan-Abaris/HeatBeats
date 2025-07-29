@@ -1,0 +1,75 @@
+Build and Run
+Open terminal in the project directory and run:
+
+# Build the Docker Image (Name: sla)
+
+#### docker-compose build
+    Used with: docker-compose.yml file.
+    Purpose: Builds images defined in a docker-compose.yml file for one or more services.
+    Typical use case: When working with multi-container applications where services are defined in YAML format.
+    Behavior:
+        Looks for build context and Dockerfile as defined in the docker-compose.yml under each service.
+        Can build multiple services/images in one go.
+        Simplifies multi-container orchestration.
+
+        Example docker-compose.yml:
+        services:
+            web:
+                build:
+                context: .
+                dockerfile: Dockerfile
+                image: myapp-web
+    Running docker-compose build here would build the web service image (myapp-web), 
+
+
+#### docker build -t sla .
+    The -t flag tags your image with a name. (sla in this case). And the . lets Docker know where it can find the Dockerfile.
+    Used with: Docker CLI only.
+    Purpose: Directly builds a Docker image from a Dockerfile in the current directory (.).
+    Typical use case: When you're just building a single image, outside of docker-compose.
+    Behavior:
+        Builds one image only.
+        -t sla gives the image a name/tag (sla in this case).
+        Requires you to manually define context and Dockerfile if not using defaults.
+
+# Run the Docker Container
+
+#### docker-compose up
+    Used with: A docker-compose.yml file.
+    Purpose: Runs multi-container Docker applications.
+    Configuration: Reads from docker-compose.yml, which defines services, networks, volumes, environment variables, ports, and more.
+    Benefits:
+        Supports multiple services (e.g., app, database, cache).
+        Easier to manage environments (dev, prod).
+        More declarative—configuration is centralized.
+    Example:
+        version: "3"
+        services:
+            web:
+                build: .
+                ports:
+                - "3000:3000"
+
+#### docker run -p 3000:3000 sla
+    Used with: A single Docker image (sla in this case).
+    Purpose: Runs a single container manually.
+    Configuration: Provided inline via CLI flags (-p, -v, -e, etc.).
+    Benefits:
+        Quick and easy for running a single image.
+        No need for an external config file.
+        Limitation: Not scalable or declarative for multi-service apps.
+
+
+
+To Stop the App
+Press Ctrl + C in the terminal where docker-compose is running, or run:
+
+docker-compose down
+
+
+
+git config user.name "passionphp"
+git config user.email "passionphp@gmail.com"
+git config user.name
+git config user.email
+git config --local --list

@@ -1,0 +1,66 @@
+[
+  {
+    "category": "Ecommerce",
+    "image": "/images/img-25.png",
+    "alt": "Zenith-Touch",
+    "website": "https://jagdishstore.com/",
+    "name": "JagdishStore",
+    "details": "https://zenithtouch.com/"
+  },
+  {
+    "category": "Ecommerce",
+    "image": "/images/img-26.png",
+    "alt": "risk-pro",
+    "website": "http://rocknclay.co.in/",
+    "name": "rocknclay",
+    "details": "https://rocknclay.in/"
+  },
+  {
+    "category": "Digital Products",
+    "image": "/images/grocer24.png",
+    "alt": "grocer24",
+    "website": "https://grocer24.in/",
+    "name": "grocer24",
+    "details": "https://grocer24.in/"
+  },
+  {
+    "category": "Ecommerce",
+    "image": "/images/kapoorscarpets.png",
+    "alt": "dsyremedie",
+    "website": "https://kapoorscarpets.com/",
+    "name": "Kapoors Carpets",
+    "details": "https://kapoorscarpets.com/"
+  },
+  {
+    "category": "Ecommerce",
+    "image": "/images/markexpresscourier.png",
+    "alt": "markexpresscourier",
+    "website": "https://markexpresscourier.com/",
+    "name": "Mark Express Courier",
+    "details": "https://markexpresscourier.com/"
+  },
+  {
+    "category": "Ecommerce",
+    "image": "/images/admissionwaala.png",
+    "alt": "ADMISSIONWAALA",
+    "website": "https://admissionwaala.com/",
+    "name": "ADMISSIONWAALA",
+    "details": "https://admissionwaala.com/"
+  },
+  {
+    "category": "Ecommerce",
+    "image": "/images/parthdiagnostic.png",
+    "alt": "parthdiagnostic",
+    "website": "https://parthdiagnostic.com/",
+    "name": "parthdiagnostic",
+    "details": "https://parthdiagnostic.com/"
+  },
+  {
+    "category": "Ecommerce",
+    "image": "/images/risk-pro.png",
+    "alt": "risk-pro",
+    "website": "https://www.riskpro.in/",
+    "name": "risk pro",
+    "details": "#"
+  }
+]

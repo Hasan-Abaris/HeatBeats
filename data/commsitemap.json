@@ -1,0 +1,1002 @@
+[
+  {
+    "title": "How can I run a ‘docker exec’ command inside a docker container?",
+    "link": ""
+  },
+  {
+    "title": "javac' is not recognized as an internal or external command, operable program or batch file.",
+    "link": ""
+  },
+  {
+    "title": "How to fix this? ValueError: invalid literal for int() with base 10 error in Python",
+    "link": ""
+  },
+  {
+    "title": "What are the default xmx and xms values ?",
+    "link": ""
+  },
+  {
+    "title": "How to use not equal operator in python",
+    "link": ""
+  },
+  {
+    "title": "how to exit a python script in an if statement",
+    "link": ""
+  },
+  {
+    "title": "Copying files from host to Docker container",
+    "link": ""
+  },
+  {
+    "title": "How to find all the classes of a package in Java?",
+    "link": ""
+  },
+  {
+    "title": "How to import a jar file in Eclipse?",
+    "link": ""
+  },
+  {
+    "title": "Python error \"IndentationError: expected an indented block\"",
+    "link": ""
+  },
+  {
+    "title": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte",
+    "link": ""
+  },
+  {
+    "title": "How to filter out na in R?",
+    "link": ""
+  },
+  {
+    "title": "Python AWS Boto3: How do i read files from S3 Bucket?",
+    "link": ""
+  },
+  {
+    "title": "How to download s3 bucket folder?",
+    "link": ""
+  },
+  {
+    "title": "How do I remove an element from a list by index in Python?",
+    "link": ""
+  },
+  {
+    "title": "How to uninstall apache2 in ubuntu?",
+    "link": ""
+  },
+  {
+    "title": "What is 755 permission in Linux?",
+    "link": ""
+  },
+  {
+    "title": "ModuleNotFoundError: No module named 'cv2'",
+    "link": ""
+  },
+  {
+    "title": "Error dpkg frontend lock is locked by another process",
+    "link": ""
+  },
+  {
+    "title": "com.mysql.cj.jdbc.exceptions.communicationsexception :Communications link failure",
+    "link": ""
+  },
+  {
+    "title": "How to find index of element in dataframe Python ?",
+    "link": ""
+  },
+  {
+    "title": "Error response from daemon: get \"https://registry-1.docker.io/v2/\": unauthorized: incorrect username or password",
+    "link": ""
+  },
+  {
+    "title": "How to run docker compose YML file?",
+    "link": ""
+  },
+  {
+    "title": "UnicodeDecodeError: \"utf-8\" codec can't decode byte in position : invalid start byte",
+    "link": ""
+  },
+  {
+    "title": "How can I convert String to JSON object in Java?",
+    "link": ""
+  },
+  {
+    "title": "Git push vs git push origin",
+    "link": ""
+  },
+  {
+    "title": "How does java.net.SocketException: Connection reset happen ?",
+    "link": ""
+  },
+  {
+    "title": "How to run multiple commands in docker at once?",
+    "link": ""
+  },
+  {
+    "title": "“A Non-static method cannot be referenced from a static context” error",
+    "link": ""
+  },
+  {
+    "title": "How to download files from s3 bucket using command line?",
+    "link": ""
+  },
+  {
+    "title": "How to read pandas read_csv no with header",
+    "link": ""
+  },
+  {
+    "title": "Convert excel column to comma separated list",
+    "link": ""
+  },
+  {
+    "title": "How to separate digits of a number in Java ?",
+    "link": ""
+  },
+  {
+    "title": "How can I delete all the messages from a Kafka topic?",
+    "link": ""
+  },
+  {
+    "title": "How to Insert date value in SQL table",
+    "link": ""
+  },
+  {
+    "title": "Unable to execute jar- file: “no main manifest attribute”",
+    "link": ""
+  },
+  {
+    "title": "how to sort a list of numbers without using built-in functions like min, max or any other function?",
+    "link": ""
+  },
+  {
+    "title": "how to change format of date from mm/dd/yyyy to dd-mmm-yyyy in MS Excel",
+    "link": ""
+  },
+  {
+    "title": "How to automate gmail login process using selenium webdriver in java?",
+    "link": ""
+  },
+  {
+    "title": "How much hike should i ask for 2 years experience?",
+    "link": ""
+  },
+  {
+    "title": "How to get job after long gap and without experience?",
+    "link": ""
+  },
+  {
+    "title": "How to read an external local JSON file in JavaScript?",
+    "link": ""
+  },
+  {
+    "title": "error creating bean with name 'entitymanagerfactory' defined in class path resource",
+    "link": ""
+  },
+  {
+    "title": "How do I delete my Google Cloud Platform Account?",
+    "link": ""
+  },
+  {
+    "title": "How to remove NA values from a Vector in R?",
+    "link": ""
+  },
+  {
+    "title": "What is the correct way to add external Jars to IntelliJ IDEA Project?",
+    "link": ""
+  },
+  {
+    "title": "Could not resolve host: github.com",
+    "link": ""
+  },
+  {
+    "title": "How to replace null values in Power BI ?",
+    "link": ""
+  },
+  {
+    "title": "How can we display an output of float data with 2 decimal places in java? Please help",
+    "link": ""
+  },
+  {
+    "title": "How to see indexes for a database or table in MySQL?",
+    "link": ""
+  },
+  {
+    "title": "How to send HTTP POST requests on Java?",
+    "link": ""
+  },
+  {
+    "title": "In Python, what is difference between Array and List?",
+    "link": ""
+  },
+  {
+    "title": "How to install package in docker container?",
+    "link": ""
+  },
+  {
+    "title": "chmod: changing permissions of '/root/': Operation not permitted",
+    "link": ""
+  },
+  {
+    "title": "How to change/update cell value in Python Pandas dataframe?",
+    "link": ""
+  },
+  {
+    "title": "What are the roles and responsibilities of Research and Development Manager?",
+    "link": ""
+  },
+  {
+    "title": "How do I share global variables across modules? - python",
+    "link": ""
+  },
+  {
+    "title": "How to access images inside public folder in laravel?",
+    "link": ""
+  },
+  {
+    "title": "How do i resolve the \"unexpected indent\" error in python?",
+    "link": ""
+  },
+  {
+    "title": "Jenkins and Docker : Build a Docker image using an jenkins pipeline and push it into docker registry.",
+    "link": ""
+  },
+  {
+    "title": "How to print array/ list without brackets in python?",
+    "link": ""
+  },
+  {
+    "title": "How to find event listeners on a DOM node when debugging or from the JavaScript code?",
+    "link": ""
+  },
+  {
+    "title": "Python Pandas error: AttributeError: 'DataFrame' object has no attribute 'rows'",
+    "link": ""
+  },
+  {
+    "title": "How to add a new column to existing table of laravel in a migration?",
+    "link": ""
+  },
+  {
+    "title": "(unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \\UXXXXXXXX escape",
+    "link": ""
+  },
+  {
+    "title": "AWS VPC - What is the difference between Internet Gateway & NAT",
+    "link": ""
+  },
+  {
+    "title": "List few commands of DDL, DML, and DCL.",
+    "link": ""
+  },
+  {
+    "title": "what is the key difference between Declarative pipeline and scripted pipeliine",
+    "link": ""
+  },
+  {
+    "title": "Explain the difference between visibility:hidden; and display:none?",
+    "link": ""
+  },
+  {
+    "title": "How to take input using BufferedReader in Java?",
+    "link": ""
+  },
+  {
+    "title": "how to find hostname using ip address in cmd",
+    "link": ""
+  },
+  {
+    "title": "Show 0 if value has no data - Tableau",
+    "link": ""
+  },
+  {
+    "title": "What exactly is the function of random.seed() in python?",
+    "link": ""
+  },
+  {
+    "title": "Python error \"ERROR: Could not find a version that satisfies the requirement PyQt4 (from versions: none)\"",
+    "link": ""
+  },
+  {
+    "title": "What does \"collect2: error: ld returned 1 exit status\" mean?",
+    "link": ""
+  },
+  {
+    "title": "How to replace Blank with \"0\" in Power BI Visual?",
+    "link": ""
+  },
+  {
+    "title": "Iterate over a JSONObject?",
+    "link": ""
+  },
+  {
+    "title": "How to change the spark Session configuration in Pyspark?",
+    "link": ""
+  },
+  {
+    "title": "If conditional in docker file",
+    "link": ""
+  },
+  {
+    "title": "How to change font size in R?",
+    "link": ""
+  },
+  {
+    "title": "What is an \"Edge Location\" in AWS?",
+    "link": ""
+  },
+  {
+    "title": "How to add prefix in excel ?",
+    "link": ""
+  },
+  {
+    "title": "http://localhost/phpMyAdmin/ unable to connect",
+    "link": ""
+  },
+  {
+    "title": "How to add a custom HTTP header to ajax request with javascript?",
+    "link": ""
+  },
+  {
+    "title": "How can I replace values with 'none' in a dataframe using pandas",
+    "link": ""
+  },
+  {
+    "title": "How to trigger a Jenkins pipeline A in another Jenkins pipeline B?",
+    "link": ""
+  },
+  {
+    "title": "Is there a way to restrict permissions to a user per individual job in jenkins?",
+    "link": ""
+  },
+  {
+    "title": "How to find python library path?",
+    "link": ""
+  },
+  {
+    "title": "How to change data type in R?",
+    "link": ""
+  },
+  {
+    "title": "mvn not recognized as an internal or external command error",
+    "link": ""
+  },
+  {
+    "title": "How can we define global variables in java?",
+    "link": ""
+  },
+  {
+    "title": "How do I resolve the ElementNotInteractableException in Selenium WebDriver?",
+    "link": ""
+  },
+  {
+    "title": "Set environment variables in Jenkins",
+    "link": ""
+  },
+  {
+    "title": "How do I execute multiple commands using docker-compose",
+    "link": ""
+  },
+  {
+    "title": "How to get the return value from a thread using python?",
+    "link": ""
+  },
+  {
+    "title": "Typescript with Webpack - You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file",
+    "link": ""
+  },
+  {
+    "title": "Java - sending HTTP parameters via POST method easily",
+    "link": ""
+  },
+  {
+    "title": "Using while loop i want to print 10 even numbers",
+    "link": ""
+  },
+  {
+    "title": "Pandas: Print rows if value greater than some value",
+    "link": ""
+  },
+  {
+    "title": "ModuleNotFoundError: No module named 'Crypto'",
+    "link": ""
+  },
+  {
+    "title": "Rename package in Android Studio",
+    "link": ""
+  },
+  {
+    "title": "How to delete or clear caching in Laravel?",
+    "link": ""
+  },
+  {
+    "title": "Creating an empty data.frame with only column names - R",
+    "link": ""
+  },
+  {
+    "title": "Error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "link": ""
+  },
+  {
+    "title": "How to add an extra column to the existing table in power bi query editor?",
+    "link": ""
+  },
+  {
+    "title": "How to get full path of selected file on change of <input type=‘file’> using javascript, jquery-ajax?",
+    "link": ""
+  },
+  {
+    "title": "How to find 3rd highest salary in SQL",
+    "link": ""
+  },
+  {
+    "title": "How to assign a groovy variable to a shell variable?",
+    "link": ""
+  },
+  {
+    "title": "How to open a link in new tab of chrome browser using Selenium WebDriver?",
+    "link": ""
+  },
+  {
+    "title": "How  to take multiple integer input in one line using BufferedReader in Java?",
+    "link": ""
+  },
+  {
+    "title": "Installation failed, reverting ./composer.json and ./composer.lock to their original content.",
+    "link": ""
+  },
+  {
+    "title": "Argument of type 'any' is not assignable to parameter of type 'never'.",
+    "link": ""
+  },
+  {
+    "title": "JQuery checkbox on change and checked event",
+    "link": ""
+  },
+  {
+    "title": "UnsatisfiedDependencyException: Error creating bean with name",
+    "link": ""
+  },
+  {
+    "title": "hadoop fs -put command?",
+    "link": ""
+  },
+  {
+    "title": "remote side unexpectedly closed network connection.",
+    "link": ""
+  },
+  {
+    "title": "Only refers to a type, but is being used as a value here",
+    "link": ""
+  },
+  {
+    "title": "How to get comma-separated values in multiple rows in SQL?",
+    "link": ""
+  },
+  {
+    "title": "Error starting daemon: pid file found, ensure docker is not running or delete /var/snap/docker/179/run/docker.pid",
+    "link": ""
+  },
+  {
+    "title": "How to close active/current tab without closing the browser in Selenium-Python?",
+    "link": ""
+  },
+  {
+    "title": "Counting the frequency of unique values - R",
+    "link": ""
+  },
+  {
+    "title": "How to install tkinter in pycharm?",
+    "link": ""
+  },
+  {
+    "title": "Pandas - FillNa with another column",
+    "link": ""
+  },
+  {
+    "title": "How do I make python wait for a pressed key?",
+    "link": ""
+  },
+  {
+    "title": "How to add background image in flutter ?",
+    "link": ""
+  },
+  {
+    "title": "How to list variables in R",
+    "link": ""
+  },
+  {
+    "title": "Difference between append vs. extend list methods in Python",
+    "link": ""
+  },
+  {
+    "title": "How to print text from a list of all web elements with same class name in Selenium?",
+    "link": ""
+  },
+  {
+    "title": "How can I use python to execute a curl command?",
+    "link": ""
+  },
+  {
+    "title": "TypeError: cannot unpack non-iterable NoneType object",
+    "link": ""
+  },
+  {
+    "title": "Verifying whether an element present or visible in selenium Webdriver",
+    "link": ""
+  },
+  {
+    "title": "How to find Flutter sdk path?",
+    "link": ""
+  },
+  {
+    "title": "Save excel as pdf changing its orientation to horizontal",
+    "link": ""
+  },
+  {
+    "title": "How to specify \"ENTER\" button functionality in Selenium WebDriver code?",
+    "link": ""
+  },
+  {
+    "title": "Android Webiew does not load indexed Sdcard (file://sdcard)",
+    "link": ""
+  },
+  {
+    "title": "How to get input value in PHP ?",
+    "link": ""
+  },
+  {
+    "title": "how to find ip address in cmd",
+    "link": ""
+  },
+  {
+    "title": "How to load external scripts dynamically in Angular?",
+    "link": ""
+  },
+  {
+    "title": "Filtering a row in Spark DataFrame based on matching values from a list",
+    "link": ""
+  },
+  {
+    "title": "Error: selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable needs to be in PATH",
+    "link": ""
+  },
+  {
+    "title": "! [rejected]        master -> master (fetch first) error: failed to push some refs to 'git@github.com:abc70/new.git'",
+    "link": ""
+  },
+  {
+    "title": "Python Pandas: ValueError: DataFrame constructor not properly called!",
+    "link": ""
+  },
+  {
+    "title": "How to create new column with function in Spark Dataframe?",
+    "link": ""
+  },
+  {
+    "title": "Pytesseract : \"TesseractNotFound Error: tesseract is not installed or it's not in your path\", how do I fix this?",
+    "link": ""
+  },
+  {
+    "title": "How to resolve this error? Element not interactable ...Any solution?",
+    "link": ""
+  },
+  {
+    "title": "Typescript: Property \"XXX\" does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes",
+    "link": ""
+  },
+  {
+    "title": "How do I check if a file exists in Java?",
+    "link": ""
+  },
+  {
+    "title": "How to convert entire div data into image and save it into directory without using canvas?",
+    "link": ""
+  },
+  {
+    "title": "How to create border radius of elevatedbutton in flutter",
+    "link": ""
+  },
+  {
+    "title": "How to get user's IP address in Laravel?",
+    "link": ""
+  },
+  {
+    "title": "How do I ensure data security when deploying reports via a pipeline in Power BI?",
+    "link": ""
+  },
+  {
+    "title": "What are the best practices for managing version control in Power BI deployment pipelines?",
+    "link": ""
+  },
+  {
+    "title": "How can I automate the deployment of Power BI content through the deployment pipeline?",
+    "link": ""
+  },
+  {
+    "title": "How can I handle conflicts during Power BI deployment pipeline execution?",
+    "link": ""
+  },
+  {
+    "title": "What are heuristic-based vulnerability detection techniques?",
+    "link": ""
+  },
+  {
+    "title": "How do attackers use meta-information for enumeration?",
+    "link": ""
+  },
+  {
+    "title": "How can I ensure that sensitive data is encrypted when applying sensitivity labels in Power BI?",
+    "link": ""
+  },
+  {
+    "title": "How does Angular resolve service dependencies?",
+    "link": ""
+  },
+  {
+    "title": "Why is dependency injection important in Angular apps?",
+    "link": ""
+  },
+  {
+    "title": "Are there any limitations when using sensitivity labels in Power BI for data classification?",
+    "link": ""
+  },
+  {
+    "title": "How do you provide a service in a component injector?",
+    "link": ""
+  },
+  {
+    "title": "Can I deploy Power BI reports to different environments (Dev, Test, Prod) using the deployment pipeline?",
+    "link": ""
+  },
+  {
+    "title": "Can I use Power BI's sensitivity labels to comply with GDPR or other data privacy regulations?",
+    "link": ""
+  },
+  {
+    "title": "What impact do sensitivity labels have on performance when viewing Power BI reports?",
+    "link": ""
+  },
+  {
+    "title": "What is a hierarchical injector in Angular?",
+    "link": ""
+  },
+  {
+    "title": "How does fuzzing aid in detecting unknown vulnerabilities?",
+    "link": ""
+  },
+  {
+    "title": "How does WebRTC STUN enumeration reveal IP addresses?",
+    "link": ""
+  },
+  {
+    "title": "How do I integrate sensitivity labels with Power BI's sharing and publishing features?",
+    "link": ""
+  },
+  {
+    "title": "How does dependency injection work in Angular services?",
+    "link": ""
+  },
+  {
+    "title": "What are the steps to create a custom service in Angular?",
+    "link": ""
+  },
+  {
+    "title": "How does user enumeration via timing attacks work?",
+    "link": ""
+  },
+  {
+    "title": "How do you generate a service using Angular CLI?",
+    "link": ""
+  },
+  {
+    "title": "Why should logic be moved to an Angular service?",
+    "link": ""
+  },
+  {
+    "title": "How does Nessus identify misconfigurations in Windows systems?",
+    "link": ""
+  },
+  {
+    "title": "What is the function of Angular services in an app?",
+    "link": ""
+  },
+  {
+    "title": "How does AI predict exploitability of new vulnerabilities?",
+    "link": ""
+  },
+  {
+    "title": "What is RPC endpoint mapping, and why is it a risk?",
+    "link": ""
+  },
+  {
+    "title": "How do you pass headers in Angular HttpClient requests?",
+    "link": ""
+  },
+  {
+    "title": "How can I implement a prompt chaining mechanism in a React frontend?",
+    "link": ""
+  },
+  {
+    "title": "How do I implement a streaming response for LLMs in a React frontend?",
+    "link": ""
+  },
+  {
+    "title": "How do I integrate an AI-powered autocomplete feature in a web form?",
+    "link": ""
+  },
+  {
+    "title": "How can I use debouncing with user prompts to prevent excessive API calls in a chatbot?",
+    "link": ""
+  },
+  {
+    "title": "How can I use OpenAI's API with Next.js server actions for text generation?",
+    "link": ""
+  },
+  {
+    "title": "How to implement Multi-Hop Retrieval Mechanism for Complex Question Answering.",
+    "link": ""
+  },
+  {
+    "title": "How do you send a GET request using Angular HttpClient?",
+    "link": ""
+  },
+  {
+    "title": "What is the structure of a POST request in Angular?",
+    "link": ""
+  },
+  {
+    "title": "How to optimize an LLM with Pruned Attention Heads for mobile inference.",
+    "link": ""
+  },
+  {
+    "title": "How can I track the progress of a deployment pipeline in Power BI?",
+    "link": ""
+  },
+  {
+    "title": "How would you design an AI-powered DevOps agent that automates Kubernetes deployment using Helm Charts and Kubernetes Operator Framework?",
+    "link": ""
+  },
+  {
+    "title": "Develop a LangChain-powered AI system that extracts structured data from PDFs using OCR and entity recognition.",
+    "link": ""
+  },
+  {
+    "title": "Build an AI agent that integrates with Anthropic Claude to generate human-like responses for technical support.",
+    "link": ""
+  },
+  {
+    "title": "What are the key parts of an HTTP request in Angular?",
+    "link": ""
+  },
+  {
+    "title": "How does Angular interact with a backend server?",
+    "link": ""
+  },
+  {
+    "title": "What is RxJS in Angular and why is it used?",
+    "link": ""
+  },
+  {
+    "title": "How to Implement an AI agent with visual perception using YOLOv8 for object detection.",
+    "link": ""
+  },
+  {
+    "title": "What are common RxJS operators used in Angular apps?",
+    "link": ""
+  },
+  {
+    "title": "Write a custom embedding model using SentenceTransformers.",
+    "link": ""
+  },
+  {
+    "title": "What is the role of rootSaga in Redux-Saga?",
+    "link": ""
+  },
+  {
+    "title": "How to implement a cognitive agent with working memory (episodic + semantic) using RAG (Retrieval-Augmented Generation)",
+    "link": ""
+  },
+  {
+    "title": "How do Observables differ from Promises in Angular?",
+    "link": ""
+  },
+  {
+    "title": "What is the significance of middleware in async Redux apps?",
+    "link": ""
+  },
+  {
+    "title": "What saga methods are commonly used in async workflows?",
+    "link": ""
+  },
+  {
+    "title": "What role does HttpClient play in API communication?",
+    "link": ""
+  },
+  {
+    "title": "What is the use of pipe() in RxJS with Angular?",
+    "link": ""
+  },
+  {
+    "title": "How does Angular subscribe to an Observable?",
+    "link": ""
+  },
+  {
+    "title": "What is async workflow in React Redux architecture?",
+    "link": ""
+  },
+  {
+    "title": "What is the purpose of yield in Redux-Saga generators?",
+    "link": ""
+  },
+  {
+    "title": "What is the role of middleware in async Redux flow?",
+    "link": ""
+  },
+  {
+    "title": "What is the use of call() method in Redux-Saga?",
+    "link": ""
+  },
+  {
+    "title": "What steps are needed to fetch product data via Saga?",
+    "link": ""
+  },
+  {
+    "title": "What is the process to set up Redux DevTools in React?",
+    "link": ""
+  },
+  {
+    "title": "Why use Redux-Saga instead of Redux Thunk?",
+    "link": ""
+  },
+  {
+    "title": "How to implement an AI agent that autonomously writes test cases for any given Python function using pytest and LLM-based code generation.",
+    "link": ""
+  },
+  {
+    "title": "How to create an AI agent that evaluates user input sentiment using transformer embeddings and refines responses dynamically.",
+    "link": ""
+  },
+  {
+    "title": "How to develop an AI-driven bug-fixing system that integrates OpenAI's Code Interpreter with a CI/CD pipeline.",
+    "link": ""
+  },
+  {
+    "title": "How to develop an AI-powered data pipeline that automates data extraction, transformation, and loading using vector databases.",
+    "link": ""
+  },
+  {
+    "title": "Your AI tool is generating misleading scientific claims. How would you integrate factual verification mechanisms?",
+    "link": ""
+  },
+  {
+    "title": "Can I apply sensitivity labels to Power BI dashboards and tiles?",
+    "link": ""
+  },
+  {
+    "title": "Build an AI-driven customer support chatbot that uses agentic memory to remember past interactions and improve responses.",
+    "link": ""
+  },
+  {
+    "title": "How would you create an AI agent that autonomously debugs code using static code analysis and AST parsing?",
+    "link": ""
+  },
+  {
+    "title": "How would you implement an LLM-powered autonomous agent that can browse the web for real-time data using LangChain?",
+    "link": ""
+  },
+  {
+    "title": "How to implement a multi-agent system where AI agents collaborate to complete software development tasks using the Autogen framework.",
+    "link": ""
+  },
+  {
+    "title": "A company wants to ensure its AI adheres to GDPR. How would you implement AI data governance?",
+    "link": ""
+  },
+  {
+    "title": "Your AI chatbot is used in healthcare. How would you ensure HIPAA compliance while using LLMs?",
+    "link": ""
+  },
+  {
+    "title": "Your AI model fails to generate code in multiple languages. How would you fine-tune CodeLlama to support polyglot coding?",
+    "link": ""
+  },
+  {
+    "title": "Your LLM is weak at math-based questions. How would you integrate symbolic reasoning for better accuracy?",
+    "link": ""
+  },
+  {
+    "title": "Your generative model takes too long to process long documents. How would you use ALiBi or RoPE for efficient position embeddings?",
+    "link": ""
+  },
+  {
+    "title": "Your AI system needs to process multilingual queries. How would you train a multilingual transformer using mT5 or XLM-R?",
+    "link": ""
+  },
+  {
+    "title": "Your LLM consumes too much VRAM. How would you apply mixed-precision training (FP16/BF16) to reduce memory usage?",
+    "link": ""
+  },
+  {
+    "title": "How to Implement An AI-Powered Pipeline for Continuous Integration & Deployment (CI/CD).",
+    "link": ""
+  },
+  {
+    "title": "How to train a Graph-Based AI Assistant for Semantic Code Search.",
+    "link": ""
+  },
+  {
+    "title": "Your AI chatbot struggles with long responses. How would you implement a sliding attention window to optimize memory usage?",
+    "link": ""
+  },
+  {
+    "title": "How to Develop An AI Code Debugger using LLM-based Error Analysis.",
+    "link": ""
+  },
+  {
+    "title": "How to Optimize LLM Training with Mixed-Precision Quantization (INT8, FP16, BF16).",
+    "link": ""
+  },
+  {
+    "title": "How to Train an LLM-based AI Assistant for Cloud Security Auditing.",
+    "link": ""
+  },
+  {
+    "title": "How to Implement Dense Passage Retrieval (DPR) Fine-Tuning for an LLM.",
+    "link": ""
+  },
+  {
+    "title": "How to Implement Zero-Shot Model Distillation for Multimodal AI Tasks.",
+    "link": ""
+  },
+  {
+    "title": "how to develop a Hierarchical Softmax Layer to improve vocabulary scaling.",
+    "link": ""
+  },
+  {
+    "title": "How to Implement Transformer Kernel Fusion to Reduce Compute Overhead.",
+    "link": ""
+  },
+  {
+    "title": "How to Implement Efficient GPT Memory Offloading using bitsandbytes",
+    "link": ""
+  },
+  {
+    "title": "How to Implement a Hybrid Search RAG Pipeline using FAISS and BM25.",
+    "link": ""
+  },
+  {
+    "title": "How to Implement a Zero Redundancy Optimizer (ZeRO) for large model training.",
+    "link": ""
+  },
+  {
+    "title": "How to Implement a custom noise scheduler for a diffusion-based image generator",
+    "link": ""
+  },
+  {
+    "title": "How to implement a Byte-Level Tokenizer from scratch using sentencepiece for an LLM.",
+    "link": ""
+  },
+  {
+    "title": "How to develop a Style Injection Model using diffusion-based latent encoding.",
+    "link": ""
+  },
+  {
+    "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
+    "link": ""
+  },
+  {
+    "title": "What is TCP window size scanning, and how does it detect OS?",
+    "link": ""
+  },
+  {
+    "title": "Write a script to preprocess human feedback datasets for LLM reinforcement learning.",
+    "link": ""
+  },
+  {
+    "title": "How do attackers use IPv6 DNS queries for stealth enumeration?",
+    "link": ""
+  },
+  {
+    "title": "How to implement a Bayesian optimizer to fine-tune Transformer hyperparameters.",
+    "link": ""
+  }
+]

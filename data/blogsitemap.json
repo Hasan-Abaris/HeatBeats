@@ -1,0 +1,818 @@
+[
+    {
+        "title": "What is Cross Region Replication in AWS S3 and Why is it Useful?",
+        "path": "https://www.edureka.co/blog/what-is-cross-region-replication-in-aws-s3/"
+    },
+    {
+        "title": "Generative AI in Simulation: Training Models",
+        "path": "https://www.edureka.co/blog/generative-ai-in-simulation/"
+    },
+    {
+        "title": "LaMDA Explained: How It Evolved Into PaLM 2",
+        "path": "https://www.edureka.co/blog/what-is-lamda/"
+    },
+    {
+        "title": "Data Lake vs. Data Warehouse: What’s the Difference?",
+        "path": "https://www.edureka.co/blog/data-lake-vs-data-warehouse/"
+    },
+    {
+        "title": "What are Autoregressive Generative Models?",
+        "path": "https://www.edureka.co/blog/autoregressive-generative-models/"
+    },
+    {
+        "title": "What is the Inception Score (IS)?",
+        "path": "https://www.edureka.co/blog/what-is-inception-score/"
+    },
+    {
+        "title": "Microsoft Fabric vs. Snowflake: Key Differences You Need to Know",
+        "path": "https://www.edureka.co/blog/microsoft-fabric-vs-snowflake/"
+    },
+    {
+        "title": "9 Amazing Application of data engineering in real life",
+        "path": "https://www.edureka.co/blog/application-of-data-engineering-in-real-life/"
+    },
+    {
+        "title": "AWS Shared Responsibility Model – Amazon Web Services",
+        "path": "https://www.edureka.co/blog/aws-shared-responsibility-model/"
+    },
+    {
+        "title": "What is Risk Mitigation?",
+        "path": "https://www.edureka.co/blog/what-is-risk-mitigation/"
+    },
+    {
+        "title": "What Is Amazon EventBridge?",
+        "path": "https://www.edureka.co/blog/what-is-aws-eventbridge/"
+    },
+    {
+        "title": "Top 10 Data Engineering Trends in 2025",
+        "path": "https://www.edureka.co/blog/top-data-engineering-trends/"
+    },
+    {
+        "title": "What are Vision Language Models and how do they work?",
+        "path": "https://www.edureka.co/blog/vision-language-models/"
+    },
+    {
+        "title": "Microsoft Fabric vs. Databricks",
+        "path": "https://www.edureka.co/blog/microsoft-fabric-vs-databricks/"
+    },
+    {
+        "title": "What is vector embedding?",
+        "path": "https://www.edureka.co/blog/vector-embeddings/"
+    },
+    {
+        "title": "Fine-Tuning Stable Diffusion: A Complete Guide",
+        "path": "https://www.edureka.co/blog/fine-tuning-stable-diffusion/"
+    },
+    {
+        "title": "AWS Lambda Interview Questions and Answers",
+        "path": "https://www.edureka.co/blog/aws-lambda-interview-questions/"
+    },
+    {
+        "title": "Know About DP-700 Exam: Microsoft Fabric Data Engineering Guide 2025",
+        "path": "https://www.edureka.co/blog/know-about-dp-700-exam/"
+    },
+    {
+        "title": "What is AWS Outposts?",
+        "path": "https://www.edureka.co/blog/what-is-aws-outposts/"
+    },
+    {
+        "title": "What Is Microsoft Fabric? – A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/what-is-microsoft-fabric/"
+    },
+    {
+        "title": "What is Synthetic Data? Examples, Use Cases and Benefits",
+        "path": "https://www.edureka.co/blog/what-is-synthetic-data/"
+    },
+    {
+        "title": "Microsoft Fabric vs Power BI: Key Differences & Which to Use",
+        "path": "https://www.edureka.co/blog/microsoft-fabric-vs-power-bi/"
+    },
+    {
+        "title": "What is Salesforce Lightning?",
+        "path": "https://www.edureka.co/blog/what-is-salesforce-lightning/"
+    },
+    {
+        "title": "Generative AI: Variational Autoencoders (VAEs)",
+        "path": "https://www.edureka.co/blog/generative-ai-variational-autoencoders/"
+    },
+    {
+        "title": "What is GitHub Copilot? A Complete Explanation",
+        "path": "https://www.edureka.co/blog/what-is-github-copilot/"
+    },
+    {
+        "title": "What is System Hacking? Types and Prevention",
+        "path": "https://www.edureka.co/blog/what-is-system-hacking/"
+    },
+    {
+        "title": "Prince2 Foundation and Practitioner: What are the differences?",
+        "path": "https://www.edureka.co/blog/difference-between-prince2-foundation-and-practitioner/"
+    },
+    {
+        "title": "PRINCE2 Jobs: Salary, Tips & Tricks to Get Hired",
+        "path": "https://www.edureka.co/blog/prince2-jobs/"
+    },
+    {
+        "title": "Understanding the PRINCE2 Business Case: A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/prince2-business-cases/"
+    },
+    {
+        "title": "What is Spear Phishing?",
+        "path": "https://www.edureka.co/blog/what-is-spear-phishing/"
+    },
+    {
+        "title": "LLM Benchmarks: Evaluation, Limits, and Comparison",
+        "path": "https://www.edureka.co/blog/llm-benchmarks/"
+    },
+    {
+        "title": "Workflow in Salesforce : What It Is & Types of Actions",
+        "path": "https://www.edureka.co/blog/salesforce-workflow-rules/"
+    },
+    {
+        "title": "The Attention Mechanism in Generative AI",
+        "path": "https://www.edureka.co/blog/attention-mechanism-in-generative-ai/"
+    },
+    {
+        "title": "What Is Zero Shot Learning in Image Classification?",
+        "path": "https://www.edureka.co/blog/what-is-zero-shot-learning-in-image-classification/"
+    },
+    {
+        "title": "PRINCE2 VS APM: Which Project Management Course is Best?",
+        "path": "https://www.edureka.co/blog/prince2-vs-apm/"
+    },
+    {
+        "title": "Upskilling and Reskilling – The Key to Career Growth",
+        "path": "https://www.edureka.co/blog/reskilling-and-upskilling-the-key-to-career-growth/"
+    },
+    {
+        "title": "RANKX Function(DAX) in Power BI: A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/rankx-function-in-dax-power-bi/"
+    },
+    {
+        "title": "What is Cybersecurity Awareness and Why is it Important?",
+        "path": "https://www.edureka.co/blog/cybersecurity-awareness/"
+    },
+    {
+        "title": "20+ Incident Responder Interview Questions and Answers",
+        "path": "https://www.edureka.co/blog/interview-questions/incident-responder-in-cybersecurity-interview-questions/"
+    },
+    {
+        "title": "How to Install React and Set Up Your First Project",
+        "path": "https://www.edureka.co/blog/how-to-install-react/"
+    },
+    {
+        "title": "SWITCH Functions in Power BI: Simplify DAX Expressions",
+        "path": "https://www.edureka.co/blog/switch-functions-in-dax-power-bi/"
+    },
+    {
+        "title": "Decorators In Angular: A Simple Guide In 2025",
+        "path": "https://www.edureka.co/blog/decorators-in-angular/"
+    },
+    {
+        "title": "Slicers in Power BI: A Complete Guide",
+        "path": "https://www.edureka.co/blog/slicers-in-power-bi/"
+    },
+    {
+        "title": "What is Variational Autoencoders Architecture?",
+        "path": "https://www.edureka.co/blog/variational-autoencoder-architecture/"
+    },
+    {
+        "title": "10 Skills You Need To Become a Salesforce Developer",
+        "path": "https://www.edureka.co/blog/salesforce-developer-skills/"
+    },
+    {
+        "title": "Diffusion Library for Image Generation",
+        "path": "https://www.edureka.co/blog/diffusion-library-for-image-generation/"
+    },
+    {
+        "title": "Top 7 Mobile Security Threats and Prevention",
+        "path": "https://www.edureka.co/blog/mobile-security-threats-prevention/"
+    },
+    {
+        "title": "Star Schema in Power BI: A Complete Guide for Faster Reports",
+        "path": "https://www.edureka.co/blog/star-schema-in-power-bi/"
+    },
+    {
+        "title": "How to Become a Microsoft Fabric Engineer?",
+        "path": "https://www.edureka.co/blog/how-to-become-a-microsoft-fabric-engineer/"
+    },
+    {
+        "title": "CycleGAN: A Generative Model for Image-to-Image Translation",
+        "path": "https://www.edureka.co/blog/cycle-generative-adversarial-network-cyclegan/"
+    },
+    {
+        "title": "Latent Variable Models in Generative AI",
+        "path": "https://www.edureka.co/blog/latent-variable-models-in-generative-ai/"
+    },
+    {
+        "title": "What is Zero Shot Learning in Computer Vision?",
+        "path": "https://www.edureka.co/blog/what-is-zero-shot-learning/"
+    },
+    {
+        "title": "What is Salesforce Pardot? A Complete Guide",
+        "path": "https://www.edureka.co/blog/what-is-salesforce-pardot/"
+    },
+    {
+        "title": "What is Password Management in Cybersecurity?",
+        "path": "https://www.edureka.co/blog/password-management-in-cybersecurity/"
+    },
+    {
+        "title": "Guide to Masked Language Models (MLMs)",
+        "path": "https://www.edureka.co/blog/masked-language-models/"
+    },
+    {
+        "title": "Top 10 Cybersecurity Companies in India",
+        "path": "https://www.edureka.co/blog/top-cybersecurity-companies-in-india/"
+    },
+    {
+        "title": "What Is Salesforce Sales Cloud?",
+        "path": "https://www.edureka.co/blog/what-is-salesforce-sales-cloud/"
+    },
+    {
+        "title": "GitHub Copilot Benefits & Challenges",
+        "path": "https://www.edureka.co/blog/github-copilot-benefits/"
+    },
+    {
+        "title": "Power BI ToolTip: Create and Use Interactive ToolTips",
+        "path": "https://www.edureka.co/blog/power-bi-tooltips/"
+    },
+    {
+        "title": "DCGAN: Unlocking the Power of Deep Convolutional GANs",
+        "path": "https://www.edureka.co/blog/deep-convolutional-gan/"
+    },
+    {
+        "title": "What Is a Denial of Service (DoS) Attack?",
+        "path": "https://www.edureka.co/blog/what-is-dos-attack/"
+    },
+    {
+        "title": "DeepSeek AI Research Paper Breakdown",
+        "path": "https://www.edureka.co/blog/deepseek-ai-research-paper-breakdown/"
+    },
+    {
+        "title": "DeepSeek AI Model Architecture",
+        "path": "https://www.edureka.co/blog/deepseek-ai-model-architecture/"
+    },
+    {
+        "title": "DeepSeek AI vs OpenAI",
+        "path": "https://www.edureka.co/blog/deepseek-ai-vs-openai/"
+    },
+    {
+        "title": "A Complete Guide to React Frontend Development",
+        "path": "https://www.edureka.co/blog/complete-guide-react-frontend-development/"
+    },
+    {
+        "title": "Generative AI News: Latest Innovations & Breakthroughs",
+        "path": "https://www.edureka.co/blog/generative-ai-news/"
+    },
+    {
+        "title": "What is Data Augmentation? Use Cases & Examples",
+        "path": "https://www.edureka.co/blog/what-is-data-augmentation/"
+    },
+    {
+        "title": "LLM vs SLM: What’s the Difference in 2025",
+        "path": "https://www.edureka.co/blog/llm-vs-slm/"
+    },
+    {
+        "title": "Small Language Models Explained: Benefits & Example",
+        "path": "https://www.edureka.co/blog/small-language-models/"
+    },
+    {
+        "title": "How To Use Diffusion Library",
+        "path": "https://www.edureka.co/blog/how-to-use-diffusion-library/"
+    },
+    {
+        "title": "What is Stable Fusion in AI?",
+        "path": "https://www.edureka.co/blog/stable-diffusion-ai/"
+    },
+    {
+        "title": "What Is Data Imputation? Purpose, Techniques, & Methods",
+        "path": "https://www.edureka.co/blog/what-is-data-imputation/"
+    },
+    {
+        "title": "What is Few-Shot Learning? Unlocking Insights with Limited Data",
+        "path": "https://www.edureka.co/blog/what-is-few-shot-learning/"
+    },
+    {
+        "title": "What is Variational Autoencoder Architecture?",
+        "path": "https://www.edureka.co/blog/variational-autoencoder-architecture/"
+    },
+    {
+        "title": "What Is LangChain and How to Use It",
+        "path": "https://www.edureka.co/blog/what-is-langchain/"
+    },
+    {
+        "title": "LSTM Explained: Key to Sequential Data in AI",
+        "path": "https://www.edureka.co/blog/long-short-term-memory-networks/"
+    },
+    {
+        "title": "DeepBrain AI: A Complete Explanation",
+        "path": "https://www.edureka.co/blog/deepbrain-ai-revolutionizing-conversational-ai-and-speech-technology/"
+    },
+    {
+        "title": "Key Principles for Ethical AI Development",
+        "path": "https://www.edureka.co/blog/ethical-ai-development/"
+    },
+    {
+        "title": "Group By in Power BI: Simplify and Summarize Data",
+        "path": "https://www.edureka.co/blog/group-by-in-power-bi/"
+    },
+    {
+        "title": "Power BI Running Total: Easy Methods to Calculate",
+        "path": "https://www.edureka.co/blog/running-total-in-power-bi/"
+    },
+    {
+        "title": "Angular Modules vs Components",
+        "path": "https://www.edureka.co/blog/angular-modules-vs-components/"
+    },
+    {
+        "title": "What is BERT and How it is Used in GEN AI?",
+        "path": "https://www.edureka.co/blog/what-is-bert/"
+    },
+    {
+        "title": "Advanced Neural Networks for Generative AI",
+        "path": "https://www.edureka.co/blog/neural-networks-for-generative-ai/"
+    },
+    {
+        "title": "Full Stack Developer vs Software Developer – Which Is Better ?",
+        "path": "https://www.edureka.co/blog/full-stack-developer-vs-software-developer/"
+    },
+    {
+        "title": "What is a Red Team in Cybersecurity?",
+        "path": "https://www.edureka.co/blog/what-is-a-red-team-in-cybersecurity/"
+    },
+    {
+        "title": "Average Full Stack Developer Salary in 2025",
+        "path": "https://www.edureka.co/blog/average-full-stack-developer-salary/"
+    },
+    {
+        "title": "What is Retrieval-Augmented Generation (RAG)?",
+        "path": "https://www.edureka.co/blog/retrieval-augmented-generation/"
+    },
+    {
+        "title": "Network Security vs Cyber Security: What’s the Difference?",
+        "path": "https://www.edureka.co/blog/network-security-vs-cybersecurity/"
+    },
+    {
+        "title": "A New Era of Cybersecurity with AI: Predictions for 2025",
+        "path": "https://www.edureka.co/blog/new-era-of-cybersecurity-with-ai/"
+    },
+    {
+        "title": "Understanding Cardinality of Relationships in Power BI",
+        "path": "https://www.edureka.co/blog/cardinality-in-power-bi/"
+    },
+    {
+        "title": "Python for Predictive Analytics: From Basics to Advanced Techniques",
+        "path": "https://www.edureka.co/blog/python-for-predictive-analytics/"
+    },
+    {
+        "title": "Top 10 Full Stack Development Tools in 2025",
+        "path": "https://www.edureka.co/blog/top-full-stack-developers-tools/"
+    },
+    {
+        "title": "What are Logs in Cybersecurity? And It’s Importance",
+        "path": "https://www.edureka.co/blog/what-are-logs-in-cybersecurity/"
+    },
+    {
+        "title": "SUMX in Power BI: Comprehensive Guide to DAX Calculations",
+        "path": "https://www.edureka.co/blog/sumx-power-bi-functions/"
+    },
+    {
+        "title": "What Is the Architecture of Angular?",
+        "path": "https://www.edureka.co/blog/what-is-the-architecture-of-angular/"
+    },
+    {
+        "title": "Mastering the CALCULATE() Function in Power BI: A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/calculate-function-in-power-bi/"
+    },
+    {
+        "title": "Understanding Literals in Python: A Beginner’s Guide",
+        "path": "https://www.edureka.co/blog/literals-in-python/"
+    },
+    {
+        "title": "What Is NIS2? – Compliance and Policies",
+        "path": "https://www.edureka.co/blog/what-is-nis2/"
+    },
+    {
+        "title": "Flask Python: A Comprehensive Guide to Building Web Applications",
+        "path": "https://www.edureka.co/blog/flask-python/"
+    },
+    {
+        "title": "RxJS Operators in Angular",
+        "path": "https://www.edureka.co/blog/rxjs-operators-in-angular/"
+    },
+    {
+        "title": "AWS Storage Gateway: A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/aws-storage-gateway/"
+    },
+    {
+        "title": "What is Malvertising & How Do You Avoid It?",
+        "path": "https://www.edureka.co/blog/what-is-malvertising/"
+    },
+    {
+        "title": "Time Intelligence Functions in Power BI: A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/time-intelligence-functions-in-power-bi/"
+    },
+    {
+        "title": "What is Git Flow and How to use Git Flow",
+        "path": "https://www.edureka.co/blog/what-is-gitflow/"
+    },
+    {
+        "title": "Data Cleaning in Python: Techniques and Best Practices",
+        "path": "https://www.edureka.co/blog/data-cleaning-in-python/"
+    },
+    {
+        "title": "Next.js vs React – What are the Differences?",
+        "path": "https://www.edureka.co/blog/next-js-vs-react/"
+    },
+    {
+        "title": "What is a Virus Hoax?",
+        "path": "https://www.edureka.co/blog/what-is-a-virus-hoax/"
+    },
+    {
+        "title": "Understanding Salesforce Commerce Cloud",
+        "path": "https://www.edureka.co/blog/salesforce-commerce-cloud/"
+    },
+    {
+        "title": "How to Perform Salesforce Testing: Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/salesforce-testing/"
+    },
+    {
+        "title": "What is NgRx?",
+        "path": "https://www.edureka.co/blog/what-is-ngrx/"
+    },
+    {
+        "title": "What is Reconciliation in React and why is it important?",
+        "path": "https://www.edureka.co/blog/what-is-reactjs-reconciliation/"
+    },
+    {
+        "title": "What does a Process Analyst do? Role & Responsibilities",
+        "path": "https://www.edureka.co/blog/process-analyst/"
+    },
+    {
+        "title": "What is ngOnInit in Angular and Its Purpose",
+        "path": "https://www.edureka.co/blog/what-is-ngoninit-in-angular/"
+    },
+    {
+        "title": "Next.js vs. React – What are the Differences?",
+        "path": "https://www.edureka.co/blog/nextjs-vs-react/"
+    },
+    {
+        "title": "What’s New in Selenium 4: Features and Examples",
+        "path": "https://www.edureka.co/blog/selenium-4-features/"
+    },
+    {
+        "title": "How to Scroll Down in Selenium: A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/scroll-down-in-selenium/"
+    },
+    {
+        "title": "Business Analytics Applications and Notable Use Cases",
+        "path": "https://www.edureka.co/blog/business-analytics-applications/"
+    },
+    {
+        "title": "Top Business Analysis Projects for your Portfolio in 2025",
+        "path": "https://www.edureka.co/blog/business-analysis-projects/"
+    },
+    {
+        "title": "How to Become a Certified Business Analysis Professional (CBAP)",
+        "path": "https://www.edureka.co/blog/cbap-business-analyst/"
+    },
+    {
+        "title": "What is Metasploit : Overview, Framework, and How is it Used",
+        "path": "https://www.edureka.co/blog/what-is-metasploit/"
+    },
+    {
+        "title": "What is Fingerprinting in Cyber Security?",
+        "path": "https://www.edureka.co/blog/cybersecurity-fingerprinting/"
+    },
+    {
+        "title": "What is Amazon Aurora?",
+        "path": "https://www.edureka.co/blog/amazon-aurora/"
+    },
+    {
+        "title": "14 Principles of Management by Henri Fayol",
+        "path": "https://www.edureka.co/blog/14-principles-of-management-by-henri-fayol/"
+    },
+    {
+        "title": "What is RFP in Project Management – A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/rfp-in-project-management/"
+    },
+    {
+        "title": "What is Zeus Malware?",
+        "path": "https://www.edureka.co/blog/what-is-zeus-malware/"
+    },
+    {
+        "title": "What are RxJS Operators in Angular ?",
+        "path": "https://www.edureka.co/blog/rxjs-operators-angular/"
+    },
+    {
+        "title": "AWS Direct Connect: Overview, Component, Features",
+        "path": "https://www.edureka.co/blog/aws-direct-connect/"
+    },
+    {
+        "title": "Amazon Simple Email Service (AWS SES) Configuration Guide",
+        "path": "https://www.edureka.co/blog/amazon-simple-email-service-aws-ses/"
+    },
+    {
+        "title": "What is Encryption? – It’s Importance, Types, Benefits",
+        "path": "https://www.edureka.co/blog/what-is-encryption-types-benefits/"
+    },
+    {
+        "title": "ReactJS State Guide: Exploring SetState, Props, and State",
+        "path": "https://www.edureka.co/blog/reactjs-state-guide/"
+    },
+    {
+        "title": "Copy Activity in Azure Data Factory and Azure Synapse Analytics",
+        "path": "https://www.edureka.co/blog/copy-activity-in-azure-data-factory/"
+    },
+    {
+        "title": "What Is Cross-Site Request Forgery (Csrf) Attack And How To Defend It",
+        "path": "https://www.edureka.co/blog/what-is-csrf-attack-and-how-to-defend-it/"
+    },
+    {
+        "title": "What is a Junction Object in Salesforce?",
+        "path": "https://www.edureka.co/blog/junction-object-in-salesforce/"
+    },
+    {
+        "title": "Complete Guide to Salesforce Record Types",
+        "path": "https://www.edureka.co/blog/salesforce-record-types/"
+    },
+    {
+        "title": "Product Manager vs Project Manager: Know The Difference",
+        "path": "https://www.edureka.co/blog/product-manager-vs-project-manager/"
+    },
+    {
+        "title": "Program Manager Vs Project Manager: Know The Difference",
+        "path": "https://www.edureka.co/blog/program-manager-vs-project-manager/"
+    },
+    {
+        "title": "What Is a Security Operations Center (SOC)?",
+        "path": "https://www.edureka.co/blog/what-is-security-operations-center/"
+    },
+    {
+        "title": "Insecure Direct Object Reference (IDOR) Vulnerability Detection and Prevention Methods",
+        "path": "https://www.edureka.co/blog/idor-vulnerability-detection-and-prevention-methods/"
+    },
+    {
+        "title": "What is AWS Key Management Service (AWS KMS)?",
+        "path": "https://www.edureka.co/blog/aws-key-management-service-kms/"
+    },
+    {
+        "title": "What is AWS Simple Notification Service (SNS)?",
+        "path": "https://www.edureka.co/blog/aws-simple-notification-service-sns/"
+    },
+    {
+        "title": "Axios in React – A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/axios-in-react-a-comprehensive-guide/"
+    },
+    {
+        "title": "What is the Arrow Function in ReactJS?",
+        "path": "https://www.edureka.co/blog/what-is-the-arrow-function-in-reactjs/"
+    },
+    {
+        "title": "What is View Encapsulation in Angular?",
+        "path": "https://www.edureka.co/blog/what-is-view-encapsulation-in-angular/"
+    },
+    {
+        "title": "Angular Component Lifecycle Hooks Explained",
+        "path": "https://www.edureka.co/blog/lifecycle-hooks-in-angular/"
+    },
+    {
+        "title": "Full Stack Developer Job Description",
+        "path": "https://www.edureka.co/blog/full-stack-developer-job-description/"
+    },
+    {
+        "title": "What is COBIT? It’s Important",
+        "path": "https://www.edureka.co/blog/what-is-cobit/"
+    },
+    {
+        "title": "What is RAID in Project Management? Detailed Guide",
+        "path": "https://www.edureka.co/blog/raid-in-project-management/"
+    },
+    {
+        "title": "How to Become a Network Administrator",
+        "path": "https://www.edureka.co/blog/how-to-become-a-network-administrator/"
+    },
+    {
+        "title": "How to Conduct A Feasibility Study? Detailed Guide",
+        "path": "https://www.edureka.co/blog/feasibility-study/"
+    },
+    {
+        "title": "Is CISSP Worth It? A Comprehensive Analysis",
+        "path": "https://www.edureka.co/blog/is-cissp-worth-it/"
+    },
+    {
+        "title": "Top 5 CISSP Alternatives for Cybersecurity Professionals",
+        "path": "https://www.edureka.co/blog/top-cissp-alternatives-for-cybersecurity-professionals/"
+    },
+    {
+        "title": "What is Low Code Development, and What are its Features?",
+        "path": "https://www.edureka.co/blog/what-is-low-code-development/"
+    },
+    {
+        "title": "Backend Development Roadmap – Step-by-Step Guide",
+        "path": "https://www.edureka.co/blog/backend-development-roadmap-step-by-step-guide/"
+    },
+    {
+        "title": "Azure Data Factory Vs Databricks",
+        "path": "https://www.edureka.co/blog/azure-data-factory-vs-databricks/"
+    },
+    {
+        "title": "Top 10 Advantages of React Js",
+        "path": "https://www.edureka.co/blog/top-advantages-of-react-js/"
+    },
+    {
+        "title": "What Is Fog Computing? – Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/what-is-fog-computing/"
+    },
+    {
+        "title": "Cypress vs Selenium: Which Framework is Best?",
+        "path": "https://www.edureka.co/blog/cypress-vs-selenium/"
+    },
+    {
+        "title": "How To Use Desired Capabilities in Selenium?",
+        "path": "https://www.edureka.co/blog/desired-capabilities-in-selenium/"
+    },
+    {
+        "title": "AI vs. Data Science: A Complete Guide",
+        "path": "https://www.edureka.co/blog/ai-vs-data-science/"
+    },
+    {
+        "title": "Top 10+ AI skills To Boost your Career in AI",
+        "path": "https://www.edureka.co/blog/ai-skills/"
+    },
+    {
+        "title": "What is Generative AI?",
+        "path": "https://www.edureka.co/blog/generative-ai/"
+    },
+    {
+        "title": "What Is DNS Hijacking? – Complete Guide",
+        "path": "https://www.edureka.co/blog/what-dns-hijacking/"
+    },
+    {
+        "title": "What is Cryptanalysis? A complete Guide",
+        "path": "https://www.edureka.co/blog/what-is-cryptanalysis/"
+    },
+    {
+        "title": "Tabnine vs. GitHub Copilot: A Comprehensive Comparison",
+        "path": "https://www.edureka.co/blog/tabnine-vs-github-copilot/"
+    },
+    {
+        "title": "What is Interpersonal Communication? Types and Examples",
+        "path": "https://www.edureka.co/blog/interpersonal-communication/"
+    },
+    {
+        "title": "Certified Ethical Hacker vs Pentest+",
+        "path": "https://www.edureka.co/blog/ceh-vs-pentest/"
+    },
+    {
+        "title": "Full Stack Developer Salary in India (2025)",
+        "path": "https://www.edureka.co/blog/full-stack-developer-salary-india/"
+    },
+    {
+        "title": "What is clearing tracks in ethical hacking?",
+        "path": "https://www.edureka.co/blog/what-is-clearing-tracks-in-ethical-hacking/"
+    },
+    {
+        "title": "Playwright vs Selenium: What Are The Key Differences?",
+        "path": "https://www.edureka.co/blog/playwright-vs-selenium/"
+    },
+    {
+        "title": "Application Development vs. Web Development: A Simple Guide",
+        "path": "https://www.edureka.co/blog/application-development-vs-web-development-a-simple-guide/"
+    },
+    {
+        "title": "What is AWS Database Migration Service (AWS DMS)?",
+        "path": "https://www.edureka.co/blog/aws-database-migration-service-dms/"
+    },
+    {
+        "title": "What is an Auth Guard in Angular?",
+        "path": "https://www.edureka.co/blog/what-is-an-auth-guard-in-angular/"
+    },
+    {
+        "title": "Alert in React Native with Example",
+        "path": "https://www.edureka.co/blog/alert-react-native-example/"
+    },
+    {
+        "title": "50+ Top Postman Interview Questions & Answers",
+        "path": "https://www.edureka.co/blog/top-postman-interview-questions-answers/"
+    },
+    {
+        "title": "What is Virtual DOM in ReactJS",
+        "path": "https://www.edureka.co/blog/what-is-virtual-dom-in-reactjs/"
+    },
+    {
+        "title": "Ethical Hacking Certification Cost",
+        "path": "https://www.edureka.co/blog/ethical-hacking-certification-cost/"
+    },
+    {
+        "title": "Top Prompt Engineering Tools for 2025",
+        "path": "https://www.edureka.co/blog/prompt-engineering-tools/"
+    },
+    {
+        "title": "What is a DevOps Pipeline and How to Build One?",
+        "path": "https://www.edureka.co/blog/devops-pipeline/"
+    },
+    {
+        "title": "Harness DevOps: A Comprehensive Guide with Best Practices",
+        "path": "https://www.edureka.co/blog/harness-devops/"
+    },
+    {
+        "title": "DevOps Tech Stack: The Ultimate Guide to Tools and Best Practices",
+        "path": "https://www.edureka.co/blog/devops-tech-stack/"
+    },
+    {
+        "title": "Data Engineer Salary in India",
+        "path": "https://www.edureka.co/blog/data-engineer-salary/"
+    },
+    {
+        "title": "What is a Data Engineer? – A Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/what-is-a-data-engineer-a-comprehensive-guide/"
+    },
+    {
+        "title": "What are the Reactive Forms in Angular? – Explained With Examples",
+        "path": "https://www.edureka.co/blog/what-are-the-reactive-forms-in-angular/"
+    },
+    {
+        "title": "React Compiler: Everything You Need to Know",
+        "path": "https://www.edureka.co/blog/react-compiler-guide/"
+    },
+    {
+        "title": "Data Science Modeling: Key Steps and Best Practices",
+        "path": "https://www.edureka.co/blog/data-science-modelling/"
+    },
+    {
+        "title": "Time Series Forecasting: Mastering Techniques and Applications",
+        "path": "https://www.edureka.co/blog/time-series-forecasting/"
+    },
+    {
+        "title": "7 Essential GitHub Features Every Developer Should Know",
+        "path": "https://www.edureka.co/blog/github-features/"
+    },
+    {
+        "title": "Codeium Vs GitHub Copilot",
+        "path": "https://www.edureka.co/blog/codeium-vs-github-copilot/"
+    },
+    {
+        "title": "An Essential Guide To PRINCE2 Documents",
+        "path": "https://www.edureka.co/blog/prince2-documents/"
+    },
+    {
+        "title": "Looker BI: A Beginner’s Guide to Smart Data Analysis with Use Cases",
+        "path": "https://www.edureka.co/blog/looker-business-intelligence/"
+    },
+    {
+        "title": "Future Scope of Ethical Hacking in 2025",
+        "path": "https://www.edureka.co/blog/future-scope-ethical-hacking/"
+    },
+    {
+        "title": "How Long Does a PRINCE2® Qualification Take?",
+        "path": "https://www.edureka.co/blog/how-long-does-a-prince2-qualification-take/"
+    },
+    {
+        "title": "How to Create a Pipeline in Azure Data Factory Step-by-Step",
+        "path": "https://www.edureka.co/blog/how-to-create-a-pipeline-in-azure-data-factory/"
+    },
+    {
+        "title": "CI/CD vs DevOps: Key Differences Between with Examples",
+        "path": "https://www.edureka.co/blog/devops-vs-cicd/"
+    },
+    {
+        "title": "DevOps Terraform: Best Practices and Advanced Techniques",
+        "path": "https://www.edureka.co/blog/devops-terraform/"
+    },
+    {
+        "title": "Power BI Gateway: A Step by Step Comprehensive Guide",
+        "path": "https://www.edureka.co/blog/power-bi-gateway/"
+    },
+    {
+        "title": "What is an Angular Developer?",
+        "path": "https://www.edureka.co/blog/what-is-an-angular-developer/"
+    },
+    {
+        "title": "What is Azure Cosmos DB? – Types, Features, Benefits",
+        "path": "https://www.edureka.co/blog/what-is-azure-cosmos/"
+    },
+    {
+        "title": "What is Organization-Wide Default (OWD) in Salesforce?",
+        "path": "https://www.edureka.co/blog/organization-wide-default-owd-in-salesforce/"
+    },
+    {
+        "title": "PMBOK vs PRINCE2",
+        "path": "https://www.edureka.co/blog/pmbok-vs-prince2/"
+    },
+    {
+        "title": "What is Amazon Quicksight?",
+        "path": "https://www.edureka.co/blog/amazon-quicksight/"
+    },
+    {
+        "title": "PRINCE2 Process Model",
+        "path": "https://www.edureka.co/blog/prince2-process-model/"
+    },
+    {
+        "title": "What is a Business Systems Analyst and How to Become?",
+        "path": "https://www.edureka.co/blog/business-systems-analyst/"
+    },
+    {
+        "title": "What is Salesforce Integration – Ultimate Guide",
+        "path": "https://www.edureka.co/blog/salesforce-integration/"
+    }
+]

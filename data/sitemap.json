@@ -1,0 +1,333 @@
+{
+    "categories": [
+      { "name": "Artificial Intelligence", "path": "/categories/artificial-intelligence" },
+      { "name": "BI and Visualization", "path": "/categories/bi-visualization" },
+      { "name": "Cloud Computing", "path": "/categories/cloud-computing" },
+      { "name": "DevOps", "path": "/categories/devops" },
+      { "name": "Data Science", "path": "/categories/data-science" },
+      { "name": "Cyber Security", "path": "/categories/cyber-security" },
+      { "name": "Programming & Frameworks", "path": "/categories/programming-frameworks" },
+      { "name": "Project Management and Methodologies", "path": "/categories/project-management" },
+      { "name": "PG Programs", "path": "/categories/pg-programs" },
+      { "name": "Software Testing", "path": "/categories/software-testing" },
+      { "name": "Big Data", "path": "/categories/big-data" },
+      { "name": "Frontend Development", "path": "/categories/frontend-development" },
+      { "name": "Databases", "path": "/categories/databases" },
+      { "name": "Data Warehousing and ETL", "path": "/categories/data-warehousing-etl" },
+      { "name": "Blockchain", "path": "/categories/blockchain" },
+      { "name": "Mobile Development", "path": "/categories/mobile-development" },
+      { "name": "Operating Systems", "path": "/categories/operating-systems" },
+      { "name": "Robotic Process Automation", "path": "/categories/rpa" },
+      { "name": "Digital Marketing", "path": "/categories/digital-marketing" },
+      { "name": "Architecture & Design Patterns", "path": "/categories/architecture-design" },
+      { "name": "Others", "path": "/categories/others" }
+    ],
+    "sitemapAllCourses":[
+        {
+          "name": "AWS Certification Training",
+          "link": "/courses/aws-certification-training"
+        },
+        {
+          "name": "Best DevOps Courses",
+          "link": "/courses/best-devops-courses"
+        },
+        {
+          "name": "Cloud Architect Course",
+          "link": "/courses/cloud-architect-course"
+        },
+        {
+          "name": "Best Business Analyst Certification Courses",
+          "link": "/courses/best-business-analyst-certification-courses"
+        },
+        {
+          "name": "Full Stack Developer Course",
+          "link": "/courses/full-stack-developer-course"
+        },
+        {
+          "name": "Microsoft Azure Cloud Engineer Training",
+          "link": "/courses/microsoft-azure-cloud-engineer-training"
+        },
+        {
+          "name": "AWS Masters Program",
+          "link": "/courses/aws-masters-program"
+        },
+        {
+          "name": "Data Engineering Courses",
+          "link": "/courses/data-engineering-courses"
+        },
+        {
+          "name": "Machine Learning Course Masters Program",
+          "link": "/courses/machine-learning-course-masters-program"
+        },
+        {
+          "name": "Data Science Masters Program",
+          "link": "/courses/data-science-masters-program"
+        },
+        {
+          "name": "Python Developer Masters Program",
+          "link": "/courses/python-developer-masters-program"
+        },
+        {
+          "name": "Masters in Salesforce Course",
+          "link": "/courses/masters-in-salesforce-course"
+        },
+        {
+          "name": "Project Management Training [Masters Program]",
+          "link": "/courses/project-management-training-masters-program"
+        },
+        {
+          "name": "Business Intelligence Masters Program",
+          "link": "/courses/business-intelligence-masters-program"
+        },
+        {
+          "name": "Computer Science Bootcamp Program",
+          "link": "/courses/computer-science-bootcamp-program"
+        },
+        {
+          "name": "Salesforce Training Course",
+          "link": "/courses/salesforce-training-course"
+        },
+        {
+          "name": "Web Developer Masters Course Program",
+          "link": "/courses/web-developer-masters-course-program"
+        },
+        {
+          "name": "Tech Masters Program",
+          "link": "/courses/tech-masters-program"
+        },
+        {
+          "name": "AWS Certified Data Engineer - Associate Training (DEA-C01)",
+          "link": "/courses/aws-certified-data-engineer-associate-training-dea-c01"
+        },
+        {
+          "name": "Post Graduate Program in DevOps",
+          "link": "/courses/post-graduate-program-in-devops"
+        },
+        {
+          "name": "PMP Certification Training",
+          "link": "/courses/pmp-certification-training"
+        },
+        {
+          "name": "PRINCE2® Foundation & Practitioner Certification Course",
+          "link": "/courses/prince2-foundation-and-practitioner-certification-course"
+        },
+        {
+          "name": "Migrating Applications to AWS Training",
+          "link": "/courses/migrating-applications-to-aws-training"
+        },
+        {
+          "name": "Cybersecurity Certification Course",
+          "link": "/courses/cybersecurity-certification-course"
+        },
+        {
+          "name": "Cyber Security and Ethical Hacking Internship Program",
+          "link": "/courses/cyber-security-and-ethical-hacking-internship-program"
+        },
+        {
+          "name": "Selenium Course",
+          "link": "/courses/selenium-course"
+        },
+        {
+          "name": "ChatGPT Training Course: Beginners to Advanced",
+          "link": "/courses/chatgpt-training-course-beginners-to-advanced"
+        },
+        {
+          "name": "Tableau Certification Training Course",
+          "link": "/courses/tableau-certification-training-course"
+        },
+        {
+          "name": "React JS Training Course",
+          "link": "/courses/react-js-training-course"
+        },
+        {
+          "name": "PySpark Certification Training Course",
+          "link": "/courses/pyspark-certification-training-course"
+        },
+        {
+          "name": "Microservices Certification Training Course",
+          "link": "/courses/microservices-certification-training-course"
+        },
+        {
+          "name": "Kubernetes Certification Training Course: Administrator (CKA)",
+          "link": "/courses/kubernetes-certification-training-course-administrator-cka"
+        },
+        {
+          "name": "Angular Certification Training Course Online",
+          "link": "/courses/angular-certification-training-course-online"
+        },
+        {
+          "name": "Microsoft Azure Data Engineering Training Course",
+          "link": "/courses/microsoft-azure-data-engineering-training-course"
+        },
+        {
+          "name": "Data Science with Python Certification Course",
+          "link": "/courses/data-science-with-python-certification-course"
+        },
+        {
+          "name": "Python Programming Certification Course",
+          "link": "/courses/python-programming-certification-course"
+        },
+        {
+          "name": "Java Course Online",
+          "link": "/courses/java-course-online"
+        },
+        {
+          "name": "GCP Certification Training Course",
+          "link": "/courses/gcp-certification-training-course"
+        },
+        {
+          "name": "MongoDB Certification Course",
+          "link": "/courses/mongodb-certification-course"
+        },
+        {
+          "name": "Certified Scrum Master® (CSM) Certification",
+          "link": "/courses/certified-scrum-master-csm-certification"
+        },
+        {
+          "name": "UiPath RPA Training Course",
+          "link": "/courses/uipath-rpa-training-course"
+        },
+        {
+          "name": "Flutter App Development Certification Course",
+          "link": "/courses/flutter-app-development-certification-course"
+        },
+        {
+          "name": "Microsoft SQL Server Certification Training",
+          "link": "/courses/microsoft-sql-server-certification-training"
+        },
+        {
+          "name": "Data Structures and Algorithms using Java Internship Program",
+          "link": "/courses/data-structures-and-algorithms-using-java-internship-program"
+        },
+        {
+          "name": "Artificial Intelligence Certification Course",
+          "link": "/courses/artificial-intelligence-certification-course"
+        },
+        {
+          "name": "Microsoft Azure DevOps Course Training (AZ-400)",
+          "link": "/courses/microsoft-azure-devops-course-training-az-400"
+        },
+        {
+          "name": "Big Data Architect Masters Program",
+          "link": "/courses/big-data-architect-masters-program"
+        },
+        {
+          "name": "Microsoft Certified: Azure Administrator AZ-104 Certification Course",
+          "link": "/courses/microsoft-certified-azure-administrator-az-104-certification-course"
+        },
+        {
+          "name": "PMI® Agile Certified Practitioner Training",
+          "link": "/courses/pmi-agile-certified-practitioner-training"
+        },
+        {
+          "name": "AWS Certified DevOps Engineer - Professional Exam",
+          "link": "/courses/aws-certified-devops-engineer-professional-exam"
+        },
+        {
+          "name": "Docker Certification Training Course",
+          "link": "/courses/docker-certification-training-course"
+        },
+        {
+          "name": "UI UX Design Certification Course",
+          "link": "/courses/ui-ux-design-certification-course"
+        },
+        {
+          "name": "Informatica Certification Training Course",
+          "link": "/courses/informatica-certification-training-course"
+        },
+        {
+          "name": "Spring Framework Certification Course",
+          "link": "/courses/spring-framework-certification-course"
+        },
+        {
+          "name": "Linux Administration Certification Training Course",
+          "link": "/courses/linux-administration-certification-training-course"
+        },
+        {
+          "name": "Microsoft Azure Developer Associate Certification: AZ-204",
+          "link": "/courses/microsoft-azure-developer-associate-certification-az-204"
+        },
+        {
+          "name": "Apache Kafka Certification Training Course",
+          "link": "/courses/apache-kafka-certification-training-course"
+        },
+        {
+          "name": "Digital Marketing Course",
+          "link": "/courses/digital-marketing-course"
+        },
+        {
+          "name": "Professional Scrum Master (PSM) Certification Training",
+          "link": "/courses/professional-scrum-master-psm-certification-training"
+        },
+        {
+          "name": "Salesforce Platform Developer 1 Certification Training",
+          "link": "/courses/salesforce-platform-developer-1-certification-training"
+        },
+        {
+          "name": "Web Developer Certification Training Course",
+          "link": "/courses/web-developer-certification-training-course"
+        },
+        {
+          "name": "Snowflake Certification Training Course",
+          "link": "/courses/snowflake-certification-training-course"
+        },
+        {
+          "name": "Node JS Course with Certification",
+          "link": "/courses/node-js-course-with-certification"
+        },
+        {
+          "name": "Python Scripting Certification Training",
+          "link": "/courses/python-scripting-certification-training"
+        },
+        {
+          "name": "Git Certification Training",
+          "link": "/courses/git-certification-training"
+        },
+        {
+          "name": "Jenkins Certification Training Course",
+          "link": "/courses/jenkins-certification-training-course"
+        },
+        {
+          "name": "Statistics Essentials for Analytics",
+          "link": "/courses/statistics-essentials-for-analytics"
+        },
+        {
+          "name": "Microsoft .NET Framework Certification Training",
+          "link": "/courses/microsoft-dotnet-framework-certification-training"
+        },
+        {
+          "name": "Data Analytics with R Programming Certification Training",
+          "link": "/courses/data-analytics-with-r-programming-certification-training"
+        },
+        {
+          "name": "Big Data Hadoop Administration Certification Training",
+          "link": "/courses/big-data-hadoop-administration-certification-training"
+        },
+        {
+          "name": "Post Graduate Diploma in Artificial Intelligence Course",
+          "link": "/courses/post-graduate-diploma-in-artificial-intelligence-course"
+        },
+        {
+          "name": "SAS Training and Certification",
+          "link": "/courses/sas-training-and-certification"
+        },
+        {
+          "name": "Ansible Certification Training Course",
+          "link": "/courses/ansible-certification-training-course"
+        },
+        {
+          "name": "JavaScript Certification Training Course",
+          "link": "/courses/javascript-certification-training-course"
+        },
+        {
+          "name": "Comprehensive MapReduce Certification Training",
+          "link": "/courses/comprehensive-mapreduce-certification-training"
+        },
+        {
+          "name": "Microsoft SharePoint 2013 Certification Training",
+          "link": "/courses/m::contentReference[oaicite:0]{index=0}"
+        }
+      ]
+      
+  }
+  

@@ -1,0 +1,100 @@
+{
+  "trendingCourses": [
+    {
+      "title": "DevOps Certification AI",
+      "rating": 4.5,
+      "reviews": 79900,
+      "stars": 3
+    },
+    {
+      "title": "Cloud Architect Bootcamp",
+      "rating": 4.2,
+      "reviews": 65800,
+      "stars": 4
+    },
+    {
+      "title": "Azure Fundamentals with AI",
+      "rating": 4.7,
+      "reviews": 81200,
+      "stars": 5
+    },
+    {
+      "title": "AWS Certified Solutions Architect",
+      "rating": 4.8,
+      "reviews": 92000,
+      "stars": 5
+    },
+    {
+      "title": "Google Cloud Professional ",
+      "rating": 4.6,
+      "reviews": 74000,
+      "stars": 4
+    },
+    {
+      "title": "Kubernetes for Beginners",
+      "rating": 4.3,
+      "reviews": 58000,
+      "stars": 3
+    },
+    {
+      "title": "Terraform for Infrastructure as Code",
+      "rating": 4.9,
+      "reviews": 102000,
+      "stars": 5
+    },
+    {
+      "title": "Docker Essentials",
+      "rating": 4.4,
+      "reviews": 62000,
+      "stars": 4
+    },
+    {
+      "title": "Ansible for Automation",
+      "rating": 4.5,
+      "reviews": 75000,
+      "stars": 3
+    },
+    {
+      "title": "CI/CD with Jenkins ",
+      "rating": 4.8,
+      "reviews": 89000,
+      "stars": 5
+    },
+    {
+      "title": "Azure DevOps for Beginners",
+      "rating": 4.6,
+      "reviews": 81000,
+      "stars": 4
+    },
+    {
+      "title": "AWS DevOps Engineer Certification",
+      "rating": 4.7,
+      "reviews": 95000,
+      "stars": 5
+    },
+    {
+      "title": "Google Cloud DevOps Professional",
+      "rating": 4.5,
+      "reviews": 67000,
+      "stars": 3
+    },
+    {
+      "title": "Terraform on AWS",
+      "rating": 4.9,
+      "reviews": 110000,
+      "stars": 5
+    },
+    {
+      "title": "Kubernetes for DevOps",
+      "rating": 4.4,
+      "reviews": 64000,
+      "stars": 4
+    },
+    {
+      "title": "Docker Swarm and Kubernetes",
+      "rating": 4.3,
+      "reviews": 58000,
+      "stars": 3
+    }
+  ]
+}

@@ -93,6 +93,8 @@ export const getClientsList = () => {
 
 //  New: Hiring Companies API
 export const getHiringCompanies = () => {
+    console.log("API Call: get-all-hiring-companies"); // ✅ Add this
+
   return axios.get(`${baseUrl}company/get-all-hiring-companies`, {
     headers: {
       "X-API-Key": xApiKey,
@@ -177,6 +179,17 @@ export const getCoursesByCourseCategory = async (courseCategoryId) => {
     throw error;
   }
 };
+
+// ✅ New: Get All Course Categories (V2 - Correct API Endpoint)
+export const getAllCourseCategoriesV2 = () => {
+  return axios.get(`${baseUrl}course/get-all-course-categories`, {
+    headers: {
+      "x-api-key": xApiKey,
+      "Content-Type": "application/json",
+    },
+  });
+};
+
 
 
 //  Blog Details API (NEW - Needs to be added)

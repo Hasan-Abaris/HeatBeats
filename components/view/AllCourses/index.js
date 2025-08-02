@@ -1,60 +1,142 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { SlCalender, SlGraph } from "react-icons/sl";
 import { FaAngleRight } from "react-icons/fa6";
 import { PiCertificateBold } from "react-icons/pi";
 import { IoTimeOutline } from "react-icons/io5";
-
 import {
   getAllCourses,
   getCoursesByCategory,
-  getAllCourseCategories,
+  getAllCourseCategoriesV2,
   searchCourses,
   submitCounsellorQuery,
 } from "@/app/comman/FrontApi";
+import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState([]);
-  const [categoriesList, setCategoriesList] = useState([]);
+  const [categoriesList, setCategoriesList] = useState([
+    { id: 0, name: "All Courses" },
+  ]);
   const [activeCategory, setActiveCategory] = useState(0);
-  const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [counsellor, setCounsellor] = useState({
     name: "",
     email: "",
     phone: "",
     query: "I would like to know more about your courses.",
   });
-
   const [submitted, setSubmitted] = useState(false);
 
+  "AllCourses - baseUrl:", baseUrl;
+  "AllCourses - xApiKey:", xApiKey;
+
   useEffect(() => {
-    fetchCategories();
-    fetchCourses();
+    if (!baseUrl || !xApiKey) {
+      setError(
+        "API configuration error: baseUrl or xApiKey is missing or invalid."
+      );
+      console.error(
+        "API config error - baseUrl:",
+        baseUrl,
+        "xApiKey:",
+        xApiKey
+      );
+      setCourses([
+        {
+          id: "11",
+          name: "Test Course",
+          description: "Test",
+          certificate: "Test",
+          duration: "4 weeks",
+          mode: "Online",
+          startDate: "Flexible",
+        },
+      ]);
+      setCategoriesList([
+        { id: 0, name: "All Courses" },
+        { id: "1", name: "Test Category" },
+      ]);
+      setLoading(false);
+      return;
+    }
   }, []);
 
-  const fetchCategories = async () => {
-    try {
-      const res = await getAllCourseCategories();
-      const data = res?.data?.data || [];
-      setCategoriesList([{ id: 0, name: "All Courses" }, ...data]);
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-    }
-  };
+  useEffect(() => {
+    if (!baseUrl || !xApiKey) return;
+    const fetchInitialData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        ("Fetching initial data...");
+        const [coursesRes, categoriesRes] = await Promise.all([
+          getAllCourses(),
+          getAllCourseCategoriesV2(),
+        ]);
+        "Courses Response:", JSON.stringify(coursesRes.data, null, 2);
+        "Categories Response:", JSON.stringify(categoriesRes.data, null, 2);
+        const coursesData = coursesRes.data?.data || [];
+        const categoriesData = categoriesRes.data?.data || [];
+        if (!Array.isArray(coursesData))
+          throw new Error("Invalid courses data");
+        if (!Array.isArray(categoriesData))
+          throw new Error("Invalid categories data");
+        setCourses(coursesData);
+        setCategoriesList([{ id: 0, name: "All Courses" }, ...categoriesData]);
+      } catch (err) {
+        setError(`Failed to load data: ${err.message}`);
+        console.error("Fetch error:", err.message, err.response?.data);
+        setCourses([
+          {
+            id: "11",
+            name: "Test Course",
+            description: "Test",
+            certificate: "Test",
+            duration: "4 weeks",
+            mode: "Online",
+            startDate: "Flexible",
+          },
+        ]);
+        setCategoriesList([
+          { id: 0, name: "All Courses" },
+          { id: "1", name: "Test Category" },
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchInitialData();
+  }, []);
 
   const fetchCourses = async (categoryId = 0) => {
+    if (!baseUrl || !xApiKey) {
+      setError("API configuration error: baseUrl or xApiKey is missing.");
+      return;
+    }
     try {
       setLoading(true);
+      setError(null);
+      `Fetching courses for categoryId: ${categoryId}`;
       const response =
         categoryId === 0
           ? await getAllCourses()
           : await getCoursesByCategory(categoryId);
-      setCourses(response?.data?.data || []);
-    } catch (error) {
-      console.error("Error fetching courses:", error);
+      "Fetch Courses Response:", JSON.stringify(response.data, null, 2);
+      const coursesData = response.data?.data || [];
+      if (!Array.isArray(coursesData)) throw new Error("Invalid courses data");
+      setCourses(
+        coursesData.map((course) => ({
+          ...course,
+          id: course.id.toString(), // Ensure id is a string for consistency with Link
+        }))
+      );
+    } catch (err) {
+      setError(`Fetch failed: ${err.message}`);
+      console.error("Fetch error:", err.message, err.response?.data);
     } finally {
       setLoading(false);
     }
@@ -62,16 +144,31 @@ const AllCourses = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    if (!baseUrl || !xApiKey) {
+      setError("API configuration error: baseUrl or xApiKey is missing.");
+      return;
+    }
     if (!searchQuery.trim()) {
       fetchCourses();
       return;
     }
     try {
       setLoading(true);
-      const res = await searchCourses(searchQuery);
-      setCourses(res?.data?.data || []);
+      setError(null);
+      "Searching for:", searchQuery;
+      const response = await searchCourses(searchQuery);
+      "Search Response:", JSON.stringify(response.data, null, 2);
+      const coursesData = response.data?.data || [];
+      if (!Array.isArray(coursesData)) throw new Error("Invalid search data");
+      setCourses(
+        coursesData.map((course) => ({
+          ...course,
+          id: course.id.toString(), // Ensure id is a string for consistency with Link
+        }))
+      );
     } catch (err) {
-      console.error("Search error:", err);
+      setError(`Search failed: ${err.message}`);
+      console.error("Search error:", err.message, err.response?.data);
     } finally {
       setLoading(false);
     }
@@ -79,9 +176,15 @@ const AllCourses = () => {
 
   const handleCounsellorSubmit = async (e) => {
     e.preventDefault();
+    if (!baseUrl || !xApiKey) {
+      setError("API configuration error: baseUrl or xApiKey is missing.");
+      return;
+    }
     try {
-      const res = await submitCounsellorQuery(counsellor);
-      alert(res?.data?.message || "Query submitted!");
+      setLoading(true);
+      const response = await submitCounsellorQuery(counsellor);
+      "Counsellor Response:", JSON.stringify(response.data, null, 2);
+      alert(response.data?.message || "Submitted!");
       setCounsellor({
         name: "",
         email: "",
@@ -90,22 +193,29 @@ const AllCourses = () => {
       });
       setSubmitted(true);
     } catch (err) {
-      console.error("Submission failed", err);
+      console.error("Submit error:", err.message, err.response?.data);
+      alert(`Failed: ${err.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleCategoryClick = (id) => {
-    setSearchQuery(""); // Reset search
+    setSearchQuery("");
     setActiveCategory(id);
     fetchCourses(id);
   };
 
+  "Render - Courses:", courses.map((c) => ({ id: c.id, name: c.name })); // Log only id and name for brevity
+  "Render - Categories:", categoriesList;
+  "Render - Loading:", loading, "Error:", error;
+
   return (
     <section className="p-6 md:px-16 md:py-16 grayBackground">
-      <h3 className="text-4xl mb-3 font-semibold">Choose a category to find your course</h3>
+      <h3 className="text-4xl mb-3 font-semibold">
+        Choose a category to find your course
+      </h3>
       <p>70+ Live online courses chosen by 3000+ working professionals</p>
-
-      {/* Search */}
       <form onSubmit={handleSearch} className="my-6 flex gap-4 flex-wrap">
         <input
           type="text"
@@ -113,9 +223,14 @@ const AllCourses = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="border px-4 py-2 rounded w-full md:w-[300px]"
+          disabled={loading}
         />
-        <button type="submit" className="bg-blue-900 text-white px-6 py-2 rounded">
-          Search
+        <button
+          type="submit"
+          className="bg-blue-900 text-white px-6 py-2 rounded"
+          disabled={loading}
+        >
+          {loading ? "Searching..." : "Search"}
         </button>
         {searchQuery && (
           <button
@@ -125,16 +240,22 @@ const AllCourses = () => {
               fetchCourses();
             }}
             className="text-blue-800 underline text-sm"
+            disabled={loading}
           >
             Clear Search
           </button>
         )}
       </form>
-
-      {/* Categories */}
+      {categoriesList.length === 1 && !loading && (
+        <p className="text-red-600">No categories available</p>
+      )}
       <ul className="flex gap-4 flex-wrap my-6">
         {categoriesList.map((item) => (
-          <li key={item.id} onClick={() => handleCategoryClick(item.id)} className="cursor-pointer">
+          <li
+            key={item.id}
+            onClick={() => handleCategoryClick(item.id)}
+            className="cursor-pointer"
+          >
             {item.id === activeCategory ? (
               <span className="bg-blue-900 px-6 py-3 text-white rounded inline-block">
                 {item.name}
@@ -147,62 +268,73 @@ const AllCourses = () => {
           </li>
         ))}
       </ul>
-
-      {/* Courses */}
       {loading ? (
         <p>Loading courses...</p>
+      ) : error ? (
+        <div className="text-red-600">
+          <p>Error: {error}</p>
+          <p>Check console for details.</p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {courses.length > 0 ? (
-            courses.map((item) => (
-              <div key={item.id} className="bg-white p-8 rounded shadow-sm">
-                <Link href={`/all-courses/${item.id}`}>
-                  <span className="px-3 rounded text-light text-sm inline-flex items-center gap-2 bgAntiquewhite">
-                    <SlGraph /> Course
-                  </span>
-                  <div className="border-b py-4">
-                    <h4 className="textBlueDark font-semibold text-2xl">
-                      {item.name || "Untitled Course"}
-                    </h4>
-                    <p className="textBlack">{item.description || "No description available."}</p>
-                  </div>
-                  <div className="my-3">
-                    <ul>
-                      <li className="flex gap-3 items-center mb-1 text-sm">
-                        <PiCertificateBold /> Certificate Info Unavailable
-                      </li>
-                      <li className="flex gap-3 items-center mb-1 text-sm">
-                        <IoTimeOutline /> Duration Not Available
-                      </li>
-                      <li className="flex gap-3 items-center mb-1 text-sm">
-                        <SlCalender /> Mode Not Specified
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="mt-6">
-                    <span className="text-green-600 text-sm rounded">
-                      Flexible Start Date
+            courses.map((item) => {
+              return (
+                <div key={item.id} className="bg-white p-8 rounded shadow-sm">
+                  <Link href={`/all-courses/${item.id}`}>
+                    <span className="px-3 rounded text-light text-sm inline-flex items-center gap-2 bgAntiquewhite">
+                      <SlGraph /> Course
                     </span>
-                    <span className="flex gap-2 items-center mt-4 border-2 p-2 rounded justify-center text-lg text-gray-500">
-                      View course Details <FaAngleRight />
-                    </span>
-                  </div>
-                </Link>
-              </div>
-            ))
+                    <div className="border-b py-4">
+                      <h4 className="textBlueDark font-semibold text-2xl">
+                        {item.name || "Untitled Course"}
+                      </h4>
+                      <p className="textBlack">
+                        {item.description || "No description available."}
+                      </p>
+                    </div>
+                    <div className="my-3">
+                      <ul>
+                        <li className="flex gap-3 items-center mb-1 text-sm">
+                          <PiCertificateBold />{" "}
+                          {item.certificate || "Certificate Info Unavailable"}
+                        </li>
+                        <li className="flex gap-3 items-center mb-1 text-sm">
+                          <IoTimeOutline />{" "}
+                          {item.duration || "Duration Not Available"}
+                        </li>
+                        <li className="flex gap-3 items-center mb-1 text-sm">
+                          <SlCalender /> {item.mode || "Mode Not Specified"}
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="mt-6">
+                      <span className="text-green-600 text-sm rounded">
+                        {item.startDate || "Flexible Start Date"}
+                      </span>
+                      <button className="flex gap-2 items-center mt-4 bg-blue-900 text-white px-6 py-2 rounded justify-center hover:bg-blue-800 transition duration-200">
+                        <Link href={`/courses-detail/${item.id}`}>
+                          View course Details <FaAngleRight />
+                        </Link>
+                      </button>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })
           ) : (
             <p className="text-center text-gray-600 mt-4">
               {searchQuery
-                ? `No results found for "${searchQuery}"`
+                ? `No results for "${searchQuery}"`
                 : "No courses available"}
             </p>
           )}
         </div>
       )}
-
-      {/* Counsellor Form */}
       <div className="mt-16 bg-white p-8 rounded shadow-sm">
-        <h3 className="text-xl font-semibold mb-4">Need help choosing a course?</h3>
+        <h3 className="text-xl font-semibold mb-4">
+          Need help choosing a course?
+        </h3>
         {submitted ? (
           <p className="text-green-600">Submitted successfully!</p>
         ) : (
@@ -212,35 +344,51 @@ const AllCourses = () => {
               placeholder="Name"
               required
               value={counsellor.name}
-              onChange={(e) => setCounsellor({ ...counsellor, name: e.target.value })}
+              onChange={(e) =>
+                setCounsellor({ ...counsellor, name: e.target.value })
+              }
               className="border p-2 rounded"
+              disabled={loading}
             />
             <input
               type="email"
               placeholder="Email"
               required
               value={counsellor.email}
-              onChange={(e) => setCounsellor({ ...counsellor, email: e.target.value })}
+              onChange={(e) =>
+                setCounsellor({ ...counsellor, email: e.target.value })
+              }
               className="border p-2 rounded"
+              disabled={loading}
             />
             <input
               type="tel"
               placeholder="Phone"
               required
               value={counsellor.phone}
-              onChange={(e) => setCounsellor({ ...counsellor, phone: e.target.value })}
+              onChange={(e) =>
+                setCounsellor({ ...counsellor, phone: e.target.value })
+              }
               className="border p-2 rounded"
+              disabled={loading}
             />
             <textarea
               placeholder="What would you like to know?"
               required
               value={counsellor.query}
-              onChange={(e) => setCounsellor({ ...counsellor, query: e.target.value })}
+              onChange={(e) =>
+                setCounsellor({ ...counsellor, query: e.target.value })
+              }
               className="border p-2 rounded"
               rows={3}
+              disabled={loading}
             />
-            <button type="submit" className="bg-blue-900 text-white px-6 py-2 rounded">
-              Submit Query
+            <button
+              type="submit"
+              className="bg-blue-900 text-white px-6 py-2 rounded"
+              disabled={loading}
+            >
+              {loading ? "Submitting..." : "Submit Query"}
             </button>
           </form>
         )}

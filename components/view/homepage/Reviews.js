@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
+import Link from 'next/link';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -117,11 +118,12 @@ function Reviews() {
         </button>
       </div>
 
-      <div className="text-center mt-4">
-        <a className="text-xs text-blue-800 font-semibold uppercase cursor-pointer">
-          View all reviews &gt;
-        </a>
-      </div>
+<div className="text-center mt-4">
+  <Link href="/reviews" className="text-xs text-blue-800 font-semibold uppercase cursor-pointer">
+    View all reviews &gt;
+  </Link>
+</div>
+
     </div>
   );
 }

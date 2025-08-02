@@ -1,5 +1,5 @@
-'use client';
-import React, { useRef, useState, useEffect } from 'react';
+"use client";
+import React, { useRef, useState, useEffect } from "react";
 
 export default function LatestBlogPosts({ posts, topic }) {
   const viewportRef = useRef();
@@ -27,8 +27,8 @@ export default function LatestBlogPosts({ posts, topic }) {
       const idx = Math.round(scroller.scrollLeft / pageWidth);
       setActiveIndex(idx);
     };
-    scroller.addEventListener('scroll', onScroll, { passive: true });
-    return () => scroller.removeEventListener('scroll', onScroll);
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    return () => scroller.removeEventListener("scroll", onScroll);
   }, [pageWidth]);
 
   const goToPage = (idx) => {
@@ -36,7 +36,7 @@ export default function LatestBlogPosts({ posts, topic }) {
     if (idx >= totalPages) idx = totalPages - 1;
     scrollerRef.current.scrollTo({
       left: idx * pageWidth,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
     setActiveIndex(idx);
   };
@@ -81,9 +81,9 @@ export default function LatestBlogPosts({ posts, topic }) {
               ref={scrollerRef}
               className="flex space-x-6 hide-scrollbar"
               style={{
-                overflowX: 'auto',
-                scrollSnapType: 'x mandatory',
-                scrollBehavior: 'smooth',
+                overflowX: "auto",
+                scrollSnapType: "x mandatory",
+                scrollBehavior: "smooth",
               }}
             >
               {filteredPosts.map((p, i) => (
@@ -132,12 +132,12 @@ export default function LatestBlogPosts({ posts, topic }) {
           <p className="text-sm text-gray-600 mb-4">
             Check out our blog for free insights and updates on your field
           </p>
-          <a
-            href="#"
+          <Link
+            href="/blogs"
             className="inline-block border border-blue-700 text-blue-700 px-4 py-1 text-sm rounded hover:bg-blue-700 hover:text-white transition"
           >
             SHOW ME
-          </a>
+          </Link>
         </aside>
       </div>
 
@@ -149,8 +149,8 @@ export default function LatestBlogPosts({ posts, topic }) {
             onClick={() => goToPage(idx)}
             className={`block rounded-full transition-all focus:outline-none ${
               idx === activeIndex
-                ? 'bg-blue-700 w-3 h-3'
-                : 'bg-gray-300 w-2 h-2'
+                ? "bg-blue-700 w-3 h-3"
+                : "bg-gray-300 w-2 h-2"
             }`}
           />
         ))}

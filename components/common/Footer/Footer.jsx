@@ -140,6 +140,7 @@ useEffect(() => {
         { id: "work-3", title: "Become an Affiliate", url: "affiliate-program" },
         { id: "work-4", title: "Become a Partner", url: "partners" },
         { id: "work-5", title: "Hire from SLA Consultants India", url: "hire-from" },
+         { id: "work-6", title: "Designation", url: "designation" },
       ]
     },
 

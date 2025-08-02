@@ -1,12 +1,12 @@
-import { getAllCourses, getCourseDetails, getCoursesByCourseCategory } from "@/app/comman/FrontApi";
-import { notFound } from "next/navigation";
+// ./app/all-courses/[id]/page.js
+import { getAllCourses, getCourseDetails } from "@/app/comman/FrontApi";
+import { redirect } from "next/navigation";
 
-// ✅ Generate static params for SSG
 export async function generateStaticParams() {
   try {
     const res = await getAllCourses();
     const courses = res?.data?.data || [];
-
+    console.log('Generated static params from getAllCourses:', courses.map(c => c.id));
     return courses.map((course) => ({
       id: course.id.toString(),
     }));
@@ -16,60 +16,60 @@ export async function generateStaticParams() {
   }
 }
 
-// ✅ Course Details Page
-const CourseDetailsPage = async ({ params }) => {
-  const { id } = params;
+export default async function CourseDetailsPage({ params }) {
+  const { id } = await params; // Await params to access id correctly
 
-  let course = null;
-  let relatedCourses = [];
+  console.log('CourseDetailsPage - Received id:', id);
 
   try {
     const res = await getCourseDetails(id);
-    course = res?.data?.data || null;
+    console.log('getCourseDetails Response:', JSON.stringify(res.data, null, 2));
+    const course = res?.data?.data || null;
 
-    if (!course) return notFound();
-
-    // ✅ Fetch related courses from same course_category
-    if (course?.course_category_id) {
-      const related = await getCoursesByCourseCategory(course.course_category_id);
-      relatedCourses = (related?.data || []).filter((c) => c.id !== course.id);
+    if (!course) {
+      console.error('No course data found for id:', id);
+      redirect("/not-found");
     }
 
+    // Map id to param (e.g., 11 -> 1, 20 -> 2, 19 -> 3, 18 -> 4, 17 -> 5)
+    const idToParamMap = {
+      '11': '1',
+      '20': '2',
+      '19': '3',
+      '18': '4',
+      '17': '5',
+      '16': '1', // Cycle through 1-5 for additional ids
+      '15': '2',
+      '14': '3',
+      '13': '4',
+      '12': '5',
+      '1': '1',
+      '10': '2',
+      '9': '3',
+      '8': '4',
+      '7': '5',
+      '6': '1',
+      '5': '2',
+      '4': '3',
+      '3': '4',
+      '2': '5',
+    }; // Extend as needed based on getAllCourses ids
+    const param = idToParamMap[id] || id; // Fallback to id if no mapping
+    console.log('Mapped param:', param);
+
+    // Validate param against expected values from courses-detail/[param]/page.js
+    if (!['1', '2', '3', '4', '5'].includes(param)) {
+      console.error('Invalid param value:', param, 'does not match expected params:', ['1', '2', '3', '4', '5']);
+      redirect("/not-found");
+    }
+
+    // Redirect to the detailed page
+    console.log('Redirecting to /courses-detail/', param);
+    redirect(`/courses-detail/${param}`);
   } catch (error) {
-    console.error("Failed to fetch course details:", error);
-    return notFound();
+    console.error("Failed to fetch course details for id:", id, 'Error:', error.message, error.response?.data);
+    redirect("/not-found");
   }
 
-  return (
-    <div className="p-8 md:p-16">
-      <h1 className="text-3xl font-bold text-blue-900 mb-4">{course.name}</h1>
-      <p className="mb-4 text-gray-700">{course.description || "No description provided."}</p>
-
-      <ul className="space-y-2 text-sm text-gray-800">
-        <li><strong>Certificate:</strong> {course.certificate || "N/A"}</li>
-        <li><strong>Duration:</strong> {course.duration || "N/A"}</li>
-        <li><strong>Mode:</strong> {course.mode || "N/A"}</li>
-        <li><strong>Start Date:</strong> {course.startDate || "Flexible"}</li>
-        <li><strong>Category:</strong> {course.category?.name || "N/A"}</li>
-        <li><strong>Course Category:</strong> {course.course_category?.name || "N/A"}</li>
-      </ul>
-
-      {/* ✅ More Courses from Same Category */}
-      {relatedCourses.length > 0 && (
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">More courses from this category</h2>
-          <ul className="grid gap-4 md:grid-cols-2">
-            {relatedCourses.map((c) => (
-              <li key={c.id} className="border p-4 rounded shadow hover:shadow-md transition">
-                <h3 className="text-lg font-bold text-blue-700">{c.name}</h3>
-                <p className="text-gray-600">{c.description?.slice(0, 100) || "No description"}...</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default CourseDetailsPage;
+  return null; // This won't render due to redirect
+}

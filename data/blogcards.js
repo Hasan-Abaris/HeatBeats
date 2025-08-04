@@ -139,15 +139,15 @@ export const recommendedVideos = [
 export const recommendedBlogs = [
   {
     title: 'Salesforce Service Cloud – One Stop Solution For Customer Needs',
-    img: '/images/blog/blog1.png',
+    img: '/images/blog1.png',
   },
   {
     title: 'What is IoT (Internet of Things)? IoT Architecture Explained',
-    img: '/images/blog/blog2.png',
+    img: '/images/blog2.jpg',
   },
   {
     title: 'What is AWS: An Introduction to Amazon Web Services',
-    img: '/images/blog/blog3.png',
+    img: '/images/blog3.png',
   },
 ];
 export const comments = [

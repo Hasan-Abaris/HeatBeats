@@ -6,18 +6,12 @@ import MegaMenu from "./MegaMenu";
 import { useEffect, useState } from "react";
 import SearchArea from "./SearchArea";
 import { IoCallSharp } from "react-icons/io5";
-import {
-  FaBarsStaggered,
-  FaCaretDown,
-  FaCircleUser,
-  FaFlagCheckered,
-} from "react-icons/fa6";
+import { FaCaretDown } from "react-icons/fa6";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import CallModel from "./CallModel";
 import { IoMdArrowDropright } from "react-icons/io";
-import TopHdMonthEnd from "./TopHdMonthEnd";
 import { getCategiryList } from "@/app/comman/FrontApi";
 import Loadar from "@/app/comman/Loader";
 import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
@@ -31,39 +25,7 @@ export function Header() {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
-
-  // Static subcategories for each category
-  const subCategories = {
-    "Artificial Intelligence": [
-      "AI Basics",
-      "Machine Learning",
-      "Deep Learning Machine Learning Course Masters Program", "Artificial Intelligence Certification Course", "Generative AI Certification Training Course", "Agentic AI Certification Training Course", "Introduction to Generative AI", "Microsoft Azure AI Fundamentals AI-900 Certification Course", "Applied Machine Learning with Python by PwC Academy", "Prompt Engineering with LLMs Training Course", "Machine Learning Operations (MLOps) Certification Training",
-    ],
-    "BI and Visualization": ["Power BI", "Tableau", "Data Visualization"],
-    "Cloud Computing": ["AWS", "Azure", "Google Cloud"],
-    DevOps: ["Docker", "Kubernetes", "CI/CD"],
-    "Cyber Security": [
-      "CISSP Certification",
-      "Certified Ethical Hacking",
-      "Cyber Security Masters",
-    ],
-    "Doctorate Programs": [
-      "PhD in AI",
-      "PhD in Data Science",
-      "PhD in Cybersecurity",
-    ],
-    "PG Programs": [
-      "MBA in IT",
-      "MSc in Data Science",
-      "MSc in Cloud Computing",
-    ],
-    "Data Science": ["Data Analysis", "Big Data", "Data Engineering"],
-    "Project Management and Methodologies": ["PMP", "Agile", "Scrum"],
-    "Programming & Frameworks": ["Python", "JavaScript", "React"],
-    "Software Testing": ["Manual Testing", "Automation Testing", "Selenium"],
-    "Big Data": ["Hadoop", "Spark", "Big Data Analytics"],
-    "Frontend Development": ["HTML/CSS", "JavaScript", "Frontend Frameworks"],
-  };
+  const [courses, setCourses] = useState([]);
 
   const handleRemove = () => setIsActive(false);
 
@@ -73,7 +35,7 @@ export function Header() {
       const getData = await getCategiryList();
       if (getData.status === 200 && getData.data?.data) {
         setStore(getData.data.data);
-        setHoveredItem(getData.data.data[0]);
+        setHoveredItem(getData.data.data[0]); // Initialize with first category
       }
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -86,6 +48,31 @@ export function Header() {
     const timer = setTimeout(() => setSaleIsActive(true), 10000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      if (!hoveredItem) return;
+      try {
+        const res = await axios.get(
+          `${baseUrl}course/get-all-courses?course_category_id=${hoveredItem.id}`,
+          {
+            headers: {
+              "X-API-Key": xApiKey,
+            },
+          }
+        );
+        if (res.status === 200 && res.data?.data) {
+          setCourses(res.data.data);
+        } else {
+          setCourses([]);
+        }
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+        setCourses([]);
+      }
+    };
+    fetchCourses();
+  }, [hoveredItem]);
 
   const setIsDropdownOpen = (item) => setHoveredItem(item);
   const handleMouseLeave = () => {};
@@ -169,6 +156,7 @@ export function Header() {
               </button>
               <div className="absolute hidden group-hover:block border bg-white text-black rounded mt-[1px] w-[800px] h-[400px] z-40">
                 <div className="flex h-full">
+                  {/* Left panel: Categories */}
                   <div className="flex-1 border-r-2 overflow-auto bg-gray-100">
                     <ul className="flex flex-col gap-1">
                       {store.map((item) => (
@@ -185,27 +173,32 @@ export function Header() {
                     </ul>
                   </div>
 
+                  {/* Middle panel: Dynamic courses */}
                   <div className="flex-1 border-r-2 overflow-auto bg-gray-100">
                     <ul className="flex flex-col gap-1">
-                      {hoveredItem &&
-                        subCategories[hoveredItem.name]?.map(
-                          (subCat, index) => (
-                            <li
-                              key={index}
-                              className="group flex items-center justify-between p-2 rounded cursor-pointer hover:bg-white transition"
-                            >
-                              <span className="text-sm">{subCat}</span>
-                            </li>
-                          )
-                        )}
+                      {courses.length > 0 ? (
+                        courses.map((course) => (
+                          <li
+                            key={course.id}
+                            className="group flex items-center justify-between p-2 rounded cursor-pointer hover:bg-white transition"
+                          >
+                            <span className="text-sm">{course.name}</span>
+                          </li>
+                        ))
+                      ) : (
+                        <li className="p-2 text-sm text-gray-500">
+                          No courses available
+                        </li>
+                      )}
                     </ul>
                   </div>
 
+                  {/* Right panel: Live course (static or can adapt later) */}
                   <div className="flex-1 border rounded-md p-4 max-w-sm">
                     <div className="">Live Course</div>
                     <hr />
                     <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                      {hoveredItem?.liveCourses?.name}
+                      {hoveredItem?.liveCourses?.name || "Select a course"}
                     </h2>
                     <div className="flex items-center text-sm text-gray-600 mb-2">
                       <span className="flex items-center mr-4">
@@ -217,7 +210,7 @@ export function Header() {
                           <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM2 18a8 8 0 1116 0H2z" />
                         </svg>
                         <span className="text-blue-600 font-medium">
-                          {hoveredItem?.liveCourses?.learners} Learners
+                          {hoveredItem?.liveCourses?.learners || "--"} Learners
                         </span>
                       </span>
                       <span className="flex items-center">
@@ -228,11 +221,11 @@ export function Header() {
                         >
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.975h4.183c.969 0 1.371 1.24.588 1.81l-3.39 2.462 1.287 3.974c.3.922-.755 1.688-1.538 1.118L10 13.348l-3.367 2.518c-.783.57-1.838-.196-1.538-1.118l1.287-3.974-3.39-2.462c-.783-.57-.38-1.81.588-1.81h4.183L9.05 2.927z" />
                         </svg>
-                        {hoveredItem?.liveCourses?.starts}
+                        {hoveredItem?.liveCourses?.starts || "--"}
                       </span>
                     </div>
                     <p className="text-sm text-gray-600 mb-4">
-                      {hoveredItem?.liveCourses?.desc}
+                      {hoveredItem?.liveCourses?.desc || "No details available"}
                     </p>
                     <button className="w-full text-blue-600 border border-blue-600 rounded-md py-2 hover:bg-blue-50 transition">
                       View Course Details

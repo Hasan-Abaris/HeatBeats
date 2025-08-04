@@ -25,7 +25,7 @@ const courseSections = [
 ];
 
 export async function generateStaticParams() {
-  const ids = [1, 2, 3, 4, 5,6,7,8,9,10];
+  const ids = [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
   console.log('Generating static params for courses-detail:', ids);
   return ids.map((id) => ({
     param: id.toString(),

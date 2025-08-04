@@ -1,11 +1,11 @@
 // app/blogs/[id]/page.jsx
-import { getBlogDetails } from "@/app/comman/FrontApi";
 import BlogCards from "@/components/view/BlogCards";
+import { getBlogDetails } from "@/app/comman/FrontApi";
+import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 import React from "react";
 
 // ✅ Optional: Pre-render known blog IDs
 export async function generateStaticParams() {
-  // Ideally fetch the list dynamically if possible
   return [
     { id: "1" },
     { id: "2" },
@@ -13,13 +13,19 @@ export async function generateStaticParams() {
   ];
 }
 
-// ✅ SEO Metadata for each blog
 export async function generateMetadata({ params }) {
-  const blogId = params?.id;
+  const { id: blogId } = params; // ✅ Correct destructuring
 
   try {
-    const response = await getBlogDetails(blogId);
-    const blog = response?.data?.data; // ✅ Fix: Access nested data
+    const res = await fetch(`${baseUrl}api/blogs/get-blog-details/${blogId}`, {
+      headers: {
+        "x-api-key": xApiKey,
+      },
+      cache: "no-store",
+    });
+
+    const response = await res.json();
+    const blog = response?.data;
 
     return {
       title: blog?.title ? `${blog.title} | EduNation` : `Blog #${blogId} | EduNation`,
@@ -33,7 +39,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-// ✅ Blog Details Page
+// ✅ Blog Details Page (Async Server Component)
 export default async function BlogDetailsPage({ params }) {
   const blogId = params?.id;
 
@@ -47,7 +53,7 @@ export default async function BlogDetailsPage({ params }) {
 
   try {
     const response = await getBlogDetails(blogId);
-    const blog = response?.data?.data; // ✅ Fix: Access nested data
+    const blog = response?.data?.data;
 
     if (!blog || !blog.title) {
       return (

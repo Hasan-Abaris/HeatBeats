@@ -281,42 +281,42 @@ const AllCourses = () => {
             courses.map((item) => {
               return (
                 <div key={item.id} className="bg-white p-8 rounded shadow-sm">
-                  <Link href={`/all-courses/${item.id}`}>
-                    <span className="px-3 rounded text-light text-sm inline-flex items-center gap-2 bgAntiquewhite">
-                      <SlGraph /> Course
-                    </span>
-                    <div className="border-b py-4">
-                      <h4 className="textBlueDark font-semibold text-2xl">
-                        {item.name || "Untitled Course"}
-                      </h4>
-                      <p className="textBlack">
-                        {item.description || "No description available."}
-                      </p>
-                    </div>
-                    <div className="my-3">
-                      <ul>
-                        <li className="flex gap-3 items-center mb-1 text-sm">
-                          <PiCertificateBold />{" "}
-                          {item.certificate || "Certificate Info Unavailable"}
-                        </li>
-                        <li className="flex gap-3 items-center mb-1 text-sm">
-                          <IoTimeOutline />{" "}
-                          {item.duration || "Duration Not Available"}
-                        </li>
-                        <li className="flex gap-3 items-center mb-1 text-sm">
-                          <SlCalender /> {item.mode || "Mode Not Specified"}
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="mt-6">
-                      <span className="text-green-600 text-sm rounded">
-                        {item.startDate || "Flexible Start Date"}
+                  <Link href={`/courses-detail/${item.id}`}>
+                    <div className="block">
+                      <span className="px-3 rounded text-light text-sm inline-flex items-center gap-2 bgAntiquewhite">
+                        <SlGraph /> Course
                       </span>
-                      <button className="flex gap-2 items-center mt-4 bg-blue-900 text-white px-6 py-2 rounded justify-center hover:bg-blue-800 transition duration-200">
-                        <Link href={`/courses-detail/${item.id}`}>
+                      <div className="border-b py-4">
+                        <h4 className="textBlueDark font-semibold text-2xl">
+                          {item.name || "Untitled Course"}
+                        </h4>
+                        <p className="textBlack">
+                          {item.description || "No description available."}
+                        </p>
+                      </div>
+                      <div className="my-3">
+                        <ul>
+                          <li className="flex gap-3 items-center mb-1 text-sm">
+                            <PiCertificateBold />{" "}
+                            {item.certificate || "Certificate Info Unavailable"}
+                          </li>
+                          <li className="flex gap-3 items-center mb-1 text-sm">
+                            <IoTimeOutline />{" "}
+                            {item.duration || "Duration Not Available"}
+                          </li>
+                          <li className="flex gap-3 items-center mb-1 text-sm">
+                            <SlCalender /> {item.mode || "Mode Not Specified"}
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="mt-6">
+                        <span className="text-green-600 text-sm rounded">
+                          {item.startDate || "Flexible Start Date"}
+                        </span>
+                        <div className="flex gap-2 items-center mt-4 bg-blue-900 text-white px-6 py-2 rounded justify-center hover:bg-blue-800 transition duration-200 w-max">
                           View course Details <FaAngleRight />
-                        </Link>
-                      </button>
+                        </div>
+                      </div>
                     </div>
                   </Link>
                 </div>

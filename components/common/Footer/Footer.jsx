@@ -481,7 +481,7 @@ useEffect(() => {
 
         {/* Footer Bottom Section */}
         <div className="mt-10 border-t pt-6 flex justify-between items-center text-sm text-white flex-col md:flex-row gap-4">
-          <p>© 2025 SLA Consultants India. All rights reserved. Version 1.1 Last Demo 4 August, 2025 space</p>
+          <p>© 2025 SLA Consultants India. All rights reserved. Version 1.1 Last Demo 4 August, 2025 space Day</p>
           <ul className="flex space-x-5">
             <li>
               <Link

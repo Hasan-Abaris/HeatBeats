@@ -1,10 +1,8 @@
 // app/blogs/[id]/page.jsx
 import BlogCards from "@/components/view/BlogCards";
 import { getBlogDetails } from "@/app/comman/FrontApi";
-import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 import React from "react";
 
-// ✅ Optional: Pre-render known blog IDs
 export async function generateStaticParams() {
   return [
     { id: "1" },
@@ -14,36 +12,30 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { id: blogId } = params; // ✅ Correct destructuring
-
+  const { id } = params; // ✅ use the correct param
   try {
-    const res = await fetch(`${baseUrl}api/blogs/get-blog-details/${blogId}`, {
-      headers: {
-        "x-api-key": xApiKey,
-      },
+    const res = await fetch(`${baseUrl}api/blogs/get-blog-details/${id}`, {
+      headers: { "x-api-key": xApiKey },
       cache: "no-store",
     });
-
     const response = await res.json();
     const blog = response?.data;
 
     return {
-      title: blog?.title ? `${blog.title} | EduNation` : `Blog #${blogId} | EduNation`,
-      description: blog?.meta_description || `Read blog post number ${blogId} in detail.`,
+      title: blog?.title ? `${blog.title} | EduNation` : `Blog #${id} | EduNation`,
+      description: blog?.meta_description || `Read blog post number ${id} in detail.`,
     };
   } catch (error) {
     return {
-      title: `Blog #${blogId} | EduNation`,
-      description: `Blog post details for ID ${blogId}`,
+      title: `Blog #${id} | EduNation`,
+      description: `Blog post details for ID ${id}`,
     };
   }
 }
 
-// ✅ Blog Details Page (Async Server Component)
 export default async function BlogDetailsPage({ params }) {
-  const blogId = params?.id;
-
-  if (!blogId) {
+  const { id } = params; // ✅ use the correct param
+  if (!id) {
     return (
       <div className="text-center text-gray-600 py-10">
         Invalid blog ID.
@@ -52,7 +44,7 @@ export default async function BlogDetailsPage({ params }) {
   }
 
   try {
-    const response = await getBlogDetails(blogId);
+    const response = await getBlogDetails(id);
     const blog = response?.data?.data;
 
     if (!blog || !blog.title) {
@@ -70,7 +62,7 @@ export default async function BlogDetailsPage({ params }) {
     );
   } catch (error) {
     console.error("❌ Blog fetch failed:", {
-      blogId,
+      blogId: id,
       message: error?.message,
       response: error?.response?.data,
     });

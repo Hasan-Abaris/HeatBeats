@@ -12,12 +12,14 @@ import axios from "axios";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import CallModel from "./CallModel";
 import { IoMdArrowDropright } from "react-icons/io";
-import { getCategiryList } from "@/app/comman/FrontApi";
+import { getCategiryList, getSiteSettings } from "@/app/comman/FrontApi";
 import Loadar from "@/app/comman/Loader";
 import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
+import SearchOverlay from "@/components/common/SearchOverlay"; // adjust path if needed
 
 export function Header() {
   const [loading, setLoading] = useState(true);
+  const [settings, setSettings] = useState({});
   const [saleisActive, setSaleIsActive] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [models, showModels] = useState(false);
@@ -29,13 +31,18 @@ export function Header() {
 
   const handleRemove = () => setIsActive(false);
 
+  const getSettings = async () => {
+    const res = await getSiteSettings();
+    setSettings(res.data?.data || {});
+  };
+
   const getCategory = async () => {
     setLoading(true);
     try {
       const getData = await getCategiryList();
       if (getData.status === 200 && getData.data?.data) {
         setStore(getData.data.data);
-        setHoveredItem(getData.data.data[0]); // Initialize with first category
+        setHoveredItem(getData.data.data[0]);
       }
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -43,8 +50,16 @@ export function Header() {
     setLoading(false);
   };
 
+  // ✅ -> proper safe default dropdown function
+  const setIsDropdownOpendef = () => {
+    if (!hoveredItem && store.length) {
+      setHoveredItem(store[0]);
+    }
+  };
+
   useEffect(() => {
     getCategory();
+    getSettings();
     const timer = setTimeout(() => setSaleIsActive(true), 10000);
     return () => clearTimeout(timer);
   }, []);
@@ -76,7 +91,6 @@ export function Header() {
 
   const setIsDropdownOpen = (item) => setHoveredItem(item);
   const handleMouseLeave = () => {};
-  const setIsDropdownOpendef = () => hoveredItem || setHoveredItem(store[0]);
 
   const handleSearchChange = async (event) => {
     const value = event.target.value;
@@ -110,12 +124,13 @@ export function Header() {
       {loading && <Loadar />}
       <div className="px-6 md:px-16 py-2 bgBlueDark">
         <div className="flex justify-between flex-wrap">
+          {/* Left – enquiry */}
           <ul className="flex gap-6 flex-wrap">
             <li className="text-white flex gap-3 text-sm items-center">
               <IoCallSharp /> New Course Enquiry :
             </li>
-            <li className="text-white flex gap-3 text-sm  items-center">
-              +1 833 564 3321{" "}
+            <li className="text-white flex gap-3 text-sm items-center">
+              {settings["site.phone"] || "+1 833 564 3321"}
               {!saleisActive ? (
                 <span>(Toll Free)</span>
               ) : (
@@ -126,9 +141,34 @@ export function Header() {
                   <FaCaretDown />
                 </span>
               )}
-              {models && <CallModel isOpen={models} setIsOpen={showModels} />}
+              {models && (
+                <CallModel
+                  isOpen={models}
+                  setIsOpen={showModels}
+                  settings={settings} // ✅ pass settings object here
+                />
+              )}
             </li>
           </ul>
+
+          {/* Right – Promotion (NEW) */}
+          {settings["site.promo_text"] && (
+            <div className="text-white text-sm flex gap-2 items-center">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: settings["site.promo_text"],
+                }}
+              ></span>
+              {settings["site.promo_button_url"] && (
+                <Link
+                  href={settings["site.promo_button_url"]}
+                  className="text-yellow-200 underline"
+                >
+                  Know more
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -136,11 +176,16 @@ export function Header() {
         <div className="flex gap-5 items-center">
           <Link href="/">
             <img
-              src="/images/main-logo.png"
+              src={
+                settings?.data?.image_base_url &&
+                settings?.data?.["site.header_logo"]
+                  ? `${settings.data.image_base_url}/${settings.data["site.header_logo"]}`
+                  : "/images/main-logo.png"
+              }
               width={240}
               height={40}
               className="md:h-full w-48"
-              alt="Intershala"
+              alt="SLA logo"
             />
           </Link>
 
@@ -154,6 +199,7 @@ export function Header() {
                 Category
                 <MdOutlineArrowDropDown className="text-2xl" />
               </button>
+
               <div className="absolute hidden group-hover:block border bg-white text-black rounded mt-[1px] w-[800px] h-[400px] z-40">
                 <div className="flex h-full">
                   {/* Left panel: Categories */}
@@ -197,36 +243,35 @@ export function Header() {
                   <div className="flex-1 border rounded-md p-4 max-w-sm">
                     <div className="">Live Course</div>
                     <hr />
-                    <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                      {hoveredItem?.liveCourses?.name || "Select a course"}
-                    </h2>
-                    <div className="flex items-center text-sm text-gray-600 mb-2">
-                      <span className="flex items-center mr-4">
-                        <svg
-                          className="w-4 h-4 text-blue-600 mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM2 18a8 8 0 1116 0H2z" />
-                        </svg>
-                        <span className="text-blue-600 font-medium">
-                          {hoveredItem?.liveCourses?.learners || "--"} Learners
-                        </span>
-                      </span>
-                      <span className="flex items-center">
-                        <svg
-                          className="w-4 h-4 text-yellow-500 mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.975h4.183c.969 0 1.371 1.24.588 1.81l-3.39 2.462 1.287 3.974c.3.922-.755 1.688-1.538 1.118L10 13.348l-3.367 2.518c-.783.57-1.838-.196-1.538-1.118l1.287-3.974-3.39-2.462c-.783-.57-.38-1.81.588-1.81h4.183L9.05 2.927z" />
-                        </svg>
-                        {hoveredItem?.liveCourses?.starts || "--"}
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600 mb-4">
-                      {hoveredItem?.liveCourses?.desc || "No details available"}
-                    </p>
+                    {courses[0] ? (
+                      <>
+                        <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                          {courses[0].name}
+                        </h2>
+                        <div className="flex items-center text-sm text-gray-600 mb-2">
+                          <span className="flex items-center mr-4">
+                            <svg
+                              className="w-4 h-4 text-blue-600 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM2 18a8 8 0 1116 0H2z" />
+                            </svg>
+                            <span className="text-blue-600 font-medium">
+                              {courses[0]?.learners || "--"} Learners
+                            </span>
+                          </span>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-4">
+                          {courses[0]?.desc || "No details available"}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-sm text-gray-600 mb-2">
+                        No course selected
+                      </p>
+                    )}
+
                     <button className="w-full text-blue-600 border border-blue-600 rounded-md py-2 hover:bg-blue-50 transition">
                       View Course Details
                     </button>
@@ -240,26 +285,14 @@ export function Header() {
                 type="text"
                 placeholder="Search Courses"
                 className="border-0 ps-[34px] w-[350px] rounded-full"
-                value={searchQuery}
-                onChange={handleSearchChange}
+                onFocus={() => setIsActive(true)}
               />
               <span className="absolute left-2 top-2 textBlueDark text-xl">
                 <RiSearchLine />
               </span>
-              {filteredItems.length > 0 && (
-                <ul className="absolute bg-white border rounded-md mt-2 shadow-lg w-full z-50">
-                  {filteredItems.map((item) => (
-                    <li
-                      key={item.id}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    >
-                      {item.name}
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
-            {isActive && <SearchArea handleRemove={handleRemove} />}
+
+            <SearchOverlay isOpen={isActive} onClose={handleRemove} />
           </div>
         </div>
 

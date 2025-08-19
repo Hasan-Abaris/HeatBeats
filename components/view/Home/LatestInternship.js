@@ -145,10 +145,16 @@ const LatestInternship = () => {
       </div>
       <div className="flex justify-center">
         <div className="text-center">
-          <button className="bgBlueDark rounded px-3 py-1 text-white">
-            Browse All Courses
-          </button>
-          <p className="text-lg italic">Explore our wide range of courses</p>
+          <Link
+            href="/all-courses"
+            className="bgBlueDark rounded px-3 py-2 text-white inline-block font-semibold hover:bg-blue-800 transition-all"
+          >
+            Browse All Courses  
+          </Link>
+          
+          <p className="text-lg italic mt-2">
+            Explore our wide range of courses
+          </p>
         </div>
       </div>
     </section>

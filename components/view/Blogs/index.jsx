@@ -18,7 +18,7 @@ const Blogs = () => {
         setLoading(true)
         try {
             const res = await getBlogList()
-            console.log(res.data);
+           
             
             if (res.status === 200) {
                 setData({

@@ -1,4 +1,4 @@
-import Careers from '@/components/view/careers/Careers'
+ import Careers from '@/components/view/careers/Careers'
 import React from 'react'
 
 function page() {

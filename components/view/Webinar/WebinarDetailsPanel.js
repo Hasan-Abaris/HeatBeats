@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { getWebinarDetails, registerWebinar } from '@/app/comman/FrontApi';
-import Loadar from '@/app/comman/Loader';
+import React, { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { getWebinarDetails, registerWebinar } from "@/app/comman/FrontApi";
+import Loadar from "@/app/comman/Loader";
 
 export default function WebinarDetailsPanel() {
   const { id } = useParams();
   const [webinar, setWebinar] = useState(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
-    email: '',
-    experience: '',
-    phone: '',
+    email: "",
+    experience: "",
+    phone: "",
     subscribe: false,
   });
   const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -24,9 +24,9 @@ export default function WebinarDetailsPanel() {
         setLoading(true);
         const res = await getWebinarDetails(id);
         setWebinar(res.data.data);
-        setLoading(false);
       } catch (err) {
         console.error("Failed to fetch webinar details", err);
+      } finally {
         setLoading(false);
       }
     };
@@ -38,41 +38,44 @@ export default function WebinarDetailsPanel() {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage('');
+    setMessage("");
     setSubmitting(true);
 
     const payload = {
       email: form.email,
       phone: form.phone,
       experience_level: form.experience,
-      receive_updates: form.subscribe ? 'Yes' : 'No',
+      receive_updates: form.subscribe ? "Yes" : "No",
     };
 
     try {
       await registerWebinar(id, payload);
-      setMessage('Successfully registered!');
+      setMessage("Successfully registered!");
     } catch (error) {
-      console.error('Registration failed:', error);
-      setMessage('Registration failed. Please try again.');
+      console.error("Registration failed:", error);
+      setMessage("Registration failed. Please try again.");
     } finally {
       setSubmitting(false);
     }
   };
 
   if (loading) return <Loadar />;
-  if (!webinar) return <div className="text-red-500 p-4">Webinar not found or failed to load.</div>;
+  if (!webinar)
+    return (
+      <div className="text-red-500 p-4">
+        Webinar not found or failed to load.
+      </div>
+    );
 
   const { description } = webinar;
-  const agendaList =
-    typeof webinar.agenda === 'string' ? webinar.agenda.split('\n') : webinar.agenda || [];
-  const factsList =
-    typeof webinar.facts === 'string' ? webinar.facts.split('\n') : webinar.facts || [];
+  const agendaHTML = webinar.agenda || "";
+  const factsHTML = webinar.facts || "";
 
   return (
     <div className="flex flex-col md:flex-row gap-8 p-6">
@@ -85,27 +88,27 @@ export default function WebinarDetailsPanel() {
 
         <div>
           <h2 className="text-lg font-bold mb-2">AGENDA</h2>
-          <ul className="list-disc pl-6 text-sm text-gray-700 space-y-1">
-            {agendaList.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
+          <div
+            className="text-sm text-gray-700"
+            dangerouslySetInnerHTML={{ __html: agendaHTML }}
+          />
         </div>
 
         <div>
           <h2 className="text-lg font-bold mb-2">Webinar Facts</h2>
-          <div className="border border-dashed border-teal-400 p-4 text-sm text-gray-700 space-y-2">
-            {factsList.map((fact, idx) => (
-              <p key={idx}>• {fact}</p>
-            ))}
-          </div>
+          <div
+            className="border border-dashed border-teal-400 p-4 text-sm text-gray-700"
+            dangerouslySetInnerHTML={{ __html: factsHTML }}
+          />
         </div>
       </div>
 
       {/* Right: Registration Form */}
       <div className="w-full md:max-w-sm border rounded-md p-6 shadow-md">
         <h3 className="text-md font-semibold mb-4 flex items-center gap-2">
-          <span role="img" aria-label="icon">📅</span>
+          <span role="img" aria-label="icon">
+            📅
+          </span>
           RESERVE YOUR SPOT NOW
         </h3>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -169,7 +172,7 @@ export default function WebinarDetailsPanel() {
             disabled={submitting}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md text-sm font-semibold"
           >
-            {submitting ? 'Submitting...' : 'SUBMIT'}
+            {submitting ? "Submitting..." : "SUBMIT"}
           </button>
         </form>
       </div>

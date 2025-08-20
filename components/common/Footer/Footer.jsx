@@ -8,6 +8,7 @@ import {
   getBlogList,
   getAllCourseCategories,
   getAllMenus,
+  getSiteSettings, // ✅ new
 } from "@/app/comman/FrontApi";
 
 export default function Footer() {
@@ -15,15 +16,18 @@ export default function Footer() {
   const [topics, setTopics] = useState([]);
   const [categories, setCategories] = useState([]);
   const [menusData, setMenusData] = useState({});
+  const [siteSettings, setSiteSettings] = useState({}); // ✅ new state
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [blogsRes, categoriesRes, menusRes] = await Promise.all([
-          getBlogList(),
-          getAllCourseCategories(),
-          getAllMenus(),
-        ]);
+        const [blogsRes, categoriesRes, menusRes, siteSettingsRes] =
+          await Promise.all([
+            getBlogList(),
+            getAllCourseCategories(),
+            getAllMenus(),
+            getSiteSettings(), // ✅ new call
+          ]);
 
         // Blogs
         if (blogsRes?.data?.status && Array.isArray(blogsRes.data.data)) {
@@ -38,6 +42,7 @@ export default function Footer() {
           setCategories(categoriesRes.data.data);
         }
 
+        // Menus
         if (menusRes?.data?.status && menusRes.data.data) {
           console.log("Raw Menus API Data:", menusRes.data.data); // debug
           const filteredMenus = Object.fromEntries(
@@ -48,6 +53,12 @@ export default function Footer() {
           console.log("Filtered Menus:", filteredMenus); // debug
           setMenusData(filteredMenus);
         }
+
+        // ✅ Site Settings
+        if (siteSettingsRes?.data?.status && siteSettingsRes.data.data) {
+          console.log("Site Settings:", siteSettingsRes.data.data);
+          setSiteSettings(siteSettingsRes.data.data);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -55,7 +66,6 @@ export default function Footer() {
 
     fetchData();
   }, []);
-
   // ✅ Static footer data
   const footerData = {
     TRENDING_CERTIFICATION_COURSES: [
@@ -245,48 +255,45 @@ export default function Footer() {
             )}
           </ul>
         </div>
+{/* BOTTOM STRIP */}
+<div className="mt-10 border-t pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white">
+  {/* ✅ Left side (Address + Copyright) */}
+  <div className="flex flex-col text-center md:text-left">
+    <p className="text-lg text-gray-300 max-w-lg  ">
+      Address:{" "} 
+      <br />
+      {siteSettings?.["site.address"] || "Company address not available"}
+    </p>
+    <p className="text-sm text-white mt-5">
+      {siteSettings?.["site.copyright_text"] || "© 2025 All Rights Reserved."}
+    </p>
+  </div>
 
-        {/* BOTTOM STRIP */}
-        <div className="mt-10 border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white">
-          <p>
-            © 2025 SLA Consultants India. All rights reserved. Version 1.2 Last
-            Demo 19 August, 2025 space Final
-          </p>
-          <ul className="flex space-x-5">
-            <li>
-              <Link
-                href="#"
-                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
-              >
-                <FaFacebookF />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
-              >
-                <FaInstagram />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
-              >
-                <FaTwitter />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
-              >
-                <FaGithub />
-              </Link>
-            </li>
-          </ul>
-        </div>
+  {/* ✅ Right side (Socials) */}
+  <ul className="flex justify-center md:justify-end space-x-5">
+    <li>
+      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
+        <FaFacebookF />
+      </Link>
+    </li>
+    <li>
+      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
+        <FaInstagram />
+      </Link>
+    </li>
+    <li>
+      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
+        <FaTwitter />
+      </Link>
+    </li>
+    <li>
+      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
+        <FaGithub />
+      </Link>
+    </li>
+  </ul>
+</div>
+
       </div>
     </footer>
   );

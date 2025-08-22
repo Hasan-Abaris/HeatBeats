@@ -281,7 +281,7 @@ const AllCourses = () => {
             courses.map((item) => {
               return (
                 <div key={item.id} className="bg-white p-8 rounded shadow-sm">
-                  <Link href={`/courses-detail/${item.id}`}>
+                  <Link href={`/all-courses/${item.id}`}>
                     <div className="block">
                       <span className="px-3 rounded text-light text-sm inline-flex items-center gap-2 bgAntiquewhite">
                         <SlGraph /> Course

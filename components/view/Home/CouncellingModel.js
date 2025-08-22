@@ -88,12 +88,25 @@ function CounsellingModel() {
 
       {isOpen && (
         <div className="bg-white p-4 animate-slide-up">
-          {/* Avatars */}
-          <div className="flex justify-center space-x-2 mb-4">
-            <img src="https://via.placeholder.com/40" alt="avatar1" className="w-10 h-10 rounded-full border" />
-            <img src="https://via.placeholder.com/40" alt="avatar2" className="w-10 h-10 rounded-full border" />
-            <img src="https://via.placeholder.com/40" alt="avatar3" className="w-10 h-10 rounded-full border" />
-          </div>
+       {/* Avatars */}
+<div className="flex justify-center space-x-2 mb-4">
+  <img 
+    src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1" 
+    alt="avatar1" 
+    className="w-10 h-10 rounded-full border" 
+  />
+  <img 
+    src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1" 
+    alt="avatar2" 
+    className="w-10 h-10 rounded-full border" 
+  />
+  <img 
+    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1" 
+    alt="avatar3" 
+    className="w-10 h-10 rounded-full border" 
+  />
+</div>
+
 
           {/* Phone Info */}
           <div className="flex items-center mb-4">

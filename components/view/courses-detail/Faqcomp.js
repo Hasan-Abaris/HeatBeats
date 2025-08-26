@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { submitCounsellorQuery } from "@/app/comman/FrontApi"; // Import the API function
 
 const curriculumData = [
   {
@@ -40,14 +41,38 @@ const curriculumData = [
 
 export default function Faqcomp() {
   const [openIndex, setOpenIndex] = useState(0);
+  const [formData, setFormData] = useState({ query: '', phone: '', email: '' });
+  const [formStatus, setFormStatus] = useState({ loading: false, message: '' });
 
   const toggleSection = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ loading: true, message: '' });
+
+    try {
+      const response = await submitCounsellorQuery(formData);
+      const result = response.data; // Assuming API returns data in response.data
+      if (result.status) {
+        setFormStatus({ loading: false, message: result.message || 'Request submitted successfully!' });
+        setFormData({ query: '', phone: '', email: '' }); // Reset form
+      } else {
+        setFormStatus({ loading: false, message: result.message || 'Failed to submit. Try again.' });
+      }
+    } catch (error) {
+      setFormStatus({ loading: false, message: 'An error occurred. Please try again.' });
+    }
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen p-6 font-sans">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-100 min-h-screen p-4 sm:p-6 font-sans">
+      <div className="w-full max-w-7xl mx-auto">
         <h1 className="text-2xl font-semibold text-center mb-4">Curriculum Designed by Experts</h1>
 
         <div className="text-center mb-6">
@@ -67,6 +92,8 @@ export default function Faqcomp() {
                 <div
                   className="flex justify-between items-center border-b pb-2 cursor-pointer"
                   onClick={() => toggleSection(idx)}
+                  role="button"
+                  aria-expanded={openIndex === idx}
                 >
                   <h3 className="text-lg font-semibold">{section.title}</h3>
                   <span className="text-sm text-gray-600">{section.topicsCount} Topics</span>
@@ -120,30 +147,59 @@ export default function Faqcomp() {
           <div className="bg-white shadow rounded p-6">
             <h4 className="text-lg font-semibold text-gray-800">Free Career Counselling</h4>
             <p className="text-sm text-gray-600 mb-4">We are happy to help you 24/7</p>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Email Id</label>
+                <label className="block text-sm font-medium text-gray-700" htmlFor="query">
+                  Query
+                </label>
                 <input
-                  type="email"
+                  type="text"
+                  name="query"
+                  value={formData.query}
+                  onChange={handleInputChange}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm p-2"
-                  placeholder="Enter your email*"
+                  placeholder="Enter your query*"
+                  required
+                  aria-required="true"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-                <div className="flex">
-                  <select className="border-gray-300 rounded-l-md text-sm p-2">
-                    <option>IN</option>
-                  </select>
-                  <input
-                    type="tel"
-                    className="border-gray-300 rounded-r-md shadow-sm text-sm p-2 flex-1"
-                    placeholder="Enter Phone Number *"
-                  />
-                </div>
+                <label className="block text-sm font-medium text-gray-700" htmlFor="phone">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm p-2"
+                  placeholder="Enter Phone Number *"
+                  required
+                  aria-required="true"
+                />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700" htmlFor="email">
+                  Email Id
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-sm p-2"
+                  placeholder="Enter your email*"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              {formStatus.message && (
+                <p className={`text-sm ${formStatus.message.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
+                  {formStatus.message}
+                </p>
+              )}
               <p className="text-xs text-gray-500">
-                Please Note: By continuing and signing in, you agree to Edureka's{' '}
+                Please Note: By continuing and signing in, you agree to our{' '}
                 <a className="underline" href="#">
                   Terms & Conditions
                 </a>{' '}
@@ -152,8 +208,14 @@ export default function Faqcomp() {
                   Privacy Policy
                 </a>.
               </p>
-              <button type="submit" className="w-full bg-blue-700 text-white py-2 rounded text-sm font-semibold">
-                Submit
+              <button
+                type="submit"
+                disabled={formStatus.loading}
+                className={`w-full py-2 rounded text-sm font-semibold text-white ${
+                  formStatus.loading ? 'bg-blue-500 opacity-50 cursor-not-allowed' : 'bg-blue-700 hover:bg-blue-800'
+                }`}
+              >
+                {formStatus.loading ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>

@@ -108,6 +108,10 @@ export const searchCourses = (query) =>
   axios.get(`${baseUrl}course/search?query=${query}`, {
     headers: { "X-API-Key": xApiKey },
   });
+export const getCoursesByCourseCategory = (courseCategoryId) =>
+  axios.get(`${baseUrl}course/get-all-courses?course_category_id=${courseCategoryId}`, {
+    headers: { "X-API-Key": xApiKey },
+  });
 
 // ✅ NEW: Popular Courses API
 export const getPopularCourses = () =>

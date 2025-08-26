@@ -1,62 +1,80 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
-import toast from 'react-hot-toast';
+import Link from "next/link";
+import { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/components/ui/tabs';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import Loadar from '@/app/comman/Loader';
-import { login } from '@/app/comman/FrontApi';
-import { ErrorTosters, Tosters } from '@/app/comman/Tosters';
-import { useRouter } from 'next/navigation';
+} from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Loadar from "@/app/comman/Loader";
+import { login } from "@/app/comman/FrontApi";
+import { ErrorTosters, Tosters } from "@/app/comman/Tosters";
+import { useRouter } from "next/navigation";
+
 export default function LoginPage() {
   const router = useRouter();
 
-  const [studentData, setStudentData] = useState({ username: '', password: '' });
-  const [employerData, setEmployerData] = useState({ email: '', password: '' });
+  const [studentData, setStudentData] = useState({ username: "", password: "" });
+  const [employerData, setEmployerData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const handleStudentLogin = async () => {
-    // e.preventDefault();
-    setLoading(true)
+
+  // 🔹 Student login
+  const handleStudentLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
     try {
       const res = await login(studentData);
       if (res.status === 200) {
+        const userData = res.data.data.user; // check if it's "user" or "username"
         localStorage.setItem("token", res.data.data.token);
-        Tosters('logged in successfully!')
-        setLoading(false);
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        Tosters("Logged in successfully!");
         setTimeout(() => {
-
-          router.push('/')
-        }, 2000);
+          router.push("/");
+        }, 1500);
       }
-
     } catch (err) {
-      console.log(err);
-      
+      console.error(err);
+      ErrorTosters(err?.response?.data?.message || "Login failed!");
+    } finally {
       setLoading(false);
-      ErrorTosters(err?.response?.data?.message)
     }
   };
 
-  const handleEmployerLogin = async () => {
+  // 🔹 Employer login
+  const handleEmployerLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       if (!employerData.email || !employerData.password) {
-        toast.error('Please fill in all fields');
+        toast.error("Please fill in all fields");
         return;
       }
-      toast.success('Employer logged in!');
-      router.push('/');
+
+      const res = await login(employerData);
+      if (res.status === 200) {
+        const userData = res.data.data.user;
+        localStorage.setItem("token", res.data.data.token);
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        Tosters("Employer logged in successfully!");
+        setTimeout(() => {
+          router.push("/");
+        }, 1500);
+      }
     } catch (error) {
-      toast.error('Employer login failed!');
+      console.error("Employer login error:", error);
+      ErrorTosters(error?.response?.data?.message || "Employer login failed!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -80,7 +98,9 @@ export default function LoginPage() {
                   type="text"
                   placeholder="username"
                   value={studentData.username}
-                  onChange={(e) => setStudentData({ ...studentData, username: e.target.value })}
+                  onChange={(e) =>
+                    setStudentData({ ...studentData, username: e.target.value })
+                  }
                 />
               </div>
               <div className="relative">
@@ -90,10 +110,15 @@ export default function LoginPage() {
                   type="password"
                   placeholder="Password"
                   value={studentData.password}
-                  onChange={(e) => setStudentData({ ...studentData, password: e.target.value })}
+                  onChange={(e) =>
+                    setStudentData({ ...studentData, password: e.target.value })
+                  }
                 />
               </div>
-              <button type="button" onClick={handleStudentLogin} className="bg-[#002D74] text-white py-2 rounded hover:scale-105 duration-300">
+              <button
+                type="submit"
+                className="bg-[#002D74] text-white py-2 rounded hover:scale-105 duration-300"
+              >
                 Login
               </button>
 
@@ -103,7 +128,10 @@ export default function LoginPage() {
                 <hr className="border-gray-400" />
               </div>
 
-              <button type="button" className="bg-white border py-2 w-full rounded mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]">
+              <button
+                type="button"
+                className="bg-white border py-2 w-full rounded mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]"
+              >
                 <FcGoogle />
                 <span className="pl-2">Login with Google</span>
               </button>
@@ -113,7 +141,10 @@ export default function LoginPage() {
               </div>
               <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
                 <p>Don't have an account?</p>
-                <Link href="/signup" className="py-2 px-5 bg-white border rounded hover:scale-110 duration-300">
+                <Link
+                  href="/signup"
+                  className="py-2 px-5 bg-white border rounded hover:scale-110 duration-300"
+                >
                   Register
                 </Link>
               </div>
@@ -130,7 +161,9 @@ export default function LoginPage() {
                   type="email"
                   placeholder="employer@example.com"
                   value={employerData.email}
-                  onChange={(e) => setEmployerData({ ...employerData, email: e.target.value })}
+                  onChange={(e) =>
+                    setEmployerData({ ...employerData, email: e.target.value })
+                  }
                 />
               </div>
               <div className="relative">
@@ -140,10 +173,15 @@ export default function LoginPage() {
                   type="password"
                   placeholder="Password"
                   value={employerData.password}
-                  onChange={(e) => setEmployerData({ ...employerData, password: e.target.value })}
+                  onChange={(e) =>
+                    setEmployerData({ ...employerData, password: e.target.value })
+                  }
                 />
               </div>
-              <button type="submit" className="bg-[#002D74] text-white py-2 rounded hover:scale-105 duration-300">
+              <button
+                type="submit"
+                className="bg-[#002D74] text-white py-2 rounded hover:scale-105 duration-300"
+              >
                 Login
               </button>
 
@@ -152,7 +190,10 @@ export default function LoginPage() {
               </div>
               <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
                 <p>Don't have an account?</p>
-                <Link href="/signup" className="py-2 px-5 bg-white border rounded hover:scale-110 duration-300">
+                <Link
+                  href="/signup"
+                  className="py-2 px-5 bg-white border rounded hover:scale-110 duration-300"
+                >
                   Register
                 </Link>
               </div>

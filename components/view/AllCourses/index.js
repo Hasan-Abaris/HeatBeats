@@ -12,12 +12,17 @@ import {
   getAllCourseCategoriesV2,
   searchCourses,
   submitCounsellorQuery,
+  getCoursesByCourseCategory,
+  getCategiryList, // Use this for Section 1
 } from "@/app/comman/FrontApi";
 import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState([]);
   const [categoriesList, setCategoriesList] = useState([
+    { id: 0, name: "All Courses" },
+  ]);
+  const [courseCategoriesList, setCourseCategoriesList] = useState([
     { id: 0, name: "All Courses" },
   ]);
   const [activeCategory, setActiveCategory] = useState(0);
@@ -36,7 +41,7 @@ const AllCourses = () => {
   "AllCourses - xApiKey:", xApiKey;
 
   useEffect(() => {
-    if (!baseUrl || !xApiKey) {
+       if (!baseUrl || !xApiKey) {
       setError(
         "API configuration error: baseUrl or xApiKey is missing or invalid."
       );
@@ -61,47 +66,70 @@ const AllCourses = () => {
         { id: 0, name: "All Courses" },
         { id: "1", name: "Test Category" },
       ]);
+      setCourseCategoriesList([
+        { id: 0, name: "All Courses" },
+        { id: "1", name: "Test Category" },
+      ]);
       setLoading(false);
       return;
     }
-  }, []);
 
-  useEffect(() => {
-    if (!baseUrl || !xApiKey) return;
-    const fetchInitialData = async () => {
+    // Fetch categories for Section 1 (Top Tabs) from getCategiryList
+    const fetchCategories = async () => {
       try {
         setLoading(true);
         setError(null);
-        ("Fetching initial data...");
-        const [coursesRes, categoriesRes] = await Promise.all([
-          getAllCourses(),
-          getAllCourseCategoriesV2(),
-        ]);
-        "Courses Response:", JSON.stringify(coursesRes.data, null, 2);
-        "Categories Response:", JSON.stringify(categoriesRes.data, null, 2);
-        const coursesData = coursesRes.data?.data || [];
-        const categoriesData = categoriesRes.data?.data || [];
-        if (!Array.isArray(coursesData))
-          throw new Error("Invalid courses data");
-        if (!Array.isArray(categoriesData))
-          throw new Error("Invalid categories data");
-        setCourses(coursesData);
-        setCategoriesList([{ id: 0, name: "All Courses" }, ...categoriesData]);
+        const response = await getCategiryList();
+        "Categories Response:", JSON.stringify(response.data, null, 2);
+        if (response.data.status && response.data.data) {
+          const sortedCategories = response.data.data.sort(
+            (a, b) => a.order - b.order
+          );
+          setCategoriesList([
+            { id: 0, name: "All Courses" },
+            ...sortedCategories.map((category) => ({
+              id: category.id,
+              name: category.name,
+              isTechnical: true, // Assuming all categories are technical
+            })),
+          ]);
+        } else {
+          throw new Error("No categories found");
+        }
       } catch (err) {
-        setError(`Failed to load data: ${err.message}`);
+        setError(`Failed to load categories: ${err.message}`);
         console.error("Fetch error:", err.message, err.response?.data);
-        setCourses([
-          {
-            id: "11",
-            name: "Test Course",
-            description: "Test",
-            certificate: "Test",
-            duration: "4 weeks",
-            mode: "Online",
-            startDate: "Flexible",
-          },
-        ]);
         setCategoriesList([
+          { id: 0, name: "All Courses" },
+          { id: "1", name: "Test Category" },
+        ]);
+      }
+    };
+
+    // Fetch categories for Section 2 (Lower Tabs) from getAllCourseCategoriesV2
+    const fetchCourseCategories = async () => {
+      try {
+        const response = await getAllCourseCategoriesV2();
+        "Course Categories Response:", JSON.stringify(response.data, null, 2);
+        if (response.data.status && response.data.data) {
+          const sortedCategories = response.data.data.sort(
+            (a, b) => (a.order || 0) - (b.order || 0) // Adjust if order field differs
+          );
+          setCourseCategoriesList([
+            { id: 0, name: "All Courses" },
+            ...sortedCategories.map((category) => ({
+              id: category.id,
+              name: category.name,
+              isTechnical: true, // Assuming all categories are technical
+            })),
+          ]);
+        } else {
+          throw new Error("No course categories found");
+        }
+      } catch (err) {
+        setError(`Failed to load course categories: ${err.message}`);
+        console.error("Fetch error:", err.message, err.response?.data);
+        setCourseCategoriesList([
           { id: 0, name: "All Courses" },
           { id: "1", name: "Test Category" },
         ]);
@@ -109,10 +137,18 @@ const AllCourses = () => {
         setLoading(false);
       }
     };
-    fetchInitialData();
+
+    // Fetch all courses on mount
+    const fetchInitialCourses = async () => {
+      await fetchCourses(0, false); // Fetch all courses for "All Courses" category
+    };
+
+    fetchCategories();
+    fetchCourseCategories();
+    fetchInitialCourses();
   }, []);
 
-  const fetchCourses = async (categoryId = 0) => {
+  const fetchCourses = async (categoryId = 0, isTechnical = false) => {
     if (!baseUrl || !xApiKey) {
       setError("API configuration error: baseUrl or xApiKey is missing.");
       return;
@@ -120,18 +156,33 @@ const AllCourses = () => {
     try {
       setLoading(true);
       setError(null);
-      `Fetching courses for categoryId: ${categoryId}`;
-      const response =
-        categoryId === 0
-          ? await getAllCourses()
-          : await getCoursesByCategory(categoryId);
+      `Fetching courses for categoryId: ${categoryId}, isTechnical: ${isTechnical}`;
+
+      let response;
+      if (categoryId === 0) {
+        response = await getAllCourses();
+      } else if (isTechnical) {
+        response = await getCoursesByCourseCategory(categoryId);
+      } else {
+        response = await getCoursesByCategory(categoryId);
+      }
+
       "Fetch Courses Response:", JSON.stringify(response.data, null, 2);
       const coursesData = response.data?.data || [];
       if (!Array.isArray(coursesData)) throw new Error("Invalid courses data");
+
       setCourses(
         coursesData.map((course) => ({
           ...course,
-          id: course.id.toString(), // Ensure id is a string for consistency with Link
+          id: course.id.toString(),
+          certificate: course.course_features?.some(
+            (f) => f.name === "Industry Recognised Certification"
+          )
+            ? "Available"
+            : "Unavailable",
+          duration: course.duration || "Not Available",
+          mode: course.mode || "Online",
+          startDate: course.start_date || "Flexible",
         }))
       );
     } catch (err) {
@@ -163,7 +214,7 @@ const AllCourses = () => {
       setCourses(
         coursesData.map((course) => ({
           ...course,
-          id: course.id.toString(), // Ensure id is a string for consistency with Link
+          id: course.id.toString(),
         }))
       );
     } catch (err) {
@@ -200,14 +251,15 @@ const AllCourses = () => {
     }
   };
 
-  const handleCategoryClick = (id) => {
+  const handleCategoryClick = (id, isTechnical = false) => {
     setSearchQuery("");
     setActiveCategory(id);
-    fetchCourses(id);
+    fetchCourses(id, isTechnical);
   };
 
-  "Render - Courses:", courses.map((c) => ({ id: c.id, name: c.name })); // Log only id and name for brevity
+  "Render - Courses:", courses.map((c) => ({ id: c.id, name: c.name }));
   "Render - Categories:", categoriesList;
+  "Render - Course Categories:", courseCategoriesList;
   "Render - Loading:", loading, "Error:", error;
 
   return (
@@ -216,44 +268,11 @@ const AllCourses = () => {
         Choose a category to find your course
       </h3>
       <p>70+ Live online courses chosen by 3000+ working professionals</p>
-      <form onSubmit={handleSearch} className="my-6 flex gap-4 flex-wrap">
-        <input
-          type="text"
-          placeholder="Search course..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="border px-4 py-2 rounded w-full md:w-[300px]"
-          disabled={loading}
-        />
-        <button
-          type="submit"
-          className="bg-blue-900 text-white px-6 py-2 rounded"
-          disabled={loading}
-        >
-          {loading ? "Searching..." : "Search"}
-        </button>
-        {searchQuery && (
-          <button
-            type="button"
-            onClick={() => {
-              setSearchQuery("");
-              fetchCourses();
-            }}
-            className="text-blue-800 underline text-sm"
-            disabled={loading}
-          >
-            Clear Search
-          </button>
-        )}
-      </form>
-      {categoriesList.length === 1 && !loading && (
-        <p className="text-red-600">No categories available</p>
-      )}
       <ul className="flex gap-4 flex-wrap my-6">
         {categoriesList.map((item) => (
           <li
             key={item.id}
-            onClick={() => handleCategoryClick(item.id)}
+            onClick={() => handleCategoryClick(item.id, item.isTechnical)}
             className="cursor-pointer"
           >
             {item.id === activeCategory ? (
@@ -268,6 +287,30 @@ const AllCourses = () => {
           </li>
         ))}
       </ul>
+
+      {categoriesList.length === 1 && !loading && (
+        <p className="text-red-600">No categories available</p>
+      )}
+      <ul className="flex gap-4 flex-wrap my-6">
+        {courseCategoriesList.map((item) => (
+          <li
+            key={item.id}
+            onClick={() => handleCategoryClick(item.id, item.isTechnical)}
+            className="cursor-pointer"
+          >
+            {item.id === activeCategory ? (
+              <span className="bg-blue-900 px-6 py-3 text-white rounded inline-block">
+                {item.name}
+              </span>
+            ) : (
+              <span className="text-blue px-6 py-3 bg-white rounded inline-block hover:bg-blue-900 hover:text-white">
+                {item.name}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+
       {loading ? (
         <p>Loading courses...</p>
       ) : error ? (
@@ -281,7 +324,7 @@ const AllCourses = () => {
             courses.map((item) => {
               return (
                 <div key={item.id} className="bg-white p-8 rounded shadow-sm">
-                  <Link href={`/all-courses/${item.id}`}>
+                  <Link href={`/courses-detail/${item.id}`}>
                     <div className="block">
                       <span className="px-3 rounded text-light text-sm inline-flex items-center gap-2 bgAntiquewhite">
                         <SlGraph /> Course
@@ -331,68 +374,7 @@ const AllCourses = () => {
           )}
         </div>
       )}
-      <div className="mt-16 bg-white p-8 rounded shadow-sm">
-        <h3 className="text-xl font-semibold mb-4">
-          Need help choosing a course?
-        </h3>
-        {submitted ? (
-          <p className="text-green-600">Submitted successfully!</p>
-        ) : (
-          <form onSubmit={handleCounsellorSubmit} className="grid gap-4">
-            <input
-              type="text"
-              placeholder="Name"
-              required
-              value={counsellor.name}
-              onChange={(e) =>
-                setCounsellor({ ...counsellor, name: e.target.value })
-              }
-              className="border p-2 rounded"
-              disabled={loading}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              value={counsellor.email}
-              onChange={(e) =>
-                setCounsellor({ ...counsellor, email: e.target.value })
-              }
-              className="border p-2 rounded"
-              disabled={loading}
-            />
-            <input
-              type="tel"
-              placeholder="Phone"
-              required
-              value={counsellor.phone}
-              onChange={(e) =>
-                setCounsellor({ ...counsellor, phone: e.target.value })
-              }
-              className="border p-2 rounded"
-              disabled={loading}
-            />
-            <textarea
-              placeholder="What would you like to know?"
-              required
-              value={counsellor.query}
-              onChange={(e) =>
-                setCounsellor({ ...counsellor, query: e.target.value })
-              }
-              className="border p-2 rounded"
-              rows={3}
-              disabled={loading}
-            />
-            <button
-              type="submit"
-              className="bg-blue-900 text-white px-6 py-2 rounded"
-              disabled={loading}
-            >
-              {loading ? "Submitting..." : "Submit Query"}
-            </button>
-          </form>
-        )}
-      </div>
+
     </section>
   );
 };

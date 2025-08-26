@@ -1,21 +1,44 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
-import data from "@/data/trndingData.json";
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import Cards from "./Cards";
 import Link from "next/link";
+import { getCoursesByCourseCategory } from "@/app/comman/FrontApi";
 
-function TrendingCard() {
-  const TrendingCourse = data?.trendingCourses || [];
+function TrendingCard({ selectedCategory }) {
+  const [TrendingCourse, setTrendingCourse] = useState([]);
   const containerRef = useRef(null);
   const cardRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
 
+  // ✅ Fetch courses whenever selectedCategory changes
+  useEffect(() => {
+    async function fetchCourses() {
+      try {
+        let res;
+        if (selectedCategory === "all") {
+          // fetch all courses (no filter)
+          res = await getCoursesByCourseCategory(); 
+        } else {
+          // fetch courses by category id
+          res = await getCoursesByCourseCategory(selectedCategory);
+        }
+
+        const apiCourses = res?.data?.data || [];
+        setTrendingCourse(apiCourses);
+        setCurrentIndex(0); // reset scroll to start
+      } catch (err) {
+        console.error("Failed to fetch courses:", err);
+        setTrendingCourse([]);
+      }
+    }
+    fetchCourses();
+  }, [selectedCategory]);
+
   const scrollToIndex = (index) => {
     const container = containerRef.current;
     const card = cardRef.current;
-
     if (container && card) {
       const cardWidth = card.offsetWidth;
       container.scrollTo({ left: cardWidth * index, behavior: "smooth" });
@@ -25,13 +48,13 @@ function TrendingCard() {
   const updateMaxIndex = () => {
     const screenWidth = window.innerWidth;
     const visibleCards = screenWidth >= 1024 ? 4 : screenWidth >= 640 ? 2 : 1;
-    const max = TrendingCourse.length - visibleCards;
+    const max = (TrendingCourse?.length || 0) - visibleCards;
     setMaxIndex(max >= 0 ? max : 0);
   };
 
   useEffect(() => {
     scrollToIndex(currentIndex);
-  }, [currentIndex]);
+  }, [currentIndex, TrendingCourse]);
 
   useEffect(() => {
     updateMaxIndex();
@@ -47,12 +70,11 @@ function TrendingCard() {
       >
         {TrendingCourse.map((course, idx) => (
           <div
-            key={idx}
+            key={course?.id ?? idx}
             ref={idx === 0 ? cardRef : null}
             className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 p-2 snap-start"
           >
             <div>
-              <Cards data={course} />
               <Cards data={course} />
             </div>
           </div>
@@ -76,7 +98,6 @@ function TrendingCard() {
         </button>
       </div>
 
-      {/* ✅ Working Link to All Courses Page */}
       <div className="flex justify-center mb-4 text-center mt-6">
         <Link
           href="/all-courses"

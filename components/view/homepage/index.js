@@ -20,20 +20,19 @@ import Loader from "@/app/comman/Loader";
 import {
   getClientsList,
   getSiteSettings,
-  getMenuBySlug,
   getCategiryList,
 } from "@/app/comman/FrontApi";
 import axios from "axios";
 import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropright } from "react-icons/io";
+import { FiMenu } from "react-icons/fi"; // ✅ Menu icon (3 equal lines)
 
 function HomePageNew() {
   const [isOpen, setIsOpen] = useState({ skills: false, counselling: false });
   const [opacity, setOpacity] = useState(60);
   const [allClients, setClients] = useState([]);
   const [siteSettings, setSiteSettings] = useState(null);
-  const [menus, setMenus] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // category states
@@ -55,11 +54,7 @@ function HomePageNew() {
       const resSettings = await getSiteSettings();
       if (resSettings.status === 200) setSiteSettings(resSettings.data.data);
 
-      // ✅ Fetch single menu by slug
-      const resMenus = await getMenuBySlug("header-menu");
-      if (resMenus.status === 200) setMenus(resMenus.data.data);
-
-      // category
+      // ✅ fetch category list
       const resCat = await getCategiryList();
       if (resCat.status === 200) {
         setStore(resCat.data.data || []);
@@ -107,9 +102,9 @@ function HomePageNew() {
         />
       )}
 
-      {/* menu bar */}
-      <ul className="flex gap-6 py-2 bg-gray-100">
-        {/* LEFT: category dropdown */}
+      {/* ===== Header Menu Bar ===== */}
+      <ul className="flex gap-10 py-2 bg-gray-100">
+        {/* LEFT: Browse Courses dropdown */}
         <li className="relative group text-blue-800 text-lg">
           <button
             className="border px-4 py-1 flex items-center gap-2"
@@ -120,7 +115,7 @@ function HomePageNew() {
 
           <div className="absolute left-0 hidden group-hover:block bg-white border rounded mt-1 w-[800px] h-[400px] z-40">
             <div className="flex h-full">
-              {/* left list */}
+              {/* left list - categories */}
               <div className="flex-1 border-r overflow-auto bg-gray-100">
                 <ul>
                   {store.map((item) => (
@@ -136,7 +131,7 @@ function HomePageNew() {
                 </ul>
               </div>
 
-              {/* mid courses */}
+              {/* mid list - courses */}
               <div className="flex-1 border-r overflow-auto bg-gray-100">
                 <ul>
                   {courses?.length > 0 ? (
@@ -151,7 +146,7 @@ function HomePageNew() {
                 </ul>
               </div>
 
-              {/* right details */}
+              {/* right - details */}
               <div className="flex-1 p-4">
                 {courses[0] ? (
                   <>
@@ -168,27 +163,35 @@ function HomePageNew() {
           </div>
         </li>
 
-        {/* CENTER menus */}
-        {menus?.["header-menu"]?.map((m) => (
-          <li key={m.id} className="relative text-blue-800 text-lg group">
-            <a href={m.route ? `/${m.route}` : "#"}>{m.title}</a>
-            {m.children?.length > 0 && (
-              <div className="absolute left-0 mt-2 bg-white border rounded shadow hidden group-hover:block z-10">
-                {m.children.map((c) => (
-                  <a
-                    href={c.route ? `/${c.route}` : "#"}
-                    key={c.id}
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    {c.title}
-                  </a>
-                ))}
-              </div>
-            )}
+        {/* CENTER: show first 10 categories inline */}
+        {store.slice(0, 10).map((cat) => (
+          <li key={cat.id} className="relative text-blue-800 text-lg group">
+            <a href={`/category/${cat.slug || cat.id}`}>{cat.name}</a>
           </li>
         ))}
+
+        {/* More categories in dropdown if > 10 */}
+        {store.length > 10 && (
+          <li className="relative text-blue-800 text-lg group">
+            <button className="px-2">
+              <FiMenu size={20} /> {/* ✅ Menu icon */}
+            </button>
+            <div className="absolute left-0 mt-2 bg-white border rounded shadow hidden group-hover:block z-10 min-w-[200px]">
+              {store.slice(10).map((cat) => (
+                <a
+                  key={cat.id}
+                  href={`/category/${cat.slug || cat.id}`}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  {cat.name}
+                </a>
+              ))}
+            </div>
+          </li>
+        )}
       </ul>
 
+      {/* ===== Sections ===== */}
       <Banner />
       <TrendingCourses />
       <CareerRelatedPrograms />

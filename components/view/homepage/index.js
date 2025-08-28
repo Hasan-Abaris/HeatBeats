@@ -26,7 +26,9 @@ import axios from "axios";
 import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropright } from "react-icons/io";
-import { FiMenu } from "react-icons/fi"; // ✅ Menu icon (3 equal lines)
+import { FiMenu } from "react-icons/fi"; // 
+
+import Link from "next/link";
 
 function HomePageNew() {
   const [isOpen, setIsOpen] = useState({ skills: false, counselling: false });
@@ -92,7 +94,11 @@ function HomePageNew() {
   return (
     <div className="w-full relative">
       {isOpen.skills && (
-        <UpskillModel isOpen={isOpen.skills} setIsOpen={setIsOpen} opacity={opacity} />
+        <UpskillModel
+          isOpen={isOpen.skills}
+          setIsOpen={setIsOpen}
+          opacity={opacity}
+        />
       )}
       {isOpen.counselling && (
         <CouncellingModel
@@ -136,7 +142,10 @@ function HomePageNew() {
                 <ul>
                   {courses?.length > 0 ? (
                     courses.map((course) => (
-                      <li key={course.id} className="p-2 hover:bg-white cursor-pointer">
+                      <li
+                        key={course.id}
+                        className="p-2 hover:bg-white cursor-pointer"
+                      >
                         {course.name}
                       </li>
                     ))
@@ -178,13 +187,13 @@ function HomePageNew() {
             </button>
             <div className="absolute left-0 mt-2 bg-white border rounded shadow hidden group-hover:block z-10 min-w-[200px]">
               {store.slice(10).map((cat) => (
-                <a
+                <Link
                   key={cat.id}
                   href={`/category/${cat.slug || cat.id}`}
                   className="block px-4 py-2 hover:bg-gray-100"
                 >
                   {cat.name}
-                </a>
+                </Link>
               ))}
             </div>
           </li>

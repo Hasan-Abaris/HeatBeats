@@ -1,5 +1,7 @@
 // src/components/CourseDescription.js
 import React from 'react';
+import Link from "next/link";
+
 
 const CourseDescription = ({ courses }) => (
   <section className="p-8 w-[60vw] mx-auto">

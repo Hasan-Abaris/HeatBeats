@@ -1,5 +1,7 @@
 'use client';
 import React, { useState } from 'react';
+import Link from "next/link";
+
 
 export default function FAQ({ faqs, topic }) {
   const [openIndex, setOpenIndex] = useState(null);

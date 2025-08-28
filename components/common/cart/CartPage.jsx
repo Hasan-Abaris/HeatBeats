@@ -1,26 +1,20 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'Modern Office Chair',
-      price: 2999,
-      quantity: 1,
-      image: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 2,
-      name: 'Wooden Study Table',
-      price: 4999,
-      quantity: 2,
-      image: 'https://via.placeholder.com/80',
-    },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
+
+  // Example: load cart items from localStorage or API
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(storedCart);
+  }, []);
 
   const handleRemove = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // keep storage updated
   };
 
   const getTotalPrice = () => {
@@ -36,16 +30,27 @@ const CartPage = () => {
       ) : (
         <div className="space-y-6">
           {cartItems.map((item) => (
-            <div key={item.id} className="flex items-center justify-between bg-white p-4 rounded shadow">
+            <div
+              key={item.id}
+              className="flex items-center justify-between bg-white p-4 rounded shadow"
+            >
               <div className="flex items-center space-x-4">
-                <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded" />
+                <img
+                  src={item.thumbnail || "/course-placeholder.jpg"}
+                  alt={item.title}
+                  className="w-20 h-20 object-cover rounded"
+                />
                 <div>
-                  <h2 className="font-semibold text-lg">{item.name}</h2>
-                  <p className="text-gray-600">₹{item.price} x {item.quantity}</p>
+                  <h2 className="font-semibold text-lg">{item.title}</h2>
+                  <p className="text-gray-600">
+                    ₹{item.price} x {item.quantity}
+                  </p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="font-bold text-xl">₹{item.price * item.quantity}</p>
+                <p className="font-bold text-xl">
+                  ₹{item.price * item.quantity}
+                </p>
                 <button
                   onClick={() => handleRemove(item.id)}
                   className="mt-2 text-sm text-red-500 hover:underline"
@@ -58,9 +63,11 @@ const CartPage = () => {
 
           <div className="text-right mt-6">
             <h3 className="text-xl font-bold">Total: ₹{getTotalPrice()}</h3>
-            <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-              Proceed to Checkout
-            </button>
+            <Link href="/checkout">
+              <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                Proceed to Checkout
+              </button>
+            </Link>
           </div>
         </div>
       )}

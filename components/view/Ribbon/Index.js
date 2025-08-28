@@ -8,6 +8,8 @@ import FAQ from './FAQ';
 import LatestBlogPosts from './LatestBlogPosts';
 import TopCategories from './TopCategories';
 import allCourses from '@/data/allcourses';
+import Link from "next/link";
+
 
 export default function Ribbon({ topic }) {
   const [filteredCourses, setFilteredCourses] = useState([]);

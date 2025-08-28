@@ -1,5 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
+import Link from "next/link";
+
 
 export default function LatestBlogPosts({ posts, topic }) {
   const viewportRef = useRef();

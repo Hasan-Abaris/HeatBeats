@@ -131,19 +131,10 @@ export default function SignupPage() {
               onChange={handleChange}
               required
             />
-            {formData.username && (
-              <p
-                className={`text-sm ${
-                  usernameAvailable ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {usernameAvailable === true
-                  ? " Username is available"
-                  : usernameAvailable === false
-                  ? " Username already taken"
-                  : ""}
-              </p>
+            {formData.username && usernameAvailable === false && (
+              <p className="text-sm text-red-600">❌ Username already taken</p>
             )}
+
             <input
               className="p-2 rounded-xl border text-sm"
               type="password"

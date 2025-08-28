@@ -19,7 +19,7 @@ export default function SearchPage() {
 
   // form states
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState(""); // ✅ renamed wish → email
+  const [email, setEmail] = useState("");
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState("");
 
@@ -67,11 +67,7 @@ export default function SearchPage() {
     setFormMessage("");
     setFormError("");
 
-    "📞 Submitting callback request with data:",
-      {
-        phone,
-        email,
-      };
+    console.log("📞 Submitting callback request with data:", { phone, email });
 
     try {
       const res = await getRequestCall({ phone, email });

@@ -110,7 +110,6 @@ export function Header() {
     };
   }, []);
 
-  // ✅ Fetch courses when hovered category changes
   useEffect(() => {
     const fetchCourses = async () => {
       if (!hoveredItem) return;
@@ -158,12 +157,19 @@ export function Header() {
               {!saleisActive ? (
                 <span>(Toll Free)</span>
               ) : (
-                <span className="cursor-pointer" onClick={() => showModels(true)}>
+                <span
+                  className="cursor-pointer"
+                  onClick={() => showModels(true)}
+                >
                   <FaCaretDown />
                 </span>
               )}
               {models && (
-                <CallModel isOpen={models} setIsOpen={showModels} settings={settings} />
+                <CallModel
+                  isOpen={models}
+                  setIsOpen={showModels}
+                  settings={settings}
+                />
               )}
             </li>
           </ul>
@@ -176,7 +182,10 @@ export function Header() {
                 }}
               />
               {settings["site.promo_button_url"] && (
-                <Link href={settings["site.promo_button_url"]} className="text-yellow-200 underline">
+                <Link
+                  href={settings["site.promo_button_url"]}
+                  className="text-yellow-200 underline"
+                >
                   Know more
                 </Link>
               )}
@@ -192,7 +201,8 @@ export function Header() {
           <Link href="/">
             <img
               src={
-                settings?.data?.image_base_url && settings?.data?.["site.header_logo"]
+                settings?.data?.image_base_url &&
+                settings?.data?.["site.header_logo"]
                   ? `${settings.data.image_base_url}/${settings.data["site.header_logo"]}`
                   : "/images/main-logo.png"
               }
@@ -247,7 +257,9 @@ export function Header() {
                           </li>
                         ))
                       ) : (
-                        <li className="p-2 text-sm text-gray-500">No courses available</li>
+                        <li className="p-2 text-sm text-gray-500">
+                          No courses available
+                        </li>
                       )}
                     </ul>
                   </div>
@@ -263,7 +275,11 @@ export function Header() {
                         </h2>
                         <div className="flex items-center text-sm text-gray-600 mb-2">
                           <span className="flex items-center mr-4">
-                            <svg className="w-4 h-4 text-blue-600 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <svg
+                              className="w-4 h-4 text-blue-600 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
                               <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM2 18a8 8 0 1116 0H2z" />
                             </svg>
                             <span className="text-blue-600 font-medium">
@@ -276,7 +292,9 @@ export function Header() {
                         </p>
                       </>
                     ) : (
-                      <p className="text-sm text-gray-600 mb-2">No course selected</p>
+                      <p className="text-sm text-gray-600 mb-2">
+                        No course selected
+                      </p>
                     )}
                     <button className="w-full text-blue-600 border border-blue-600 rounded-md py-2 hover:bg-blue-50 transition">
                       View Course Details
@@ -342,13 +360,38 @@ export function Header() {
                   {profileOpen && (
                     <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden z-50">
                       <Link
-                        href="/profile"
+                        href="/my-profile-settings/my-profile"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
                         My Profile
                       </Link>
                       <Link
-                        href="/settings"
+                        href="/my-profile-settings/order"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        My Orders
+                      </Link>
+                      <Link
+                        href="/my-profile-settings/referral"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        My Wallet
+                      </Link>
+                      <Link
+                        href="/my-profile-settings/my-wish-list"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        My Wishlist
+                      </Link>
+                      <Link
+                        href="/my-activity"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        Activity stream
+                      </Link>
+
+                      <Link
+                        href="/my-profile-settings/my-profile"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
                         Settings

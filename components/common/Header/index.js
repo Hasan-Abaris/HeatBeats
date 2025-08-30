@@ -9,6 +9,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropright } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import { FaBars } from "react-icons/fa";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -28,6 +29,7 @@ export function Header() {
   const [saleisActive, setSaleIsActive] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [models, showModels] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const [store, setStore] = useState([]);
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -53,7 +55,7 @@ export function Header() {
       const getData = await getCategiryList();
       if (getData.status === 200 && getData.data?.data) {
         setStore(getData.data.data);
-        setHoveredItem(getData.data.data[0]);
+        setHoveredItem(getData.data.data[0]); // Fixed: Replaced setById with setHoveredItem
       }
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -64,7 +66,6 @@ export function Header() {
     if (!hoveredItem && store.length) setHoveredItem(store[0]);
   };
 
-  // ✅ Fetch settings + categories on mount
   useEffect(() => {
     const fetchInit = async () => {
       setLoading(true);
@@ -74,10 +75,10 @@ export function Header() {
     fetchInit();
   }, []);
 
-  // ✅ Check login on mount
+  const token = localStorage.getItem("token");
+  const storedUser = localStorage.getItem("user");
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const storedUser = localStorage.getItem("user");
     if (token && storedUser) {
       setUser(JSON.parse(storedUser));
       setIsLoggedIn(true);
@@ -85,9 +86,8 @@ export function Header() {
       setUser(null);
       setIsLoggedIn(false);
     }
-  }, []);
+  }, [token, storedUser]);
 
-  // ✅ Listen for login/logout events across app
   useEffect(() => {
     const handleAuthChange = () => {
       const token = localStorage.getItem("token");
@@ -129,7 +129,6 @@ export function Header() {
 
   const setIsDropdownOpen = (item) => setHoveredItem(item);
 
-  // ✅ Logout function
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -138,19 +137,19 @@ export function Header() {
     setProfileOpen(false);
 
     window.dispatchEvent(new Event("authChange"));
-    router.push("/"); // go to home page
+    router.push("/");
   };
 
   return (
     <>
       {loading && <Loadar />}
 
-      {/* top strip */}
+      {/* Top strip */}
       <div className="px-6 md:px-16 py-2 bgBlueDark">
-        <div className="flex justify-between flex-wrap">
+        <div className="flex justify-between flex-wrap items-center">
           <ul className="flex gap-6 flex-wrap">
             <li className="text-white flex gap-3 text-sm items-center">
-              <IoCallSharp /> New Course Enquiry :
+              <IoCallSharp /> New Course Enquiry:
             </li>
             <li className="text-white flex gap-3 text-sm items-center">
               {settings["site.phone"] || "+1 833 564 3321"}
@@ -194,10 +193,10 @@ export function Header() {
         </div>
       </div>
 
-      {/* main header */}
+      {/* Main header */}
       <header className="border-b flex justify-between items-center px-6 py-3 md:px-16 md:py-3 bg-white w-full">
-        {/* left: logo + category + search */}
-        <div className="flex gap-5 items-center">
+        {/* Left: logo + category + search */}
+        <div className="flex gap-5 items-center flex-wrap">
           <Link href="/">
             <img
               src={
@@ -206,15 +205,15 @@ export function Header() {
                   ? `${settings.data.image_base_url}/${settings.data["site.header_logo"]}`
                   : "/images/main-logo.png"
               }
-              width={240}
+              width={150}
               height={40}
-              className="md:h-full w-48"
+              className="w-48 md:h-full"
               alt="SLA logo"
             />
           </Link>
 
           <div className="flex gap-5 items-center">
-            {/* Category mega dropdown (left button) */}
+            {/* Category mega dropdown */}
             <div className="relative group">
               <button
                 className="textBlueDark border rounded text-white px-5 py-1 flex items-center gap-2 hover:bg-sky-700 hover:text-white"
@@ -296,7 +295,7 @@ export function Header() {
                         No course selected
                       </p>
                     )}
-                    <button className="w-full text-blue-600 border border-blue-600 rounded-md py-2 hover:bg-blue-50 transition">
+                    <button className="w-full text-blue-600 border border-blue-600 rounded-md py-2 text-sm hover:bg-blue-50 transition">
                       View Course Details
                     </button>
                   </div>
@@ -321,110 +320,217 @@ export function Header() {
           </div>
         </div>
 
-        {/* right: nav area */}
-        <div className="flex gap-5 items-center">
-          {!isLoggedIn && (
-            <div className="hidden lg:block">
-              <MegaMenu />
+        {/* Right: nav area */}
+        <div className="flex items-center">
+          {/* Hamburger menu for mobile */}
+          <button
+            className="lg:hidden textBlueDark text-xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <FaBars />
+          </button>
+
+          {/* Desktop navigation */}
+          <div className="hidden lg:flex gap-5 items-center">
+            {!isLoggedIn && <MegaMenu />}
+
+            <div className="flex gap-3 items-center">
+              {isLoggedIn ? (
+                <>
+                  <Link href="/refer" className="text-base textBlueDark">
+                    Refer
+                  </Link>
+                  <Link href="/all-courses" className="text-base textBlueDark">
+                    All Courses
+                  </Link>
+                  <Link href="/community" className="text-base textBlueDark">
+                    Community
+                  </Link>
+                  <button className="text-xl textBlueDark">
+                    <FaBell />
+                  </button>
+                  <div className="relative">
+                    <button
+                      className="text-xl textBlueDark flex items-center"
+                      onClick={() => setProfileOpen(!profileOpen)}
+                    >
+                      <FiUser />
+                      <span className="ml-1 text-base">
+                        {user?.username || "User"}
+                      </span>
+                      <MdOutlineArrowDropDown className="text-2xl" />
+                    </button>
+                    {profileOpen && (
+                      <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden z-50">
+                        <Link
+                          href="/my-profile-settings/my-profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          My Profile
+                        </Link>
+                        <Link
+                          href="/my-profile-settings/order"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          My Orders
+                        </Link>
+                        <Link
+                          href="/my-profile-settings/referral"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          My Wallet
+                        </Link>
+                        <Link
+                          href="/my-profile-settings/my-wish-list"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          My Wishlist
+                        </Link>
+                        <Link
+                          href="/my-activity"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Activity stream
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/signup"
+                    className="text-base whitespace-nowrap px-3 py-1 rounded textBlueDark border-2"
+                    style={{ borderColor: "#005483" }}
+                  >
+                    Sign Up
+                  </Link>
+                  <Link
+                    href="/login"
+                    className="text-base whitespace-nowrap px-3 py-1 rounded textBlueDark border-2"
+                    style={{ borderColor: "#005483" }}
+                  >
+                    Log in
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Mobile navigation */}
+          {menuOpen && (
+            <div className="absolute top-full left-0 w-full bg-white shadow-lg lg:hidden z-50">
+              <div className="flex flex-col p-4">
+                {!isLoggedIn && <MegaMenu />}
+                {isLoggedIn ? (
+                  <>
+                    <Link
+                      href="/refer"
+                      className="text-base textBlueDark py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Refer
+                    </Link>
+                    <Link
+                      href="/all-courses"
+                      className="text-base textBlueDark py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      All Courses
+                    </Link>
+                    <Link
+                      href="/community"
+                      className="text-base textBlueDark py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Community
+                    </Link>
+                    <div className="relative">
+                      <button
+                        className="text-base textBlueDark flex items-center py-2"
+                        onClick={() => setProfileOpen(!profileOpen)}
+                      >
+                        <FiUser />
+                        <span className="ml-1">{user?.username || "User"}</span>
+                        <MdOutlineArrowDropDown className="text-xl" />
+                      </button>
+                      {profileOpen && (
+                        <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden mt-2">
+                          <Link
+                            href="/my-profile-settings/my-profile"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            My Profile
+                          </Link>
+                          <Link
+                            href="/my-profile-settings/order"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            My Orders
+                          </Link>
+                          <Link
+                            href="/my-profile-settings/referral"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            My Wallet
+                          </Link>
+                          <Link
+                            href="/my-profile-settings/my-wish-list"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            My Wishlist
+                          </Link>
+                          <Link
+                            href="/my-activity"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            Activity stream
+                          </Link>
+                          <button
+                            onClick={() => {
+                              handleLogout();
+                              setMenuOpen(false);
+                            }}
+                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            Logout
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/signup"
+                      className="text-base textBlueDark py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Sign Up
+                    </Link>
+                    <Link
+                      href="/login"
+                      className="text-base textBlueDark py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Log in
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
           )}
-
-          <div className="flex gap-3 items-center">
-            {isLoggedIn ? (
-              <>
-                <Link href="/refer" className="text-base textBlueDark">
-                  Refer
-                </Link>
-                <Link href="/all-courses" className="text-base textBlueDark">
-                  All Courses
-                </Link>
-                <Link href="/community" className="text-base textBlueDark">
-                  Community
-                </Link>
-
-                <button className="text-xl textBlueDark">
-                  <FaBell />
-                </button>
-
-                {/* profile dropdown */}
-                <div className="relative">
-                  <button
-                    className="text-xl textBlueDark flex items-center"
-                    onClick={() => setProfileOpen(!profileOpen)}
-                  >
-                    <FiUser />
-                    <span className="ml-1">{user?.username || "User"}</span>
-                    <MdOutlineArrowDropDown className="text-2xl" />
-                  </button>
-
-                  {profileOpen && (
-                    <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-hidden z-50">
-                      <Link
-                        href="/my-profile-settings/my-profile"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        My Profile
-                      </Link>
-                      <Link
-                        href="/my-profile-settings/order"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        My Orders
-                      </Link>
-                      <Link
-                        href="/my-profile-settings/referral"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        My Wallet
-                      </Link>
-                      <Link
-                        href="/my-profile-settings/my-wish-list"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        My Wishlist
-                      </Link>
-                      <Link
-                        href="/my-activity"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Activity stream
-                      </Link>
-
-                      <Link
-                        href="/my-profile-settings/my-profile"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Settings
-                      </Link>
-                      <button
-                        onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        Logout
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/signup"
-                  className="text-base whitespace-nowrap px-3 py-1 rounded textBlueDark border-2"
-                  style={{ borderColor: "#005483" }}
-                >
-                  Sign Up
-                </Link>
-                <Link
-                  href="/login"
-                  className="text-base border-2 whitespace-nowrap px-3 py-1 rounded textBlueDark"
-                  style={{ borderColor: "#005483" }}
-                >
-                  Log in
-                </Link>
-              </>
-            )}
-          </div>
         </div>
       </header>
     </>

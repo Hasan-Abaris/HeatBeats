@@ -42,7 +42,7 @@ function TrendingCard({ selectedCategory }) {
       id: 4,
       title: "Among Us Strategies",
       category: " ",
-      image: "/images/Courses/amongus.jpg",
+      image: "/images/Courses/amongus-course.jpg",
       description: "Learn how to play as crewmate or impostor.",
       link: "/Courses/amongus",
     },

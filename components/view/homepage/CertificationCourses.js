@@ -40,7 +40,7 @@ const data = [
     rating: 4.5,
     reviews: 1300,
     stars: 4,
-    image: "/images/courses/amongus-certification.jpg",
+    image: "/images/courses/amongus.jpg",
     description: "Get certified in deception and teamwork psychology through Among Us.",
     link: "/courses/amongus-cert",
   },

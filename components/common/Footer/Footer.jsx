@@ -91,7 +91,7 @@ export default function Footer() {
           {/* Business Section */}
           <div>
             <h3 className="text-lg font-bold text-white pb-2 mb-4 text-center sm:text-start">
-              GAMEEDU FOR BUSINESS
+              HeatBeasts FOR BUSINESS
             </h3>
             <ul className="space-y-3 text-white text-center sm:text-start">
               {footerData.GAME_EDU_FOR_BUSINESS.map((item, index) => (
@@ -176,15 +176,30 @@ export default function Footer() {
 
         {/* BOTTOM STRIP */}
         <div className="mt-10 border-t pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white">
-          <div className="flex flex-col text-center md:text-left">
-            <p className="text-lg text-gray-300 max-w-lg">
-              Address:
-              <br />
-              GameEdu HQ, 42 Pixel Street, Tech City, Gamingland 400001
-            </p>
-            <p className="text-sm text-white mt-5">
-              © 2025 GameEdu. All Rights Reserved Abaris Software.
-            </p>
+          <div className="flex flex-col text-center md:text-left space-y-6">
+            {/* Address */}
+            <div>
+              <p className="text-lg text-gray-300 max-w-lg mx-auto md:mx-0">
+                <strong>Address:</strong>
+                <br />
+                HeatBeasts HQ, 42 Pixel Street, Tech City, Gamingland 400001
+              </p>
+            </div>
+
+            {/* Copyright & Developer Link */}
+            <div>
+              <p className="text-sm text-white">
+                © 2025 HeatBeasts. Powered by:
+                <a
+                  href="https://abarissoftech.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:underline ml-1"
+                >
+                  Abaris Softech
+                </a>
+              </p>
+            </div>
           </div>
 
           {/* Socials */}

@@ -4,31 +4,47 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 import Cards from "./Cards";
 
 const data = [
-     {
-      "title": "Business Intelligence Internship Program with PwC Academy Certification",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Mastering DevOps: Automating the Software Delivery Pipeline Program by PwC",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps CoursesArtificial Intelligence in Supply Chain Management Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "REST Assured API Testing Certification Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    }
-]
+  {
+    id: 1,
+    title: "Chess Masterclass Course",
+    rating: 4.7,
+    reviews: 1200,
+    stars: 5,
+    image: "/images/courses/chess-course.jpg",
+    description: "Learn advanced chess strategies and tactics.",
+    link: "/courses/chess",
+  },
+  {
+    id: 2,
+    title: "PUBG Masterclass Course",
+    rating: 4.6,
+    reviews: 980,
+    stars: 5,
+    image: "/images/courses/pubg-course.jpg",
+    description: "Master PUBG strategies and team coordination.",
+    link: "/courses/pubg",
+  },
+  {
+    id: 3,
+    title: "Among Us Strategy Course",
+    rating: 4.5,
+    reviews: 850,
+    stars: 4,
+    image: "/images/courses/amongus-course.jpg",
+    description: "Learn how to play Among Us effectively as crewmate or impostor.",
+    link: "/courses/amongus",
+  },
+  {
+    id: 4,
+    title: "Fall Guys Fun & Tactics",
+    rating: 4.6,
+    reviews: 720,
+    stars: 5,
+    image: "/images/courses/fallguys-course.jpg",
+    description: "Compete and win in colorful multiplayer challenges.",
+    link: "/courses/fallguys",
+  },
+];
 
 function RecentAdditions() {
     const TrendingCourse = data || [];
@@ -65,7 +81,7 @@ function RecentAdditions() {
     }, [TrendingCourse.length]);
     return (
         <div className="w-[1130px] mx-auto relative">
-            <h2 className="text-2xl font-bold mb-4 mt-6">Recent Additions</h2>
+            <h2 className="text-2xl font-bold mb-4 mt-6">Recent Courses Additions</h2>
             <div
                 ref={containerRef}
                 className="flex overflow-x-hidden snap-x snap-mandatory scroll-smooth"

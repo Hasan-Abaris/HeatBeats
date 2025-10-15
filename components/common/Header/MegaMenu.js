@@ -19,7 +19,7 @@ const MegaMenu = () => {
       </li>
 
       <li className="flex items-center cursor-pointer">
-        <Link href="/corporate-training" className="text-base textBlueDark">
+        <Link href="/corporate-t/aining" className="text-base textBlueDark">
           Corporate Training
         </Link>
       </li>

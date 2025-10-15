@@ -6,24 +6,43 @@ import { FaLinkedin } from "react-icons/fa";
 
 const data = [
   {
-    name: "K W Vinod Kumar",
-    role: "Senior Manager IT Operations",
-    course: "CISSP Certification Training",
-    feedback: "Grateful for an Exceptional Learning Experience! I would like to extend my heartfelt thanks to Sta...",
+    name: "Aarav Sharma",
+    role: "Game Developer Intern at Unity Studios",
+    course: "Advanced Game Development with Unity",
+    feedback:
+      "The course helped me master Unity scripting and 3D design. The mentors were industry pros who guided us with real-world game projects...",
     avatar: "/images/discoverimage/face.png",
   },
   {
-    name: "Devesh Bhatt",
-    role: "Data Analyst",
-    course: "Best Power BI Training Courses by ...",
-    feedback: "I took Power BI certification training course and the experience I had was very good. The Instructor...",
+    name: "Meera Patel",
+    role: "Esports Event Manager",
+    course: "Esports Management & Strategy Program",
+    feedback:
+      "Super insightful course! Learned how to manage gaming events, sponsorships, and online communities. Highly recommend for esports enthusiasts...",
     avatar: "/images/discoverimage/face.png",
   },
   {
-    name: "Harsha KR",
-    role: "Dotcom Senior Analyst",
-    course: "Data Science with Python Certifica...",
-    feedback: "I recently completed the Data Science with Python course from Edureka, and I’m excited to share my...",
+    name: "Rohan Gupta",
+    role: "YouTube Streamer & Content Creator",
+    course: "Streaming & Gaming Content Creation Masterclass",
+    feedback:
+      "Loved every bit of it! Learned how to optimize Twitch streams, grow audiences, and edit gaming highlights professionally...",
+    avatar: "/images/discoverimage/face.png",
+  },
+  {
+    name: "Sara Khan",
+    role: "Game Tester at PixelEdge Studios",
+    course: "Game QA Testing and Bug Reporting Certification",
+    feedback:
+      "An amazing start for my gaming career. The live projects gave real testing experience on mobile and PC titles...",
+    avatar: "/images/discoverimage/face.png",
+  },
+  {
+    name: "Yash Verma",
+    role: "Unreal Engine Developer",
+    course: "Unreal Engine Game Design Bootcamp",
+    feedback:
+      "Hands-on course that dives deep into environment design, lighting, and animation in Unreal Engine. Perfect for aspiring game designers...",
     avatar: "/images/discoverimage/face.png",
   },
 ];

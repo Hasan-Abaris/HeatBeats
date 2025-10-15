@@ -1,48 +1,54 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaInfinity } from "react-icons/fa";
+import { FaGamepad } from "react-icons/fa";
+import { FaTrophy } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import { FaChartLine } from "react-icons/fa";
 
+
 const features = [
   {
-    icon: <FaCheckCircle className="text-6xl text-teal-500" />,
-    title: "Real Time Doubt Resolution",
-    desc: "with Live Instructors",
+    icon: <FaGamepad className="text-6xl text-indigo-500" />,
+    title: "Live Game Coaching",
+    desc: "Train with expert gamers in real-time",
   },
   {
-    icon: <FaInfinity className="text-6xl text-purple-600" />,
-    title: "Unlimited Access",
-    desc: "to Online Learning Repository",
+    icon: <FaTrophy className="text-6xl text-yellow-500" />,
+    title: "Skill Challenges",
+    desc: "Compete in weekly gaming events",
   },
   {
-    icon: <FaClock className="text-6xl text-blue-600" />,
-    title: "24/7",
-    desc: "Learning Assistants to Guide When You Are Stuck",
+    icon: <FaClock className="text-6xl text-sky-500" />,
+    title: "24/7 Access",
+    desc: "Learn and play anytime you want",
   },
   {
-    icon: <FaChartLine className="text-6xl text-orange-500" />,
-    title: "Track Your",
-    desc: "Career Growth",
+    icon: <FaChartLine className="text-6xl text-green-500" />,
+    title: "Track Progress",
+    desc: "View your rank, badges, and achievements",
   },
 ];
 
 const news = [
   {
-    text: "Edureka offers the University of Cambridge Online’s new Generative AI Course for Business Professionals",
-    source: "CXOtoday.com",
+    text: "PUBG introduces the new 'Victory Arena' training mode for advanced players.",
+    source: "GameSpot",
   },
   {
-    text: "Edureka Launches Free Courses for Beginners in Data & AI",
-    source: "BusinessLine",
+    text: "Valorant adds a new Agent with game-changing abilities in its latest patch.",
+    source: "IGN",
   },
   {
-    text: "Edureka Expands Partnership With Leading Universities",
-    source: "TechCrunch",
+    text: "Ludo World Championship 2025 announced – registrations open now!",
+    source: "GamingToday",
+  },
+  {
+    text: "Chess Masters launches an online course for speed chess training.",
+    source: "eSportsNews",
   },
 ];
+;
 
 export default function SLAEdge() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,7 +58,7 @@ export default function SLAEdge() {
     <div className="w-[1130px] mx-auto relative m-4">
       <div className="max-w-[1200px] mx-auto">
 
-        <h2 className="text-lg font-semibold text-gray-800 mb-8">The SLA Edge</h2>
+        <h2 className="text-lg font-semibold text-gray-800 mb-8">The Game Edge</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
           {features.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center text-center">

@@ -1,41 +1,41 @@
 import Link from "next/link";
 
 const categories = [
-    {
-        title: "Artificial Intelligence",
-        icon: "/images/discoverimage/img1.png",
-        color: "text-[#F36C7A]",
-    },
-    {
-        title: "BI and Visualization",
-        icon: "/images/discoverimage/img2.png",
-        color: "text-[#4D7CFE]",
-    },
-    {
-        title: "Cloud Computing",
-        icon: "/images/discoverimage/img3.png",
-        color: "text-[#50C878]",
-    },
-    {
-        title: "DevOps",
-        icon: "/images/discoverimage/img4.png",
-        color: "text-[#B084F5]",
-    },
-    {
-        title: "Data Science",
-        icon: "/images/discoverimage/img5.png",
-        color: "text-[#00CFFF]",
-    },
-    {
-        title: "Cyber Security",
-        icon: "/images/discoverimage/img6.png",
-        color: "text-[#FFA726]",
-    },
-    {
-        title: "Programming & Frameworks",
-        icon: "/images/discoverimage/img7.png",
-        color: "text-[#FF5F9E]",
-    },
+  {
+    title: "PUBG Strategy Mastery",
+    icon: "/images/courses/pubg.jpg",
+    color: "text-[#F36C7A]",
+  },
+  {
+    title: "Chess for Beginners",
+    icon: "/images/courses/chess.jpg",
+    color: "text-[#4D7CFE]",
+  },
+  {
+    title: "Ludo Tactics and Tricks",
+    icon: "/images/courses/ludo.jpg",
+    color: "text-[#50C878]",
+  },
+  {
+    title: "Free Fire Pro Course",
+    icon: "/images/courses/freefire.jpg",
+    color: "text-[#B084F5]",
+  },
+  {
+    title: "Valorant Competitive Skills",
+    icon: "/images/courses/valorant.jpg",
+    color: "text-[#00CFFF]",
+  },
+  {
+    title: "Carrom Masterclass",
+    icon: "/images/courses/carrom.jpg",
+    color: "text-[#FFA726]",
+  },
+  {
+    title: "Snooker & Pool Training",
+    icon: "/images/courses/snooker.jpg",
+    color: "text-[#FF5F9E]",
+  },
 ];
 function DiscoverTopCategories() {
     return (

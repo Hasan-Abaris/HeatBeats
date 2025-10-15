@@ -5,59 +5,63 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useEffect, useState } from "react";
-import { getBannerDetails } from "@/app/comman/FrontApi";
 
 function Banner() {
-  const [banners, setBanners] = useState([]);
-
-  useEffect(() => {
-    async function fetchBannerData() {
-      try {
-        const res = await getBannerDetails(); // No ID needed since it returns grouped by location
-        const websiteBanners = res.data?.data?.["Website Promotion"] || [];
-        (res.data?.data);
-        ("Fetched Website Banners:", websiteBanners);
-
-
-
-        setBanners(websiteBanners); // Save banners to state
-      } catch (err) {
-        console.error("Failed to fetch banners:", err);
-      }
-    }
-    
-
-    fetchBannerData();
-  }, []);
+  // 🎮 Static banners (edit this array for your own banners)
+  const banners = [
+    {
+      id: 1,
+      image: "/images/banner1.jpg",
+      heading: "Play & Learn Online",
+      description: "Join live game-based learning with fun courses for all ages.",
+      buttonText: "Explore Games",
+      link: "/games",
+    },
+    {
+      id: 2,
+      image: "/images/banner2.jpg",
+      heading: "Join Live Gaming Classes",
+      description: "Learn chess, ludo, and strategy games from expert tutors.",
+      buttonText: "Start Learning",
+      link: "/courses",
+    },
+    {
+      id: 3,
+      image: "/images/banner3.jpg",
+      heading: "Top Tutors & Online Courses",
+      description: "Level up your gaming and learning skills together.",
+      buttonText: "View Courses",
+      link: "/tutors",
+    },
+  ];
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-96 bg-gray-200 relative">
+    <div className="relative w-full h-[450px] bg-gray-100 flex flex-col items-center justify-center">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 4000 }}
         loop
-        className="w-full h-[400px]"
+        className="w-full h-[450px]"
       >
         {banners.map((banner) => (
           <SwiperSlide key={banner.id}>
             <div
-              className="w-full h-full bg-cover bg-center flex items-center justify-center text-white relative"
+              className="w-full h-[450px] bg-cover bg-center flex items-center justify-center text-white relative"
               style={{
-                backgroundImage: `url(http://15.206.141.223/backend/public/uploads/banner/${banner.banner})`,
+                backgroundImage: `url(${banner.image})`,
               }}
             >
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <h2 className="text-2xl font-bold">{banner.heading}</h2>
-                <p className="text-sm mt-2">{banner.description}</p>
-                {banner.banner_link && banner.banner_button_text && (
+              <div className="bg-black bg-opacity-50 p-6 rounded-lg text-center max-w-xl mx-auto">
+                <h2 className="text-3xl font-bold mb-3">{banner.heading}</h2>
+                <p className="text-base mb-4">{banner.description}</p>
+                {banner.buttonText && banner.link && (
                   <a
-                    href={banner.banner_link}
-                    className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+                    href={banner.link}
+                    className="inline-block mt-2 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
                   >
-                    {banner.banner_button_text}
+                    {banner.buttonText}
                   </a>
                 )}
               </div>
@@ -66,12 +70,12 @@ function Banner() {
         ))}
       </Swiper>
 
-      {/* Static bottom cards */}
+      {/* Bottom category cards */}
       <div className="absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
         {[
-          { title: "DEVOPS ENGINEER", link: "#", active: false },
-          { title: "CLOUD ARCHITECT", link: "#", active: false },
-          { title: "DATA SCIENTIST", link: "#", active: false },
+          { title: "CHESS MASTER", link: "#", active: true },
+          { title: "LUDO EXPERT", link: "#", active: false },
+          { title: "PUBG STRATEGIST", link: "#", active: false },
         ].map((card, idx) => (
           <div
             key={idx}

@@ -1,60 +1,42 @@
 "use client";
+
 import { Menu, X } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import TrendingCard from "./TrendingCard";
-import { getCategiryList } from "@/app/comman/FrontApi";
 
 function TrendingCourses() {
-  const [categories, setCategories] = useState([]);
-  const [selected, setSelected] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selected, setSelected] = useState("all");
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
-    async function fetchCategories() {
-      try {
-        const res = await getCategiryList();
-        if (res.data?.status && Array.isArray(res.data.data)) {
-          const apiCategories = res.data.data
-            .sort((a, b) => a.order - b.order) // Sort by order
-            .map((cat) => ({
-              id: cat.id,
-              name: cat.name,
-            }));
-          setCategories(apiCategories);
-          setSelected(apiCategories[0]?.id || null); // Set first category as default
-        } else {
-          setCategories([{ id: "1", name: "General" }]);
-          setSelected("1");
-        }
-      } catch (error) {
-        console.error("Failed to fetch categories:", error);
-        setCategories([{ id: "1", name: "General" }]);
-        setSelected("1");
-      }
-    }
-    fetchCategories();
-  }, []);
+  // 🎮 Static categories (including Game Courses)
+  const categories = [
+    { id: "all", name: "All" },
+    { id: "board", name: "Board Games" },
+    { id: "esports", name: "Esports" },
+    { id: "multiplayer", name: "Multiplayer" },
+    { id: "casual", name: "Casual Games" },
+    { id: "puzzle", name: "Puzzle Games" },
+    { id: "gamecourses", name: "Game Courses" },
+  ];
 
-  const visibleCategories = categories.slice(0, 6); // Show first 6 inline
-  const hiddenCategories = categories.slice(6); // Show rest in dropdown
+  const visibleCategories = categories.slice(0, 6);
+  const hiddenCategories = categories.slice(6);
 
-  // Close dropdown if clicked outside
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setShowDropdown(false);
-      }
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setShowDropdown(false);
     }
+  };
+  if (typeof window !== "undefined") {
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }
 
   return (
-    <div className="p-4 mt-14 w-[1130px] mx-auto relative">
-      <h2 className="text-2xl font-bold mb-4">Trending Courses</h2>
+    <div className="p-4 mt-14 w-full max-w-[1130px] mx-auto relative">
+      <h2 className="text-2xl font-bold mb-4">Trending Game Courses</h2>
 
-      {/* Top Categories Row */}
+      {/* Categories */}
       <div className="flex items-center gap-4 border-b border-gray-200 bg-gray-50 px-4 py-2 text-sm text-gray-700 relative">
         {visibleCategories.map((category) => (
           <button
@@ -70,7 +52,6 @@ function TrendingCourses() {
           </button>
         ))}
 
-        {/* Menu Icon */}
         {hiddenCategories.length > 0 && (
           <div className="ml-auto relative" ref={dropdownRef}>
             <button
@@ -80,7 +61,6 @@ function TrendingCourses() {
               {showDropdown ? <X size={18} /> : <Menu size={18} />}
             </button>
 
-            {/* Dropdown */}
             {showDropdown && (
               <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-50">
                 {hiddenCategories.map((category) => (
@@ -105,7 +85,7 @@ function TrendingCourses() {
         )}
       </div>
 
-      {/* Courses */}
+      {/* Trending Cards */}
       <TrendingCard selectedCategory={selected} />
     </div>
   );

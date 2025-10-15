@@ -1,106 +1,44 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaFacebookF, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
 
-// ✅ Import API
-import {
-  getBlogList,
-  getAllCourseCategories,
-  getAllMenus,
-  getSiteSettings, // ✅ new
-} from "@/app/comman/FrontApi";
-
 export default function Footer() {
-  // ✅ API data state
-  const [topics, setTopics] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [menusData, setMenusData] = useState({});
-  const [siteSettings, setSiteSettings] = useState({}); // ✅ new state
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const [blogsRes, categoriesRes, menusRes, siteSettingsRes] =
-          await Promise.all([
-            getBlogList(),
-            getAllCourseCategories(),
-            getAllMenus(),
-            getSiteSettings(), // ✅ new call
-          ]);
-
-        // Blogs
-        if (blogsRes?.data?.status && Array.isArray(blogsRes.data.data)) {
-          setTopics(blogsRes.data.data);
-        }
-
-        // Categories
-        if (
-          categoriesRes?.data?.status &&
-          Array.isArray(categoriesRes.data.data)
-        ) {
-          setCategories(categoriesRes.data.data);
-        }
-
-        // Menus
-        if (menusRes?.data?.status && menusRes.data.data) {
-          console.log("Raw Menus API Data:", menusRes.data.data); // debug
-          const filteredMenus = Object.fromEntries(
-            Object.entries(menusRes.data.data).filter(
-              ([key]) => key !== "header-menu"
-            )
-          );
-          console.log("Filtered Menus:", filteredMenus); // debug
-          setMenusData(filteredMenus);
-        }
-
-        // ✅ Site Settings
-        if (siteSettingsRes?.data?.status && siteSettingsRes.data.data) {
-          console.log("Site Settings:", siteSettingsRes.data.data);
-          setSiteSettings(siteSettingsRes.data.data);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, []);
-  // ✅ Static footer data
+  // ✅ Static Footer Data (Games-based)
   const footerData = {
-    TRENDING_CERTIFICATION_COURSES: [
-      "DevOps Certification Training",
-      "AWS Certification Training",
-      "PMP Certification Training",
-      "Power BI Certification Training Course: PwC Academy",
-      "CEH Certification - Certified Ethical Hacking Course",
-      "Selenium Course",
-      "CISSP Certification Training",
-      "Microsoft Azure Data Engineering Training Course",
-      "Salesforce Training Course",
-      "PRINCE2® Foundation & Practitioner Certification Course",
-      "Tableau Certification Training Course",
-      "React JS Training Course",
-      "Prompt Engineering with Generative AI",
+    TRENDING_GAME_COURSES: [
+      "Unity Game Development Course",
+      "Unreal Engine 5 Masterclass",
+      "Mobile Game Design and Monetization",
+      "3D Game Environment Art with Blender",
+      "Multiplayer Game Programming with C#",
+      "AI for Game Developers",
+      "Game UI/UX Design Essentials",
+      "VR & AR Game Development Bootcamp",
+      "Character Animation for Games",
+      "Indie Game Publishing and Marketing",
+      "Level Design Mastery Course",
+      "Python for Game Automation",
+      "Roblox Game Creation Course",
     ],
-    TRENDING_MASTER_COURSES: [
-      "DevOps Engineer Course Masters Program",
-      "Project Management Training [Masters Program]",
-      "Cloud Architect Course",
-      "Full Stack Developer Course",
-      "Business Analyst Masters Course",
-      "Microsoft Azure Cloud Engineer Training",
-      "Automation Testing Courses [Masters Program]",
-      "Machine Learning Course Masters Program",
-      "Business Intelligence Masters Program",
-      "Post Graduate Program in DevOps",
-      "Advanced Certificate Program in Data Science and AI",
-      "PGP in Cyber Security and Ethical Hacking",
-      "Generative AI in Business: University of Cambridge Online",
-      "Human-Computer Interaction (HCI) for AI Systems Design",
-      "Post Graduate Program in Cloud Computing",
+    ADVANCED_GAME_MASTER_PROGRAMS: [
+      "Full Stack Game Developer Master Program",
+      "AAA Game Design and Production",
+      "Advanced Unreal Engine Developer Program",
+      "Metaverse Game Development Course",
+      "Professional 3D Game Art & Animation Program",
+      "Blockchain & NFT Game Development",
+      "Esports Management & Game Marketing",
+      "Cinematic Game Production Masterclass",
+      "AI & Machine Learning in Gaming",
+      "Advanced AR/VR Game Simulation Program",
+      "Cloud Gaming Infrastructure Program",
+      "Game Physics and Mathematics for Developers",
+      "Cross-Platform Game Development with Unity",
+      "Game Studio Entrepreneurship Program",
+      "Real-Time 3D Rendering Techniques",
     ],
-    SLA_Consultants_India_FOR_BUSINESS: ["Corporate Training", "Partners"],
+    GAME_EDU_FOR_BUSINESS: ["Corporate Game Training", "Partner With Us"],
   };
 
   return (
@@ -112,17 +50,17 @@ export default function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <h2 className="uppercase text-2xl">slaconsultants</h2>
+        <h2 className="uppercase text-2xl">HeatBeats</h2>
 
         {/* TOP GRID */}
         <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-10">
-          {/* Trending Certification Courses */}
+          {/* Trending Game Courses */}
           <div>
             <h3 className="text-lg font-bold text-white pb-2 mb-4 text-center sm:text-start">
-              TRENDING CERTIFICATION COURSES
+              TRENDING GAME COURSES
             </h3>
             <ul className="space-y-3 text-white text-center sm:text-start">
-              {footerData.TRENDING_CERTIFICATION_COURSES.map((item, index) => (
+              {footerData.TRENDING_GAME_COURSES.map((item, index) => (
                 <li
                   key={index}
                   className="text-sm cursor-pointer hover:text-[#FFD700] transition"
@@ -133,13 +71,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Trending Master Courses */}
+          {/* Advanced Master Game Programs */}
           <div>
             <h3 className="text-lg font-bold text-white pb-2 mb-4 text-center sm:text-start">
-              TRENDING MASTER COURSES
+              ADVANCED GAME MASTER PROGRAMS
             </h3>
             <ul className="space-y-3 text-white text-center sm:text-start">
-              {footerData.TRENDING_MASTER_COURSES.map((item, index) => (
+              {footerData.ADVANCED_GAME_MASTER_PROGRAMS.map((item, index) => (
                 <li
                   key={index}
                   className="text-sm hover:text-[#FFD700] transition"
@@ -150,22 +88,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* SLA For Business */}
+          {/* Business Section */}
           <div>
             <h3 className="text-lg font-bold text-white pb-2 mb-4 text-center sm:text-start">
-              SLA FOR BUSINESS
+              GAMEEDU FOR BUSINESS
             </h3>
             <ul className="space-y-3 text-white text-center sm:text-start">
-              {footerData.SLA_Consultants_India_FOR_BUSINESS.map(
-                (item, index) => (
-                  <li
-                    key={index}
-                    className="text-sm hover:text-[#FFD700] transition"
-                  >
-                    <Link href="/">{item}</Link>
-                  </li>
-                )
-              )}
+              {footerData.GAME_EDU_FOR_BUSINESS.map((item, index) => (
+                <li
+                  key={index}
+                  className="text-sm hover:text-[#FFD700] transition"
+                >
+                  <Link href="/">{item}</Link>
+                </li>
+              ))}
             </ul>
 
             {/* APP DOWNLOAD */}
@@ -195,105 +131,98 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* LINK GRIDS from API */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10 py-6 border-y border-[#521B1B]">
-          {Object.keys(menusData).map((menuKey) => (
-            <div key={menuKey}>
-              <h3 className="text-lg font-bold text-white pb-2 mb-4">
-                {menuKey.replace(/-/g, " ").toUpperCase()}
-              </h3>
-              <ul className="space-y-3 text-white">
-                {menusData[menuKey]?.map((item) => (
-                  <li
-                    key={item.id}
-                    className="text-sm hover:text-[#FFD700] transition"
-                  >
-                    <Link href={item.url || "#"}>{item.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* BLOG TOPICS */}
+        {/* BLOG TOPICS (Static) */}
         <div className="mt-6">
           <h3 className="text-lg font-bold text-white mb-4">
-            TRENDING BLOG ARTICLES
+            TRENDING GAME ARTICLES
           </h3>
           <ul className="flex flex-wrap gap-2 break-words text-white">
-            {topics.length > 0 ? (
-              topics.map((item) => (
-                <li
-                  key={item.id}
-                  className="text-sm hover:text-[#FFD700] transition"
-                >
-                  <Link href={`/blog/${item.slug}`}>{item.title} |</Link>
-                </li>
-              ))
-            ) : (
-              <li className="text-sm text-gray-400">No blogs available</li>
-            )}
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">Unity vs Unreal: Which Engine Wins? |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">The Rise of AI in Game Development |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">Top 10 Game Design Mistakes |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">How to Become a Game Developer in 2025 |</Link>
+            </li>
           </ul>
         </div>
 
-        {/* CATEGORIES */}
+        {/* CATEGORIES (Static) */}
         <div className="mt-6">
           <h3 className="text-lg font-bold text-white mb-4">CATEGORIES</h3>
           <ul className="flex flex-wrap gap-2 break-words text-white">
-            {categories.length > 0 ? (
-              categories.map((cat) => (
-                <li
-                  key={cat.id}
-                  className="text-sm hover:text-[#FFD700] transition"
-                >
-                  <Link href={`/category/${cat.slug}`}>{cat.name} |</Link>
-                </li>
-              ))
-            ) : (
-              <li className="text-sm text-gray-400">No categories available</li>
-            )}
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">Game Design |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">3D Art |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">Programming |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">AR/VR |</Link>
+            </li>
+            <li className="text-sm hover:text-[#FFD700] transition">
+              <Link href="/">Game Business |</Link>
+            </li>
           </ul>
         </div>
-{/* BOTTOM STRIP */}
-<div className="mt-10 border-t pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white">
-  {/* ✅ Left side (Address + Copyright) */}
-  <div className="flex flex-col text-center md:text-left">
-    <p className="text-lg text-gray-300 max-w-lg  ">
-      Address:{" "} 
-      <br />
-      {siteSettings?.["site.address"] || "Company address not available"}
-    </p>
-    <p className="text-sm text-white mt-5">
-      {siteSettings?.["site.copyright_text"] || "© 2025 All Rights Reserved."}
-    </p>
-  </div>
 
-  {/* ✅ Right side (Socials) */}
-  <ul className="flex justify-center md:justify-end space-x-5">
-    <li>
-      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
-        <FaFacebookF />
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
-        <FaInstagram />
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
-        <FaTwitter />
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded">
-        <FaGithub />
-      </Link>
-    </li>
-  </ul>
-</div>
+        {/* BOTTOM STRIP */}
+        <div className="mt-10 border-t pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white">
+          <div className="flex flex-col text-center md:text-left">
+            <p className="text-lg text-gray-300 max-w-lg">
+              Address:
+              <br />
+              GameEdu HQ, 42 Pixel Street, Tech City, Gamingland 400001
+            </p>
+            <p className="text-sm text-white mt-5">
+              © 2025 GameEdu. All Rights Reserved Abaris Software.
+            </p>
+          </div>
 
+          {/* Socials */}
+          <ul className="flex justify-center md:justify-end space-x-5">
+            <li>
+              <Link
+                href="#"
+                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
+              >
+                <FaFacebookF />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
+              >
+                <FaInstagram />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
+              >
+                <FaTwitter />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="w-8 h-8 flex items-center justify-center hover:bg-gray-900 rounded"
+              >
+                <FaGithub />
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );

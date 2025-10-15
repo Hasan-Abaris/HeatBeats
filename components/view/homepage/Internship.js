@@ -3,39 +3,59 @@ import React, { useRef, useState, useEffect } from "react";
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import Cards from "./Cards";
 
-const data = [
-     {
-      "title": "Business Intelligence Internship Program with PwC Academy Certification",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Mastering DevOps: Automating the Software Delivery Pipeline Program by PwC",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps CoursesArtificial Intelligence in Supply Chain Management Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps CoursesArtificial Intelligence in Supply Chain Management Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "REST Assured API Testing Certification Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    }
-]
 
+const data = [
+  {
+    id: 1,
+    title: "Game Development Internship with Unity Studios",
+    rating: 4.8,
+    reviews: 15200,
+    stars: 5,
+    image: "/images/Courses/unity.jpg",
+    description: "Work with mentors to build 2D/3D games using Unity and C#.",
+    link: "/Courses/game-dev-unity",
+  },
+  {
+    id: 2,
+    title: "Esports Management Internship with Global Gamers Arena",
+    rating: 4.7,
+    reviews: 9700,
+    stars: 4,
+    image: "/images/Courses/esports.jpg",
+    description: "Gain real-world experience managing esports teams and tournaments.",
+    link: "/Courses/esports-management",
+  },
+  {
+    id: 3,
+    title: "Game Design Internship by PixelEdge Academy",
+    rating: 4.6,
+    reviews: 8800,
+    stars: 4,
+    image: "/images/Courses/gamedesign.jpg",
+    description: "Learn storytelling, level design, and UI/UX in gaming projects.",
+    link: "/Courses/game-design",
+  },
+  {
+    id: 4,
+    title: "Online Streaming & Content Internship (Twitch/YouTube)",
+    rating: 4.9,
+    reviews: 10400,
+    stars: 5,
+    image: "/images/Courses/streaming.jpg",
+    description: "Intern with influencers and learn live streaming production.",
+    link: "/Courses/streaming",
+  },
+  {
+    id: 5,
+    title: "Mobile Game Testing Internship – Play & Earn Program",
+    rating: 4.5,
+    reviews: 7600,
+    stars: 4,
+    image: "/images/Courses/testing.jpg",
+    description: "Test pre-release games, report bugs, and improve gameplay UX.",
+    link: "/Courses/mobile-testing",
+  },
+];
 function Internship() {
     const TrendingCourse = data || [];
     const containerRef = useRef(null);

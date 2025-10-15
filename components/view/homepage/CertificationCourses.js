@@ -4,37 +4,57 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 import Cards from "./Cards";
 
 const data = [
-     {
-      "title": "Business Intelligence Internship Program with PwC Academy Certification",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Mastering DevOps: Automating the Software Delivery Pipeline Program by PwC",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps CoursesArtificial Intelligence in Supply Chain Management Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps CoursesArtificial Intelligence in Supply Chain Management Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "REST Assured API Testing Certification Course",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    }
-]
+  {
+    id: 1,
+    title: "Certified Chess Trainer Course",
+    rating: 4.8,
+    reviews: 2100,
+    stars: 5,
+    image: "/images/courses/chess-certification.jpg",
+    description: "Become a certified chess trainer and teach competitive-level strategies.",
+    link: "/courses/chess-trainer",
+  },
+  {
+    id: 2,
+    title: "Ludo Pro Coaching Certification",
+    rating: 4.6,
+    reviews: 1800,
+    stars: 4,
+    image: "/images/courses/ludo.jpg",
+    description: "Get certified as a Ludo coach and learn tournament-level techniques.",
+    link: "/courses/ludo-coach",
+  },
+  {
+    id: 3,
+    title: "Esports PUBG Coaching Certificate",
+    rating: 4.7,
+    reviews: 2500,
+    stars: 5,
+    image: "/images/courses/pubg-certification.jpg",
+    description: "Learn to coach and lead PUBG Esports teams with professional guidance.",
+    link: "/courses/pubg-cert",
+  },
+  {
+    id: 4,
+    title: "Among Us Psychology & Strategy Course",
+    rating: 4.5,
+    reviews: 1300,
+    stars: 4,
+    image: "/images/courses/amongus-certification.jpg",
+    description: "Get certified in deception and teamwork psychology through Among Us.",
+    link: "/courses/amongus-cert",
+  },
+  {
+    id: 5,
+    title: "Game Strategy Certification (All-Rounder)",
+    rating: 4.9,
+    reviews: 3000,
+    stars: 5,
+    image: "/images/courses/gamemaster-cert.jpg",
+    description: "Earn a professional certification covering multiple strategy games.",
+    link: "/courses/game-strategy-cert",
+  },
+];
 
 function CertificationCourses() {
     const TrendingCourse = data || [];
@@ -71,7 +91,7 @@ function CertificationCourses() {
     }, [TrendingCourse.length]);
     return (
         <div className="w-[1130px] mx-auto relative">
-            <h2 className="text-2xl font-bold mb-4 mt-6">Certification Courses</h2>
+            <h2 className="text-2xl font-bold mb-4 mt-6">Certification Game Courses</h2>
             <div
                 ref={containerRef}
                 className="flex overflow-x-hidden snap-x snap-mandatory scroll-smooth"

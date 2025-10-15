@@ -108,97 +108,7 @@ function HomePageNew() {
         />
       )}
 
-      {/* ===== Header Menu Bar ===== */}
-      <ul className="flex gap-10 py-2 bg-gray-100">
-        {/* LEFT: Browse Courses dropdown */}
-        <li className="relative group text-blue-800 text-lg">
-          <button
-            className="border px-4 py-1 flex items-center gap-2"
-            onMouseEnter={setIsDropdownOpendef}
-          >
-            Browse Courses <MdOutlineArrowDropDown />
-          </button>
-
-          <div className="absolute left-0 hidden group-hover:block bg-white border rounded mt-1 w-[800px] h-[400px] z-40">
-            <div className="flex h-full">
-              {/* left list - categories */}
-              <div className="flex-1 border-r overflow-auto bg-gray-100">
-                <ul>
-                  {store.map((item) => (
-                    <li
-                      key={item.id}
-                      onMouseEnter={() => setHoveredItem(item)}
-                      className="p-3 hover:bg-white cursor-pointer flex justify-between"
-                    >
-                      <span>{item.name}</span>
-                      <IoMdArrowDropright />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* mid list - courses */}
-              <div className="flex-1 border-r overflow-auto bg-gray-100">
-                <ul>
-                  {courses?.length > 0 ? (
-                    courses.map((course) => (
-                      <li
-                        key={course.id}
-                        className="p-2 hover:bg-white cursor-pointer"
-                      >
-                        {course.name}
-                      </li>
-                    ))
-                  ) : (
-                    <li className="p-2 text-sm text-gray-500">No courses</li>
-                  )}
-                </ul>
-              </div>
-
-              {/* right - details */}
-              <div className="flex-1 p-4">
-                {courses[0] ? (
-                  <>
-                    <h2 className="font-semibold">{courses[0].name}</h2>
-                    <p className="text-sm text-gray-600">
-                      {courses[0]?.desc || "No details available"}
-                    </p>
-                  </>
-                ) : (
-                  <p>No course selected</p>
-                )}
-              </div>
-            </div>
-          </div>
-        </li>
-
-        {/* CENTER: show first 10 categories inline */}
-        {store.slice(0, 10).map((cat) => (
-          <li key={cat.id} className="relative text-blue-800 text-lg group">
-            <a href={`/category/${cat.slug || cat.id}`}>{cat.name}</a>
-          </li>
-        ))}
-
-        {/* More categories in dropdown if > 10 */}
-        {store.length > 10 && (
-          <li className="relative text-blue-800 text-lg group">
-            <button className="px-2">
-              <FiMenu size={20} /> {/* ✅ Menu icon */}
-            </button>
-            <div className="absolute left-0 mt-2 bg-white border rounded shadow hidden group-hover:block z-10 min-w-[200px]">
-              {store.slice(10).map((cat) => (
-                <Link
-                  key={cat.id}
-                  href={`/category/${cat.slug || cat.id}`}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  {cat.name}
-                </Link>
-              ))}
-            </div>
-          </li>
-        )}
-      </ul>
+   
 
       {/* ===== Sections ===== */}
       <Banner />
@@ -214,7 +124,7 @@ function HomePageNew() {
       <Blogs />
       <SLAEdge />
       <SLABusiness />
-      <OurCorporateClients allclients={allClients} />
+      {/* <OurCorporateClients allclients={allClients} /> */}
     </div>
   );
 }

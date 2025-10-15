@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import LearningCard from "./Learningcard";
 import Articles from "./Articles";
 import MoreResources from "./MoreResources";
 import PopularArticles from './PopularArticles';
@@ -49,7 +48,6 @@ const Blogs = () => {
                     <h2 className="text-4xl text-center font-extrabold uppercase text-gray-900 tracking-wide mb-10">
                         What are you interested in learning?
                     </h2>
-                    <LearningCard />
                     <Articles data={data}/>
                     <MoreResources />
                     <PopularArticles />

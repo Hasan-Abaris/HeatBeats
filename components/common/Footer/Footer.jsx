@@ -57,7 +57,7 @@ export default function Footer() {
           {/* Trending Game Courses */}
           <div>
             <h3 className="text-lg font-bold text-white pb-2 mb-4 text-center sm:text-start">
-              TRENDING GAME COURSES Finallu
+              TRENDING GAME COURSES
             </h3>
             <ul className="space-y-3 text-white text-center sm:text-start">
               {footerData.TRENDING_GAME_COURSES.map((item, index) => (

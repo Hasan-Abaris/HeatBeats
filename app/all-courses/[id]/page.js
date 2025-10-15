@@ -1,7 +1,7 @@
-import { getAllCourses, getCourseDetails, getCoursesByCourseCategory } from "@/app/comman/FrontApi";
+import { getCourseDetails, getAllCourses } from "@/app/comman/FrontApi";
 import { notFound } from "next/navigation";
 
-// ✅ Generate static params for SSG
+// ✅ Pre-generate params for static export
 export async function generateStaticParams() {
   try {
     const res = await getAllCourses();
@@ -11,65 +11,51 @@ export async function generateStaticParams() {
       id: course.id.toString(),
     }));
   } catch (error) {
-    console.error("Error generating static params:", error);
+    console.error("Failed to fetch courses for static params:", error.message);
     return [];
   }
 }
 
-// ✅ Course Details Page
-const CourseDetailsPage = async ({ params }) => {
+export default async function CourseDetailsPage({ params }) {
   const { id } = params;
 
-  let course = null;
-  let relatedCourses = [];
+  console.log("CourseDetailsPage - Received id:", id);
 
   try {
     const res = await getCourseDetails(id);
-    course = res?.data?.data || null;
+    const course = res?.data?.data || null;
 
-    if (!course) return notFound();
-
-    // ✅ Fetch related courses from same course_category
-    if (course?.course_category_id) {
-      const related = await getCoursesByCourseCategory(course.course_category_id);
-      relatedCourses = (related?.data || []).filter((c) => c.id !== course.id);
+    if (!course) {
+      console.error("No course data found for id:", id);
+      notFound();
     }
 
-  } catch (error) {
-    console.error("Failed to fetch course details:", error);
-    return notFound();
-  }
+    return (
+      <div className="p-6">
+        <h1 className="text-2xl font-bold">{course.name}</h1>
+        <p className="mt-2">{course.description}</p>
 
-  return (
-    <div className="p-8 md:p-16">
-      <h1 className="text-3xl font-bold text-blue-900 mb-4">{course.name}</h1>
-      <p className="mb-4 text-gray-700">{course.description || "No description provided."}</p>
+        <div className="mt-4">
+          <h2 className="font-semibold">Category:</h2>
+          <p>{course.category?.name || "N/A"}</p>
+        </div>
 
-      <ul className="space-y-2 text-sm text-gray-800">
-        <li><strong>Certificate:</strong> {course.certificate || "N/A"}</li>
-        <li><strong>Duration:</strong> {course.duration || "N/A"}</li>
-        <li><strong>Mode:</strong> {course.mode || "N/A"}</li>
-        <li><strong>Start Date:</strong> {course.startDate || "Flexible"}</li>
-        <li><strong>Category:</strong> {course.category?.name || "N/A"}</li>
-        <li><strong>Course Category:</strong> {course.course_category?.name || "N/A"}</li>
-      </ul>
-
-      {/* ✅ More Courses from Same Category */}
-      {relatedCourses.length > 0 && (
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">More courses from this category</h2>
-          <ul className="grid gap-4 md:grid-cols-2">
-            {relatedCourses.map((c) => (
-              <li key={c.id} className="border p-4 rounded shadow hover:shadow-md transition">
-                <h3 className="text-lg font-bold text-blue-700">{c.name}</h3>
-                <p className="text-gray-600">{c.description?.slice(0, 100) || "No description"}...</p>
-              </li>
-            ))}
+        <div className="mt-4">
+          <h2 className="font-semibold">Features:</h2>
+          <ul className="list-disc ml-6">
+            {course.course_features?.length > 0 ? (
+              course.course_features.map((f) => (
+                <li key={f.id}>{f.name}</li>
+              ))
+            ) : (
+              <li>No features listed</li>
+            )}
           </ul>
         </div>
-      )}
-    </div>
-  );
-};
-
-export default CourseDetailsPage;
+      </div>
+    );
+  } catch (error) {
+    console.error("Failed to fetch course details:", error.message, error.response?.data);
+    notFound();
+  }
+}

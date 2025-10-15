@@ -4,43 +4,32 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 import Cards from "./Cards";
 
 const data = [
-     {
-      "title": " AI: Masters Program",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "MS Azure Cloud Engineer",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps Courses",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": " AI Course: Masters Program",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "MS Azure Masters Program",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    },
-     {
-      "title": "Best DevOps Courses",
-      "rating": 4.5,
-      "reviews": 79900,
-      "stars": 3
-    }
-]
+    {
+    id: 1,
+    title: "Advanced Chess Course",
+    category: "gamecourses",
+    image: "/images/courses/chess-course.jpg",
+    description: "Become a chess grandmaster with this course.",
+    link: "/courses/chess",
+  },
+  {
+    id: 2,
+    title: "PUBG Masterclass Course",
+    category: "gamecourses",
+    image: "/images/courses/pubg-course.jpg",
+    description: "Learn advanced PUBG strategies and team coordination.",
+    link: "/courses/pubg",
+  },
+  {
+    id: 3,
+    title: "Among Us Strategy Course",
+    category: "gamecourses",
+    image: "/images/courses/amongus-course.jpg",
+    description: "Master Among Us game strategies as a course.",
+    link: "/courses/amongus",
+  },
+];
+
 
 function CareerRelatedPrograms() {
     const TrendingCourse = data || [];

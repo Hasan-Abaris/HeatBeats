@@ -7,9 +7,17 @@ import UpcomingWebinars from './UpcomingWebinars';
 import WebinarHero from './WebinarHero';
 import { getAllWebinars, getWebinarsByCategory } from '@/app/comman/FrontApi';
 
+const categoryIdToTopic = {
+  1: 'Python',
+  2: 'Java',
+  3: 'JavaScript',
+  4: 'C++',
+  5: 'Go',
+};
+
 const Webinars = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [focusTarget, setFocusTarget] = useState(null); // { topic, title }
+  const [focusTarget, setFocusTarget] = useState(null); // { topic, name }
   const [webinarData, setWebinarData] = useState([]);
   const topicsRef = useRef(null);
 
@@ -19,9 +27,10 @@ const Webinars = () => {
 
   const fetchWebinars = async (category = 'All') => {
     try {
-      const res = category === 'All'
-        ? await getAllWebinars()
-        : await getWebinarsByCategory(getCategoryId(category));
+      const res =
+        category === 'All'
+          ? await getAllWebinars()
+          : await getWebinarsByCategory(getCategoryId(category));
 
       const grouped = groupByTopic(res?.data?.data || []);
       setWebinarData(grouped);
@@ -44,22 +53,23 @@ const Webinars = () => {
   const groupByTopic = (webinars) => {
     const groups = {};
     webinars.forEach((w) => {
-      if (!groups[w.topic]) {
-        groups[w.topic] = [];
+      const topic = categoryIdToTopic[w.category_id] || 'Other';
+      if (!groups[topic]) {
+        groups[topic] = [];
       }
-      groups[w.topic].push(w);
+      groups[topic].push(w);
     });
     return Object.entries(groups).map(([topic, webinars]) => ({
       topic,
-      icon: '/images/fallback.svg', // Optional: map icons dynamically if available
+      icon: '/images/fallback.svg', // You can map icons here per topic if you want
       webinars,
     }));
   };
 
   // When an Upcoming “Register” is clicked:
   const handleRegisterClick = (webinar) => {
-    setSelectedCategory(webinar.topic);
-    setFocusTarget({ topic: webinar.topic, title: webinar.title });
+    setSelectedCategory(categoryIdToTopic[webinar.category_id] || 'Other');
+    setFocusTarget({ topic: categoryIdToTopic[webinar.category_id] || 'Other', name: webinar.name });
   };
 
   useEffect(() => {
@@ -92,12 +102,10 @@ const Webinars = () => {
   );
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="w-full px-0">
+
       <WebinarHero />
-      <UpcomingWebinars
-        webinars={allUpcomingWebinars}
-        onRegisterClick={handleRegisterClick}
-      />
+      <UpcomingWebinars webinars={allUpcomingWebinars} onRegisterClick={handleRegisterClick} />
       <WebinarCategorySelector
         categories={categories}
         selectedCategory={selectedCategory}
@@ -106,11 +114,7 @@ const Webinars = () => {
           fetchWebinars(cat);
         }}
       />
-      <WebinarTopics
-        ref={topicsRef}
-        webinarData={filteredData}
-        focusTarget={focusTarget}
-      />
+      <WebinarTopics ref={topicsRef} webinarData={filteredData} focusTarget={focusTarget} />
     </div>
   );
 };

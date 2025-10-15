@@ -1,40 +1,39 @@
+"use client";
+
 import Link from "next/link";
 
-function Cards({ data ,title }) {
-    return (
-        <div className="bg-white rounded-xl shadow-md h-full overflow-hidden border border-gray-100 my-3">
+function Cards({ data }) {
+  return (
+    <div className="relative group bg-white rounded-xl shadow-md h-full overflow-hidden border border-gray-100 my-3 transition-transform duration-300 hover:scale-[1.02]">
+      
+      {/* Game/Course Image */}
+      <div className="w-full h-40 overflow-hidden rounded-t-xl">
+        <img
+          src={data.image}
+          alt={data.title}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
 
-            <div className="bg-gradient-to-r from-purple-500 to-pink-400 text-white text-sm font-bold p-4 uppercase leading-tight">
-                <div className="flex items-center gap-2">
+      {/* Title & Description */}
+      <div className="p-4">
+        <h3 className="text-sm font-bold text-gray-800 mb-2">{data.title}</h3>
+        <p className="text-xs text-gray-500">{data.description}</p>
+      </div>
 
-                   {!title  &&   <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center text-white font-semibold">∞</span> }
-                    <span> { title ? data?.title : 'DevOps Certification Training with Gen AI' }</span>
-                </div>
-            </div>
-
-
-            <div className="p-4">
-                <Link href='courses-detail/param' className="text-sm font-semibold text-gray-800 mb-2">
-                    {data?.title}
-                </Link>
-
-                <p className="text-xs text-gray-400 mb-2">Reviews</p>
-
-
-                <div className="flex items-center space-x-2">
-                    <div className="flex text-orange-400 text-sm">
-                        <span>★</span>
-                        <span>★</span>
-                        <span>★</span>
-                        <span className="text-gray-300">★</span>
-                        <span className="text-gray-300">★</span>
-                    </div>
-                    <div className="text-sm text-gray-700 font-semibold">
-                        4.5 <span className="text-gray-400 text-xs">(79900)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+      {/* Hover Overlay */}
+      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white p-4 text-center">
+        <h3 className="text-lg font-semibold mb-2">{data.title}</h3>
+        <p className="text-xs mb-4">{data.description}</p>
+        <Link
+          href={data.link || "#"}
+          className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-md transition"
+        >
+          {data.category === "gamecourses" ? "Enroll Now" : "Play Now"}
+        </Link>
+      </div>
+    </div>
+  );
 }
+
 export default Cards;

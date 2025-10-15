@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // enables static export with `out/` folder
+ // Enable static export
   images: {
-    unoptimized: true, // disables automatic image optimization
+    unoptimized: true, // Required for static export to avoid image optimization
+  },
+  experimental: {
+    // Ensure fallback pages can be rendered for dynamicParams
+    // Add if needed: dynamicParams: true
   },
 };
 

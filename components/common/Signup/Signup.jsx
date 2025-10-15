@@ -1,13 +1,13 @@
-'use client';
-
+"use client";
+import { image } from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { ErrorTosters, Tosters } from "@/app/comman/Tosters";
 import { registration } from "@/app/comman/FrontApi";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import Loadar from "@/app/comman/Loader";
-import { baseUrl, xApiKey } from '@/app/comman/UrlCollection';
+import { baseUrl, xApiKey } from "@/app/comman/UrlCollection";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function SignupPage() {
           value: value,
         },
         headers: {
-          'x-api-key': xApiKey,
+          "x-api-key": xApiKey,
         },
       });
       setUsernameAvailable(res.data.available);
@@ -74,9 +74,9 @@ export default function SignupPage() {
       const res = await registration(payload);
       if (res.status === 201) {
         localStorage.setItem("registertoken", res.data.data.token);
-        Tosters('Registered successfully!');
+        Tosters("Registered successfully!");
         setLoading(false);
-        setTimeout(() => router.push('/login'), 2000);
+        setTimeout(() => router.push("/login"), 2000);
       }
     } catch (err) {
       setLoading(false);
@@ -87,8 +87,11 @@ export default function SignupPage() {
   return (
     <section className="bg-gray-50 min-h-screen flex items-center justify-center">
       {loading && <Loadar />}
-      <div className="bgBlueDark flex rounded-2xl shadow-lg max-w-3xl items-center">
-        <div className="md:w-1/2 text-center md:text-start py-8 px-8 md:px-8 bg-gray-100">
+      <div
+        className="bgBlueDark flex rounded-2xl shadow-lg max-w-3xl items-center"
+        style={{ height: "500px" }}
+      >
+        <div className="md:w-1/2 text-center md:text-start py-8 px-8 md:px-8 bg-gray-100 flex flex-col justify-center">
           <h2 className="font-bold text-2xl text-[#002D74]">Sign up</h2>
           <p className="text-xs mt-2 text-[#002D74]">Signup to continue...</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -128,15 +131,10 @@ export default function SignupPage() {
               onChange={handleChange}
               required
             />
-            {formData.username && (
-              <p className={`text-sm ${usernameAvailable ? "text-green-600" : "text-red-600"}`}>
-                {usernameAvailable === true
-                  ? " Username is available"
-                  : usernameAvailable === false
-                  ? " Username already taken"
-                  : ""}
-              </p>
+            {formData.username && usernameAvailable === false && (
+              <p className="text-sm text-red-600">❌ Username already taken</p>
             )}
+
             <input
               className="p-2 rounded-xl border text-sm"
               type="password"
@@ -174,13 +172,21 @@ export default function SignupPage() {
             </Link>
           </div>
         </div>
-        <div className="md:block hidden w-1/2">
+        <div
+          className="md:block hidden w-1/2 flex items-center justify-center"
+          style={{ justifyContent: "center" }}
+        >
           <img
             className="rounded-2xl"
-            width={400}
-            height={500}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              objectFit: "contain",
+            }} // Adjusted to contain the full image
+            width={300}
+            height={300}
             alt="Login"
-            src="/assets/9472338.webp"
+            src="/images/face.png"
           />
         </div>
       </div>

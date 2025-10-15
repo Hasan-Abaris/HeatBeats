@@ -1,13 +1,13 @@
-import { FaSearch, FaChalkboardTeacher, FaUsers } from 'react-icons/fa';
-import Image from 'next/image';
+import { FaSearch, FaChalkboardTeacher, FaUsers } from "react-icons/fa";
+import Image from "next/image";
 
 export default function WebinarHero() {
   return (
-    <div className="relative bg-gradient-to-br from-[#00254b] to-[#122147] text-white overflow-hidden h-[60vh] md:h-[50vh]">
-      <div className="px-6 pt-32 pb-24 flex flex-col md:flex-row items-start md:items-center w-full">
+    <div className="relative bg-gradient-to-br from-[#00254b] to-[#122147] text-white overflow-hidden h-[60vh] md:h-[60vh]">
+      <div className="px-50 pt-32 pb-32 mb-52 flex flex-col items-center justify-center w-full -ml-52">
         {/* Left column */}
         <div className="flex-2 max-w-xl">
-          <h1 className="text-6xl md:text-7xl font-extrabold mb-4 leading-snug">
+          <h1 className="text-6xl md:text-7xl font-extrabold mb-4 leading-snug ">
             SLA Masterclass
           </h1>
           <p className="text-lg md:text-xl mb-6 leading-snug">
@@ -17,7 +17,7 @@ export default function WebinarHero() {
           </p>
 
           {/* Search Bar */}
-          <div className="relative w-full max-w-3xl mx-auto md:mx-0">
+          <div className="relative w-full max-w-3xl mx-auto md:mx-">
             <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-2xl" />
             <input
               type="text"
@@ -41,7 +41,7 @@ export default function WebinarHero() {
       </div>
 
       {/* Stats, floating bottom-right */}
-      <div className="absolute bottom-6 right-6 flex gap-12 text-white">
+      <div className="absolute bottom-10 right-32 flex gap-12 text-white">
         <div className="flex items-center space-x-3">
           <FaChalkboardTeacher className="text-3xl" />
           <div>

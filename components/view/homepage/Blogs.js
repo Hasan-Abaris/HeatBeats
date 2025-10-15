@@ -4,21 +4,32 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 
 const blogs = [
   {
-    date: "April 30th",
-    title: "Top DevOps Interview Questions And Answers for 2025 [Updated]",
-    image: "/images/discoverimage/blo1.png",
+    date: "October 5th, 2025",
+    title: "Top PUBG Strategies to Win Ranked Matches",
+    image: "/images/courses/pubg.jpg",
   },
   {
-    date: "January 15th",
-    title: "Java Interview Questions and Answers",
-    image: "/images/discoverimage/blo2.png",
+    date: "September 28th, 2025",
+    title: "Master Chess in 30 Days: Tips for Beginners",
+    image: "/images/courses/chess.jpg",
   },
   {
-    date: "October 30th",
-    title: "Setting Up A Multi Node Cluster In Hadoop 2.X",
-    image: "/images/discoverimage/blo3.png",
+    date: "September 20th, 2025",
+    title: "Ludo King Secrets: How to Win Every Time",
+    image: "/images/courses/ludo.jpg",
+  },
+  {
+    date: "August 18th, 2025",
+    title: "Valorant Guide: How to Improve Your Aim Fast",
+    image: "/images/courses/valoraog.jpg",
+  },
+  {
+    date: "August 10th, 2025",
+    title: "Carrom Trick Shots You Can Learn Easily",
+    image: "/images/courses/carrom.jpg",
   },
 ];
+
 
 function Blogs() {
   const containerRef = useRef(null);

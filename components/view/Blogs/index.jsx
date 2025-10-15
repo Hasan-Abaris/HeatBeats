@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import LearningCard from "./LearningCard";
+import LearningCard from "./Learningcard";
 import Articles from "./Articles";
 import MoreResources from "./MoreResources";
 import PopularArticles from './PopularArticles';

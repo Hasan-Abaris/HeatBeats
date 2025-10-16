@@ -1,337 +1,745 @@
 {
     "tabs": [
-        "Hot",
-        "Latest",
-        "Most votes",
-        "Most answers",
-        "Most views",
-        "No Answers"
+        "Trending",
+        "New Releases",
+        "Most Discussed",
+        "Most Upvoted",
+        "Most Viewed",
+        "Unanswered"
     ],
     "questions": [
         {
-            "title": "How can I run a 'docker exec' command inside a docker container?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How can I optimize my PC for running high-end games like Cyberpunk 2077?",
+            "excerpt": "Learn how to tweak your system settings for optimal gaming performance ...READ MORE",
+            "date": "Jan 15, 2025",
             "tags": [
-                "Docker"
+                "PC Gaming",
+                "Optimization"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "GamerX",
+            "views": "987,654",
+            "votes": 25,
+            "answers": 12,
+            "tab": "Trending"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "What are the best strategies for winning in Fortnite Battle Royale?",
+            "excerpt": "Tips and tricks for improving your gameplay in Fortnite ...READ MORE",
+            "date": "Feb 10, 2025",
             "tags": [
-                "Docker"
+                "Fortnite",
+                "Battle Royale"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "ProPlayer",
+            "views": "1,456,789",
+            "votes": 30,
+            "answers": 15,
+            "tab": "Trending"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How do I fix lag issues in multiplayer games like Call of Duty?",
+            "excerpt": "Solutions to reduce lag and improve connection stability ...READ MORE",
+            "date": "Mar 5, 2025",
             "tags": [
-                "Docker"
+                "Multiplayer",
+                "Call of Duty"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "TechGuru",
+            "views": "789,123",
+            "votes": 20,
+            "answers": 8,
+            "tab": "Most Viewed"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "What are the best mods for Skyrim in 2025?",
+            "excerpt": "Explore the top mods to enhance your Skyrim experience ...READ MORE",
+            "date": "Apr 20, 2025",
             "tags": [
-                "Docker"
+                "Skyrim",
+                "Mods"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "ModMaster",
+            "views": "654,321",
+            "votes": 18,
+            "answers": 10,
+            "tab": "Most Discussed"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to unlock all achievements in Elden Ring?",
+            "excerpt": "A guide to earning every achievement in Elden Ring ...READ MORE",
+            "date": "May 10, 2025",
             "tags": [
-                "Docker"
+                "Elden Ring",
+                "Achievements"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "AchievementHunter",
+            "views": "543,210",
+            "votes": 22,
+            "answers": 7,
+            "tab": "New Releases"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "Why does my game crash on startup?",
+            "excerpt": "Troubleshooting common causes of game crashes ...READ MORE",
+            "date": "Jun 1, 2025",
             "tags": [
-                "Docker"
+                "Tech Support",
+                "Gaming"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
+            "author": "TechSupportGuru",
+            "views": "432,109",
             "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "answers": 0,
+            "tab": "Unanswered"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "What are the best settings for ray tracing in Spider-Man: Miles Morales?",
+            "excerpt": "Optimize ray tracing for the best visuals and performance ...READ MORE",
+            "date": "Jul 12, 2025",
             "tags": [
-                "Docker"
+                "Spider-Man",
+                "Ray Tracing"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "GraphicsNerd",
+            "views": "876,543",
+            "votes": 28,
+            "answers": 11,
+            "tab": "Trending"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to improve aim in Valorant?",
+            "excerpt": "Techniques to boost your aiming skills in Valorant ...READ MORE",
+            "date": "Aug 3, 2025",
             "tags": [
-                "Docker"
+                "Valorant",
+                "FPS"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "AimBot",
+            "views": "1,123,456",
+            "votes": 35,
+            "answers": 14,
+            "tab": "Most Upvoted"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "What’s the best class setup for Baldur’s Gate 3?",
+            "excerpt": "Recommendations for the optimal class builds ...READ MORE",
+            "date": "Sep 15, 2025",
             "tags": [
-                "Docker"
+                "Baldur’s Gate 3",
+                "RPG"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "RPGFanatic",
+            "views": "321,098",
+            "votes": 12,
+            "answers": 6,
+            "tab": "New Releases"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to join a competitive esports team?",
+            "excerpt": "Steps to start your journey in competitive gaming ...READ MORE",
+            "date": "Oct 10, 2025",
             "tags": [
-                "Docker"
+                "Esports",
+                "Competitive Gaming"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "EsportsDreamer",
+            "views": "210,987",
+            "votes": 10,
+            "answers": 5,
+            "tab": "Most Discussed"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "Best tips for surviving in Minecraft Hardcore mode?",
+            "excerpt": "Essential strategies to stay alive longer in Hardcore ...READ MORE",
+            "date": "Nov 2, 2025",
             "tags": [
-                "Docker"
+                "Minecraft",
+                "Survival"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "MinecrafterPro",
+            "views": "1,234,567",
+            "votes": 40,
+            "answers": 18,
+            "tab": "Trending"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to build a powerful deck in Magic: The Gathering Arena?",
+            "excerpt": "Deck-building guides for beginners and pros ...READ MORE",
+            "date": "Dec 5, 2025",
             "tags": [
-                "Docker"
+                "Magic: The Gathering",
+                "Card Games"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
+            "author": "DeckBuilder",
+            "views": "567,890",
+            "votes": 16,
             "answers": 9,
-            "tab": "Hot"
+            "tab": "Most Discussed"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "What are the top indie games of 2025?",
+            "excerpt": "Reviews and recommendations for must-play indie titles ...READ MORE",
+            "date": "Jan 20, 2025",
             "tags": [
-                "Docker"
+                "Indie Games",
+                "Reviews"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "IndieLover",
+            "views": "345,678",
+            "votes": 14,
+            "answers": 4,
+            "tab": "New Releases"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to set up VR for Beat Saber?",
+            "excerpt": "Step-by-step guide to getting started with VR gaming ...READ MORE",
+            "date": "Feb 15, 2025",
             "tags": [
-                "Docker"
+                "VR Gaming",
+                "Beat Saber"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "VR Enthusiast",
+            "views": "456,789",
+            "votes": 19,
+            "answers": 7,
+            "tab": "Most Viewed"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "Best controllers for fighting games like Street Fighter?",
+            "excerpt": "Recommendations for arcade sticks and pads ...READ MORE",
+            "date": "Mar 10, 2025",
             "tags": [
-                "Docker"
+                "Fighting Games",
+                "Controllers"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "FighterPro",
+            "views": "234,567",
+            "votes": 11,
+            "answers": 5,
+            "tab": "Most Upvoted"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to mod Grand Theft Auto V for custom vehicles?",
+            "excerpt": "Tutorials on adding mods safely to GTA V ...READ MORE",
+            "date": "Apr 5, 2025",
             "tags": [
-                "Docker"
+                "GTA V",
+                "Mods"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "ModderKing",
+            "views": "678,901",
+            "votes": 27,
+            "answers": 13,
+            "tab": "Trending"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "What’s new in the latest update for League of Legends?",
+            "excerpt": "Patch notes and changes explained ...READ MORE",
+            "date": "May 1, 2025",
             "tags": [
-                "Docker"
+                "League of Legends",
+                "Updates"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "LoLUpdater",
+            "views": "890,123",
+            "votes": 32,
+            "answers": 16,
+            "tab": "New Releases"
         },
         {
-            "title": "How do risk management tools like RiskWatch use predictive analytics to forecast project risks?",
-            "excerpt": "you can run any command in a ...READ MORE",
-            "date": "Dec 10, 2018",
+            "title": "How to create custom levels in Super Mario Maker 2?",
+            "excerpt": "Design tips for making engaging Mario levels ...READ MORE",
+            "date": "Jun 20, 2025",
             "tags": [
-                "Docker"
+                "Super Mario Maker",
+                "Level Design"
             ],
-            "author": "Pramtu",
-            "views": "1,231,716",
-            "votes": 15,
-            "answers": 9,
-            "tab": "Hot"
+            "author": "LevelCreator",
+            "views": "123,456",
+            "votes": 9,
+            "answers": 3,
+            "tab": "Unanswered"
         },
         {
-            "title": "javac is not recognized as an internal or external command",
-            "excerpt": "Check your javac path on Windows using Windows Explorer...",
-            "date": "May 23, 2018",
+            "title": "Best racing sim setups for Gran Turismo 7?",
+            "excerpt": "Hardware recommendations for immersive racing ...READ MORE",
+            "date": "Jul 15, 2025",
             "tags": [
-                "java"
+                "Racing Games",
+                "Gran Turismo"
             ],
-            "author": "Rishabh",
-            "views": "472,142",
-            "votes": 3,
+            "author": "RacerX",
+            "views": "567,890",
+            "votes": 21,
+            "answers": 10,
+            "tab": "Most Discussed"
+        },
+        {
+            "title": "How to defeat the final boss in The Legend of Zelda: Tears of the Kingdom?",
+            "excerpt": "Strategies and tips for the epic showdown ...READ MORE",
+            "date": "Aug 10, 2025",
+            "tags": [
+                "Zelda",
+                "Boss Fights"
+            ],
+            "author": "ZeldaMaster",
+            "views": "789,012",
+            "votes": 26,
+            "answers": 12,
+            "tab": "Most Viewed"
+        },
+        {
+            "title": "What are the best mobile games for 2025?",
+            "excerpt": "Top picks for iOS and Android gamers ...READ MORE",
+            "date": "Sep 5, 2025",
+            "tags": [
+                "Mobile Gaming",
+                "Recommendations"
+            ],
+            "author": "MobileGamer",
+            "views": "901,234",
+            "votes": 29,
+            "answers": 14,
+            "tab": "Trending"
+        },
+        {
+            "title": "How to stream games on Twitch effectively?",
+            "excerpt": "Setup and tips for starting your streaming career ...READ MORE",
+            "date": "Oct 1, 2025",
+            "tags": [
+                "Streaming",
+                "Twitch"
+            ],
+            "author": "StreamerPro",
+            "views": "345,678",
+            "votes": 17,
+            "answers": 8,
+            "tab": "Most Upvoted"
+        },
+        {
+            "title": "How to optimize FPS in Apex Legends for low-end PCs?",
+            "excerpt": "Settings tweaks for smoother gameplay on budget hardware ...READ MORE",
+            "date": "Nov 20, 2025",
+            "tags": [
+                "Apex Legends",
+                "Optimization"
+            ],
+            "author": "BudgetGamer",
+            "views": "456,123",
+            "votes": 13,
+            "answers": 6,
+            "tab": "Trending"
+        },
+        {
+            "title": "What are the best co-op games to play with friends in 2025?",
+            "excerpt": "Recommendations for fun multiplayer experiences ...READ MORE",
+            "date": "Dec 15, 2025",
+            "tags": [
+                "Co-op Games",
+                "Multiplayer"
+            ],
+            "author": "CoopFan",
+            "views": "678,234",
+            "votes": 24,
+            "answers": 11,
+            "tab": "Most Discussed"
+        },
+        {
+            "title": "How to master the building mechanics in Rust?",
+            "excerpt": "Tips for creating strong bases in Rust ...READ MORE",
+            "date": "Jan 10, 2026",
+            "tags": [
+                "Rust",
+                "Survival"
+            ],
+            "author": "BaseBuilder",
+            "views": "234,567",
+            "votes": 10,
+            "answers": 4,
+            "tab": "Most Viewed"
+        },
+        {
+            "title": "What are the best puzzle games for brain teasers?",
+            "excerpt": "Top puzzle games to challenge your mind ...READ MORE",
+            "date": "Feb 5, 2026",
+            "tags": [
+                "Puzzle Games",
+                "Brain Teasers"
+            ],
+            "author": "PuzzleMaster",
+            "views": "123,789",
+            "votes": 8,
             "answers": 2,
-            "tab": "Latest"
+            "tab": "New Releases"
+        },
+        {
+            "title": "How to get better at Among Us impostor role?",
+            "excerpt": "Strategies for winning as an impostor ...READ MORE",
+            "date": "Mar 1, 2026",
+            "tags": [
+                "Among Us",
+                "Multiplayer"
+            ],
+            "author": "ImpostorPro",
+            "views": "345,890",
+            "votes": 15,
+            "answers": 7,
+            "tab": "Most Upvoted"
+        },
+        {
+            "title": "How to set up a dedicated server for ARK: Survival Evolved?",
+            "excerpt": "Guide to hosting your own ARK server ...READ MORE",
+            "date": "Mar 20, 2026",
+            "tags": [
+                "ARK",
+                "Server Hosting"
+            ],
+            "author": "ServerAdmin",
+            "views": "567,123",
+            "votes": 18,
+            "answers": 9,
+            "tab": "Trending"
+        },
+        {
+            "title": "What are the best settings for FIFA 26 gameplay?",
+            "excerpt": "Optimize controls and camera for better matches ...READ MORE",
+            "date": "Apr 10, 2026",
+            "tags": [
+                "FIFA",
+                "Sports Games"
+            ],
+            "author": "SoccerFan",
+            "views": "789,456",
+            "votes": 22,
+            "answers": 10,
+            "tab": "New Releases"
+        },
+        {
+            "title": "How to complete all side quests in Final Fantasy XVI?",
+            "excerpt": "Guide to finding and completing every side quest ...READ MORE",
+            "date": "May 5, 2026",
+            "tags": [
+                "Final Fantasy",
+                "RPG"
+            ],
+            "author": "QuestHunter",
+            "views": "234,123",
+            "votes": 12,
+            "answers": 5,
+            "tab": "Most Discussed"
+        },
+        {
+            "title": "Best ways to earn gold in World of Warcraft?",
+            "excerpt": "Farming tips for maximizing gold income ...READ MORE",
+            "date": "Jun 1, 2026",
+            "tags": [
+                "World of Warcraft",
+                "MMO"
+            ],
+            "author": "GoldFarmer",
+            "views": "456,789",
+            "votes": 19,
+            "answers": 8,
+            "tab": "Most Viewed"
+        },
+        {
+            "title": "How to reduce input lag in fighting games?",
+            "excerpt": "Tips for smoother controls in competitive play ...READ MORE",
+            "date": "Jun 20, 2026",
+            "tags": [
+                "Fighting Games",
+                "Tech Support"
+            ],
+            "author": "InputNinja",
+            "views": "123,456",
+            "votes": 9,
+            "answers": 3,
+            "tab": "Unanswered"
+        },
+        {
+            "title": "What are the best survival horror games for 2025?",
+            "excerpt": "Top horror titles to scare you senseless ...READ MORE",
+            "date": "Jul 10, 2026",
+            "tags": [
+                "Horror Games",
+                "Recommendations"
+            ],
+            "author": "HorrorFan",
+            "views": "678,901",
+            "votes": 25,
+            "answers": 12,
+            "tab": "Trending"
+        },
+        {
+            "title": "How to improve my rank in Rocket League?",
+            "excerpt": "Strategies for climbing the competitive ladder ...READ MORE",
+            "date": "Aug 5, 2026",
+            "tags": [
+                "Rocket League",
+                "Competitive"
+            ],
+            "author": "RocketPro",
+            "views": "345,678",
+            "votes": 16,
+            "answers": 7,
+            "tab": "Most Upvoted"
+        },
+        {
+            "title": "How to create mods for Stardew Valley?",
+            "excerpt": "Guide to modding tools and techniques ...READ MORE",
+            "date": "Sep 1, 2026",
+            "tags": [
+                "Stardew Valley",
+                "Mods"
+            ],
+            "author": "ModCreator",
+            "views": "234,567",
+            "votes": 11,
+            "answers": 4,
+            "tab": "Most Discussed"
+        },
+        {
+            "title": "What are the best open-world games of 2025?",
+            "excerpt": "Explore the top open-world titles this year ...READ MORE",
+            "date": "Sep 20, 2026",
+            "tags": [
+                "Open World",
+                "Recommendations"
+            ],
+            "author": "ExplorerGamer",
+            "views": "789,123",
+            "votes": 27,
+            "answers": 13,
+            "tab": "New Releases"
+        },
+        {
+            "title": "How to fix audio issues in games on Windows 11?",
+            "excerpt": "Troubleshooting steps for common audio problems ...READ MORE",
+            "date": "Oct 10, 2026",
+            "tags": [
+                "Tech Support",
+                "Windows 11"
+            ],
+            "author": "AudioFixer",
+            "views": "123,789",
+            "votes": 8,
+            "answers": 2,
+            "tab": "Unanswered"
+        },
+        {
+            "title": "Best strategies for winning in Civilization VI?",
+            "excerpt": "Tips for dominating in strategy gameplay ...READ MORE",
+            "date": "Oct 20, 2026",
+            "tags": [
+                "Civilization VI",
+                "Strategy Games"
+            ],
+            "author": "StratMaster",
+            "views": "456,123",
+            "votes": 20,
+            "answers": 9,
+            "tab": "Most Viewed"
+        },
+        {
+            "title": "How to set up crossplay in Destiny 2?",
+            "excerpt": "Guide to playing with friends across platforms ...READ MORE",
+            "date": "Nov 5, 2026",
+            "tags": [
+                "Destiny 2",
+                "Crossplay"
+            ],
+            "author": "CrossplayGuru",
+            "views": "678,234",
+            "votes": 23,
+            "answers": 11,
+            "tab": "Trending"
+        },
+        {
+            "title": "What are the best settings for NBA 2K26?",
+            "excerpt": "Optimize gameplay for the best basketball experience ...READ MORE",
+            "date": "Nov 15, 2026",
+            "tags": [
+                "NBA 2K",
+                "Sports Games"
+            ],
+            "author": "BballPro",
+            "views": "345,890",
+            "votes": 14,
+            "answers": 6,
+            "tab": "New Releases"
+        },
+        {
+            "title": "How to complete all challenges in Halo Infinite?",
+            "excerpt": "Guide to mastering every challenge ...READ MORE",
+            "date": "Dec 1, 2026",
+            "tags": [
+                "Halo Infinite",
+                "Challenges"
+            ],
+            "author": "HaloMaster",
+            "views": "567,901",
+            "votes": 21,
+            "answers": 10,
+            "tab": "Most Discussed"
+        },
+        {
+            "title": "How to optimize battery life for gaming on Nintendo Switch?",
+            "excerpt": "Tips for extending playtime on the go ...READ MORE",
+            "date": "Dec 10, 2026",
+            "tags": [
+                "Nintendo Switch",
+                "Battery Life"
+            ],
+            "author": "SwitchGamer",
+            "views": "234,123",
+            "votes": 12,
+            "answers": 5,
+            "tab": "Most Upvoted"
         }
     ],
     "popularTags": [
-        "Devops",
-        "Python",
-        "Amazon Web Services",
-        "Pip",
-        "Css",
-        "Devops Tools",
-        "Big Data",
-        "JavaScript",
-        "Html",
-        "Blockchain"
+        "PC Gaming",
+        "Console Gaming",
+        "Esports",
+        "RPG",
+        "FPS",
+        "Battle Royale",
+        "Mods",
+        "Multiplayer",
+        "Strategy Games",
+        "Indie Games",
+        "VR Gaming",
+        "Mobile Gaming",
+        "Racing Games",
+        "Survival Games",
+        "Card Games",
+        "Fighting Games",
+        "Simulation Games",
+        "Adventure Games",
+        "Puzzle Games",
+        "Retro Gaming"
     ],
     "recentQuestions": [
-        "How does predictive analytics improve decision-making in risk management tools?",
-        "What are the core features of a modern workforce management system?",
-        "What steps are involved in building a hybrid search system?",
-        "How do AI-driven tools optimize supply chain management?",
-        "What are the benefits of integrating biometric authentication in cybersecurity systems?",
-        "How do machine learning models assist in fraud detection?",
-        "What are best practices for implementing role-based access control in enterprise systems?",
-        "How does sentiment analysis contribute to customer service enhancement?"
-        
+        "What are the best tips for beginners in Apex Legends?",
+        "How to set up a dedicated server for Minecraft?",
+        "What are the system requirements for the next Grand Theft Auto?",
+        "How do I improve my K/D ratio in Warzone?",
+        "What are the best controller settings for Rocket League?",
+        "How to create custom maps in StarCraft II?",
+        "What’s the best way to farm resources in Stardew Valley?",
+        "How does cross-platform play work in Overwatch 2?",
+        "Best builds for Diablo IV endgame?",
+        "How to get started with game development in Unity?",
+        "What are the top horror games for 2025?",
+        "How to fix controller drift on PS5?",
+        "Best sound settings for immersive audio in games?",
+        "How to organize a LAN party?",
+        "What’s the meta in Counter-Strike 2 right now?",
+        "How to collect all Pokémon in Scarlet and Violet?",
+        "Best free-to-play games on Steam?",
+        "How to mod Fallout 4 for better graphics?"
     ],
-        "categories": [
-          
-          {
-            "name": "Generative AI",
-            "count": 1289,
+    "categories": [
+        {
+            "name": "Action Games",
+            "count": 2450,
             "isSelected": true,
-            "icon":"https://d1jnx9ba8s6j9r.cloudfront.net/community/imgver.1743757797/categoryimages/default.jpg"
-          },
-          {
-            "name": "Power BI",
-            "count": 1343,
+            "icon": "https://d1jnx9ba8s6j9r.cloudfront.net/community/imgver.1743757797/categoryimages/action.jpg"
+        },
+        {
+            "name": "RPG",
+            "count": 1987,
             "isSelected": false
-          },
-          {
-            "name": "DevOps & Agile",
-            "count": 3851,
+        },
+        {
+            "name": "FPS",
+            "count": 1765,
             "isSelected": false
-          },
-          {
-            "name": "Data Science",
-            "count": 100,
+        },
+        {
+            "name": "Strategy Games",
+            "count": 1432,
             "isSelected": false
-          },
-          {
-            "name": "ChatGPT",
-            "count": 80,
+        },
+        {
+            "name": "Esports",
+            "count": 987,
             "isSelected": false
-          },
-          {
-            "name": "Cyber Security & Ethical Hacking",
-            "count": 1072,
+        },
+        {
+            "name": "Indie Games",
+            "count": 876,
             "isSelected": false
-          },
-          {
-            "name": "Data Analytics",
-            "count": 1266,
+        },
+        {
+            "name": "Simulation Games",
+            "count": 654,
             "isSelected": false
-          },
-          {
-            "name": "Cloud Computing",
-            "count": 3698,
+        },
+        {
+            "name": "Adventure Games",
+            "count": 543,
             "isSelected": false
-          },
-          {
-            "name": "Machine Learning",
-            "count": 337,
+        },
+        {
+            "name": "Puzzle Games",
+            "count": 432,
             "isSelected": false
-          },
-          {
-            "name": "PMP",
-            "count": 1069,
+        },
+        {
+            "name": "Retro Gaming",
+            "count": 321,
             "isSelected": false
-          }
-        ]
-      
+        },
+        {
+            "name": "VR/AR Games",
+            "count": 765,
+            "isSelected": false
+        },
+        {
+            "name": "Mobile Games",
+            "count": 1890,
+            "isSelected": false
+        },
+        {
+            "name": "Racing Games",
+            "count": 1123,
+            "isSelected": false
+        },
+        {
+            "name": "Survival Games",
+            "count": 987,
+            "isSelected": false
+        },
+        {
+            "name": "Horror Games",
+            "count": 654,
+            "isSelected": false
+        },
+        {
+            "name": "Sports Games",
+            "count": 543,
+            "isSelected": false
+        },
+        {
+            "name": "Fighting Games",
+            "count": 432,
+            "isSelected": false
+        },
+        {
+            "name": "Card & Board Games",
+            "count": 321,
+            "isSelected": false
+        },
+        {
+            "name": "MMO Games",
+            "count": 210,
+            "isSelected": false
+        },
+        {
+            "name": "Platformers",
+            "count": 198,
+            "isSelected": false
+        }
+    ]
 }

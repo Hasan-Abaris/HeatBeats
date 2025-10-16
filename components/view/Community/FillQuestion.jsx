@@ -1,59 +1,167 @@
-import React from 'react'
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa6'
+import React, { useState } from 'react';
+import { FaChevronDown, FaChevronUp, FaHeart, FaComment, FaShare } from 'react-icons/fa';
 
 function FillQuestion({ filteredQuestions }) {
+    // Keep comments separate from questions data
+    const [commentsData, setCommentsData] = useState({});
+
+    const handleAddComment = (questionIndex, text) => {
+        if (!text) return;
+        setCommentsData((prev) => {
+            const questionComments = prev[questionIndex] || [];
+            return {
+                ...prev,
+                [questionIndex]: [
+                    ...questionComments,
+                    { author: 'CurrentUser', text, date: new Date().toLocaleDateString() },
+                ],
+            };
+        });
+    };
+
+    const handleVote = (questionIndex, type) => {
+        // Update vote count directly in filteredQuestions
+        if (!filteredQuestions[questionIndex]) return;
+        if (type === 'up') filteredQuestions[questionIndex].votes += 1;
+        if (type === 'down') filteredQuestions[questionIndex].votes -= 1;
+
+        // Force a re-render by updating commentsData (hack to re-render)
+        setCommentsData({ ...commentsData });
+    };
+
     return (
-        <div className=" mt-2">
+        <div className="mt-4 space-y-6">
             {filteredQuestions.length > 0 ? (
-                <div className="space-y-6">
-                    {filteredQuestions.map((question, index) => (
-                        <div className='flex pb-6 border md:p-6 border-gray-200 last:pb-0' key={index}>
-                            <div className="">
-                                <h3 className="text-lg md:text-xl  text-blue-800 mb-2 font-bold hover:underline">
-                                    {question.title}
-                                </h3>
-                                <p className="text-gray-600 mb-3 font-semibold">{question.excerpt}</p>
-                                <div className="flex flex-wrap items-center text-xs md:text-sm text-gray-500 gap-2">
-                                    <span>{question.date}</span>
-                                    <span>•</span>
-                                    <span className="text-gray-700 font-medium">{question.tags.join(', ')}</span>
-                                    <span>•</span>
-                                    <span>by {question.author}</span>
-                                    <span>•</span>
-                                    <span>{question.views} views</span>
-
-                                </div>
-
-                            </div>
-
-                            <div className="flex gap-2 ml-auto justify-stretch">
-                                <div className="bg-white px-2 py-1 rounded flex items-center justify-center gap-4 border">
-                                    <div className=''>
-                                        <button className='block p-2 text-white text-sm font-extrabold shadow mb-2 bg-blue-300'><FaChevronUp /></button>
-                                        <button className='block p-2 text-white text-sm font-extrabold shadow bt-2 bg-orange'><FaChevronDown /></button>
-                                    </div>
-                                    <div className='text-center'>
-                                        <h3 className='text-2xl font-bold textBlueDark'>+ {question.votes}</h3>
-                                        <p>votes</p>
-                                    </div>
-                                </div>
-                                <div className="bg-white px-2 py-1  rounded text-center border flex items-center">
-                                    <div className="  self-center">
-                                        <span className='text-2xl font-extrabold '>{question.answers}</span>
-                                        <p>answers</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                filteredQuestions.map((question, qIndex) => (
+                    <QuestionCard
+                        key={qIndex}
+                        question={question}
+                        qIndex={qIndex}
+                        handleVote={handleVote}
+                        questionComments={commentsData[qIndex] || []}
+                        handleAddComment={handleAddComment}
+                    />
+                ))
             ) : (
                 <div className="text-center py-10 text-gray-500">
                     No questions found in this category
                 </div>
             )}
         </div>
-    )
+    );
 }
 
-export default FillQuestion
+function QuestionCard({ question, qIndex, handleVote, questionComments, handleAddComment }) {
+    const [commentText, setCommentText] = useState('');
+
+    return (
+        <div className="border rounded-md p-4 md:p-6 bg-white shadow-sm">
+            {/* Question Header */}
+            <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-3">
+                    <img
+                        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(question.author)}`}
+                        alt={question.author}
+                        className="w-10 h-10 rounded-full"
+                    />
+                    <div>
+                        <h4 className="font-semibold text-blue-800">{question.author}</h4>
+                        <p className="text-xs text-gray-500">{question.date}</p>
+                    </div>
+                </div>
+                <button className="px-3 py-1 text-sm text-white bg-blue-600 rounded hover:bg-blue-700">
+                    Follow
+                </button>
+            </div>
+
+            {/* Question Content */}
+            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 hover:underline">
+                {question.title}
+            </h3>
+            <p className="text-gray-600 mb-3">{question.excerpt}</p>
+            <div className="flex flex-wrap text-xs md:text-sm text-gray-500 gap-2 mb-4">
+                <span className="font-medium">{question.tags.join(', ')}</span>
+                <span>•</span>
+                <span>{question.views} views</span>
+                <span>•</span>
+                <span>{question.answers} answers</span>
+            </div>
+
+            {/* Voting & Social Actions */}
+            <div className="flex items-center justify-between gap-4 mb-4">
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => handleVote(qIndex, 'up')}
+                        className="flex items-center gap-1 text-gray-600 hover:text-blue-600"
+                    >
+                        <FaChevronUp /> Upvote
+                    </button>
+                    <span>{question.votes}</span>
+                    <button
+                        onClick={() => handleVote(qIndex, 'down')}
+                        className="flex items-center gap-1 text-gray-600 hover:text-red-600"
+                    >
+                        <FaChevronDown /> Downvote
+                    </button>
+                </div>
+                <div className="flex items-center gap-4">
+                    <button className="flex items-center gap-1 text-gray-600 hover:text-pink-600">
+                        <FaHeart /> Like
+                    </button>
+                    <button className="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+                        <FaComment /> Comment
+                    </button>
+                    <button className="flex items-center gap-1 text-gray-600 hover:text-green-600">
+                        <FaShare /> Share
+                    </button>
+                </div>
+            </div>
+
+            {/* Comments Section */}
+            <div className="border-t border-gray-200 pt-3 space-y-3">
+                {questionComments.map((comment, cIndex) => (
+                    <div key={cIndex} className="flex gap-2 items-start">
+                        <img
+                            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(comment.author)}`}
+                            alt={comment.author}
+                            className="w-8 h-8 rounded-full"
+                        />
+                        <div className="bg-gray-100 p-2 rounded-md flex-1">
+                            <p className="text-sm font-semibold text-blue-800">{comment.author}</p>
+                            <p className="text-gray-700 text-sm">{comment.text}</p>
+                            <span className="text-xs text-gray-500">{comment.date}</span>
+                        </div>
+                    </div>
+                ))}
+
+                {/* Add Comment Input */}
+                <div className="flex gap-2 items-center mt-2">
+                    <input
+                        type="text"
+                        className="flex-1 border border-gray-300 rounded-md p-2 text-sm"
+                        placeholder="Write a comment..."
+                        value={commentText}
+                        onChange={(e) => setCommentText(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleAddComment(qIndex, commentText);
+                                setCommentText('');
+                            }
+                        }}
+                    />
+                    <button
+                        className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+                        onClick={() => {
+                            handleAddComment(qIndex, commentText);
+                            setCommentText('');
+                        }}
+                    >
+                        Post
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default FillQuestion;

@@ -23,7 +23,6 @@ function HomePageNew() {
   const [opacity, setOpacity] = useState(60);
   const [loading, setLoading] = useState(true);
 
-  // Static placeholder data
   const staticClients = [
     { id: 1, name: "Client A", logo: "/images/clients/client1.png" },
     { id: 2, name: "Client B", logo: "/images/clients/client2.png" },
@@ -44,7 +43,6 @@ function HomePageNew() {
   const [hoveredItem, setHoveredItem] = useState(staticCategories[0]);
   const [courses, setCourses] = useState([]);
 
-  // Simulate loading
   useEffect(() => {
     const t = setTimeout(() => {
       setIsOpen({ counselling: false, skills: true });

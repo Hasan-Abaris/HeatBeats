@@ -1,9 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import Communityfaq from '@/components/view/Community';
-import ForumTab from '@/components/view/ForumTab';
-import SupportTab from '@/components/view/SupportTab';
-import MoreTab from '@/components/view/MoreTab';
+import Communityfaq from '../../view/Community';
+import ForumTab from '../../view/Community/ForumTab';
+import SupportTab from '../../view/Community/SupportTab';
+import MoreTab from '../../view/Community/OtherTab';
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState('home');

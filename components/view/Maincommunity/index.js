@@ -1,9 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import Communityfaq from '@/components/view/Community'; // Home tab content
-import ForumTab from '@/components/view/ForumTab';       // Forum page
-import SupportTab from '@/components/view/SupportTab';   // Support page
-import MoreTab from '@/components/view/MoreTab';         // More page
+import Communityfaq from '../../view/Community'; // Home tab content
+import ForumTab from '../../view/Community/ForumTab';       // Forum page
+import SupportTab from '../../view/Community/SupportTab';   // Support page
+import MoreTab from '../../view/Community/OtherTab';         // More page
 
 export default function CommPage() {
   const [activeTab, setActiveTab] = useState('home'); // which tab is active

@@ -1,12 +1,12 @@
-import Communityfaq from '@/components/view/Community'
+import CommPage from '@/components/view/Maincommunity'
 import React from 'react'
 
-function page() {
+function CommunityMainhome() {
   return (
-    <>
-      <Communityfaq/>
-    </>
+    <div>
+      <CommPage/>
+    </div>
   )
 }
 
-export default page
+export default CommunityMainhome

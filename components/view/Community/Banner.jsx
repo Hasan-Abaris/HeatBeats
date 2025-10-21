@@ -1,69 +1,40 @@
-import React from 'react';
+import React from "react";
 
 function Banner() {
   return (
     <div
-      style={{
-        width: '1200px',
-        height: '462px',
-        background: 'linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%)', // Dark code editor theme
-        color: '#ffffff',
-        borderRadius: '8px',
-        overflow: 'hidden',
-        position: 'relative',
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'transform 0.3s ease',
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.02)')}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+      className="relative w-full max-w-[1200px] mx-auto h-[250px] sm:h-[350px] md:h-[462px] 
+      bg-gradient-to-br from-[#1e1e1e] to-[#2d2d2d] text-white rounded-lg overflow-hidden 
+      shadow-xl flex items-center justify-center transition-transform duration-300 hover:scale-[1.02]"
     >
+      {/* Decorative code-style background */}
       <div
+        className="absolute inset-0 opacity-10"
         style={{
-          textAlign: 'center',
-          padding: '20px',
-          background: 'rgba(0, 0, 0, 0.3)',
-          borderRadius: '8px',
+          background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+            viewBox='0 0 100 100'%3E%3Cpath d='M10 10 H90 V90 H10 Z 
+            M20 20 H80 V80 H20 Z' fill='none' stroke='%234CAF50' 
+            stroke-width='2'/%3E%3Ctext x='50' y='50' font-family='monospace' 
+            font-size='12' fill='%234CAF50' text-anchor='middle' 
+            dominant-baseline='middle'%3Ecode%3C/text%3E%3C/svg%3E") repeat`,
         }}
-      >
-        <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '10px' }}>
+      />
+
+      {/* Banner content */}
+      <div className="relative text-center bg-black/30 rounded-lg p-4 sm:p-6 md:p-8">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2">
           Learn with Us!
         </h1>
-        <p style={{ fontSize: '24px', marginBottom: '20px' }}>
+        <p className="text-base sm:text-lg md:text-2xl mb-5">
           Explore the latest Gaming tutorials, projects, and community challenges.
         </p>
         <button
-          style={{
-            padding: '12px 30px',
-            fontSize: '18px',
-            backgroundColor: '#4CAF50',
-            color: '#ffffff',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#45a049')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#4CAF50')}
-          onClick={() => alert('Redirecting to coding section!')}
+          onClick={() => alert("Redirecting to coding section!")}
+          className="px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 bg-green-600 text-white 
+          text-sm sm:text-base md:text-lg rounded-md hover:bg-green-700 transition-colors duration-300"
         >
           Start Learning Now
         </button>
-        {/* Simulated code snippet background */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            opacity: '0.1',
-            background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 10 H90 V90 H10 Z M20 20 H80 V80 H20 Z' fill='none' stroke='%234CAF50' stroke-width='2'/%3E%3Ctext x='50' y='50' font-family='monospace' font-size='12' fill='%234CAF50' text-anchor='middle' dominant-baseline='middle'%3Ecode%3C/text%3E%3C/svg%3E") repeat`,
-            zIndex: '-1',
-          }}
-        />
       </div>
     </div>
   );

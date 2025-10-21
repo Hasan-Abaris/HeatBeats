@@ -1,7 +1,6 @@
 import React from "react";
 
 const ForumTab = () => {
-  // Updated data focused on gaming themes
   const forums = [
     {
       id: 1,
@@ -10,7 +9,7 @@ const ForumTab = () => {
       interactions: "245.8k",
       image:
         "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/general",
+      link: "/forumdetails",
     },
     {
       id: 9,
@@ -19,7 +18,7 @@ const ForumTab = () => {
       interactions: "620.3k",
       image:
         "https://images.unsplash.com/photo-1611921093905-1f579e3b4b1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/reviews",
+      link: "forumdetails",
     },
     {
       id: 8,
@@ -28,7 +27,7 @@ const ForumTab = () => {
       interactions: "298.4k",
       image:
         "https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/esports",
+      link: "forumdetails",
     },
     {
       id: 3,
@@ -37,7 +36,7 @@ const ForumTab = () => {
       interactions: "456.2k",
       image:
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/battle-royale",
+      link: "forumdetails",
     },
     {
       id: 21,
@@ -46,7 +45,7 @@ const ForumTab = () => {
       interactions: "89.7k",
       image:
         "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/events",
+      link: "forumdetails",
     },
     {
       id: 13,
@@ -55,7 +54,7 @@ const ForumTab = () => {
       interactions: "345.6k",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/announcements",
+      link: "forumdetails",
     },
     {
       id: 32,
@@ -64,7 +63,7 @@ const ForumTab = () => {
       interactions: "28.4k",
       image:
         "https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/hardware",
+      link: "forumdetails",
     },
     {
       id: 29,
@@ -73,7 +72,7 @@ const ForumTab = () => {
       interactions: "19.2k",
       image:
         "https://images.unsplash.com/photo-1558618047-3c8c46b5b21e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/development",
+      link: "forumdetails",
     },
     {
       id: 30,
@@ -82,7 +81,7 @@ const ForumTab = () => {
       interactions: "112.8k",
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/news",
+      link: "forumdetails",
     },
     {
       id: 5,
@@ -91,7 +90,7 @@ const ForumTab = () => {
       interactions: "342.7k",
       image:
         "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/off-topic",
+      link: "forumdetails",
     },
     {
       id: 4,
@@ -100,7 +99,7 @@ const ForumTab = () => {
       interactions: "89.3k",
       image:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/hall-of-fame",
+      link: "forumdetails",
     },
     {
       id: 27,
@@ -109,7 +108,7 @@ const ForumTab = () => {
       interactions: "12.4k",
       image:
         "https://images.unsplash.com/photo-1570549717069-d3d6e3720c96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/top-gamers",
+      link: "forumdetails",
     },
     {
       id: 6,
@@ -118,7 +117,7 @@ const ForumTab = () => {
       interactions: "78.9k",
       image:
         "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/feedback",
+      link: "forumdetails",
     },
     {
       id: 15,
@@ -127,7 +126,7 @@ const ForumTab = () => {
       interactions: "45.6k",
       image:
         "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/polls",
+      link: "forumdetails",
     },
     {
       id: 16,
@@ -136,7 +135,7 @@ const ForumTab = () => {
       interactions: "156.2k",
       image:
         "https://images.unsplash.com/photo-1489599199158-7e7a1e4a1e05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/tips",
+      link: "forumdetails",
     },
     {
       id: 26,
@@ -145,7 +144,7 @@ const ForumTab = () => {
       interactions: "23.4k",
       image:
         "https://images.unsplash.com/photo-1611162617213-7d15d3e8e5c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/streaming",
+      link: "forumdetails",
     },
     {
       id: 14,
@@ -154,7 +153,7 @@ const ForumTab = () => {
       interactions: "67.8k",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/patch-notes",
+      link: "forumdetails",
     },
     {
       id: 22,
@@ -163,7 +162,7 @@ const ForumTab = () => {
       interactions: "134.2k",
       image:
         "https://images.unsplash.com/photo-1558618047-3c8c46b5b21e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/bugs",
+      link: "forumdetails",
     },
     {
       id: 24,
@@ -172,7 +171,7 @@ const ForumTab = () => {
       interactions: "34.1k",
       image:
         "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/milestones",
+      link: "forumdetails",
     },
     {
       id: 28,
@@ -181,7 +180,7 @@ const ForumTab = () => {
       interactions: "12.8k",
       image:
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/fps-challenges",
+      link: "forumdetails",
     },
     {
       id: 31,
@@ -190,7 +189,7 @@ const ForumTab = () => {
       interactions: "2.3k",
       image:
         "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/mobile-revolution",
+      link: "forumdetails",
     },
     {
       id: 25,
@@ -199,7 +198,7 @@ const ForumTab = () => {
       interactions: "45.9k",
       image:
         "https://images.unsplash.com/photo-1611921093905-1f579e3b4b1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/next-gen",
+      link: "forumdetails",
     },
     {
       id: 23,
@@ -208,7 +207,7 @@ const ForumTab = () => {
       interactions: "67.2k",
       image:
         "https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/pc-vs-mobile",
+      link: "forumdetails",
     },
     {
       id: 20,
@@ -217,7 +216,7 @@ const ForumTab = () => {
       interactions: "28.7k",
       image:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/retro",
+      link: "forumdetails",
     },
     {
       id: 11,
@@ -226,7 +225,7 @@ const ForumTab = () => {
       interactions: "123.4k",
       image:
         "https://images.unsplash.com/photo-1489599199158-7e7a1e4a1e05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/indie",
+      link: "forumdetails",
     },
     {
       id: 2,
@@ -235,7 +234,7 @@ const ForumTab = () => {
       interactions: "156.8k",
       image:
         "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/casual",
+      link: "forumdetails",
     },
     {
       id: 10,
@@ -244,7 +243,7 @@ const ForumTab = () => {
       interactions: "89.6k",
       image:
         "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/competitive",
+      link: "forumdetails",
     },
     {
       id: 18,
@@ -253,7 +252,7 @@ const ForumTab = () => {
       interactions: "45.2k",
       image:
         "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/vrar",
+      link: "forumdetails",
     },
     {
       id: 17,
@@ -262,7 +261,7 @@ const ForumTab = () => {
       interactions: "67.9k",
       image:
         "https://images.unsplash.com/photo-1611162617213-7d15d3e8e5c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/emulation",
+      link: "forumdetails",
     },
     {
       id: 12,
@@ -271,13 +270,17 @@ const ForumTab = () => {
       interactions: "56.3k",
       image:
         "https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      link: "/gaming-forum/accessories",
+      link: "forumdetails",
     },
   ];
 
   return (
     <div className="forum-group-wrapper">
-      <div role="list" aria-label="Gaming Forums list" className="forum-list-wrapper">
+      <div
+        role="list"
+        aria-label="Gaming Forums list"
+        className="forum-list-wrapper"
+      >
         {forums.map((forum, index) => (
           <div key={forum.id} role="listitem">
             <a
@@ -319,7 +322,9 @@ const ForumTab = () => {
                 </div>
                 <div className="nums text-gray-600 text-sm mt-1">
                   <span className="theme-num mr-2">🧵 {forum.threads}</span>
-                  <span className="interaction-num">💬 {forum.interactions}</span>
+                  <span className="interaction-num">
+                    💬 {forum.interactions}
+                  </span>
                 </div>
               </div>
               <div className="link-icon-wrapper ml-2">

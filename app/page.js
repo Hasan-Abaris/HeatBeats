@@ -1,11 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import Communityfaq from "@/components/view/Community"; // Home tab content
-import ForumTab from "@/components/view/Community/ForumTab"; // Forum page
-import SupportTab from "@/components/view/Community/SupportTab"; // Support page
-import MoreTab from "@/components/view/Community/OtherTab"; // More page
-
+import { useRouter, usePathname } from "next/navigation";
+import Communityfaq from "@/components/view/Community"; // Show below Home page
 import {
   ChatBubbleLeftRightIcon,
   UserCircleIcon,
@@ -15,24 +11,16 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function MainPage() {
-  const [activeTab, setActiveTab] = useState("home");
-  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const renderTabContent = () => {
-    switch (activeTab) {
-      case "home":
-        return <Communityfaq />;
-      case "forum":
-        return <ForumTab />;
-      case "support":
-        return <SupportTab />;
-      case "more":
-        return <MoreTab />;
-      default:
-        return <Communityfaq />;
-    }
-  };
+  const tabs = [
+    { key: "home", label: "Home", path: "/" },
+    { key: "forum", label: "Forum", path: "/forum" },
+    { key: "contest", label: "Contest", path: "/Contest" },
+    { key: "support", label: "Support", path: "/Support" },
+  ];
 
   const handleAcademicClick = () => {
     router.push("/Homemain");
@@ -58,32 +46,29 @@ export default function MainPage() {
               )}
             </button>
 
-            {/* Tabs (hidden on small screens) */}
+            {/* Tabs (Desktop) */}
             <div className="hidden lg:flex gap-6">
-              {[
-                { key: "home", label: "Home" },
-                { key: "forum", label: "Forum" },
-                { key: "more", label: "Contest" },
-                { key: "support", label: "Support" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveTab(tab.key)}
-                  className={`py-2 px-4 text-base font-medium border-b-2 transition-colors ${
-                    activeTab === tab.key
-                      ? "border-blue-600 text-blue-600"
-                      : "border-transparent text-gray-500 hover:text-blue-500"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+              {tabs.map((tab) => {
+                const isActive = pathname === tab.path;
+                return (
+                  <button
+                    key={tab.key}
+                    onClick={() => router.push(tab.path)}
+                    className={`py-2 px-4 text-base font-medium border-b-2 transition-colors ${
+                      isActive
+                        ? "border-blue-600 text-blue-600"
+                        : "border-transparent text-gray-500 hover:text-blue-500"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
           {/* Right: Search + Icons */}
           <div className="flex items-center gap-3 sm:gap-4">
-            {/* Search */}
             <div className="flex items-center gap-2 border rounded-md px-2 py-1 focus-within:ring-2 focus-within:ring-blue-500 w-32 sm:w-48 md:w-64">
               <input
                 type="search"
@@ -93,7 +78,6 @@ export default function MainPage() {
               <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
             </div>
 
-            {/* Icons */}
             <button
               aria-label="Message center"
               className="p-2 rounded-full hover:bg-gray-100"
@@ -113,35 +97,35 @@ export default function MainPage() {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="lg:hidden bg-white border-t px-4 pb-3 flex flex-col gap-2">
-            {[
-              { key: "home", label: "Home" },
-              { key: "forum", label: "Forum" },
-              { key: "more", label: "Contest" },
-              { key: "support", label: "Support" },
-            ].map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => {
-                  setActiveTab(tab.key);
-                  setMenuOpen(false);
-                }}
-                className={`py-2 text-left text-base font-medium border-b ${
-                  activeTab === tab.key
-                    ? "text-blue-600 border-blue-500"
-                    : "text-gray-700 hover:text-blue-500 border-transparent"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {tabs.map((tab) => {
+              const isActive = pathname === tab.path;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => {
+                    router.push(tab.path);
+                    setMenuOpen(false);
+                  }}
+                  className={`py-2 text-left text-base font-medium border-b ${
+                    isActive
+                      ? "text-blue-600 border-blue-500"
+                      : "text-gray-700 hover:text-blue-500 border-transparent"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
         )}
       </nav>
 
-      {/* 🧩 Tab Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-        {renderTabContent()}
-      </div>
+      {/* 🏠 Community section only for Home page */}
+      {pathname === "/" && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+          <Communityfaq />
+        </div>
+      )}
 
       {/* 🎓 Floating Academic Button */}
       <button

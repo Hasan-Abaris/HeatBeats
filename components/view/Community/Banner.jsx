@@ -1,6 +1,14 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 function Banner() {
+  const router = useRouter();
+
+  const handleStartLearning = () => {
+    router.push("/Homemain"); // 👈 This will navigate to /Homemain page
+  };
+
   return (
     <div
       className="relative w-full max-w-[1200px] mx-auto h-[250px] sm:h-[350px] md:h-[462px] 
@@ -29,7 +37,7 @@ function Banner() {
           Explore the latest Gaming tutorials, projects, and community challenges.
         </p>
         <button
-          onClick={() => alert("Redirecting to coding section!")}
+          onClick={handleStartLearning}
           className="px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 bg-green-600 text-white 
           text-sm sm:text-base md:text-lg rounded-md hover:bg-green-700 transition-colors duration-300"
         >

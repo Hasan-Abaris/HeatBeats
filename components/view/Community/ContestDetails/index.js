@@ -1,122 +1,122 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
 
-function ContestDetailspage() {
+export default function ContestDetailspage() {
+  const [activeTab, setActiveTab] = useState("information");
+
   return (
-    <div
-      role="region"
-      aria-label="Comment details text area"
-      className="thread-detail-main max-w-4xl mx-auto bg-white shadow-sm rounded-xl p-6 mt-6 mb-10 border border-gray-200"
-      data-nosnippet=""
-    >
-      {/* 🟡 Status */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-md">
-          Awaiting
-        </div>
-        <button className="text-sm font-medium text-blue-600 hover:underline">
-          Follow
-        </button>
-      </div>
-
-      {/* 🧑‍💻 Author Info */}
-      <div className="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
-        <div className="relative">
-          <Image
-            src="https://in-exstatic-vivofs.vivo.com/bCy1HLzT9bUXp6Mb/IN-VIVO/threadResource/20220526/9ac36d9dc94d4279ab7d465c7771cdb3_w216_h216.png"
-            alt="User Avatar"
-            width={60}
-            height={60}
-            className="rounded-full border"
-          />
-        </div>
-        <div>
-          <h2 className="text-lg font-semibold text-gray-800">User Name 1129483</h2>
-          <p className="text-sm text-gray-500">Posted on Oct 21, 16:47</p>
-        </div>
-      </div>
-
-      {/* 📝 Thread Content */}
-      <div className="thread-detail-content leading-relaxed text-gray-700 space-y-3">
-        <p>
-          Hello iQOO Support Team,
-        </p>
-        <p>
-          After updating my <strong>iQOO Z5 5G</strong> to the latest software version <strong>PD2148F_EX_A_38.1.22 (Android 13)</strong>, 
-          I am facing a serious issue.
-        </p>
-        <p>
-          Any app that uses fingerprint authentication (such as banking or app-lock apps) crashes when I try to unlock it using the fingerprint sensor. 
-          As soon as I touch the fingerprint sensor, the screen locks automatically and the app crashes.
-        </p>
-        <p>I have already tried the following steps, but the problem still persists:</p>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          <li>Restarted the device</li>
-          <li>Cleared cache and data of affected apps</li>
-          <li>Deleted and re-registered fingerprints</li>
+    <div className="flex max-w-6xl mx-auto mt-10 bg-white border rounded-xl shadow-sm">
+      {/* Left Sidebar */}
+      <aside className="w-1/4 border-r p-4">
+        <ul className="space-y-2">
+          <li>
+            <button
+              onClick={() => setActiveTab("information")}
+              className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                activeTab === "information"
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              Information
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => setActiveTab("posts")}
+              className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                activeTab === "posts"
+                  ? "bg-blue-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              Posts
+            </button>
+          </li>
         </ul>
-      </div>
+      </aside>
 
-      {/* 🧾 Issue Info */}
-      <ul className="feedback-list mt-6 divide-y divide-gray-100 border border-gray-200 rounded-lg">
-        <li className="flex justify-between p-3 text-sm sm:text-base">
-          <span className="font-medium text-gray-600">Product Model</span>
-          <span className="text-gray-800">iQOO Z5</span>
-        </li>
-        <li className="flex justify-between p-3 text-sm sm:text-base">
-          <span className="font-medium text-gray-600">Issue Frequency</span>
-          <span className="text-gray-800">High frequency</span>
-        </li>
-        <li className="flex justify-between p-3 text-sm sm:text-base">
-          <span className="font-medium text-gray-600">Issue Type</span>
-          <span className="text-gray-800">System upgrade</span>
-        </li>
-      </ul>
+      {/* Right Content */}
+      <main className="flex-1 p-6">
+        {activeTab === "information" && (
+          <div className="space-y-6">
+            {/* User Info */}
+            <div className="flex items-center gap-6 border-b pb-6">
+              <Image
+                src="https://usrsyswsdl.vivoglobal.com/usrsys/upload/avatar/20220511122243951.png"
+                width={90}
+                height={90}
+                alt="User Avatar"
+                className="rounded-full border"
+              />
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800">
+                  Sayyad Hasan
+                </h2>
+                <p className="text-gray-500">User ID: 100049</p>
+                <p className="text-sm text-gray-600 mt-1">
+                  Keep Questing On and On!
+                </p>
+              </div>
+            </div>
 
-      {/* 💬 Forum Section */}
-      <div className="mt-6 flex justify-between items-center text-sm text-gray-600">
-        <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-md">iQOO Z Series</span>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1" aria-label="Viewed 3 times">
-            👁️ <span>3</span>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <p className="text-2xl font-bold text-gray-800">130.5k</p>
+                <p className="text-gray-500 text-sm">Likes</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">46.1k</p>
+                <p className="text-gray-500 text-sm">Followers</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">28</p>
+                <p className="text-gray-500 text-sm">Following</p>
+              </div>
+            </div>
+
+            {/* Follow Button */}
+            <div className="flex justify-center mt-6">
+              <button className="px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition">
+                Follow
+              </button>
+            </div>
           </div>
-          <div className="flex items-center gap-1" aria-label="Liked 1 time">
-            ❤️ <span>1</span>
-          </div>
-        </div>
-      </div>
+        )}
 
-      {/* 🗨️ Add Comment */}
-      <div className="mt-10 border-t border-gray-200 pt-6">
-        <h3 className="text-lg font-semibold mb-3">Add Comment</h3>
-        <div className="flex items-start gap-3">
-          <Image
-            src="/default-avatar.png"
-            alt="Avatar placeholder"
-            width={40}
-            height={40}
-            className="rounded-full border"
-          />
-          <div className="flex-1">
-            <p className="text-gray-500 mb-2 text-sm">
-              Post a comment here. <button className="text-blue-600 hover:underline">Sign in</button>
+        {activeTab === "posts" && (
+          <div>
+            <h1 className="text-2xl font-bold mb-4 text-gray-800">User Posts</h1>
+            <p className="text-gray-600 mb-6">
+              Here are all the posts made by this user.
             </p>
-          </div>
-        </div>
-      </div>
 
-      {/* 🗒️ Comments Section */}
-      <div className="mt-8">
-        <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-          All Comments <span className="text-sm text-gray-500">(0)</span>
-        </h3>
-        <div className="bg-gray-50 p-4 rounded-lg text-center text-gray-500">
-          Be the first to comment!
-        </div>
-      </div>
+            <div className="space-y-4">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div
+                  key={i}
+                  className="p-4 border rounded-lg hover:bg-gray-50 transition"
+                >
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Post Title {i}
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                    diam. Sed nisi.
+                  </p>
+                  <div className="flex justify-between mt-2 text-sm text-gray-500">
+                    <span>❤️ {Math.floor(Math.random() * 100)} Likes</span>
+                    <span>💬 {Math.floor(Math.random() * 20)} Comments</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
     </div>
   );
 }
-
-export default ContestDetailspage;

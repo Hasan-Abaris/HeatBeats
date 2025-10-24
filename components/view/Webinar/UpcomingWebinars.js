@@ -1,64 +1,44 @@
 "use client";
 
-import { useRef, useMemo, useEffect, useState } from "react";
+import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { getAllWebinars } from "@/app/comman/FrontApi";
-import Loadar from "@/app/comman/Loader";
 
 export default function UpcomingWebinars() {
   const scrollRef = useRef(null);
 
-  const [webinars, setWebinars] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Fetch webinars
-  useEffect(() => {
-    const fetchWebinars = async () => {
-      try {
-        const res = await getAllWebinars();
-        const data = res?.data?.data || [];
-        setWebinars(data);
-      } catch {
-        setError("Unable to load webinars at the moment.");
-        // fallback placeholders
-        setWebinars([
-          {
-            id: 1,
-            title: "Intro to Cloud Computing",
-            date: "2025-08-15",
-            time: "4:00 PM",
-            registrations: 120,
-          },
-          {
-            id: 2,
-            title: "Data Science for Beginners",
-            date: "2025-08-17",
-            time: "5:30 PM",
-            registrations: 95,
-          },
-          {
-            id: 3,
-            title: "Intro to Cloud Computing",
-            date: "2025-08-15",
-            time: "4:00 PM",
-            registrations: 120,
-          },
-          {
-            id: 4,
-            title: "Data Science for Beginners",
-            date: "2025-08-17",
-            time: "5:30 PM",
-            registrations: 95,
-          },
-        ]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWebinars();
-  }, []);
+  // Static gaming events
+  const webinars = [
+    {
+      id: 1,
+      name: "PUBG Pro Battle Strategies",
+      webinar_datetime: "2025-11-02T18:00:00",
+      registrations_count: 240,
+    },
+    {
+      id: 2,
+      name: "Master Ludo in 5 Steps",
+      webinar_datetime: "2025-11-05T17:30:00",
+      registrations_count: 190,
+    },
+    {
+      id: 3,
+      name: "Carrom Trick Shots & Tactics",
+      webinar_datetime: "2025-11-07T19:00:00",
+      registrations_count: 150,
+    },
+    {
+      id: 4,
+      name: "Chess Openings for Beginners",
+      webinar_datetime: "2025-11-09T16:00:00",
+      registrations_count: 220,
+    },
+    {
+      id: 5,
+      name: "Online Gaming Career Tips",
+      webinar_datetime: "2025-11-12T18:30:00",
+      registrations_count: 300,
+    },
+  ];
 
   // Scroll handler
   const scroll = (direction) => {
@@ -71,87 +51,68 @@ export default function UpcomingWebinars() {
     });
   };
 
-  // Filter upcoming webinars (from today onward, no upper limit)
-  const upcoming = useMemo(() => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    return webinars.filter((w) => {
-      if (!w.webinar_datetime) return false;
-      const parsedDate = new Date(w.webinar_datetime);
-      return parsedDate >= today;
-    });
-  }, [webinars]);
-
-  if (loading) return <Loadar />;
-
   return (
-    <div className="bg-[#f5f8fd] py-12">
+    <div className="bg-[#0d1224] py-14">
       <div className="max-w-7xl mx-auto px-4">
-        {/* ===== Upcoming Webinars Section ===== */}
-        <h2 className="text-2xl font-semibold text-blue-700 mb-6 text-center">
-          Upcoming Webinars
+        {/* ===== Upcoming Gaming Webinars Section ===== */}
+        <h2 className="text-3xl font-extrabold text-center text-orange-400 mb-8 uppercase tracking-wide">
+          Upcoming Gaming Webinars
         </h2>
 
-        {error && (
-          <div className="text-center text-red-600 mb-4">{error}</div>
-        )}
+        <div className="relative">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 rounded-full shadow-md p-2 hover:bg-gray-700"
+          >
+            <ChevronLeft className="w-5 h-5 text-white" />
+          </button>
 
-        {upcoming.length === 0 ? (
-          <div className="text-center text-gray-500 py-6">
-            No upcoming webinars.
-          </div>
-        ) : (
-          <div className="relative">
-            {/* Left Arrow */}
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-gray-100"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Scrollable List */}
-            <div
-              ref={scrollRef}
-              className="flex gap-6 overflow-x-scroll scroll-smooth no-scrollbar px-12 snap-x snap-mandatory"
-            >
-              {upcoming.map((webinar, i) => (
-                <div
-                  key={webinar.id || i}
-                  className="w-80 flex-shrink-0 bg-white shadow rounded-lg p-5 min-h-[260px] flex flex-col justify-between snap-start"
-                >
-                  <div className="flex flex-col gap-3">
-                    <h3 className="text-lg font-semibold">{webinar.name}</h3>
-                    <div className="text-sm text-gray-600">
-                      {new Date(webinar.webinar_datetime).toLocaleDateString()} |{" "}
-                      {new Date(webinar.webinar_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </div>
-                    <div className="text-sm text-green-700">
-                      {webinar.registrations_count ?? 0} Registered
-                    </div>
+          {/* Scrollable List */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-scroll scroll-smooth no-scrollbar px-10 snap-x snap-mandatory"
+          >
+            {webinars.map((webinar) => (
+              <div
+                key={webinar.id}
+                className="w-80 flex-shrink-0 bg-[#121a35] border border-gray-700 shadow-lg rounded-xl p-6 min-h-[260px] flex flex-col justify-between snap-start hover:scale-105 transition-transform duration-300"
+              >
+                <div className="flex flex-col gap-3">
+                  <h3 className="text-xl font-bold text-white">
+                    {webinar.name}
+                  </h3>
+                  <div className="text-sm text-gray-400">
+                    {new Date(webinar.webinar_datetime).toLocaleDateString()} |{" "}
+                    {new Date(webinar.webinar_datetime).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </div>
-                  <button
-                    onClick={() =>
-                      (window.location.href = `/webinar/${webinar.id}`)
-                    }
-                    className="mt-5 border border-blue-600 text-blue-600 font-semibold py-2 rounded hover:bg-blue-50 transition"
-                  >
-                    REGISTER NOW
-                  </button>
+                  <div className="text-sm text-green-400">
+                    {webinar.registrations_count} Registered
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Right Arrow */}
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-gray-100"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+                <button
+                  onClick={() =>
+                    (window.location.href = `/webinar/${webinar.id}`)
+                  }
+                  className="mt-5 bg-orange-500 text-white font-semibold py-2 rounded-lg hover:bg-orange-600 transition"
+                >
+                  REGISTER NOW
+                </button>
+              </div>
+            ))}
           </div>
-        )}
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 rounded-full shadow-md p-2 hover:bg-gray-700"
+          >
+            <ChevronRight className="w-5 h-5 text-white" />
+          </button>
+        </div>
       </div>
 
       {/* Hide scrollbar */}

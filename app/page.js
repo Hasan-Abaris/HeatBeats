@@ -127,13 +127,32 @@ export default function MainPage() {
         </div>
       )}
 
-      {/* 🎓 Floating Academic Button */}
-      <button
-        onClick={handleAcademicClick}
-        className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all z-50 text-sm sm:text-base"
-      >
-        Academic
-      </button>
+      {/* 🎓 Floating Buttons */}
+      <div className="fixed right-4 bottom-4 flex flex-col gap-3 sm:right-6 sm:bottom-6 z-50">
+        {/* Academic */}
+        <button
+          onClick={() => router.push("/Homemain")}
+          className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all text-sm sm:text-base"
+        >
+          Academic
+        </button>
+
+        {/* Events */}
+        <button
+          onClick={() => router.push("/events")}
+          className="bg-green-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-green-700 transition-all text-sm sm:text-base"
+        >
+          Events
+        </button>
+
+        {/* Live Stream */}
+        <button
+          onClick={() => router.push("/live-stream")}
+          className="bg-red-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-red-700 transition-all text-sm sm:text-base"
+        >
+          Live Stream
+        </button>
+      </div>
     </div>
   );
 }

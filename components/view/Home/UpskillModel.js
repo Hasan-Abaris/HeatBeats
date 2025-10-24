@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 
-function UpskillModel({ isOpen, setIsOpen,opacity }) {
-  const closeModal = () => setIsOpen({counselling:true,skills:false});
+function UpskillModel({ isOpen, setIsOpen, opacity }) {
+  const closeModal = () => setIsOpen({ counselling: true, skills: false });
 
   return (
     <>
@@ -19,21 +19,21 @@ function UpskillModel({ isOpen, setIsOpen,opacity }) {
             </button>
 
             <img
-              src="https://db7hsdc8829us.cloudfront.net/dist/1658131456/i/c65491f263d84eb7a72a4b212e1c709d.jpeg?v=1687254908"
-              alt="Upskill"
+              src="/images/banner3.jpg"
+              alt="HeatBeasts Game Academy"
               className="w-full rounded mb-4"
             />
 
             <h2 className="text-2xl font-semibold text-gray-800 mb-2 font-normal">
-              Upskill Now For A Better Career
+              Level Up Your Gaming Skills 🎮
             </h2>
             <p className="text-gray-700 mb-6 px-4">
-              Unleash your true potential by upskilling in the in-demand
-              technologies of the digital era. Check out the upcoming batches and offers.
+              Join <strong>HeatBeasts Game Academy</strong> and take your gaming journey to the next level!  
+              Learn strategies, compete in tournaments, and master games like PUBG, Chess, Ludo, and more.
             </p>
 
             <button className="bg-red-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded transition">
-              EXPLORE COURSES
+              EXPLORE GAMES
             </button>
           </div>
         </div>

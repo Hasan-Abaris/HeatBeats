@@ -1,6 +1,10 @@
 "use client";
+import { Link } from "lucide-react";
 import React, { useRef, useState, useEffect } from "react";
-import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
 
 const blogs = [
   {
@@ -30,7 +34,6 @@ const blogs = [
   },
 ];
 
-
 function Blogs() {
   const containerRef = useRef(null);
   const cardRef = useRef(null);
@@ -52,10 +55,8 @@ function Blogs() {
 
   return (
     <div className="w-[1130px] mx-auto relative">
-
       <h2 className="text-2xl font-bold mb-4 mt-6">Latest Blog Posts</h2>
       <div className="max-w-[1200px] mx-auto flex items-start gap-6 relative">
-
         <div className="flex-1 overflow-hidden">
           <div
             ref={containerRef}
@@ -84,24 +85,27 @@ function Blogs() {
             {blogs.map((_, idx) => (
               <div
                 key={idx}
-                className={`w-2 h-2 rounded-full ${idx === currentIndex ? "bg-sky-800" : "bg-gray-300"
-                  }`}
+                className={`w-2 h-2 rounded-full ${
+                  idx === currentIndex ? "bg-sky-800" : "bg-gray-300"
+                }`}
               ></div>
             ))}
           </div>
         </div>
 
-
         <div className="w-[220px] shrink-0">
           <h2 className="text-sm font-bold text-gray-900 mb-2">BLOG POSTS</h2>
           <p className="text-[12px] text-gray-600 mb-4 leading-tight">
-            Check out our blog for free insights and updates on your field
+            Check out our HeatBeasts blog for the latest gaming insights,
+            tutorials, and updates from pro players.
           </p>
-          <button className="border border-blue-800 text-blue-800 text-[11px] font-semibold px-4 py-1 rounded-sm">
+          <button
+            onClick={() => (window.location.href = "/blogs")}
+            className="border border-blue-700 text-blue-700 text-[11px] font-semibold px-4 py-1 rounded-sm hover:bg-blue-700 hover:text-white transition"
+          >
             SHOW ME
           </button>
         </div>
-
 
         <button
           className="absolute left-0 top-[45%] -translate-y-1/2 p-2 bg-white rounded-full shadow text-gray-800"

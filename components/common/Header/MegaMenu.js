@@ -19,7 +19,7 @@ const MegaMenu = () => {
       </li>
 
       <li className="flex items-center cursor-pointer">
-        <Link href="/corporate-t/aining" className="text-base textBlueDark">
+        <Link href="/corporate-taining" className="text-base textBlueDark">
           Corporate Training
         </Link>
       </li>
@@ -49,13 +49,7 @@ const MegaMenu = () => {
             >
               Webinar
             </Link>
-            <Link
-              href="/community"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              onClick={() => setMenuVisible(false)}
-            >
-              Community
-            </Link>
+          
           </div>
         )}
       </li>

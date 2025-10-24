@@ -1,46 +1,27 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { getAllWebinars } from "@/app/comman/FrontApi";
 
 export default function WebinarCategorySelector({
-  categories = [],
   selectedCategory = "All",
   onSelectCategory = () => {},
 }) {
   const scrollRef = useRef(null);
 
-  // Fetch categories if not passed via props
-  useEffect(() => {
-    async function fetchCategories() {
-      if (categories.length) return; // categories passed by parent, skip fetching
+  // Static gaming categories
+  const categories = [
+    { topic: "All Games", icon: "/images/courses/amongus-course.jpg"},
+    { topic: "PUBG", icon: "/images/courses/pubg.jpg"},
+    { topic: "Ludo", icon: "/images/courses/ludo.jpg"},
+    { topic: "Carrom", icon: "/images/courses/carrom.jpg"},
+    { topic: "Chess", icon: "/images/courses/chess.jpg"},
+    { topic: "Arcade", icon: "/images/courses/amongus-course.jpg"},
+    { topic: "Strategy", icon: "/images/courses/sudoku.jpg"},
+  ];
 
-      try {
-        const res = await getAllWebinars();
-        if (res?.data?.data) {
-          const uniqueCategories = Array.from(
-            new Map(
-              res.data.data.map((w) => [
-                w.category_name,
-                {
-                  topic: w.category_name,
-                  icon: w.category_icon || "/images/fallback.svg",
-                },
-              ])
-            ).values()
-          );
-          onSelectCategory("All"); // optional: reset selection on load
-        }
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    }
-
-    fetchCategories();
-  }, [categories, onSelectCategory]);
-
+  // Scroll function
   const scroll = (direction) => {
     if (scrollRef.current) {
       const cardWidth =
@@ -52,23 +33,20 @@ export default function WebinarCategorySelector({
     }
   };
 
-  // Build category list including "All" as an object
-  const categoryList = [{ topic: "All", icon: "/images/world.svg" }, ...categories];
-
   return (
-    <section className="w-full py-10 bg-[#f5f8fd]">
+    <section className="w-full py-12 bg-[#0d1224] text-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-8 text-center text-gray-800">
-          Browse by Categories
+        <h2 className="text-3xl font-extrabold mb-8 text-center text-orange-400 uppercase tracking-wide">
+          Explore Game Categories
         </h2>
 
         <div className="flex items-center justify-center gap-4">
           {/* Left Scroll Button */}
           <button
             onClick={() => scroll("left")}
-            className="bg-white shadow-md p-3 rounded-full hover:bg-gray-100 transition"
+            className="bg-gray-800 shadow-md p-3 rounded-full hover:bg-gray-700 transition"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6 text-white" />
           </button>
 
           {/* Scrollable Categories */}
@@ -77,17 +55,17 @@ export default function WebinarCategorySelector({
             className="flex overflow-x-auto no-scrollbar gap-6 scroll-smooth px-2"
             style={{ scrollSnapType: "x mandatory" }}
           >
-            {categoryList.map((cat, idx) => {
+            {categories.map((cat, idx) => {
               const isActive = selectedCategory === cat.topic;
 
               return (
                 <button
                   key={idx}
                   onClick={() => onSelectCategory(cat.topic)}
-                  className={`min-w-[180px] max-w-[180px] h-[150px] flex-shrink-0 flex flex-col items-center justify-center border rounded-xl shadow-sm transition-all duration-200 ${
+                  className={`min-w-[160px] max-w-[160px] h-[150px] flex-shrink-0 flex flex-col items-center justify-center rounded-xl border transition-all duration-300 ${
                     isActive
-                      ? "border-blue-600 bg-blue-50 ring-2 ring-blue-200"
-                      : "border-gray-200 hover:shadow-md hover:bg-gray-50"
+                      ? "border-orange-500 bg-orange-100/10 ring-2 ring-orange-400 shadow-lg scale-105"
+                      : "border-gray-700 hover:bg-gray-800 hover:shadow-md"
                   }`}
                   style={{ scrollSnapAlign: "start" }}
                   aria-pressed={isActive}
@@ -96,12 +74,12 @@ export default function WebinarCategorySelector({
                     <Image
                       src={cat.icon}
                       alt={cat.topic}
-                      width={48}
-                      height={48}
+                      width={50}
+                      height={50}
                       className="object-contain"
                     />
                   </div>
-                  <p className="text-sm font-semibold text-gray-800 text-center">
+                  <p className="text-sm font-semibold text-center">
                     {cat.topic}
                   </p>
                 </button>
@@ -112,9 +90,9 @@ export default function WebinarCategorySelector({
           {/* Right Scroll Button */}
           <button
             onClick={() => scroll("right")}
-            className="bg-white shadow-md p-3 rounded-full hover:bg-gray-100 transition"
+            className="bg-gray-800 shadow-md p-3 rounded-full hover:bg-gray-700 transition"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-6 h-6 text-white" />
           </button>
         </div>
       </div>

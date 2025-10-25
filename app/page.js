@@ -139,7 +139,7 @@ export default function MainPage() {
 
         {/* Events */}
         <button
-          onClick={() => router.push("/events")}
+          onClick={() => router.push("/Event")}
           className="bg-green-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-green-700 transition-all text-sm sm:text-base"
         >
           Events

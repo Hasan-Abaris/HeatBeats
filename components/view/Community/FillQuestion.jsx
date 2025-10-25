@@ -1,5 +1,7 @@
+'use client';
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp, FaHeart, FaComment, FaShare } from 'react-icons/fa';
+import { useRouter } from 'next/navigation'; // ✅ import router
 
 function FillQuestion({ filteredQuestions }) {
   const [commentsData, setCommentsData] = useState({});
@@ -49,12 +51,16 @@ function FillQuestion({ filteredQuestions }) {
 
 function QuestionCard({ question, qIndex, handleVote, questionComments, handleAddComment }) {
   const [commentText, setCommentText] = useState('');
+  const router = useRouter(); // ✅ initialize router
 
   return (
     <div className="border rounded-lg p-4 sm:p-5 md:p-6 bg-white shadow-sm transition hover:shadow-md">
       {/* Author Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-        <div className="flex items-center gap-3">
+        <div
+          className="flex items-center gap-3 cursor-pointer" // ✅ make clickable
+          onClick={() => router.push(`/Contestdetails/`)} // ✅ route to ContentDetails page
+        >
           <img
             src={`https://ui-avatars.com/api/?name=${encodeURIComponent(question.author)}`}
             alt={question.author}

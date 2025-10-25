@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 function Articles() {
-    // 🔥 Updated blog data (Game Academy / HeatBeasts theme)
+
     const data = {
         blog: [
             {

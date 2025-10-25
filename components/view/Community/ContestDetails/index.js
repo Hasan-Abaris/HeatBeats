@@ -1,12 +1,33 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function ContestDetailspage() {
   const [activeTab, setActiveTab] = useState('home');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const router = useRouter();
 
   const tabs = ['home', 'videos', 'shorts', 'live', 'playlists', 'posts', 'about'];
 
+  const handleSubscribe = () => {
+    setIsSubscribed(true);
+  };
+
+  const handleCustomizeChannel = () => {
+    setActiveTab('home');
+    router.push('/#');
+  };
+
+  const handleManageVideos = () => {
+    setActiveTab('videos');
+    router.push('/Channeldetail');
+  };
+
+ const handleTabClick = (tab) => {
+  setActiveTab(tab);
+  // no router.push, stay on same page
+};
   return (
     <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-sm">
       {/* Banner */}
@@ -31,9 +52,33 @@ export default function ContestDetailspage() {
         <div className="ml-4">
           <h2 className="text-2xl font-bold">Quartz Games</h2>
           <p className="text-gray-500">@QuartzGames • 482K subscribers • 1K videos</p>
-          <button className="mt-2 px-5 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition">
-            Subscribe
-          </button>
+             {/* Following & Followers */}
+          <p className="text-gray-500 mt-1">Following: 1.2K • Followers: 500K</p>
+          <div className="mt-2 flex space-x-2">
+            {!isSubscribed ? (
+              <button
+                onClick={handleSubscribe}
+                className="px-5 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition"
+              >
+                Subscribe
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={handleCustomizeChannel}
+                  className="px-5 py-2 bg-gray-600 text-white font-medium rounded-md hover:bg-gray-700 transition"
+                >
+                  Customize Channel
+                </button>
+                <button
+                  onClick={handleManageVideos}
+                  className="px-5 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition"
+                >
+                  Manage Videos
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
@@ -42,7 +87,7 @@ export default function ContestDetailspage() {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleTabClick(tab)}
             className={`flex-1 text-center py-3 font-medium transition-colors ${
               activeTab === tab ? 'border-b-2 border-black text-black' : 'text-gray-500 hover:text-black'
             }`}

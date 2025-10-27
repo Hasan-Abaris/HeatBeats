@@ -1,10 +1,11 @@
-
 import './globals.css';
+import { Toaster } from 'react-hot-toast';
 import { Header } from '@/components/common/Header';
 import Footers from '@/components/common/Footer/Footer';
-import { Toaster } from 'react-hot-toast';
+import ClientLayout from './ClientLayout'; // 👈 Import the new client component
+
 export const metadata = {
-  title: 'Games ',
+  title: 'Games',
   description:
     'SLA Consultants India is an online training provider with the most effective learning system in the world. We help professionals learn trending technologies for career growth.',
 };
@@ -12,12 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
-      <body className={'font-stretch'}>
+      <body className="font-stretch">
         <Toaster position="top-right" />
-        <Header />
-        {children}
-        <Footers />
+        {/* 👇 Client-side wrapper handles footer visibility */}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

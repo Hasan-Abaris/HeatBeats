@@ -29,7 +29,7 @@ export default function GameContentPage() {
         author: 'DevInspire',
         date: 'Jan 20, 2025',
         views: '500K',
-        thumbnail: '/images/games/inspiration1.jpg',
+        thumbnail: '/images/courses/ludo.jpg',
       },
       {
         title: 'Indie Game Success Stories',
@@ -37,13 +37,13 @@ export default function GameContentPage() {
         author: 'IndieLover',
         date: 'Feb 15, 2025',
         views: '750K',
-        thumbnail: '/images/games/inspiration2.jpg',
+        thumbnail: '/images/courses/pubg.jpg',
       },
     ],
     Videos: [
       {
         title: 'Top 10 Unity Game Tips',
-        thumbnail: '/images/games/unity1.jpg',
+        thumbnail: '/images/courses/unity.jpg',
         views: 1200,
         comments: 5,
         likes: 100,
@@ -54,7 +54,7 @@ export default function GameContentPage() {
       },
       {
         title: 'Unreal Engine 5 Epic Tutorial',
-        thumbnail: '/images/games/unreal1.jpg',
+        thumbnail: '/images/courses/amongus-course.jpg',
         views: 900,
         comments: 2,
         likes: 80,
@@ -64,8 +64,8 @@ export default function GameContentPage() {
         author: 'UnrealGuru',
       },
       {
-        title: 'Top 5 Indie Games of 2025',
-        thumbnail: '/images/games/indie1.jpg',
+        title: 'Top 5 Indie courses of 2025',
+        thumbnail: '/images/courses/chess.jpg',
         views: 1500,
         comments: 10,
         likes: 200,
@@ -78,14 +78,14 @@ export default function GameContentPage() {
     Shorts: [
       {
         title: 'Quick Unity Trick',
-        thumbnail: '/images/games/short1.jpg',
+        thumbnail: '/images/courses/short1.jpg',
         views: '300K',
         date: '12 Oct 2025',
         author: 'QuickTips',
       },
       {
         title: 'Gameplay Highlight',
-        thumbnail: '/images/games/short2.jpg',
+        thumbnail: '/images/courses/short2.jpg',
         views: '450K',
         date: '11 Oct 2025',
         author: 'GameClips',
@@ -94,7 +94,7 @@ export default function GameContentPage() {
     Live: [
       {
         title: 'Live Unity Coding Session',
-        thumbnail: '/images/games/live1.jpg',
+        thumbnail: '/images/courses/live1.jpg',
         status: 'Ended',
         date: '9 Oct 2025',
         viewers: '10K',
@@ -102,7 +102,7 @@ export default function GameContentPage() {
       },
       {
         title: 'Indie Game Showcase',
-        thumbnail: '/images/games/live2.jpg',
+        thumbnail: '/images/courses/live2.jpg',
         status: 'Upcoming',
         date: '15 Oct 2025',
         viewers: 'N/A',
@@ -129,13 +129,13 @@ export default function GameContentPage() {
       {
         title: 'Unity Tutorials',
         videoCount: 10,
-        thumbnail: '/images/games/playlist1.jpg',
+        thumbnail: '/images/courses/playlist1.jpg',
         author: 'UnityMaster',
       },
       {
         title: 'Indie Game Reviews',
         videoCount: 5,
-        thumbnail: '/images/games/playlist2.jpg',
+        thumbnail: '/images/courses/playlist2.jpg',
         author: 'IndieLover',
       },
     ],
@@ -145,14 +145,14 @@ export default function GameContentPage() {
         duration: '45min',
         date: '10 Oct 2025',
         author: 'PodcastHost',
-        thumbnail: '/images/games/podcast1.jpg',
+        thumbnail: '/images/courses/podcast1.jpg',
       },
       {
         title: 'Indie Dev Stories',
         duration: '30min',
         date: '8 Oct 2025',
         author: 'IndieLover',
-        thumbnail: '/images/games/podcast2.jpg',
+        thumbnail: '/images/courses/podcast2.jpg',
       },
     ],
     Promotions: [
@@ -161,14 +161,14 @@ export default function GameContentPage() {
         description: '50% off our Unity course! ...READ MORE',
         date: '14 Oct 2025',
         author: 'PromoTeam',
-        thumbnail: '/images/games/promo1.jpg',
+        thumbnail: '/images/courses/promo1.jpg',
       },
       {
         title: 'New Game Launch',
         description: 'Check out our latest indie game! ...READ MORE',
         date: '13 Oct 2025',
         author: 'IndieLover',
-        thumbnail: '/images/games/promo2.jpg',
+        thumbnail: '/images/courses/promo2.jpg',
       },
     ],
     Collaborations: [
@@ -177,14 +177,14 @@ export default function GameContentPage() {
         description: 'Join our indie game jam! ...READ MORE',
         date: '11 Oct 2025',
         author: 'CollabMaster',
-        thumbnail: '/images/games/collab1.jpg',
+        thumbnail: '/images/courses/collab1.jpg',
       },
       {
         title: 'Streamer Team-Up',
         description: 'Streaming with top gamers ...READ MORE',
         date: '10 Oct 2025',
         author: 'StreamerPro',
-        thumbnail: '/images/games/collab2.jpg',
+        thumbnail: '/images/courses/collab2.jpg',
       },
     ],
   };
@@ -210,6 +210,10 @@ export default function GameContentPage() {
   const handleAuthorClick = (authorName) => {
     const authorSlug = authorName.toLowerCase().replace(/\s+/g, '-');
     router.push(`/contest-details/${authorSlug}`);
+  };
+
+  const handleEditClick = (videoTitle) => {
+    router.push(`/edit-video?title=${encodeURIComponent(videoTitle)}`);
   };
 
   return (
@@ -260,7 +264,7 @@ export default function GameContentPage() {
             <table className="w-full table-auto">
               <thead className="bg-gray-50 border-b">
                 <tr>
-                  {['Video', 'Visibility', 'Restrictions', 'Date', 'Views', 'Comments', 'Likes', 'Author'].map((col) => (
+                  {['Video', 'Visibility', 'Restrictions', 'Date', 'Views', 'Comments', 'Likes', 'Author', 'Edits'].map((col) => (
                     <th key={col} className="text-left px-4 py-2 font-medium text-gray-700">
                       {col}
                     </th>
@@ -291,6 +295,14 @@ export default function GameContentPage() {
                       onClick={() => handleAuthorClick(video.author)}
                     >
                       {video.author}
+                    </td>
+                    <td className="px-4 py-2">
+                      <button
+                        onClick={() => handleEditClick(video.title)}
+                        className="text-blue-600 hover:text-blue-800"
+                      >
+                        <span className="material-icons">Edit</span>
+                      </button>
                     </td>
                   </tr>
                 ))}

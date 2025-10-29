@@ -1,63 +1,256 @@
 'use client';
 import React, { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import {
+  Pencil,
+  BarChart2,
+  Film,
+  MessageSquare,
+  Subtitles,
+  Copyright,
+  Scissors,
+  Settings,
+} from 'lucide-react';
 
 export default function EditVideoLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('General');
+  const [communitySubTab, setCommunitySubTab] = useState('Content controls');
 
   const menuItems = [
-    { label: 'Details', path: '/edit-video/details' },
-    { label: 'Analytics', path: '/edit-video/analytics' },
-    { label: 'Editor', path: '/edit-video/editor' },
-    { label: 'Comments', path: '/edit-video/comments' },
-    { label: 'Subtitles', path: '/edit-video/subtitles' },
-    { label: 'Copyright', path: '/edit-video/copyright' },
-    { label: 'Clips', path: '/edit-video/clips' },
+    { label: 'Details', path: '/edit-video/details', icon: <Pencil size={18} /> },
+    { label: 'Analytics', path: '/edit-video/analytics', icon: <BarChart2 size={18} /> },
+    { label: 'Editor', path: '/edit-video/editor', icon: <Film size={18} /> },
+    { label: 'Comments', path: '/edit-video/comments', icon: <MessageSquare size={18} /> },
+    { label: 'Subtitles', path: '/edit-video/subtitles', icon: <Subtitles size={18} /> },
+    { label: 'Copyright', path: '/edit-video/copyright', icon: <Copyright size={18} /> },
+    { label: 'Clips', path: '/edit-video/clips', icon: <Scissors size={18} /> },
   ];
+
+  const tabs = [
+    'General',
+    'Channel',
+    'Upload defaults',
+    'Permissions',
+    'Community moderation',
+    'Creator demographics',
+    'Agreements',
+  ];
+
+  const renderCommunityModeration = () => {
+    return (
+      <div>
+        {/* Sub-tabs */}
+        <div className="flex border-b mb-6">
+          {['Content controls', 'User management'].map((subTab) => (
+            <button
+              key={subTab}
+              className={`mr-6 pb-2 text-sm font-medium ${
+                communitySubTab === subTab
+                  ? 'border-b-2 border-black text-black'
+                  : 'text-gray-500'
+              }`}
+              onClick={() => setCommunitySubTab(subTab)}
+            >
+              {subTab}
+            </button>
+          ))}
+        </div>
+
+        {/* Sub-tab content */}
+        {communitySubTab === 'Content controls' ? (
+          <div className="space-y-6">
+            <p className="text-gray-600">
+              Set preferences for comments, posts and more
+            </p>
+
+            {/* Comments Section */}
+            <div>
+              <h3 className="font-semibold text-lg mb-2">
+                Comments on new videos and posts
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Comments</label>
+                  <p className="border rounded-md p-2 bg-gray-50">On</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Moderation</label>
+                  <p className="border rounded-md p-2 bg-gray-50">Basic</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Live Chat Section */}
+            <div>
+              <h3 className="font-semibold text-lg mb-2">
+                Messages in your live chat
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Moderation</label>
+                  <p className="border rounded-md p-2 bg-gray-50">None</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Community Posts Section */}
+            <div>
+              <h3 className="font-semibold text-lg mb-2">
+                Posts in your community
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Viewer posts</label>
+                  <p className="border rounded-md p-2 bg-gray-50">Off</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Moderation</label>
+                  <p className="border rounded-md p-2 bg-gray-50">Basic</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Who can post</label>
+                  <p className="border rounded-md p-2 bg-gray-50">Subscribers</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Minimum subscription time
+                  </label>
+                  <p className="border rounded-md p-2 bg-gray-50">1 day</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Blocked Words Section */}
+            <div>
+              <h3 className="font-semibold text-lg mb-2">Blocked words</h3>
+              <p className="text-sm text-gray-600 mb-2">Add blocked words</p>
+              <textarea
+                className="border rounded-md w-full p-2 text-sm bg-gray-50"
+                rows="3"
+                placeholder="Separate words and phrases with commas."
+              ></textarea>
+              <div className="mt-3">
+                <label className="flex items-start gap-2">
+                  <input type="checkbox" className="mt-1" />
+                  <span className="text-sm text-gray-700">
+                    Hold comments with hashtags and URLs for review
+                    <p className="text-gray-500 text-xs mt-1">
+                      Comments and viewer posts with hashtags and URLs will be held. This
+                      setting does not apply to you, moderators or approved users. URLs
+                      and hashtags are already blocked in live chat messages.
+                    </p>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold">
+              Choose who can moderate and participate
+            </h3>
+
+            <div>
+              <label className="block text-sm font-medium mb-1">
+                Managing moderators
+              </label>
+              <input
+                className="border rounded-md w-full p-2 text-sm bg-gray-50"
+                placeholder="Add managing moderator"
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                Paste the channel URL of a user to add as a managing moderator.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-1">
+                Standard moderators
+              </label>
+              <input
+                className="border rounded-md w-full p-2 text-sm bg-gray-50"
+                placeholder="Add standard moderator"
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                Paste the channel URL of a user to add as a standard moderator.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'General':
+        return (
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Default units</h3>
+            <label className="block text-gray-700 font-medium mb-2">Currency</label>
+            <select className="border rounded-md p-2 w-60">
+              <option>INR – Indian Rupee</option>
+              <option>USD – US Dollar</option>
+              <option>EUR – Euro</option>
+            </select>
+            <p className="text-gray-500 text-sm mt-2">
+              Revenue is converted from US dollars based on historical conversion rates.
+            </p>
+          </div>
+        );
+      case 'Channel':
+        return <p>Channel information and branding settings.</p>;
+      case 'Upload defaults':
+        return <p>Set default visibility, category, and tags for uploads.</p>;
+      case 'Permissions':
+        return <p>Manage who can access and edit this channel.</p>;
+      case 'Community moderation':
+        return renderCommunityModeration();
+      case 'Creator demographics':
+        return <p>Manage your demographic data preferences.</p>;
+      case 'Agreements':
+        return <p>Review and manage your creator agreements.</p>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r fixed h-full flex flex-col">
-        {/* Menu List (scrollable area) */}
-        <div className="flex-1 overflow-y-auto p-4">
-          <ul className="space-y-2">
-            {menuItems.map((item) => (
-              <li key={item.path}>
-                <button
-                  onClick={() => router.push(item.path)}
-                  className={`w-full text-left p-2 rounded ${
-                    pathname === item.path
-                      ? 'bg-gray-200 font-semibold'
-                      : 'hover:bg-gray-100'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Settings Button (fixed bottom) */}
-        <div className="p-4 border-t">
-          <button
-            onClick={() => setIsSettingsOpen(true)}
-            className="w-full text-left p-2 rounded hover:bg-gray-100 flex items-center space-x-2 text-gray-700"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="20"
-              width="20"
-              fill="currentColor"
+      <aside className="w-64 bg-white border-r fixed h-full overflow-y-auto">
+        <ul className="p-3 space-y-1">
+          {menuItems.map((item) => (
+            <li key={item.path}>
+              <button
+                onClick={() => router.push(item.path)}
+                className={`flex items-center w-full gap-3 px-3 py-2 rounded-md text-gray-700 transition ${
+                  pathname === item.path
+                    ? 'bg-gray-100 font-semibold'
+                    : 'hover:bg-gray-50'
+                }`}
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </button>
+            </li>
+          ))}
+          <li className="pt-2 mt-2 border-t">
+            <button
+              onClick={() => setIsSettingsOpen(true)}
+              className="flex items-center w-full gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-gray-50 transition"
             >
-              <path d="M10 12.5q-1.05 0-1.775-.725Q7.5 11.05 7.5 10t.725-1.775Q8.95 7.5 10 7.5t1.775.725Q12.5 8.95 12.5 10t-.725 1.775Q11.05 12.5 10 12.5Zm0 6.458q-.354 0-.635-.177-.281-.177-.458-.489l-.688-1.271q-.375-.104-.708-.271-.333-.167-.625-.396l-1.375.312q-.313.062-.625-.094t-.479-.469L3.02 13.98q-.167-.292-.094-.615t.313-.563l1.083-.833Q4.208 11.73 4.188 11.5q-.021-.229-.021-.5 0-.271.021-.5.02-.23.125-.458l-1.083-.834q-.25-.24-.323-.562-.073-.323.094-.615l1.417-2.458q.167-.292.479-.448.313-.157.625-.095l1.375.313q.292-.23.625-.396.333-.167.708-.271l.688-1.271q.177-.312.458-.489.281-.177.635-.177h2.833q.354 0 .635.177.281.177.458.489l.688 1.271q.375.104.708.271.333.166.625.396l1.375-.313q.313-.062.625.095t.479.448l1.417 2.458q.167.292.094.615-.073.322-.323.562l-1.083.834q.105.228.125.458.021.229.021.5 0 .271-.021.5-.02.23-.125.458l1.083.833q.25.24.323.563.073.323-.094.615l-1.417 2.458q-.167.292-.479.448-.313.157-.625.095l-1.375-.312q-.292.229-.625.396-.333.167-.708.271l-.688 1.271q-.177.312-.458.489-.281.177-.635.177Z" />
-            </svg>
-            <span>Settings</span>
-          </button>
-        </div>
+              <Settings size={18} />
+              <span>Settings</span>
+            </button>
+          </li>
+        </ul>
       </aside>
 
       {/* Main Content */}
@@ -66,52 +259,58 @@ export default function EditVideoLayout({ children }) {
       {/* Settings Modal */}
       {isSettingsOpen && (
         <>
-          {/* Background Overlay */}
           <div
             className="fixed inset-0 bg-black bg-opacity-40 z-40"
             onClick={() => setIsSettingsOpen(false)}
           ></div>
 
-          {/* Sliding Modal */}
-          <div
-            className="fixed bottom-0 left-0 right-0 bg-white z-50 shadow-2xl rounded-t-2xl p-6 max-h-[60vh] overflow-y-auto transition-transform duration-300 transform translate-y-0"
-          >
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">Settings</h2>
-              <button
-                onClick={() => setIsSettingsOpen(false)}
-                className="text-gray-500 hover:text-gray-700 text-xl"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="space-y-4 text-gray-700">
-              <div>
-                <label className="block font-medium mb-1">Theme</label>
-                <select className="border rounded p-2 w-full">
-                  <option>Light</option>
-                  <option>Dark</option>
-                  <option>System Default</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-medium mb-1">Language</label>
-                <select className="border rounded p-2 w-full">
-                  <option>English</option>
-                  <option>Hindi</option>
-                  <option>Spanish</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-medium mb-1">Notifications</label>
-                <input type="checkbox" className="mr-2" /> Enable email updates
-              </div>
-              <div className="pt-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <div className="bg-white w-[850px] h-[520px] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+              <div className="flex justify-between items-center p-4 border-b">
+                <h2 className="text-xl font-semibold">Settings</h2>
                 <button
                   onClick={() => setIsSettingsOpen(false)}
-                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  className="text-gray-500 hover:text-gray-700 text-2xl"
                 >
-                  Save Settings
+                  ✕
+                </button>
+              </div>
+
+              <div className="flex flex-1 overflow-hidden">
+                {/* Tabs */}
+                <div className="w-56 border-r p-4 bg-gray-50">
+                  <ul className="space-y-2">
+                    {tabs.map((tab) => (
+                      <li key={tab}>
+                        <button
+                          onClick={() => setActiveTab(tab)}
+                          className={`w-full text-left px-3 py-2 rounded-md ${
+                            activeTab === tab
+                              ? 'bg-white font-medium shadow-sm'
+                              : 'hover:bg-gray-100'
+                          }`}
+                        >
+                          {tab}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex-1 p-6 overflow-y-auto">
+                  {renderTabContent()}
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-2 border-t p-4 bg-gray-50">
+                <button
+                  onClick={() => setIsSettingsOpen(false)}
+                  className="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100"
+                >
+                  Close
+                </button>
+                <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                  Save
                 </button>
               </div>
             </div>

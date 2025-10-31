@@ -1,12 +1,10 @@
-import ReviewPage from '@/components/review'
-import React from 'react'
+import React, { Suspense } from "react";
+import ReviewPage from "@/components/review";
 
-function Review() {
+export default function Review() {
   return (
-    <div>
-      <ReviewPage/>
-    </div>
-  )
+    <Suspense fallback={<div className="p-10 text-center">Loading...</div>}>
+      <ReviewPage />
+    </Suspense>
+  );
 }
-
-export default Review

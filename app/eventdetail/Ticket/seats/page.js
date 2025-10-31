@@ -1,12 +1,10 @@
-import SeatsPage from '@/components/seats'
-import React from 'react'
+import SeatsPage from "@/components/seats";
+import { Suspense } from "react";
 
-function Seatpage() {
+export default function Seatpage() {
   return (
-    <div>
-     <SeatsPage/>
-    </div>
-  )
+    <Suspense fallback={<p className="text-center py-10 text-gray-500">Loading seats...</p>}>
+      <SeatsPage />
+    </Suspense>
+  );
 }
-
-export default Seatpage

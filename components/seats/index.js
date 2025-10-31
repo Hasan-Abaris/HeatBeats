@@ -40,23 +40,21 @@ export default function SeatsPage() {
         <h2 className="text-xl font-semibold mb-3">Select Seat Type</h2>
         <p className="text-gray-500 mb-6">Event Date: {selectedDate}</p>
 
-        {[
-          { name: "General", price: 499 },
-          { name: "VIP", price: 999 },
-          { name: "Premium", price: 1499 },
-        ].map((seat) => (
-          <button
-            key={seat.name}
-            onClick={() => setSeatType(seat.name)}
-            className={`block w-full text-left border px-4 py-3 rounded-lg mb-3 transition ${
-              seatType === seat.name
-                ? "border-orange-600 text-orange-600 bg-orange-50"
-                : "border-gray-300 hover:border-orange-400"
-            }`}
-          >
-            {seat.name} — ₹{seat.price}
-          </button>
-        ))}
+        {[{ name: "General", price: 499 }, { name: "VIP", price: 999 }, { name: "Premium", price: 1499 }].map(
+          (seat) => (
+            <button
+              key={seat.name}
+              onClick={() => setSeatType(seat.name)}
+              className={`block w-full text-left border px-4 py-3 rounded-lg mb-3 transition ${
+                seatType === seat.name
+                  ? "border-orange-600 text-orange-600 bg-orange-50"
+                  : "border-gray-300 hover:border-orange-400"
+              }`}
+            >
+              {seat.name} — ₹{seat.price}
+            </button>
+          )
+        )}
 
         <div className="mt-4">
           <label className="font-medium">Quantity: </label>

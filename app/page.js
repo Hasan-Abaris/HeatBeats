@@ -147,7 +147,7 @@ export default function MainPage() {
 
         {/* Live Stream */}
         <button
-          onClick={() => router.push("/live-stream")}
+          onClick={() => router.push("/Livestream")}
           className="bg-red-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-red-700 transition-all text-sm sm:text-base"
         >
           Live Stream

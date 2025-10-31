@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function EventDetail() {
@@ -16,7 +17,9 @@ export default function EventDetail() {
 
           {/* Event Title & Info */}
           <div>
-            <h1 className="text-3xl font-bold">HeatBeasts Arena Tournament 2025</h1>
+            <h1 className="text-3xl font-bold">
+              HeatBeasts Arena Tournament 2025
+            </h1>
             <p className="text-gray-600 mt-2">
               🎮 Multiplayer Gaming • Live E-Sports Event
             </p>
@@ -53,8 +56,8 @@ export default function EventDetail() {
                   Professional FPS Gamer & Streamer
                 </p>
                 <p className="mt-2 text-gray-500 text-sm">
-                  Alex is known for his precision and fast reflexes, making him a
-                  top contender in HeatBeasts tournaments.
+                  Alex is known for his precision and fast reflexes, making him
+                  a top contender in HeatBeasts tournaments.
                 </p>
               </div>
             </div>
@@ -116,10 +119,11 @@ export default function EventDetail() {
               <p className="text-sm font-medium">{item.label}</p>
             </div>
           ))}
-
-          <button className="w-full bg-orange-600 text-white py-2 rounded-lg font-semibold mt-4 hover:bg-orange-700 transition">
+          <Link href="/eventdetail/Ticket"
+            className="w-full bg-orange-600 text-white py-2 rounded-lg font-semibold mt-4 hover:bg-orange-700 transition flex items-center justify-center"
+          >
             🎟️ Book Ticket
-          </button>
+          </Link>
         </aside>
       </div>
     </div>

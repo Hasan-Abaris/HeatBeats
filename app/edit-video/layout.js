@@ -15,10 +15,43 @@ import {
 export default function EditVideoLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
+
+  // Sidebar & settings modal states
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('General');
   const [communitySubTab, setCommunitySubTab] = useState('Content controls');
 
+const [uploadSubTab, setUploadSubTab] = useState('Basic info');
+
+
+  // Channel settings states (moved outside renderTabContent ✅)
+  const [channelSubTab, setChannelSubTab] = useState('Basic info');
+  const [keywords, setKeywords] = useState([
+    '#InternetPersonalities',
+    '#FamousPeople #Biography',
+    '#Documentary',
+    '#LifeStory #SuccessStory',
+    '#InternetCelebrities',
+    '#SocialMediaStars',
+    '#InfluencerBiography',
+    '#FamousInternetPersonalities',
+  ]);
+  const [newKeyword, setNewKeyword] = useState('');
+
+  // Keyword handlers
+  const handleAddKeyword = (e) => {
+    e.preventDefault();
+    if (newKeyword.trim() !== '') {
+      setKeywords([...keywords, newKeyword.trim()]);
+      setNewKeyword('');
+    }
+  };
+
+  const handleRemoveKeyword = (keyword) => {
+    setKeywords(keywords.filter((k) => k !== keyword));
+  };
+
+  // Sidebar Menu
   const menuItems = [
     { label: 'Details', path: '/edit-video/details', icon: <Pencil size={18} /> },
     { label: 'Analytics', path: '/edit-video/analytics', icon: <BarChart2 size={18} /> },
@@ -29,6 +62,7 @@ export default function EditVideoLayout({ children }) {
     { label: 'Clips', path: '/edit-video/clips', icon: <Scissors size={18} /> },
   ];
 
+  // Settings tabs
   const tabs = [
     'General',
     'Channel',
@@ -39,6 +73,7 @@ export default function EditVideoLayout({ children }) {
     'Agreements',
   ];
 
+  // Community moderation section
   const renderCommunityModeration = () => {
     return (
       <div>
@@ -187,7 +222,136 @@ export default function EditVideoLayout({ children }) {
     );
   };
 
+  // Main tab content
   const renderTabContent = () => {
+    const renderChannelSubTabs = () => (
+      <div>
+        {/* Channel Sub Tabs */}
+        <div className="flex border-b mb-6">
+          {['Basic info', 'Advanced settings', 'Feature eligibility'].map((subTab) => (
+            <button
+              key={subTab}
+              onClick={() => setChannelSubTab(subTab)}
+              className={`mr-6 pb-2 text-sm font-medium ${
+                channelSubTab === subTab
+                  ? 'border-b-2 border-black text-black'
+                  : 'text-gray-500'
+              }`}
+            >
+              {subTab}
+            </button>
+          ))}
+        </div>
+
+        {/* Channel Sub Tab Content */}
+        {channelSubTab === 'Basic info' && (
+          <div className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium mb-2">Country of residence</label>
+              <select className="border rounded-md p-2 w-80 bg-gray-50">
+                <option>India</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+                <option>Australia</option>
+              </select>
+              <p className="text-sm text-gray-500 mt-2">
+                Choose the country where you're currently based.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Keywords</label>
+              <div className="border rounded-md p-3 flex flex-wrap gap-2 bg-white min-h-[90px]">
+                {keywords.map((keyword) => (
+                  <div
+                    key={keyword}
+                    className="flex items-center bg-gray-100 text-sm px-2 py-1 rounded-full hover:bg-gray-200 transition"
+                  >
+                    {keyword}
+                    <button
+                      onClick={() => handleRemoveKeyword(keyword)}
+                      className="ml-2 text-gray-500 hover:text-gray-700"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <form onSubmit={handleAddKeyword} className="mt-3 flex gap-2">
+                <input
+                  type="text"
+                  className="border rounded-md p-2 w-72 text-sm bg-gray-50"
+                  placeholder="Add keyword (e.g. #Biography)"
+                  value={newKeyword}
+                  onChange={(e) => setNewKeyword(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleAddKeyword(e)}
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
+                >
+                  Add
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {channelSubTab === 'Advanced settings' && (
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg mb-2">Advanced Channel Settings</h3>
+            <p className="text-gray-600 text-sm">
+              Choose whether your channel is made for kids, manage audience settings, or customize
+              recommendations visibility.
+            </p>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2">
+                <input type="radio" name="audience" />
+                <span className="text-sm text-gray-700">Yes, set this channel as made for kids</span>
+              </label>
+              <label className="flex items-center gap-2">
+                <input type="radio" name="audience" />
+                <span className="text-sm text-gray-700">No, set this channel as not made for kids</span>
+              </label>
+            </div>
+          </div>
+        )}
+
+        {channelSubTab === 'Feature eligibility' && (
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg mb-2">Feature Eligibility</h3>
+            <p className="text-gray-600 text-sm">
+              Check which YouTube features your channel can access based on verification and account
+              standing.
+            </p>
+
+            <div className="border rounded-md p-4 bg-gray-50 space-y-2">
+              <h4 className="font-medium text-gray-800">Default features</h4>
+              <p className="text-sm text-gray-600">
+                Upload videos, create playlists, and more.
+              </p>
+            </div>
+
+            <div className="border rounded-md p-4 bg-gray-50 space-y-2">
+              <h4 className="font-medium text-gray-800">Intermediate features</h4>
+              <p className="text-sm text-gray-600">
+                Verify your phone number to access features like custom thumbnails and longer videos.
+              </p>
+            </div>
+
+            <div className="border rounded-md p-4 bg-gray-50 space-y-2">
+              <h4 className="font-medium text-gray-800">Advanced features</h4>
+              <p className="text-sm text-gray-600">
+                Get access to advanced tools like external linking, live streaming, and more.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+
     switch (activeTab) {
       case 'General':
         return (
@@ -205,15 +369,223 @@ export default function EditVideoLayout({ children }) {
           </div>
         );
       case 'Channel':
-        return <p>Channel information and branding settings.</p>;
-      case 'Upload defaults':
-        return <p>Set default visibility, category, and tags for uploads.</p>;
-      case 'Permissions':
-        return <p>Manage who can access and edit this channel.</p>;
+        return renderChannelSubTabs();
+     case 'Upload defaults':
+  return (
+    <div>
+      {/* Sub-tabs */}
+      <div className="flex border-b mb-6">
+        {['Basic info', 'Advanced settings'].map((subTab) => (
+          <button
+            key={subTab}
+            onClick={() => setUploadSubTab(subTab)}
+            className={`mr-6 pb-2 text-sm font-medium ${
+              uploadSubTab === subTab
+                ? 'border-b-2 border-black text-black'
+                : 'text-gray-500'
+            }`}
+          >
+            {subTab}
+          </button>
+        ))}
+      </div>
+
+      {/* Basic Info */}
+      {uploadSubTab === 'Basic info' && (
+        <div className="space-y-6">
+          {/* Title */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Title</label>
+            <input
+              type="text"
+              className="border rounded-md w-full p-2 bg-gray-50"
+              placeholder="Add a title that describes your video"
+            />
+          </div>
+
+          {/* Description */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Description</label>
+            <textarea
+              rows="4"
+              className="border rounded-md w-full p-2 bg-gray-50"
+              placeholder="Tell viewers about your video"
+            ></textarea>
+          </div>
+
+          {/* Visibility */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Visibility</label>
+            <select className="border rounded-md p-2 w-64 bg-gray-50">
+              <option>Select</option>
+              <option>Private</option>
+              <option>Unlisted</option>
+              <option>Public</option>
+            </select>
+          </div>
+
+          {/* Tags */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Tags</label>
+            <textarea
+              rows="3"
+              className="border rounded-md w-full p-2 bg-gray-50"
+              placeholder="Add tags separated by commas"
+            ></textarea>
+            <p className="text-xs text-gray-500 mt-1">
+              Tags can help viewers find your video, but are less important for search
+              discovery now.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Advanced Settings */}
+      {uploadSubTab === 'Advanced settings' && (
+        <div className="space-y-6">
+          {/* Automatic chapters */}
+          <div>
+            <h3 className="font-semibold text-lg mb-2">Automatic chapters</h3>
+            <p className="text-sm text-gray-600 mb-2">
+              Chapters and key moments make your video easier to watch. You can overwrite
+              automatic suggestions by creating your own chapters in the video
+              description.
+            </p>
+            <label className="flex items-center gap-2">
+              <input type="checkbox" defaultChecked className="w-4 h-4" />
+              <span className="text-sm text-gray-700">
+                Allow automatic chapters and key moments
+              </span>
+            </label>
+          </div>
+
+          {/* Licence and Category */}
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium mb-1">Licence</label>
+              <select className="border rounded-md p-2 w-full bg-gray-50">
+                <option>Standard YouTube licence</option>
+                <option>Creative Commons – Attribution</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Category</label>
+              <select className="border rounded-md p-2 w-full bg-gray-50">
+                <option>None</option>
+                <option>Education</option>
+                <option>Entertainment</option>
+                <option>Science & Technology</option>
+                <option>People & Blogs</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Language and captions certification */}
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium mb-1">Video language</label>
+              <select className="border rounded-md p-2 w-full bg-gray-50">
+                <option>Select</option>
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Spanish</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Caption certification</label>
+              <select className="border rounded-md p-2 w-full bg-gray-50">
+                <option>None</option>
+                <option>Includes caption certification</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+     case 'Permissions':
+  return (
+    <div className="space-y-6">
+      <h3 className="text-lg font-semibold">Permissions for Internet Personalities</h3>
+      <p className="text-sm text-gray-600">
+        Invite
+        <br />
+        When you give people permissions on your channel, they can upload, comment, and
+        take other public actions. They can also view private or hidden content.{' '}
+        <a
+          href="#"
+          className="text-blue-600 hover:underline"
+        >
+          Learn more
+        </a>
+      </p>
+
+      <div className="border-t pt-4">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="text-left text-gray-700 border-b">
+              <th className="pb-2">Name</th>
+              <th className="pb-2">Role</th>
+              <th className="pb-2">User avatar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b">
+              <td className="py-3 font-medium text-gray-900">SAYYAD HASAN SHAHZAD</td>
+              <td className="py-3 text-gray-700">Owner</td>
+              <td className="py-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-semibold text-white">
+                    S
+                  </div>
+                  <div className="text-gray-600 text-sm">
+                    sayyadhasan@gmail.com
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+
       case 'Community moderation':
         return renderCommunityModeration();
-      case 'Creator demographics':
-        return <p>Manage your demographic data preferences.</p>;
+    case 'Creator demographics':
+  return (
+    <div className="space-y-6">
+      <h3 className="text-lg font-semibold">Help make YouTube more inclusive</h3>
+      <p className="text-sm text-gray-600">
+        Help us better understand the demographic and identity information of creator and artist communities on YouTube.
+      </p>
+
+      <div className="border rounded-lg p-6 bg-gray-50 flex flex-col items-center justify-center text-center space-y-4">
+        <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+          Creator demographics illustration
+        </div>
+        <h4 className="text-base font-semibold">Creator demographics</h4>
+        <p className="text-sm text-gray-600 max-w-lg">
+          Providing this information is optional. You may delete your answers at any time.
+          The information that you provide will not be used to impact your content’s or
+          channel’s performance in YouTube’s systems.{' '}
+          <a href="#" className="text-blue-600 hover:underline">
+            Learn more
+          </a>
+        </p>
+
+        <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium">
+          Take survey
+        </button>
+        <p className="text-xs text-gray-500">
+          You can update your responses once every 45 days.
+        </p>
+      </div>
+    </div>
+  );
+
       case 'Agreements':
         return <p>Review and manage your creator agreements.</p>;
       default:
@@ -221,6 +593,7 @@ export default function EditVideoLayout({ children }) {
     }
   };
 
+  // JSX layout
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -320,3 +693,4 @@ export default function EditVideoLayout({ children }) {
     </div>
   );
 }
+``

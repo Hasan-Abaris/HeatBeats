@@ -5,7 +5,7 @@ function AllCategories({ questionsData, onCategoryClick }) {
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-      <h4 className="font-bold text-2xl textBlueDark p-4">All Categories</h4>
+      <h4 className="font-bold text-2xl text-black p-4">All Categories</h4>
       <ul className="divide-y divide-gray-200">
         {questionsData?.categories.map((category, index) => (
           <li
@@ -42,7 +42,7 @@ function AllCategories({ questionsData, onCategoryClick }) {
 
             {/* Count badge */}
             {category.count && (
-              <span className="bgOrange text-white text-xs px-3 py-1 rounded-full hover:bg-gray-100 hover:text-orange transition-colors">
+              <span className="bg-green-700 text-white text-xs px-3 py-1 rounded-full hover:bg-black hover:text-orange transition-colors">
                 {category.count}
               </span>
             )}

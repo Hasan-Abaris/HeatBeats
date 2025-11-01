@@ -29,13 +29,14 @@ export default function MainPage() {
   return (
     <div className="min-h-screen bg-gray-50 relative">
       {/* 🌐 Navbar */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50 border-b">
+      {/* ↓ Lowered z-index to 100 so Header (z-[1000]) stays above */}
+      <nav className="bg-white shadow-sm sticky top-0 z-[100]  px-5">
         <div className="flex justify-between items-center px-4 sm:px-6 py-3">
           {/* Left: Tabs / Menu Toggle */}
           <div className="flex items-center gap-3">
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-md hover:bg-green-700"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
@@ -56,8 +57,8 @@ export default function MainPage() {
                     onClick={() => router.push(tab.path)}
                     className={`py-2 px-4 text-base font-medium border-b-2 transition-colors ${
                       isActive
-                        ? "border-blue-600 text-blue-600"
-                        : "border-transparent text-gray-500 hover:text-blue-500"
+                        ? "border-green-700 text-black"
+                        : "border-transparent text-black hover:text-black-"
                     }`}
                   >
                     {tab.label}
@@ -69,7 +70,7 @@ export default function MainPage() {
 
           {/* Right: Search + Icons */}
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-2 border rounded-md px-2 py-1 focus-within:ring-2 focus-within:ring-blue-500 w-32 sm:w-48 md:w-64">
+            <div className="flex items-center gap-2 border rounded-md px-2 py-1 focus-within:ring-2 focus-within:ring-green-700 w-32 sm:w-48 md:w-64">
               <input
                 type="search"
                 placeholder="Search"
@@ -108,8 +109,8 @@ export default function MainPage() {
                   }}
                   className={`py-2 text-left text-base font-medium border-b ${
                     isActive
-                      ? "text-blue-600 border-blue-500"
-                      : "text-gray-700 hover:text-blue-500 border-transparent"
+                      ? "text-black border-grenn-700"
+                      : "text-black hover:text-black border-transparent"
                   }`}
                 >
                   {tab.label}
@@ -127,32 +128,33 @@ export default function MainPage() {
         </div>
       )}
 
-      {/* 🎓 Floating Buttons */}
-      <div className="fixed right-4 bottom-4 flex flex-col gap-3 sm:right-6 sm:bottom-6 z-50">
-        {/* Academic */}
-        <button
-          onClick={() => router.push("/Homemain")}
-          className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all text-sm sm:text-base"
-        >
-          Academic
-        </button>
+    {/* 🎓 Floating Buttons */}
+<div className="fixed right-4 bottom-4 flex flex-col gap-3 sm:right-6 sm:bottom-6 z-50">
+  {/* Academic */}
+  <button
+    onClick={() => router.push("/Homemain")}
+    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
+  >
+    🎓 <span>Academy</span>
+  </button>
 
-        {/* Events */}
-        <button
-          onClick={() => router.push("/Event")}
-          className="bg-green-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-green-700 transition-all text-sm sm:text-base"
-        >
-          Events
-        </button>
+  {/* Events */}
+  <button
+    onClick={() => router.push("/Event")}
+    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
+  >
+    📅 <span>Events</span>
+  </button>
 
-        {/* Live Stream */}
-        <button
-          onClick={() => router.push("/Livestream")}
-          className="bg-red-600 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-red-700 transition-all text-sm sm:text-base"
-        >
-          Live Stream
-        </button>
-      </div>
+  {/* Live Stream */}
+  <button
+    onClick={() => router.push("/Livestream")}
+    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
+  >
+    🎥 <span>Live Stream</span>
+  </button>
+</div>
+
     </div>
   );
 }

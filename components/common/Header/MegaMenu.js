@@ -13,13 +13,13 @@ const MegaMenu = () => {
   return (
     <ul className="flex flex-col lg:flex-row gap-4 lg:gap-8 relative z-50">
       <li className="flex items-center cursor-pointer">
-        <Link href="/all-courses" className="text-base textBlueDark">
+        <Link href="/all-courses" className="text-base text-black">
           All Courses
         </Link>
       </li>
 
       <li className="flex items-center cursor-pointer">
-        <Link href="/corporate-taining" className="text-base textBlueDark">
+        <Link href="/corporate-taining" className="text-base text-black">
           Corporate Training
         </Link>
       </li>
@@ -28,7 +28,7 @@ const MegaMenu = () => {
       <li className="relative">
         <span
           onClick={toggleMenu}
-          className="cursor-pointer select-none flex items-center text-base textBlueDark"
+          className="cursor-pointer select-none flex items-center text-base text-black"
         >
           Resources
         </span>

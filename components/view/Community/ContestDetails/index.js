@@ -58,7 +58,7 @@ export default function ContestDetailspage() {
             {!isSubscribed ? (
               <button
                 onClick={handleSubscribe}
-                className="px-5 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition"
+                className="px-5 py-2 bg-black text-white font-medium rounded-md hover:bg-green-700 transition"
               >
                 Subscribe
               </button>
@@ -72,7 +72,7 @@ export default function ContestDetailspage() {
                 </button>
                 <button
                   onClick={handleManageVideos}
-                  className="px-5 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition"
+                  className="px-5 py-2 bg-black text-white font-medium rounded-md hover:bg-green-700 transition"
                 >
                   Manage Videos
                 </button>
@@ -202,9 +202,9 @@ export default function ContestDetailspage() {
               </div>
               <div>
                 <h4 className="font-medium">Links</h4>
-                <p className="text-blue-600 hover:underline">Twitter: @QuartzGames</p>
-                <p className="text-blue-600 hover:underline">Discord: QuartzGamesCommunity</p>
-                <p className="text-blue-600 hover:underline">Website: www.quartzgames.com</p>
+                <p className="text-green-600 hover:underline">Twitter: @QuartzGames</p>
+                <p className="text-green-600 hover:underline">Discord: QuartzGamesCommunity</p>
+                <p className="text-green-600 hover:underline">Website: www.quartzgames.com</p>
               </div>
             </div>
             <p className="text-gray-500 mt-2">Learn more about Quartz Games and join our gaming community!</p>

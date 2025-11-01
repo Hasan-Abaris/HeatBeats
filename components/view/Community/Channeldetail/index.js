@@ -250,7 +250,7 @@ export default function GameContentPage() {
               key={tab}
               onClick={() => handleTabClick(tab)}
               className={`py-2 px-3 font-medium transition-colors ${
-                activeTab === tab ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-blue-600'
+                activeTab === tab ? 'border-b-2 border-green-700 text-black' : 'hover:text-green-600'
               }`}
             >
               {tab}
@@ -291,7 +291,7 @@ export default function GameContentPage() {
                     <td className="px-4 py-2">{video.comments}</td>
                     <td className="px-4 py-2">{video.likes}</td>
                     <td
-                      className="px-4 py-2 text-blue-600 hover:underline cursor-pointer"
+                      className="px-4 py-2 text-black hover:underline cursor-pointer"
                       onClick={() => handleAuthorClick(video.author)}
                     >
                       {video.author}
@@ -299,7 +299,7 @@ export default function GameContentPage() {
                     <td className="px-4 py-2">
                       <button
                         onClick={() => handleEditClick(video.title)}
-                        className="text-blue-600 hover:text-blue-800"
+                        className="text-black hover:text-green-700"
                       >
                         <span className="material-icons">Edit</span>
                       </button>

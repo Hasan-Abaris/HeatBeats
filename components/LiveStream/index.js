@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import LiveStreamLayout from "./LiveStreamLayout";
 import StreamPreview from "./StreamPreview";
@@ -8,13 +9,16 @@ import LiveChat from "./LiveChat";
 export default function LiveStreamPage() {
   return (
     <LiveStreamLayout>
-      <div className="grid grid-cols-3 gap-6">
-        <div className="col-span-2 space-y-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left: Stream preview + settings + analytics */}
+        <div className="lg:col-span-2 space-y-6">
           <StreamPreview />
           <StreamSettings />
           <StreamAnalytics />
         </div>
-        <div>
+
+        {/* Right: Live chat */}
+        <div className="lg:col-span-1">
           <LiveChat />
         </div>
       </div>

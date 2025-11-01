@@ -41,7 +41,7 @@ const Contestpage = () => {
         {games.map((game) => (
           <div
             key={game.id}
-            className="bg-gray-800 text-white p-4 rounded-lg shadow-md hover:bg-gray-700 transition-colors"
+            className="bg-black text-white p-4 rounded-lg shadow-md hover:bg-green-700 transition-colors"
           >
             <a href={game.link} className="block">
               <h3 className="text-xl font-semibold mb-2">{game.title}</h3>

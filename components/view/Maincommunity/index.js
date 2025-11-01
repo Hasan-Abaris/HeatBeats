@@ -24,8 +24,8 @@ export default function TabNavigation() {
               onClick={() => router.push(tab.path)}
               className={`text-base font-medium border-b-2 transition-colors ${
                 isActive
-                  ? "border-blue-600 text-blue-600"
-                  : "border-transparent text-gray-600 hover:text-blue-500"
+                  ? "border-green-700 text-black"
+                  : "border-transparent text-black hover:text-green-700"
               }`}
             >
               {tab.label}

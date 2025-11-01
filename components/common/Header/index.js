@@ -20,7 +20,6 @@ export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleRemove = () => setIsActive(false);
-
   const handleLogout = () => {
     setIsLoggedIn(false);
     setProfileOpen(false);
@@ -41,25 +40,29 @@ export function Header() {
   return (
     <>
       {/* 🔵 Top Strip */}
-      <div className="px-4 md:px-16 py-2 bgBlueDark text-sm">
+      <div className="px-4 md:px-16 py-2 bg-black text-sm">
         <div className="flex flex-wrap justify-between items-center gap-2 text-white">
           <ul className="flex gap-4 flex-wrap items-center">
             <li className="flex gap-2 items-center">
               <IoCallSharp /> New Course Enquiry:
             </li>
-            <li>+91-8851746286 <span>(Toll Free)</span></li>
+            <li>
+              +91-8851746286 <span>(Toll Free)</span>
+            </li>
           </ul>
 
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center text-light-green-200">
             🎉 <span>Limited Time Offer! Enroll now and get 20% off</span>
-            <Link href="#" className="text-yellow-200 underline">Know more</Link>
+            <Link href="#" className="text-green-300 underline">
+              Know more
+            </Link>
           </div>
         </div>
       </div>
 
       {/* ⚪ Main Header */}
-      <header className="border-b bg-white w-full sticky top-0 z-50">
-        <div className="flex flex-wrap justify-between items-center px-4 md:px-16 py-3">
+      <header className="border-b bg-white w-full sticky top-0 z-[2000] shadow-md">
+        <div className="flex flex-wrap justify-between items-center px-6 md:px-16 py-3">
           {/* LEFT: Logo + Category + Search */}
           <div className="flex flex-wrap items-center gap-4 w-full lg:w-auto">
             <Link href="/">
@@ -75,23 +78,23 @@ export function Header() {
             {/* Category Dropdown */}
             <div className="relative group hidden sm:block">
               <button
-                className="textBlueDark border rounded text-white px-4 py-1 flex items-center gap-2 hover:bg-sky-700 hover:text-white"
-                style={{ borderColor: "#005483" }}
+                className="border rounded text-black px-4 py-1 flex items-center gap-2 hover:bg-green-600 hover:text-white transition"
+                style={{ borderColor: "#8BC34A" }}
               >
                 Category
                 <MdOutlineArrowDropDown className="text-2xl" />
               </button>
 
               {/* Mega Dropdown */}
-              <div className="absolute hidden group-hover:block border bg-white text-black rounded mt-1 w-full sm:w-[700px] md:w-[800px] h-auto md:h-[400px] z-40 shadow-lg">
+              <div className="absolute hidden group-hover:block border bg-white text-black rounded mt-1 w-full sm:w-[700px] md:w-[800px] h-auto md:h-[400px] z-[3000] shadow-xl">
                 <div className="flex flex-col md:flex-row h-full">
                   {/* Categories */}
-                  <div className="flex-1 border-b md:border-r overflow-auto bg-gray-100">
+                  <div className="flex-1 border-b md:border-r overflow-auto bg-gray-50">
                     <ul className="flex flex-col gap-1">
                       {categories.map((item) => (
                         <li
                           key={item.id}
-                          className="flex items-center justify-between p-3 hover:bg-white cursor-pointer transition"
+                          className="flex items-center justify-between p-3 hover:bg-green-100 cursor-pointer transition"
                         >
                           <span>{item.name}</span>
                           <IoMdArrowDropright className="w-4 h-4" />
@@ -101,12 +104,12 @@ export function Header() {
                   </div>
 
                   {/* Courses */}
-                  <div className="flex-1 border-b md:border-r overflow-auto bg-gray-100">
+                  <div className="flex-1 border-b md:border-r overflow-auto bg-gray-50">
                     <ul className="flex flex-col gap-1">
                       {courses.map((course) => (
                         <li
                           key={course.id}
-                          className="p-2 hover:bg-white cursor-pointer transition text-sm"
+                          className="p-2 hover:bg-green-100 cursor-pointer transition text-sm"
                         >
                           {course.name}
                         </li>
@@ -116,14 +119,14 @@ export function Header() {
 
                   {/* Preview */}
                   <div className="flex-1 p-4">
-                    <h2 className="text-lg font-semibold mb-2">{courses[0].name}</h2>
-                    <p className="text-sm text-gray-600 mb-2">
-                      {courses[0].desc}
-                    </p>
-                    <p className="text-blue-600 text-sm mb-3">
+                    <h2 className="text-lg font-semibold mb-2 text-black">
+                      {courses[0].name}
+                    </h2>
+                    <p className="text-sm text-gray-600 mb-2">{courses[0].desc}</p>
+                    <p className="text-green-700 text-sm mb-3">
                       {courses[0].learners} Learners
                     </p>
-                    <button className="w-full border border-blue-600 text-blue-600 rounded-md py-2 text-sm hover:bg-blue-50 transition">
+                    <button className="w-full border border-green-600 text-green-600 rounded-md py-2 text-sm hover:bg-green-50 transition">
                       View Course Details
                     </button>
                   </div>
@@ -136,10 +139,10 @@ export function Header() {
               <Input
                 type="text"
                 placeholder="Search Courses"
-                className="border-0 ps-[34px] w-full sm:w-[250px] md:w-[350px] rounded-full"
+                className="border-0 ps-[34px] w-full sm:w-[250px] md:w-[350px] rounded-full bg-gray-100"
                 onFocus={() => setIsActive(true)}
               />
-              <span className="absolute left-2 top-2 textBlueDark text-xl">
+              <span className="absolute left-2 top-2 text-gray-500 text-xl">
                 <RiSearchLine />
               </span>
               <SearchOverlay isOpen={isActive} onClose={handleRemove} />
@@ -149,7 +152,7 @@ export function Header() {
           {/* RIGHT: Nav Area */}
           <div className="flex items-center gap-4">
             <button
-              className="lg:hidden textBlueDark text-2xl"
+              className="lg:hidden text-gray-700 text-2xl"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <FaTimes /> : <FaBars />}
@@ -160,24 +163,36 @@ export function Header() {
               <div className="flex items-center gap-3">
                 {isLoggedIn ? (
                   <>
-                    <Link href="/refer" className="textBlueDark">Refer</Link>
-                    <Link href="/all-courses" className="textBlueDark">All Courses</Link>
-                    <Link href="/community" className="textBlueDark">Community</Link>
-                    <FaBell className="textBlueDark text-xl" />
+                    <Link href="/refer" className="text-gray-700">
+                      Refer
+                    </Link>
+                    <Link href="/all-courses" className="text-gray-700">
+                      All Courses
+                    </Link>
+                    <Link href="/community" className="text-gray-700">
+                      Community
+                    </Link>
+                    <FaBell className="text-gray-700 text-xl" />
                     <div className="relative">
                       <button
-                        className="flex items-center textBlueDark"
+                        className="flex items-center text-gray-700"
                         onClick={() => setProfileOpen(!profileOpen)}
                       >
                         <FiUser className="text-xl" />
                         <MdOutlineArrowDropDown className="text-2xl" />
                       </button>
                       {profileOpen && (
-                        <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-50">
-                          <Link href="/my-profile" className="block px-4 py-2 hover:bg-gray-100">
+                        <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-[4000]">
+                          <Link
+                            href="/my-profile"
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
                             My Profile
                           </Link>
-                          <Link href="/orders" className="block px-4 py-2 hover:bg-gray-100">
+                          <Link
+                            href="/orders"
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
                             My Orders
                           </Link>
                           <button
@@ -192,10 +207,18 @@ export function Header() {
                   </>
                 ) : (
                   <>
-                    <Link href="/signup" className="px-3 py-1 rounded border-2 textBlueDark text-sm" style={{ borderColor: "#005483" }}>
+                    <Link
+                      href="/signup"
+                      className="px-3 py-1 rounded border-2 text-black text-sm hover:bg-green-600 hover:text-white transition"
+                      style={{ borderColor: "#8BC34A" }}
+                    >
                       Sign Up
                     </Link>
-                    <Link href="/login" className="px-3 py-1 rounded border-2 textBlueDark text-sm" style={{ borderColor: "#005483" }}>
+                    <Link
+                      href="/login"
+                      className="px-3 py-1 rounded border-2 text-black text-sm hover:bg-green-600 hover:text-white transition"
+                      style={{ borderColor: "#8BC34A" }}
+                    >
                       Log in
                     </Link>
                   </>
@@ -207,12 +230,22 @@ export function Header() {
 
         {/* 📱 Mobile Menu */}
         {menuOpen && (
-          <div className="lg:hidden bg-white shadow-md border-t flex flex-col items-center gap-3 py-4">
-            <Link href="/refer" className="text-gray-700 hover:text-blue-600">Refer</Link>
-            <Link href="/all-courses" className="text-gray-700 hover:text-blue-600">All Courses</Link>
-            <Link href="/community" className="text-gray-700 hover:text-blue-600">Community</Link>
-            <Link href="/signup" className="text-gray-700 hover:text-blue-600">Sign Up</Link>
-            <Link href="/login" className="text-gray-700 hover:text-blue-600">Log in</Link>
+          <div className="lg:hidden bg-white shadow-md border-t flex flex-col items-center gap-3 py-4 z-[3000]">
+            <Link href="/refer" className="text-gray-700 hover:text-green-600">
+              Refer
+            </Link>
+            <Link href="/all-courses" className="text-gray-700 hover:text-green-600">
+              All Courses
+            </Link>
+            <Link href="/community" className="text-gray-700 hover:text-green-600">
+              Community
+            </Link>
+            <Link href="/signup" className="text-gray-700 hover:text-green-600">
+              Sign Up
+            </Link>
+            <Link href="/login" className="text-gray-700 hover:text-green-600">
+              Log in
+            </Link>
           </div>
         )}
       </header>

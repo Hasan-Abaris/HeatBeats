@@ -326,7 +326,7 @@ const SupportTab = () => {
           placeholder="Search gaming threads..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full sm:w-1/2 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full sm:w-1/2 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-700"
           aria-label="Search gaming support threads"
         />
         <div className="flex flex-wrap gap-2">
@@ -336,7 +336,7 @@ const SupportTab = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedCategory === category
-                  ? "bg-blue-500 text-white"
+                  ? "bg-green-700 text-white"
                   : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-200"
               }`}
               aria-pressed={selectedCategory === category}
@@ -397,7 +397,7 @@ const SupportTab = () => {
                 )}
                 <div>
                   <div className="flex items-center space-x-2 mb-2">
-                    <span className="text-sm font-semibold text-blue-600">
+                    <span className="text-sm font-semibold text-black">
                       {thread.category}
                     </span>
                     <span
@@ -412,7 +412,7 @@ const SupportTab = () => {
                   </div>
                   <a
                     href={thread.link}
-                    className="bbs-thread-abstract text-gray-800 font-medium hover:text-blue-600 transition-colors"
+                    className="bbs-thread-abstract text-gray-800 font-medium hover:text-green-700 transition-colors"
                     aria-label={`Thread: ${thread.abstract}`}
                   >
                     {thread.abstract}
@@ -517,7 +517,7 @@ const SupportTab = () => {
             aria-atomic="true"
           >
             <svg
-              className="animate-spin h-5 w-5 mr-3 text-blue-500"
+              className="animate-spin h-5 w-5 mr-3 text-black"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -541,7 +541,7 @@ const SupportTab = () => {
         ) : filteredThreads.length < threads.length ? (
           <button
             onClick={handleLoadMore}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            className="px-4 py-2 bg-black text-white rounded-lg hover:bg-green-700 transition-colors"
             aria-label="Load more gaming threads"
           >
             Load More

@@ -22,7 +22,7 @@ function Communityfaq() {
       <Banner />
 
       <div className="mt-10">
-        <h2 className="text-2xl md:text-3xl font-semibold textBlueDark mb-6 pb-4 border-b border-gray-200">
+        <h2 className="text-2xl md:text-3xl font-semibold text-black mb-6 pb-4 border-b border-gray-200">
           HeatBeasts Community
         </h2>
 

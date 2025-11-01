@@ -38,8 +38,8 @@ export default function Page() {
             onClick={() => setActiveTab(tab.key)}
             className={`py-4 px-5 text-lg font-medium border-b-2 transition-colors ${
               activeTab === tab.key
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-gray-500 hover:text-blue-500'
+                ? 'border-green-700 text-black'
+                : 'border-transparent text-black hover:text-black'
             }`}
           >
             {tab.label}

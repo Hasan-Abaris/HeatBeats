@@ -3,8 +3,7 @@
 import { useState } from "react";
 
 export default function SearchPage() {
-  // Static demo data
-  const query = "JavaScript"; // Example search query
+  const query = "JavaScript";
   const results = [
     {
       id: 1,
@@ -30,13 +29,11 @@ export default function SearchPage() {
     { id: 3, name: "Marketing" },
   ];
 
-  // Form states
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [formMessage, setFormMessage] = useState("");
   const [formError, setFormError] = useState("");
 
-  // Static form submit
   const handleCallBack = (e) => {
     e.preventDefault();
     setFormMessage("✅ Request submitted successfully!");
@@ -46,9 +43,11 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6">
+    <div className="max-w-6xl mx-auto px-4 py-6 bg-black min-h-screen text-white">
+      {/* Heading */}
       <h1 className="text-xl md:text-2xl font-semibold mb-6">
-        {results.length} courses for <span className="text-blue-600">“{query}”</span>
+        {results.length} courses for{" "}
+        <span className="text-lightGreen">“{query}”</span>
       </h1>
 
       {/* Results */}
@@ -56,19 +55,19 @@ export default function SearchPage() {
         {results.map((course) => (
           <div
             key={course.id}
-            className="flex gap-5 border rounded-lg p-5 bg-white shadow-sm hover:shadow-md transition"
+            className="flex gap-5 border border-lightGreen rounded-lg p-5 bg-black hover:bg-lightGreen hover:text-black shadow-md transition"
           >
             <div className="flex-1">
               <h3 className="text-lg font-semibold">{course.name}</h3>
-              <p className="text-sm text-gray-500 mt-1">{course.category_name}</p>
+              <p className="text-sm text-gray-300 mt-1">{course.category_name}</p>
 
-              <ul className="text-sm text-gray-700 mt-2 list-disc pl-5">
+              <ul className="text-sm mt-2 list-disc pl-5 space-y-1">
                 <li>Some key feature here</li>
                 <li>Another feature here</li>
                 <li>Etc…</li>
               </ul>
 
-              <div className="flex items-center gap-4 text-sm text-gray-600 mt-3">
+              <div className="flex items-center gap-4 text-sm text-gray-300 mt-3">
                 <span>{course.learners}+ Learners</span>
                 <span>
                   ⭐ {course.rating} ({course.reviews})
@@ -79,7 +78,7 @@ export default function SearchPage() {
             <div className="flex flex-col justify-between items-end">
               <button
                 onClick={() => alert(`View details for course ${course.id}`)}
-                className="bg-blue-600 text-white text-sm px-4 py-2 rounded-md"
+                className="bg-lightGreen text-black text-sm px-4 py-2 rounded-md hover:bg-white transition"
               >
                 VIEW DETAILS
               </button>
@@ -89,15 +88,20 @@ export default function SearchPage() {
       </div>
 
       {/* Callback Form */}
-      <div className="rounded-xl border p-5 bg-white shadow-sm mt-10">
-        <h2 className="text-lg font-semibold mb-2">Request a Call Back</h2>
-        <form onSubmit={handleCallBack} className="mt-3 flex flex-col items-center gap-3">
+      <div className="rounded-xl border border-lightGreen p-5 bg-black shadow-md mt-10">
+        <h2 className="text-lg font-semibold mb-2 text-lightGreen">
+          Request a Call Back
+        </h2>
+        <form
+          onSubmit={handleCallBack}
+          className="mt-3 flex flex-col items-center gap-3"
+        >
           <input
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Your mobile number"
-            className="border rounded-md px-3 py-2 w-full max-w-sm"
+            className="border border-lightGreen bg-black text-white rounded-md px-3 py-2 w-full max-w-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-lightGreen"
             required
           />
           <input
@@ -105,26 +109,30 @@ export default function SearchPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email address"
-            className="border rounded-md px-3 py-2 w-full max-w-sm"
+            className="border border-lightGreen bg-black text-white rounded-md px-3 py-2 w-full max-w-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-lightGreen"
             required
           />
-          <button className="bg-gray-800 text-white rounded-md px-4 py-2 w-full max-w-sm">
+          <button className="bg-lightGreen text-black rounded-md px-4 py-2 w-full max-w-sm hover:bg-white transition">
             Get a call back
           </button>
         </form>
 
-        {formMessage && <p className="text-sm mt-2 text-green-600">{formMessage}</p>}
-        {formError && <p className="text-sm mt-2 text-red-600">{formError}</p>}
+        {formMessage && (
+          <p className="text-sm mt-2 text-lightGreen">{formMessage}</p>
+        )}
+        {formError && <p className="text-sm mt-2 text-red-500">{formError}</p>}
       </div>
 
       {/* Discover Categories */}
       <div className="mt-10">
-        <h3 className="text-lg font-semibold mb-4">Discover Top Categories</h3>
+        <h3 className="text-lg font-semibold mb-4 text-lightGreen">
+          Discover Top Categories
+        </h3>
         <div className="flex flex-wrap gap-3">
           {categories.map((cat) => (
             <button
               key={cat.id}
-              className="px-4 py-2 border rounded-full hover:bg-gray-50"
+              className="px-4 py-2 border border-lightGreen text-lightGreen rounded-full hover:bg-lightGreen hover:text-black transition"
               onClick={() => alert(`View category ${cat.name}`)}
             >
               {cat.name}

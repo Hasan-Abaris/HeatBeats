@@ -67,11 +67,11 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
             className="w-10 h-10 rounded-full"
           />
           <div>
-            <h4 className="font-semibold text-blue-800 text-sm sm:text-base">{question.author}</h4>
+            <h4 className="font-semibold text-black text-sm sm:text-base">{question.author}</h4>
             <p className="text-xs text-gray-500">{question.date}</p>
           </div>
         </div>
-        <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+        <button className="px-3 py-1 text-sm bg-green-700 text-white rounded-md hover:bg-green-700 transition">
           Follow
         </button>
       </div>
@@ -82,7 +82,7 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
       </h3>
       <p className="text-gray-600 text-sm sm:text-base mb-3">{question.excerpt}</p>
 
-      <div className="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 gap-2 mb-4">
+      <div className="flex flex-wrap items-center text-xs sm:text-sm text-green-700 gap-2 mb-4">
         <span className="font-medium">{question.tags.join(', ')}</span>
         <span>•</span>
         <span>{question.views} views</span>
@@ -154,7 +154,7 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
             }}
           />
           <button
-            className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm transition"
+            className="px-3 py-2 bg-green-700 text-white rounded-md hover:bg-green-700 text-sm transition"
             onClick={() => {
               handleAddComment(qIndex, commentText);
               setCommentText('');

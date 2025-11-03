@@ -2,6 +2,8 @@ import './globals.css';
 import { Toaster } from 'react-hot-toast';
 import { Header } from '@/components/common/Header';
 import Footers from '@/components/common/Footer/Footer';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import ClientLayout from './ClientLayout'; // 👈 Import the new client component
 
 export const metadata = {

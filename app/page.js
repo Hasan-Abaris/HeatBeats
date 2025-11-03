@@ -130,12 +130,28 @@ export default function MainPage() {
 
     {/* 🎓 Floating Buttons */}
 <div className="fixed right-4 bottom-4 flex flex-col gap-3 sm:right-6 sm:bottom-6 z-50">
-  {/* Academic */}
+
+  {/* Live Stream */}
   <button
-    onClick={() => router.push("/Homemain")}
+    onClick={() => router.push("/Games")}
     className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
   >
-    🎓 <span>Academy</span>
+    🎥 <sn>Games</sn>
+  </button>
+ 
+  {/* Events */}
+  <button
+    onClick={() => router.push("/")}
+    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
+  >
+    📅 <span>Community</span>
+  </button>
+   {/* Live Stream */}
+  <button
+    onClick={() => router.push("/Livestream")}
+    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
+  >
+    🎥 <span>Live Stream</span>
   </button>
 
   {/* Events */}
@@ -145,14 +161,16 @@ export default function MainPage() {
   >
     📅 <span>Events</span>
   </button>
-
-  {/* Live Stream */}
   <button
-    onClick={() => router.push("/Livestream")}
+    onClick={() => router.push("/Homemain")}
     className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
   >
-    🎥 <span>Live Stream</span>
+    🎓 <span>Academy</span>
   </button>
+
+  
+
+ 
 </div>
 
     </div>

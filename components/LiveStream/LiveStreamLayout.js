@@ -11,7 +11,6 @@ export default function LiveStreamLayout({ children }) {
   const menuItems = [
     { name: "For You", path: "/Livestream", icon: <Home size={22} /> },
     { name: "Explore", path: "/Livestream/explore", icon: <Compass size={22} /> },
-    { name: "Following", path: "/Livestream/following", icon: <Users size={22} /> },
     { name: "Live", path: "/Livestream/live", icon: <Radio size={22} /> },
     { name: "Profile", path: "/Livestream/profile", icon: <User size={22} /> },
     { name: "Setting", path: "/Livestream/setting", icon: <Settings size={22} /> },

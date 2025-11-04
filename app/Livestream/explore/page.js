@@ -1,10 +1,10 @@
-import Explorepage from '@/components/LiveStream/Explorepage'
+import VideoGallery from '@/components/LiveStream/Explorepage'
 import React from 'react'
 
 function Explore() {
   return (
     <div>
-      <Explorepage/> 
+   <VideoGallery/>
     </div>
   )
 }

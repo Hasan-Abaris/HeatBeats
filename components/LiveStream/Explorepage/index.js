@@ -1,91 +1,94 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 
-function Explorepage() {
-  const tags = [
-    "All",
-    "Gaming",
-    "Music",
-    "News",
-    "Sports",
-    "Travel",
-    "Movies",
-    "Fashion",
-    "Technology",
-  ];
+const VideoGallery = () => {
+  const [activeTag, setActiveTag] = useState("all");
+
+  const tags = ["all", "travel", "food", "nature", "music"];
 
   const videos = [
     {
       id: 1,
+      tag: "travel",
       title: "Exploring the Mountains",
-      thumbnail: "https://source.unsplash.com/600x400/?mountains,travel",
-      views: "12K views",
+      thumbnail: "https://via.placeholder.com/400x250?text=Travel+1",
     },
     {
       id: 2,
-      title: "New Tech Innovations 2025",
-      thumbnail: "https://source.unsplash.com/600x400/?technology",
-      views: "9.5K views",
+      tag: "food",
+      title: "Delicious Street Food",
+      thumbnail: "https://via.placeholder.com/400x250?text=Food+1",
     },
     {
       id: 3,
-      title: "Top 10 Songs of the Year",
-      thumbnail: "https://source.unsplash.com/600x400/?music,concert",
-      views: "15K views",
+      tag: "nature",
+      title: "Sunset in the Forest",
+      thumbnail: "https://via.placeholder.com/400x250?text=Nature+1",
     },
     {
       id: 4,
-      title: "Football World Cup Highlights",
-      thumbnail: "https://source.unsplash.com/600x400/?football",
-      views: "8.2K views",
+      tag: "music",
+      title: "Live Concert Vibes",
+      thumbnail: "https://via.placeholder.com/400x250?text=Music+1",
     },
     {
       id: 5,
-      title: "How to Cook Pasta Perfectly",
-      thumbnail: "https://source.unsplash.com/600x400/?food,pasta",
-      views: "6.4K views",
+      tag: "travel",
+      title: "City Lights Adventure",
+      thumbnail: "https://via.placeholder.com/400x250?text=Travel+2",
     },
   ];
 
+  const filteredVideos =
+    activeTag === "all"
+      ? videos
+      : videos.filter((video) => video.tag === activeTag);
+
   return (
-    <div className="p-6">
-      {/* ===== Tag Scroll ===== */}
-      <div className="flex gap-3 overflow-x-auto no-scrollbar pb-4">
+    <div className="max-w-7xl mx-auto px-4 py-10">
+      {/* Heading */}
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        Video Gallery
+      </h1>
+
+      {/* Filter Buttons */}
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
         {tags.map((tag) => (
           <button
             key={tag}
-            className="px-4 py-2 whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 rounded-full text-sm font-medium transition"
+            onClick={() => setActiveTag(tag)}
+            className={`px-4 py-2 rounded-full border text-sm font-medium transition ${
+              activeTag === tag
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+            }`}
           >
-            {tag}
+            #{tag}
           </button>
         ))}
       </div>
 
-      {/* ===== Video Grid ===== */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
-        {videos.map((video) => (
+      {/* Video Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredVideos.map((video) => (
           <div
             key={video.id}
-            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
+            className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
           >
-            <div className="relative group">
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            <img
+              src={video.thumbnail}
+              alt={video.title}
+              className="w-full h-52 object-cover"
+            />
             <div className="p-4">
-              <h3 className="font-semibold text-gray-800 truncate">
-                {video.title}
-              </h3>
-              <p className="text-sm text-gray-500 mt-1">{video.views}</p>
+              <h3 className="font-semibold text-gray-800">{video.title}</h3>
+              <p className="text-sm text-gray-500 mt-1">#{video.tag}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
-export default Explorepage;
+export default VideoGallery;

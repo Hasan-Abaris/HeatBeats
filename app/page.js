@@ -141,10 +141,10 @@ export default function MainPage() {
  
   {/* Events */}
   <button
-    onClick={() => router.push("/")}
+    onClick={() => router.push("/Tournament")}
     className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
   >
-    📅 <span>Community</span>
+    📅 <span>Tournament</span>
   </button>
    {/* Live Stream */}
   <button

@@ -1,10 +1,14 @@
 import React from 'react'
-import Banner from './Banner'
+import GameDescrip from './GameDescrip'
+import Similargames from './Similargames'
+import Initial from './Initial'
 
 function Gamedetailpage() {
   return (
     <div>
-<Banner/>
+<Initial/>
+<GameDescrip/>
+<Similargames/>
     </div>
   )
 }

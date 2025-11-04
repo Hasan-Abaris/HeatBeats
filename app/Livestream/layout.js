@@ -1,12 +1,6 @@
-import LiveStreamLayout from '@/components/LiveStream/LiveStreamLayout'
-import React from 'react'
+import LiveStreamLayout from "@/components/LiveStream/LiveStreamLayout";
+import React from "react";
 
-function layout() {
-  return (
-    <div>
-      <LiveStreamLayout/>
-    </div>
-  )
+export default function Layout({ children }) {
+  return <LiveStreamLayout>{children}</LiveStreamLayout>;
 }
-
-export default layout

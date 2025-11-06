@@ -23,6 +23,10 @@ export default function ContestDetailspage() {
     setActiveTab('videos');
     router.push('/Channeldetail');
   };
+   const message = () => {
+    setActiveTab('');
+    router.push('/Livestream/message');
+  };
 
  const handleTabClick = (tab) => {
   setActiveTab(tab);
@@ -75,6 +79,12 @@ export default function ContestDetailspage() {
                   className="px-5 py-2 bg-black text-white font-medium rounded-md hover:bg-green-700 transition"
                 >
                   Manage Videos
+                </button>
+                                <button
+                  onClick={message}
+                  className="px-5 py-2 bg-black text-white font-medium rounded-md hover:bg-green-700 transition"
+                >
+                  Message
                 </button>
               </>
             )}

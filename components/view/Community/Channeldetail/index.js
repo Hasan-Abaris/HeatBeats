@@ -78,14 +78,14 @@ export default function GameContentPage() {
     Shorts: [
       {
         title: 'Quick Unity Trick',
-        thumbnail: '/images/courses/short1.jpg',
+        thumbnail: '/images/courses/unity.jpg',
         views: '300K',
         date: '12 Oct 2025',
         author: 'QuickTips',
       },
       {
         title: 'Gameplay Highlight',
-        thumbnail: '/images/courses/short2.jpg',
+        thumbnail: '/images/courses/amongus-course.jpg',
         views: '450K',
         date: '11 Oct 2025',
         author: 'GameClips',
@@ -94,7 +94,7 @@ export default function GameContentPage() {
     Live: [
       {
         title: 'Live Unity Coding Session',
-        thumbnail: '/images/courses/live1.jpg',
+        thumbnail: '/images/courses/unity.jpg',
         status: 'Ended',
         date: '9 Oct 2025',
         viewers: '10K',
@@ -102,7 +102,7 @@ export default function GameContentPage() {
       },
       {
         title: 'Indie Game Showcase',
-        thumbnail: '/images/courses/live2.jpg',
+        thumbnail: '/images/courses/amongus-course.jpg',
         status: 'Upcoming',
         date: '15 Oct 2025',
         viewers: 'N/A',
@@ -129,13 +129,13 @@ export default function GameContentPage() {
       {
         title: 'Unity Tutorials',
         videoCount: 10,
-        thumbnail: '/images/courses/playlist1.jpg',
+        thumbnail: '/images/courses/amongus-course.jpg',
         author: 'UnityMaster',
       },
       {
         title: 'Indie Game Reviews',
         videoCount: 5,
-        thumbnail: '/images/courses/playlist2.jpg',
+        thumbnail: '/images/courses/pubg.jpg',
         author: 'IndieLover',
       },
     ],
@@ -161,14 +161,14 @@ export default function GameContentPage() {
         description: '50% off our Unity course! ...READ MORE',
         date: '14 Oct 2025',
         author: 'PromoTeam',
-        thumbnail: '/images/courses/promo1.jpg',
+        thumbnail: '/images/courses/amongus-course.jpg',
       },
       {
         title: 'New Game Launch',
         description: 'Check out our latest indie game! ...READ MORE',
         date: '13 Oct 2025',
         author: 'IndieLover',
-        thumbnail: '/images/courses/promo2.jpg',
+        thumbnail: '/images/courses/unity.jpg',
       },
     ],
     Collaborations: [
@@ -177,14 +177,14 @@ export default function GameContentPage() {
         description: 'Join our indie game jam! ...READ MORE',
         date: '11 Oct 2025',
         author: 'CollabMaster',
-        thumbnail: '/images/courses/collab1.jpg',
+        thumbnail: '/images/courses/amongus-course.jpg',
       },
       {
         title: 'Streamer Team-Up',
         description: 'Streaming with top gamers ...READ MORE',
         date: '10 Oct 2025',
         author: 'StreamerPro',
-        thumbnail: '/images/courses/collab2.jpg',
+        thumbnail: '/images/courses/unity.jpg',
       },
     ],
   };

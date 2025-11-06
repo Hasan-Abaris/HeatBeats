@@ -2,7 +2,9 @@
 import React from "react";
 
 const categories = [
-  { name: ".IO", icon: "other.svg", link:"/Games/3d" },
+  { name: "Top players", icon: "sport.svg", link: "/Games/players" },
+
+  { name: ".IO", icon: "other.svg", link: "/Games/3d" },
   { name: "2 Player", icon: "2-player.svg", link: "/Games/3d" },
   { name: "3D", icon: "3d.svg", link: "/Games/3d" },
   { name: "Action", icon: "actions.svg", link: "/Games/3d" },

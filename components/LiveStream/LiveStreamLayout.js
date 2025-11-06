@@ -16,6 +16,30 @@ export default function LiveStreamLayout({ children }) {
     { name: "Setting", path: "/Livestream/setting", icon: <Settings size={22} /> },
   ];
 
+  // Suggested Accounts Data
+  const suggestedAccounts = [
+    {
+      name: "محمد",
+      username: "محمدعدنان",
+      img: "https://reelboost.online/uploads/avatar/male-avatar-3.png",
+    },
+    {
+      name: "shubham dongare",
+      username: "TWEETitIndia",
+      img: "https://reelboost.online/uploads/avatar/female-avatar-3.png",
+    },
+    {
+      name: "cristian",
+      username: "RubensMarinho",
+      img: "https://reelboost.online/uploads/avatar/male-avatar-5.png",
+    },
+    {
+      name: "caren",
+      username: "CarenDe Vera",
+      img: "https://reelboost.online/uploads/avatar/female-avatar-3.png",
+    },
+  ];
+
   return (
     <div className="flex min-h-[calc(100vh-120px)] bg-gray-50 text-gray-900">
       {/* ===== Sidebar ===== */}
@@ -45,29 +69,12 @@ export default function LiveStreamLayout({ children }) {
           {/* ==== Suggested Accounts ==== */}
           <div className="px-10 border-t pt-4">
             <h2 className="text-base text-gray-500 pb-5">Suggested Accounts</h2>
-            {[
-              {
-                name: "محمد",
-                username: "محمدعدنان",
-                img: "https://reelboost.online/uploads/avatar/male-avatar-3.png",
-              },
-              {
-                name: "shubham dongare",
-                username: "TWEETitIndia",
-                img: "https://reelboost.online/uploads/avatar/female-avatar-3.png",
-              },
-              {
-                name: "cristian",
-                username: "RubensMarinho",
-                img: "https://reelboost.online/uploads/avatar/male-avatar-5.png",
-              },
-              {
-                name: "caren",
-                username: "CarenDe Vera",
-                img: "https://reelboost.online/uploads/avatar/female-avatar-3.png",
-              },
-            ].map((user) => (
-              <div key={user.name} className="flex gap-3 items-center mb-4 cursor-pointer">
+            {suggestedAccounts.map((user) => (
+              <Link
+                key={user.name}
+                href="/Livestream/message"
+                className="flex gap-3 items-center mb-4 cursor-pointer hover:bg-gray-50 rounded-lg p-1 transition"
+              >
                 <div className="rounded-full w-[40px] h-[40px] overflow-hidden">
                   <img
                     alt={user.name}
@@ -83,7 +90,7 @@ export default function LiveStreamLayout({ children }) {
                     {user.username}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
             <button className="cursor-pointer text-sm hover:underline text-green-600">
               See all

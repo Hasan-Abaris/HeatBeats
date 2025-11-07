@@ -1,121 +1,143 @@
-function CultureTab() {
-    const data = [
-        {
-            title: "Product Team",
-            description: "We get to sit at the intersection of technology, business, and design. You will usually find us racking our brains to define the ‘why’, ‘what,’ and ‘when’ of the product that the engineering team will build. And if you don’t we would probably be scribbling whiteboards for the next big idea.",
-            image: "/images/ProductAnalytics.jpg",
-            align: "left",
-        },
-        {
-            title: "Engineering Team",
-            description: "We are the ones who build the product. We are the ones who make it work. We are the ones who make it better. We are the ones who make it faster. We are the ones who make it more reliable. We are the ones who make it more secure.",
-            image: "/images/Mktng-team.jpg",
-            align: "right",
-            name: "Vishnu Anand",
-            position: "Content Marketing & Corporate Communications",
-        },
-        {
-            title: "Sales Team",
-            description: "Our sales team is a group of highly skilled, motivated, flexible individuals who are trained to learn and unlearn, to morph with the changing environments. Here, we don’t measure success by profits, but by the referrals we get. And, we are pretty successful thanks to our sales team.",
-            image: "/images/Sales-team.jpg",
-            align: "left",
-            name: "Gaurav Nigam",
-            position: "V.P. Sales",
-        },
-        {
-            title: "CONTENT TEAM",
-            description: "Our Content team performs the crucial role of conceptualizing, designing, and curating course content that learners would love to engage with. They are a skilled, creative, and flexible lot that form the core of the Edureka family. The team strives to create content that captures the interest of learners and leaves a lasting impression..",
-            image: "/images/Contentteam1.jpg",
-            align: "right",
+export default function CultureTab() {
+  const data = [
+    {
+      title: "Development Squad",
+      description:
+        "Our devs are the backbone of HeartBeats. They design, build, and optimize every line of code that powers our games, tournaments, and live systems. Innovation and performance are their daily grind — because in gaming, milliseconds matter.",
+      image: "/images/courses/pubg.jpg",
+      align: "left",
+    },
+    {
+      title: "Creative & Media Crew",
+      description:
+        "The Creative Crew brings stories to life. From dynamic video edits to streaming overlays and event graphics, they ensure that every visual feels alive and every live stream looks electric. They are the soul behind our content.",
+      image: "/images/courses/amongus-course.jpg",
+      align: "right",
+      name: "Riya Kapoor",
+      position: "Head of Live & Media",
+    },
+    {
+      title: "Community Team",
+      description:
+        "HeartBeats is nothing without its players — and our community team keeps that heart beating strong. From hosting Discord events to moderating streams and organizing challenges, they make every gamer feel at home.",
+      image: "/images/courses/unity.jpg",
+      align: "left",
+      name: "Meera Joshi",
+      position: "Community Manager",
+    },
+    {
+      title: "Event & Esports Team",
+      description:
+        "Our event team runs the adrenaline show — from esports tournaments to local gaming fests. They coordinate everything: sign-ups, live brackets, prize pools, and those jaw-dropping grand finals moments that players never forget.",
+      image: "/images/courses/esports.jpg",
+      align: "right",
+    },
+    {
+      title: "Support & Success Team",
+      description:
+        "This squad is the heartbeat of player experience. They help gamers with accounts, event queries, or tech issues — always with speed and empathy. They ensure that no player is left behind, no matter the challenge.",
+      image: "/images/courses/podcast1.jpg",
+      align: "left",
+      name: "Abhishek Kumar",
+      position: "Player Support Head",
+    },
+    {
+      title: "Core Admin Team",
+      description:
+        "Our admin crew keeps everything running behind the scenes — from talent partnerships and sponsorships to player outreach. They ensure HeartBeats stays organized, focused, and unstoppable.",
+      image: "/images/courses/podcast2.jpg",
+      align: "right",
+    },
+  ];
 
-        },
-        {
-            title: "Customer Success Team",
-            description: "This team of ninjas forms the backbone of our learner experience and are the unofficial brand ambassadors of our unwavering commitment to our learners. They support our learners round the clock, be it solving their technical queries, or acting as motivators who won’t let them give up before they reach their goal.",
-            image: "/images/Supportteam.jpg",
-            align: "left",
-            name: "Abhishek Kumar",
-            position: "Customer Success",
-        },
-        {
-            title: "HR Team",
-            description: "Our HR team is a small but mighty professional and friendly team that’s completely focused on making Edureka a happy place to work in. This energetic team believes that hiring right is half the job done and is constantly on the lookout for ways to keep the team motivated and engaged..",
-            image: "/images/HRFinanceAdmin.jpg",
-            align: "right",
+  return (
+    <div className="max-w-6xl mx-auto mt-6 p-4 text-gray-800">
+      <div className="text-center mb-10">
+        <h3 className="text-4xl font-extrabold text-green-700 mb-3">
+          CULTURE AT HEARTBEATS
+        </h3>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          At HeartBeats, we’re not just building a gaming platform — we’re building a family. 
+          Our culture is powered by creativity, teamwork, late-night game sessions, and a shared love for competition. 
+          Every idea matters. Every gamer counts.
+        </p>
+      </div>
 
-        },
+      {data.map((item, index) => (
+        <div
+          key={index}
+          className={`flex flex-col md:flex-row gap-6 mb-10 ${
+            item.align === "right" ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          <div className="md:w-1/2">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-72 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform"
+            />
+          </div>
+          <div className="md:w-1/2 flex flex-col justify-center bg-white rounded-2xl shadow-md p-6">
+            <h4 className="text-2xl font-semibold mb-2 text-green-700">
+              {item.title}
+            </h4>
+            <p className="text-gray-700 mb-3">{item.description}</p>
+            {item.name && (
+              <p className="font-semibold text-gray-900">
+                {item.name} — <span className="text-gray-600">{item.position}</span>
+              </p>
+            )}
+            <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-xl transition-all duration-200">
+              Join This Squad
+            </button>
+          </div>
+        </div>
+      ))}
 
-
-    ]
-
-    return <div >
-        <div className="w-[1100px] mx-auto mt-3 p-4 ">
-            <div>
-                <h3 className="text-3xl font-bold m-3"> CULTURE AT SLA </h3>
-                <p className="text-lg text-gray-600">At SLA, we respect skill, knowledge and common sense. Not hierarchy. We are a family of fun and ambitious people with a desire to impart education, to stay committed to the core vision of SLA.</p>
+      {/* Awards & Recognition Section */}
+      <div className="bg-gray-100 py-10 rounded-3xl mt-12 shadow-inner">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-green-700 mb-6">
+            AWARDS & RECOGNITION
+          </h2>
+          <p className="text-gray-600 mb-8">
+            HeartBeats has been recognized for its innovation in gaming, community engagement, 
+            and esports event management across the nation.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center gap-8">
+            <div className="bg-white shadow-lg rounded-2xl p-6 max-w-xs">
+              <img
+                src="/images/gaming-award1.png"
+                alt="Award"
+                className="w-40 mx-auto mb-4"
+              />
+              <p className="text-gray-700 text-sm">
+                Winner — “Best Emerging Gaming Community 2024” by GameOn India.
+              </p>
             </div>
-            {
-                data.map((item, index) => {
-                    if (item.align === "left") {
-                        return (
-                            <div key={index} className="flex flex-col md:flex-row gap-4 mt-4">
-                                <div className="flex-1 bg-white text-center">
-                                    <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                                    <p className="text-gray-700">{item.description}</p>
-                                    {item.name && <h4>{item.name}</h4>}
-                                    {item.position && <p className="text-gray-700">{item.position}</p>}
-                                    <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Open Positions </button>
-                                </div>
-                                <div className="flex-1 bg-white">
-                                    <img src={item.image} alt="Culture" className="w-full  object-cover rounded-lg mb-4" />
-                                </div>
-                            </div>
-                        )
-                    } else if (item.align === "right") {
-                        return (
-                            <div key={index} className="flex flex-col md:flex-row gap-4 mt-4">
-                                <div className="flex-1 bg-white">
-                                    <img src={item.image} alt="Culture" className="w-full  object-cover rounded-lg mb-4" />
-                                </div>
-                                <div className="flex-1 bg-white text-left">
-                                    <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                                    <p className="text-gray-700">{item.description}</p>
-                                    {item.name && <h4>{item.name}</h4>}
-                                    {item.position && <p className="text-gray-700">{item.position}</p>}
-                                    <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Open Positions </button>
-                                </div>
-                            </div>
-                        )
-
-                    }
-                })
-            }
-        </div>
-        <div className="bg-gray-200 p-4 mt-4">
-            <div className=" w-[800px] mx-auto ">
-                <h2 className="text-4xl font-bold">AWARDS AND RECOGNITION</h2>
-                <div className="flex">
-                    <div className="mr-4">
-                        <div className="text-left">
-                            <img src="/images/dl-award.png" alt="Awards" className=" h-auto object-cover rounded-lg mt-4" />
-                            <p className="text-gray-700 mt-2">Ranked #1 in Deloitte's Tech Fast 50 India 2014.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="text-left">
-                            <img src="/images/bt-award.png" alt="Awards" className=" h-auto object-cover rounded-lg mt-4" />
-                            <p className="text-gray-700 mt-2">Named as one of the 'Coolest Startups of 2015' by Business Today</p>
-                        </div>
-                    </div>
-                </div>
+            <div className="bg-white shadow-lg rounded-2xl p-6 max-w-xs">
+              <img
+                src="/images/gaming-award2.png"
+                alt="Award"
+                className="w-40 mx-auto mb-4"
+              />
+              <p className="text-gray-700 text-sm">
+                Featured as “Top 5 Esports Startups to Watch” by TechArena Weekly.
+              </p>
             </div>
-
+          </div>
         </div>
-        <div className="flex justify-center">
-            <h1 className="text-4xl font-bold mt-4 mr-8">Ready to begin your career?</h1>
-            <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">APPLY NOW</button>
-        </div>
+      </div>
 
+      {/* CTA */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-10">
+        <h1 className="text-3xl font-bold text-center md:text-left">
+          Ready to join the HeartBeats team?
+        </h1>
+        <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200">
+          APPLY NOW
+        </button>
+      </div>
     </div>
+  );
 }
-export default CultureTab

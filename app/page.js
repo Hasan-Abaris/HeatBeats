@@ -127,52 +127,6 @@ export default function MainPage() {
           <Communityfaq />
         </div>
       )}
-
-    {/* 🎓 Floating Buttons */}
-<div className="fixed right-4 bottom-4 flex flex-col gap-3 sm:right-6 sm:bottom-6 z-50">
-
-  {/* Live Stream */}
-  <button
-    onClick={() => router.push("/Games")}
-    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
-  >
-    🎥 <sn>Games</sn>
-  </button>
- 
-  {/* Events */}
-  <button
-    onClick={() => router.push("/Tournament")}
-    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
-  >
-    📅 <span>Tournament</span>
-  </button>
-   {/* Live Stream */}
-  <button
-    onClick={() => router.push("/Livestream")}
-    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
-  >
-    🎥 <span>Live Stream</span>
-  </button>
-
-  {/* Events */}
-  <button
-    onClick={() => router.push("/Event")}
-    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
-  >
-    📅 <span>Events</span>
-  </button>
-  <button
-    onClick={() => router.push("/Homemain")}
-    className="flex items-center gap-2 bg-black text-white px-5 py-3 rounded-full shadow-lg border border-green-400 hover:bg-green-400 hover:text-black transition-all duration-300 text-sm sm:text-base"
-  >
-    🎓 <span>Academy</span>
-  </button>
-
-  
-
- 
-</div>
-
     </div>
   );
 }

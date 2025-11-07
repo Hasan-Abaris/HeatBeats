@@ -18,7 +18,7 @@ function Careers() {
             <section
                 className="p-6 md:px-16 md:py-16 h-[360px] text-white"
                 style={{ 
-                    backgroundImage: `${activeTab === 'about' ? 'url(/images/joinus_01.jpg)' : 'url(/images/joinus_02.jpg)'}`,
+                    backgroundImage: `${activeTab === 'about' ? 'url(/images/courses/podcast1.jpg)' : 'url(/images/courses/podcast2.jpg)'}`,
                     backgroundSize: "cover",
                     backgroundPosition: "top center, center",
                     backgroundRepeat: "no-repeat, no-repeat",

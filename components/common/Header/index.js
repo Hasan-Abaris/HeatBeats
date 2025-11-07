@@ -2,99 +2,118 @@
 
 import Link from "next/link";
 import { RiSearchLine } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCallSharp } from "react-icons/io5";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropright } from "react-icons/io";
-import { FaBell } from "react-icons/fa";
-import { FiUser } from "react-icons/fi";
 import { FaBars, FaTimes } from "react-icons/fa";
-import MegaMenu from "./MegaMenu";
 import SearchOverlay from "@/components/common/SearchOverlay";
 import { Input } from "@/components/ui/input";
 
-export function Header() {
+export function Header({ user, setUser }) {
   const [isActive, setIsActive] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {}, [user]);
 
   const handleRemove = () => setIsActive(false);
+
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    setProfileOpen(false);
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    setUser(null);
+    setDropdownOpen(false);
+    window.dispatchEvent(new Event("userChange"));
   };
 
   const categories = [
-    { id: 1, name: "Web Development" },
-    { id: 2, name: "Data Science" },
-    { id: 3, name: "Graphic Design" },
-    { id: 4, name: "Marketing" },
+    { id: 1, name: "Action Games" },
+    { id: 2, name: "Sports Games" },
+    { id: 3, name: "Adventure Games" },
+    { id: 4, name: "Racing Games" },
+    { id: 5, name: "Multiplayer Games" },
   ];
 
-  const courses = [
-    { id: 1, name: "React for Beginners", learners: 240, desc: "Learn React from scratch" },
-    { id: 2, name: "Mastering Python", learners: 320, desc: "Deep dive into Python programming" },
+  const featuredGames = [
+    {
+      id: 1,
+      name: "Call of Duty: Warzone",
+      players: "1M+ Active Players",
+      desc: "Battle royale action with intense combat and teamwork.",
+    },
+    {
+      id: 2,
+      name: "FIFA 24",
+      players: "800K+ Players",
+      desc: "Realistic football experience with stunning visuals.",
+    },
+  ];
+
+  // ✅ Added Dashboard at the top + proper links for each option
+  const profileOptions = [
+    { name: "Dashboard", link: "/Dashboard" },
+    { name: "Add Event", link: "/Dashboard/add-event" },
+    { name: "List Event", link: "/Dashboard/list-event" },
+    { name: "Add Game", link: "/Dashboard/add-game" },
+    { name: "List Game", link: "/Dashboard/list-game" },
+    { name: "Add Tournament", link: "/Dashboard/add-tournament" },
+    { name: "List Tournament", link: "/Dashboard/list-tournament" },
+    { name: "Add Course", link: "/Dashboard/add-course" },
+    { name: "List Course", link: "/Dashboard/list-course" },
+    { name: "My Tickets", link: "/Dashboard/my-tickets" },
+    { name: "Booking List", link: "/Dashboard/bookings" },
+    { name: "My Students", link: "/Dashboard/my-students" },
+    { name: "My Tournaments List", link: "/Dashboard/my-tournaments" },
   ];
 
   return (
     <>
       {/* 🔵 Top Strip */}
-      <div className="px-4 md:px-16 py-2 bg-black text-sm">
-        <div className="flex flex-wrap justify-between items-center gap-2 text-white">
-          <ul className="flex gap-4 flex-wrap items-center">
-            <li className="flex gap-2 items-center">
-              <IoCallSharp /> New Course Enquiry:
-            </li>
-            <li>
-              +91-8851746286 <span>(Toll Free)</span>
-            </li>
-          </ul>
-
-          <div className="flex gap-2 items-center text-light-green-200">
-            🎉 <span>Limited Time Offer! Enroll now and get 20% off</span>
-            <Link href="#" className="text-green-300 underline">
-              Know more
+      <div className="w-full bg-[#0b0604] text-sm border-b border-white/10 backdrop-blur-md px-6 md:px-16 py-2">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-gray-200 text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+            <IoCallSharp className="text-green-400" />
+            <span>Support: +91-8851746286 (Toll Free)</span>
+          </div>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-1 text-green-300">
+            🎉 <span>Join Now & Unlock Exclusive Game Rewards!</span>
+            <Link href="#" className="text-green-400 underline ml-1">
+              Learn More
             </Link>
           </div>
         </div>
       </div>
 
       {/* ⚪ Main Header */}
-      <header className="border-b bg-white w-full sticky top-0 z-[2000] shadow-md">
-        <div className="flex flex-wrap justify-between items-center px-6 md:px-16 py-3">
-          {/* LEFT: Logo + Category + Search */}
-          <div className="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+      <header className="sticky top-0 left-0 w-full z-[2000] bg-[#0b0604]/80 backdrop-blur-xl border-b border-white/10 shadow-lg">
+        <div className="flex justify-between items-center px-6 md:px-16 py-3">
+          {/* LEFT SIDE */}
+          <div className="flex items-center gap-5">
             <Link href="/">
               <img
                 src="/images/Sports2.jpg"
-                width={50}
+                width={60}
                 height={20}
-                className="w-20 h-auto"
+                className="w-20 h-auto rounded-md"
                 alt="Logo"
               />
             </Link>
 
-            {/* Category Dropdown */}
-            <div className="relative group hidden sm:block">
-              <button
-                className="border rounded text-black px-4 py-1 flex items-center gap-2 hover:bg-green-600 hover:text-white transition"
-                style={{ borderColor: "#8BC34A" }}
-              >
-                Category
-                <MdOutlineArrowDropDown className="text-2xl" />
+            {/* 🎮 Category Dropdown */}
+            <div className="relative group hidden md:block">
+              <button className="px-4 py-1.5 rounded-2xl bg-transparent text-white flex items-center gap-2 border border-white/20 hover:bg-white/10 transition">
+                Categories <MdOutlineArrowDropDown className="text-2xl" />
               </button>
 
-              {/* Mega Dropdown */}
-              <div className="absolute hidden group-hover:block border bg-white text-black rounded mt-1 w-full sm:w-[700px] md:w-[800px] h-auto md:h-[400px] z-[3000] shadow-xl">
+              <div className="absolute hidden group-hover:block bg-[#141010]/95 text-white rounded-2xl mt-2 w-[750px] shadow-2xl border border-white/10 backdrop-blur-lg overflow-hidden z-[3000]">
                 <div className="flex flex-col md:flex-row h-full">
-                  {/* Categories */}
-                  <div className="flex-1 border-b md:border-r overflow-auto bg-gray-50">
+                  <div className="flex-1 border-r border-white/10">
                     <ul className="flex flex-col gap-1">
                       {categories.map((item) => (
                         <li
                           key={item.id}
-                          className="flex items-center justify-between p-3 hover:bg-green-100 cursor-pointer transition"
+                          className="flex items-center justify-between p-3 hover:bg-white/10 cursor-pointer transition"
                         >
                           <span>{item.name}</span>
                           <IoMdArrowDropright className="w-4 h-4" />
@@ -103,151 +122,131 @@ export function Header() {
                     </ul>
                   </div>
 
-                  {/* Courses */}
-                  <div className="flex-1 border-b md:border-r overflow-auto bg-gray-50">
+                  <div className="flex-1 border-r border-white/10">
                     <ul className="flex flex-col gap-1">
-                      {courses.map((course) => (
+                      {featuredGames.map((game) => (
                         <li
-                          key={course.id}
-                          className="p-2 hover:bg-green-100 cursor-pointer transition text-sm"
+                          key={game.id}
+                          className="p-2 hover:bg-white/10 cursor-pointer transition text-sm"
                         >
-                          {course.name}
+                          {game.name}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Preview */}
                   <div className="flex-1 p-4">
-                    <h2 className="text-lg font-semibold mb-2 text-black">
-                      {courses[0].name}
+                    <h2 className="text-lg font-semibold mb-2">
+                      {featuredGames[0].name}
                     </h2>
-                    <p className="text-sm text-gray-600 mb-2">{courses[0].desc}</p>
-                    <p className="text-green-700 text-sm mb-3">
-                      {courses[0].learners} Learners
+                    <p className="text-sm text-gray-400 mb-2">
+                      {featuredGames[0].desc}
                     </p>
-                    <button className="w-full border border-green-600 text-green-600 rounded-md py-2 text-sm hover:bg-green-50 transition">
-                      View Course Details
+                    <p className="text-green-400 text-sm mb-3">
+                      {featuredGames[0].players}
+                    </p>
+                    <button className="w-full border border-green-500 text-green-400 rounded-md py-2 text-sm hover:bg-green-500 hover:text-white transition">
+                      View Game Details
                     </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Search Bar */}
-            <div className="relative w-full sm:w-auto flex-1 sm:flex-initial">
+            {/* 🔍 Search Bar */}
+            <div className="relative hidden sm:block">
               <Input
                 type="text"
-                placeholder="Search Courses"
-                className="border-0 ps-[34px] w-full sm:w-[250px] md:w-[350px] rounded-full bg-gray-100"
+                placeholder="Search Games..."
+                className="border-0 ps-[34px] w-[250px] md:w-[350px] rounded-full bg-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-green-400 transition"
                 onFocus={() => setIsActive(true)}
               />
-              <span className="absolute left-2 top-2 text-gray-500 text-xl">
+              <span className="absolute left-2 top-2.5 text-gray-400 text-xl">
                 <RiSearchLine />
               </span>
               <SearchOverlay isOpen={isActive} onClose={handleRemove} />
             </div>
           </div>
 
-          {/* RIGHT: Nav Area */}
-          <div className="flex items-center gap-4">
-            <button
-              className="lg:hidden text-gray-700 text-2xl"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? <FaTimes /> : <FaBars />}
-            </button>
+          {/* RIGHT SIDE NAV LINKS */}
+          <div className="hidden lg:flex items-center gap-6 text-white">
+            <Link href="/Tournament" className="hover:text-green-400 transition">
+              Tournament
+            </Link>
+            <Link href="/Games" className="hover:text-green-400 transition">
+              Games
+            </Link>
+            <Link href="/Livestream" className="hover:text-green-400 transition">
+              Live Stream
+            </Link>
+            <Link href="/Event" className="hover:text-green-400 transition">
+              Event
+            </Link>
+            <Link href="/contact" className="hover:text-green-400 transition">
+              Contact
+            </Link>
+            <Link href="/aboutus" className="hover:text-green-400 transition">
+              About
+            </Link>
 
-            <div className="hidden lg:flex items-center gap-5">
-              {!isLoggedIn && <MegaMenu />}
-              <div className="flex items-center gap-3">
-                {isLoggedIn ? (
-                  <>
-                    <Link href="/refer" className="text-gray-700">
-                      Refer
-                    </Link>
-                    <Link href="/all-courses" className="text-gray-700">
-                      All Courses
-                    </Link>
-                    <Link href="/community" className="text-gray-700">
-                      Community
-                    </Link>
-                    <FaBell className="text-gray-700 text-xl" />
-                    <div className="relative">
-                      <button
-                        className="flex items-center text-gray-700"
-                        onClick={() => setProfileOpen(!profileOpen)}
+            {/* ✅ User Dropdown */}
+            {!user ? (
+              <>
+                <Link
+                  href="/login"
+                  className="px-4 py-1.5 rounded-2xl border border-white/20 text-white text-sm hover:bg-white/10 transition"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/signup"
+                  className="px-4 py-1.5 rounded-2xl border border-white/20 text-white text-sm hover:bg-white/10 transition"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <div className="relative">
+                <button
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className="px-4 py-1.5 rounded-2xl border border-white/20 text-white text-sm flex items-center gap-2 hover:bg-white/10 transition"
+                >
+                  {user.username || user.name || "Profile"}{" "}
+                  <MdOutlineArrowDropDown className="text-xl" />
+                </button>
+
+                {dropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-[#141010] border border-white/10 rounded-lg shadow-lg text-white py-2 z-[3000]">
+                    {profileOptions.map((item, i) => (
+                      <Link
+                        key={i}
+                        href={item.link}
+                        className="block px-4 py-2 hover:bg-white/10 transition"
+                        onClick={() => setDropdownOpen(false)}
                       >
-                        <FiUser className="text-xl" />
-                        <MdOutlineArrowDropDown className="text-2xl" />
-                      </button>
-                      {profileOpen && (
-                        <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-[4000]">
-                          <Link
-                            href="/my-profile"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                          >
-                            My Profile
-                          </Link>
-                          <Link
-                            href="/orders"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                          >
-                            My Orders
-                          </Link>
-                          <button
-                            onClick={handleLogout}
-                            className="w-full text-left px-4 py-2 hover:bg-gray-100"
-                          >
-                            Logout
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      href="/signup"
-                      className="px-3 py-1 rounded border-2 text-black text-sm hover:bg-green-600 hover:text-white transition"
-                      style={{ borderColor: "#8BC34A" }}
+                        {item.name}
+                      </Link>
+                    ))}
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 hover:bg-white/10 transition"
                     >
-                      Sign Up
-                    </Link>
-                    <Link
-                      href="/login"
-                      className="px-3 py-1 rounded border-2 text-black text-sm hover:bg-green-600 hover:text-white transition"
-                      style={{ borderColor: "#8BC34A" }}
-                    >
-                      Log in
-                    </Link>
-                  </>
+                      Logout
+                    </button>
+                  </div>
                 )}
               </div>
-            </div>
+            )}
           </div>
-        </div>
 
-        {/* 📱 Mobile Menu */}
-        {menuOpen && (
-          <div className="lg:hidden bg-white shadow-md border-t flex flex-col items-center gap-3 py-4 z-[3000]">
-            <Link href="/refer" className="text-gray-700 hover:text-green-600">
-              Refer
-            </Link>
-            <Link href="/all-courses" className="text-gray-700 hover:text-green-600">
-              All Courses
-            </Link>
-            <Link href="/community" className="text-gray-700 hover:text-green-600">
-              Community
-            </Link>
-            <Link href="/signup" className="text-gray-700 hover:text-green-600">
-              Sign Up
-            </Link>
-            <Link href="/login" className="text-gray-700 hover:text-green-600">
-              Log in
-            </Link>
-          </div>
-        )}
+          {/* 📱 Mobile Menu */}
+          <button
+            className="lg:hidden text-white text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </header>
     </>
   );

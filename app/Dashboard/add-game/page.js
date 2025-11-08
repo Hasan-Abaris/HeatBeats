@@ -1,9 +1,10 @@
+import Addgampage from '@/components/Dashboard/add-game'
 import React from 'react'
 
 function Addgame() {
   return (
     <div>
-      hi
+      <Addgampage/>
     </div>
   )
 }

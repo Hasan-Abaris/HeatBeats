@@ -54,7 +54,7 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
   const router = useRouter(); // ✅ initialize router
 
   return (
-    <div className="border rounded-lg p-4 sm:p-5 md:p-6 bg-white shadow-sm transition hover:shadow-md">
+    <div className="border rounded-lg p-4 sm:p-5 md:p-6 bg-black shadow-sm transition hover:shadow-md">
       {/* Author Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div
@@ -67,7 +67,7 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
             className="w-10 h-10 rounded-full"
           />
           <div>
-            <h4 className="font-semibold text-black text-sm sm:text-base">{question.author}</h4>
+            <h4 className="font-semibold text-white text-sm sm:text-base">{question.author}</h4>
             <p className="text-xs text-gray-500">{question.date}</p>
           </div>
         </div>
@@ -77,10 +77,10 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
       </div>
 
       {/* Question Content */}
-      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 hover:underline">
+      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 hover:underline">
         {question.title}
       </h3>
-      <p className="text-gray-600 text-sm sm:text-base mb-3">{question.excerpt}</p>
+      <p className="text-gray-400 text-sm sm:text-base mb-3">{question.excerpt}</p>
 
       <div className="flex flex-wrap items-center text-xs sm:text-sm text-green-700 gap-2 mb-4">
         <span className="font-medium">{question.tags.join(', ')}</span>
@@ -95,27 +95,27 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
         <div className="flex items-center gap-3 text-sm sm:text-base">
           <button
             onClick={() => handleVote(qIndex, 'up')}
-            className="flex items-center gap-1 text-gray-600 hover:text-blue-600"
+            className="flex items-center gap-1 text-gray-400 hover:text-blue-600"
           >
             <FaChevronUp /> Upvote
           </button>
           <span className="font-medium">{question.votes}</span>
           <button
             onClick={() => handleVote(qIndex, 'down')}
-            className="flex items-center gap-1 text-gray-600 hover:text-red-600"
+            className="flex items-center gap-1 text-gray-400 hover:text-red-600"
           >
             <FaChevronDown /> Downvote
           </button>
         </div>
 
         <div className="flex items-center flex-wrap gap-4 text-sm sm:text-base">
-          <button className="flex items-center gap-1 text-gray-600 hover:text-pink-600">
+          <button className="flex items-center gap-1 text-gray-400 hover:text-pink-600">
             <FaHeart /> Like
           </button>
-          <button className="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+          <button className="flex items-center gap-1 text-gray-400 hover:text-blue-600">
             <FaComment /> Comment
           </button>
-          <button className="flex items-center gap-1 text-gray-600 hover:text-green-600">
+          <button className="flex items-center gap-1 text-gray-400 hover:text-green-600">
             <FaShare /> Share
           </button>
         </div>
@@ -142,7 +142,7 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
         <div className="flex flex-col sm:flex-row gap-2 mt-3">
           <input
             type="text"
-            className="flex-1 border border-gray-300 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 border border-gray-300 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-700"
             placeholder="Write a comment..."
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}

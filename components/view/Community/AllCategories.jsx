@@ -4,18 +4,18 @@ function AllCategories({ questionsData, onCategoryClick }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-      <h4 className="font-bold text-2xl text-black p-4">All Categories</h4>
-      <ul className="divide-y divide-gray-200">
+    <div className="bg-black rounded-lg shadow-sm border border-gray-200">
+      <h4 className="font-bold text-2xl text-white p-4">All Categories</h4>
+      <ul className="divide-y divide-white">
         {questionsData?.categories.map((category, index) => (
           <li
             key={index}
             onClick={() => onCategoryClick && onCategoryClick(category)}
-            className={`flex items-center justify-between p-2 cursor-pointer transition-colors duration-200 
+            className={`flex items-center justify-between p-2 cursor-pointer transition-colors duration-200 text-white
                             ${
                               category.isSelected
-                                ? "bg-blue-50 text-blue-600 font-semibold"
-                                : "hover:bg-gray-50"
+                                ? "bg-blue-50 text-gray-400 font-semibold"
+                                : "hover:bg-green-700"
                             }
                         `}
             onMouseEnter={() => setHoveredIndex(index)}
@@ -35,7 +35,7 @@ function AllCategories({ questionsData, onCategoryClick }) {
                   <p className="font-semibold truncate text-center">
                     {category.name}
                   </p>
-                  <div className="absolute -top-1 left-4 w-3 h-3 bg-gray-800 rotate-45"></div>
+                  <div className="absolute -top-1 left-4 w-3 h-3 bg-black rotate-45"></div>
                 </div>
               )}
             </div>

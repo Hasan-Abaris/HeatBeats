@@ -18,11 +18,12 @@ function Communityfaq() {
 
   return (
     <>
+    <div className=''>
       {/* 🏠 Banner (Home tab only) */}
       <Banner />
 
       <div className="mt-10">
-        <h2 className="text-2xl md:text-3xl font-semibold text-black mb-6 pb-4 border-b border-gray-200">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6 pb-4 border-b border-gray-200">
           HeatBeasts Community
         </h2>
 
@@ -47,6 +48,7 @@ function Communityfaq() {
             />
           </div>
         </div>
+      </div>
       </div>
     </>
   );

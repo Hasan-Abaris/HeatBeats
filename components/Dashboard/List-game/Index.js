@@ -1,7 +1,7 @@
 import React from 'react'
 import Banner from './Banner'
 
-function Addgampage() {
+function Listgamepage() {
   return (
     <div>
       <Banner/>
@@ -9,4 +9,4 @@ function Addgampage() {
   )
 }
 
-export default Addgampage
+export default Listgamepage

@@ -1,4 +1,3 @@
-// File: components/Gamesdetails/Tournamentdetail.jsx
 import React from "react";
 
 function Tournamentdetail() {
@@ -61,69 +60,117 @@ function Tournamentdetail() {
   ];
 
   return (
-    <div className="bg-[#f9f9f9] py-16 px-6 md:px-12">
-      <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-        TOURNAMENTS
+    <div className="bg-gray-50 py-16 px-6 md:px-12">
+      <h2 className="text-3xl font-bold text-center mb-12 text-green-800 uppercase tracking-wide">
+        HeatBeasts Tournaments
       </h2>
 
       <div className="flex flex-col gap-16">
         {tournaments.map((tournament, index) => (
           <div
             key={index}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start"
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch"
           >
-            {/* Left Section - Tournament Card */}
-            <div className="bg-white rounded-2xl shadow-md p-6 border border-gray-200">
-              <img
-                src={tournament.image}
-                alt={tournament.name}
-                className="rounded-xl mb-4 w-full h-48 object-cover"
-              />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                {tournament.name}
-              </h3>
-              <div className="flex justify-between text-sm text-gray-600 mb-3">
-                <p>
-                  <span className="font-semibold text-gray-800">Prize:</span>{" "}
-                  {tournament.prize}
-                </p>
-                <p>
-                  <span className="font-semibold text-gray-800">Entry:</span>{" "}
-                  {tournament.entry}
-                </p>
+            {/* Left Section - Tournament Details */}
+            <div className="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+              <div>
+                <img
+                  src={tournament.image}
+                  alt={tournament.name}
+                  className="w-full h-56 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-2xl font-semibold mb-3 text-green-800">
+                    {tournament.name}
+                  </h3>
+                  <div className="flex justify-between text-sm text-gray-700 mb-3">
+                    <p>
+                      <span className="font-semibold text-gray-900">Prize:</span>{" "}
+                      {tournament.prize}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-gray-900">Entry:</span>{" "}
+                      {tournament.entry}
+                    </p>
+                  </div>
+                  <span
+                    className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                      tournament.status === "Live"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-yellow-100 text-yellow-700"
+                    }`}
+                  >
+                    {tournament.status}
+                  </span>
+                </div>
               </div>
-              <span
-                className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                  tournament.status === "Live"
-                    ? "bg-green-100 text-green-600"
-                    : "bg-yellow-100 text-yellow-600"
-                }`}
-              >
-                {tournament.status}
-              </span>
-              <button className="block w-full mt-4 py-2 bg-[#ff6b61] text-white rounded-lg hover:bg-[#ff7b70] transition font-medium">
+
+              <button className="m-6 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 transition font-medium shadow-sm">
                 Join Tournament
               </button>
             </div>
 
-            {/* Right Section - Top 10 Players */}
-            <div className="bg-white rounded-2xl shadow-md p-6 border border-gray-200">
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                Top 10 Players
-              </h4>
-              <ol className="space-y-2 text-gray-700 text-sm">
+            {/* Right Section - Enhanced Player List */}
+            <div className="bg-gradient-to-b from-white to-green-50 rounded-2xl shadow-md border border-gray-200 p-6 hover:shadow-xl transition-all duration-300">
+              <div className="flex justify-between items-center mb-5">
+                <h4 className="text-xl font-bold text-green-800 flex items-center gap-2">
+                  🏆 Top 10 Players
+                </h4>
+                <span className="text-sm text-gray-600 bg-gray-100 px-2 py-1 rounded-md">
+                  {tournament.players.length} Players
+                </span>
+              </div>
+
+              <ul className="space-y-2">
                 {tournament.players.map((player, i) => (
                   <li
                     key={i}
-                    className="flex justify-between items-center border-b border-gray-100 pb-1"
+                    className={`flex justify-between items-center py-2 px-3 rounded-lg transition-all duration-200 ${
+                      i < 3
+                        ? "bg-green-100 text-green-900 font-semibold"
+                        : "hover:bg-green-50"
+                    }`}
                   >
-                    <span>
-                      {i + 1}. {player}
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm ${
+                          i === 0
+                            ? "bg-yellow-400 text-white"
+                            : i === 1
+                            ? "bg-gray-400 text-white"
+                            : i === 2
+                            ? "bg-orange-400 text-white"
+                            : "bg-green-200 text-green-800"
+                        }`}
+                      >
+                        {i + 1}
+                      </div>
+                      <div>
+                        <p className="text-sm">{player}</p>
+                        {i < 3 && (
+                          <span className="text-xs text-gray-500">
+                            {i === 0
+                              ? "🏅 Champion"
+                              : i === 1
+                              ? "🥈 Runner-up"
+                              : "🥉 Top 3"}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <span
+                      className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                        i < 3
+                          ? "bg-green-700 text-white"
+                          : "bg-green-100 text-green-700"
+                      }`}
+                    >
+                      {i < 3 ? "Elite" : "Pro"}
                     </span>
-                    <span className="text-gray-500">★</span>
                   </li>
                 ))}
-              </ol>
+              </ul>
             </div>
           </div>
         ))}

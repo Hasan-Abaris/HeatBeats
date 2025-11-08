@@ -9,12 +9,12 @@ import {
 } from "react-icons/fa";
 
 const tabIcons = {
-  Trending: <FaFire className="inline mr-1 text-black hover:text-green-700" />,
-  "New Releases": <FaClock className="inline mr-1 text-black hover:text-green-700" />,
-  "Most Discussed": <FaComments className="inline mr-1 text-black hover:text-green-700" />,
-  "Most Upvoted": <FaArrowUp className="inline mr-1 text-black hover:text-green-700" />,
-  "Most Viewed": <FaEye className="inline mr-1 text-black hover:text-green-700" />,
-  Unanswered: <FaQuestion className="inline mr-1 text-black hover:text-green-700" />,
+  Trending: <FaFire className="inline mr-1 text-white hover:text-green-700" />,
+  "New Releases": <FaClock className="inline mr-1 text-white hover:text-green-700" />,
+  "Most Discussed": <FaComments className="inline mr-1 text-white hover:text-green-700" />,
+  "Most Upvoted": <FaArrowUp className="inline mr-1 text-white hover:text-green-700" />,
+  "Most Viewed": <FaEye className="inline mr-1 text-white hover:text-green-700" />,
+  Unanswered: <FaQuestion className="inline mr-1 text-white hover:text-green-700" />,
 };
 
 function LatQuestions({ questionsData, activeTab, setActiveTab }) {
@@ -29,7 +29,7 @@ function LatQuestions({ questionsData, activeTab, setActiveTab }) {
               ${
                 activeTab === tab
                   ? "text-orange-600 bg-white border-t border-r border-l border-gray-200 rounded-t-lg"
-                  : "text-black hover:text-black hover:bg-gray-50 border-b border-transparent"
+                  : "text-white hover:text-black hover:bg-gray-50 border-b border-transparent "
               } transition-colors duration-200`}
             onClick={() => setActiveTab(tab)}
             aria-pressed={activeTab === tab}

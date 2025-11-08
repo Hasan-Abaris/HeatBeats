@@ -2,8 +2,8 @@ import React from 'react';
 
 function PopTag({ questionsData, onTagClick }) {
     return (
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-            <h4 className="font-bold text-lg mb-3 text-black">Most Popular Tags</h4>
+        <div className="bg-black p-4 rounded-lg shadow-sm border border-gray-200">
+            <h4 className="font-bold text-lg mb-3 text-white">Most Popular Tags</h4>
             <div className="flex flex-wrap gap-2">
                 {questionsData.popularTags.map((tag) => (
                     <button

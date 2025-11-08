@@ -44,7 +44,7 @@ export default function Footer() {
     <footer className="bg-black text-white p-6 md:px-16">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* MAIN HEADING */}
-        <h2 className="uppercase text-2xl font-bold text-white">HeatBeats</h2>
+        <h2 className="uppercase text-2xl font-bold text-white">HeatBeasts</h2>
 
         {/* TOP GRID */}
         <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-10">

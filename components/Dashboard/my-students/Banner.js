@@ -14,12 +14,12 @@ const MyStudents = () => {
     { id: 2, name: "Rayan Khan", course: "Advanced Battle Tactics", joinDate: "2025-07-18", progress: "60%", status: "Active" },
     { id: 3, name: "Sana Malik", course: "eSports Strategy", joinDate: "2025-07-22", progress: "95%", status: "Completed" },
     { id: 4, name: "Danish Iqbal", course: "Pro Gaming Basics", joinDate: "2025-07-30", progress: "40%", status: "Active" },
-    { id: 5, name: "Ayesha Noor", course: "HeatBeasts Tournament 101", joinDate: "2025-08-05", progress: "100%", status: "Completed" },
+    { id: 5, name: "Ayesha Noor", course: "Esports Community Tournament 101", joinDate: "2025-08-05", progress: "100%", status: "Completed" },
     { id: 6, name: "Hiba Shah", course: "Advanced Battle Tactics", joinDate: "2025-08-10", progress: "50%", status: "Active" },
     { id: 7, name: "Arham Ali", course: "eSports Strategy", joinDate: "2025-08-12", progress: "90%", status: "Completed" },
-    { id: 8, name: "Imran Ali", course: "HeatBeasts Tournament 101", joinDate: "2025-08-15", progress: "70%", status: "Active" },
+    { id: 8, name: "Imran Ali", course: "Esports Community Tournament 101", joinDate: "2025-08-15", progress: "70%", status: "Active" },
     { id: 9, name: "Fatima Zaid", course: "Pro Gaming Basics", joinDate: "2025-08-18", progress: "30%", status: "Active" },
-    { id: 10, name: "Saad Khan", course: "HeatBeasts Tournament 101", joinDate: "2025-08-20", progress: "85%", status: "Completed" },
+    { id: 10, name: "Saad Khan", course: "Esports Community Tournament 101", joinDate: "2025-08-20", progress: "85%", status: "Completed" },
   ];
 
   // Filtering
@@ -63,7 +63,7 @@ const MyStudents = () => {
             <option value="Pro Gaming Basics">Pro Gaming Basics</option>
             <option value="Advanced Battle Tactics">Advanced Battle Tactics</option>
             <option value="eSports Strategy">eSports Strategy</option>
-            <option value="HeatBeasts Tournament 101">HeatBeasts Tournament 101</option>
+            <option value="Esports Community Tournament 101">Esports Community Tournament 101</option>
           </select>
         </div>
 

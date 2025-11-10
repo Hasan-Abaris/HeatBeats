@@ -33,10 +33,10 @@ export default function BookTicket() {
 
       {/* Venue Info */}
       <h1 className="text-2xl font-bold text-center mb-2">
-        HeatBeasts Arena Tournament 2025
+        Esports Community Arena Tournament 2025
       </h1>
       <p className="text-center text-gray-600 mb-6">
-        HeatBeasts Arena, Noida
+        Esports Community Arena, Noida
       </p>
 
       {/* Availability Legend */}

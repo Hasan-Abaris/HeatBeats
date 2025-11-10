@@ -24,7 +24,7 @@ function Communityfaq() {
 
       <div className="mt-10">
         <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6 pb-4 border-b border-gray-200">
-          HeatBeasts Community
+          Esports Community 
         </h2>
 
         <div className="flex flex-col md:flex-row gap-8">

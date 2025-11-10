@@ -8,7 +8,7 @@ export default function WebinarHero() {
         {/* Left column */}
         <div className="flex-1 max-w-2xl text-center md:text-left">
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-snug tracking-wide">
-            HeatBeasts Game Masterclass
+            Esports Community Game Masterclass
           </h1>
           <p className="text-lg md:text-xl mb-6 leading-snug text-gray-200">
             Join live gaming webinars and masterclasses hosted by top players.  

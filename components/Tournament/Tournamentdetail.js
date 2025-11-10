@@ -62,7 +62,7 @@ function Tournamentdetail() {
   return (
     <div className="bg-gray-50 py-16 px-6 md:px-12">
       <h2 className="text-3xl font-bold text-center mb-12 text-green-800 uppercase tracking-wide">
-        HeatBeasts Tournaments
+        Esports Community Tournaments
       </h2>
 
       <div className="flex flex-col gap-16">

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Header } from "@/components/common/Header";
+import  Header  from "@/components/common/Header";
 import Footers from "@/components/common/Footer/Footer";
 
 export default function ClientLayout({ children }) {

@@ -13,7 +13,7 @@ function SLABusiness() {
 
       {/* Content */}
       <div className="relative z-10 text-left w-[1130px] mx-auto mt-6 mb-6">
-        <h1 className="text-3xl font-bold mb-4">HeatBeasts Academy for Teams</h1>
+        <h1 className="text-3xl font-bold mb-4">Esports Community Academy for Teams</h1>
         <h5 className="text-lg mb-2">
           Build stronger, smarter, and faster gaming squads.
         </h5>

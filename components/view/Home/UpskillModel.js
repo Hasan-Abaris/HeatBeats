@@ -20,7 +20,7 @@ function UpskillModel({ isOpen, setIsOpen, opacity }) {
 
             <img
               src="/images/banner3.jpg"
-              alt="HeatBeasts Game Academy"
+              alt="Esports Community Game Academy"
               className="w-full rounded mb-4"
             />
 
@@ -28,7 +28,7 @@ function UpskillModel({ isOpen, setIsOpen, opacity }) {
               Level Up Your Gaming Skills 🎮
             </h2>
             <p className="text-gray-700 mb-6 px-4">
-              Join <strong>HeatBeasts Game Academy</strong> and take your gaming journey to the next level!  
+              Join <strong>Esports Community Game Academy</strong> and take your gaming journey to the next level!  
               Learn strategies, compete in tournaments, and master games like PUBG, Chess, Ludo, and more.
             </p>
 

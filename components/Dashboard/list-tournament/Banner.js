@@ -7,19 +7,19 @@ export default function ListTournament() {
   const tournaments = [
     {
       id: 1,
-      name: "HeatBeasts Valorant Masters",
+      name: "Esports Community Valorant Masters",
       date: "2025-12-12",
       location: "Online",
-      organizer: "HeatBeasts Official",
+      organizer: "Esports Community Official",
       game: "Valorant",
       prize: "₹50,000",
     },
     {
       id: 2,
-      name: "HeatBeasts BGMI Pro League",
+      name: "Esports Community BGMI Pro League",
       date: "2025-11-25",
       location: "Delhi Esports Hub",
-      organizer: "HeatBeasts x RedBull",
+      organizer: "Esports Community x RedBull",
       game: "BGMI",
       prize: "₹1,00,000",
     },
@@ -28,7 +28,7 @@ export default function ListTournament() {
       name: "Free Fire Clash 2025",
       date: "2025-12-05",
       location: "Mumbai Arena",
-      organizer: "HeatBeasts Events",
+      organizer: "Esports Community Events",
       game: "Free Fire",
       prize: "₹75,000",
     },
@@ -37,16 +37,16 @@ export default function ListTournament() {
       name: "Call of Duty Mobile Open Cup",
       date: "2025-11-18",
       location: "Online",
-      organizer: "HeatBeasts India",
+      organizer: "Esports Community India",
       game: "CODM",
       prize: "₹30,000",
     },
     {
       id: 5,
-      name: "HeatBeasts Esports Invitational",
+      name: "Esports Community Esports Invitational",
       date: "2025-12-30",
       location: "Bangalore Tech Arena",
-      organizer: "HeatBeasts Official",
+      organizer: "Esports Community Official",
       game: "Multiple",
       prize: "₹2,00,000",
     },
@@ -59,7 +59,7 @@ export default function ListTournament() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 p-6">
       <div className="bg-green-700 text-white px-5 py-3 rounded-lg shadow-md flex justify-between items-center">
-        <h1 className="text-2xl font-bold">🏆 HeatBeasts Tournaments</h1>
+        <h1 className="text-2xl font-bold">🏆 Esports Community Tournaments</h1>
         <button
           onClick={() => alert("Navigate to Add Tournament Page")}
           className="bg-white text-green-700 px-4 py-2 rounded-lg font-medium border border-green-700 hover:bg-green-700 hover:text-white transition"

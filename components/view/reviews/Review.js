@@ -20,7 +20,7 @@ const testimonials = [
     rating: 5,
     date: "October 2025",
     review:
-      "HeatBeasts Academy helped me improve my reflexes and game sense. The live coaching sessions are top-notch!",
+      "Esports Community Academy helped me improve my reflexes and game sense. The live coaching sessions are top-notch!",
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const testimonials = [
     rating: 5,
     date: "June 2025",
     review:
-      "Amazing experience! The HeatBeasts trainers helped me fix my gameplay mistakes and improve my strategy.",
+      "Amazing experience! The Esports Community trainers helped me fix my gameplay mistakes and improve my strategy.",
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const testimonials = [
     rating: 5,
     date: "May 2025",
     review:
-      "I started streaming thanks to HeatBeasts! They taught me content creation and live streaming basics. So fun!",
+      "I started streaming thanks to Esports Community! They taught me content creation and live streaming basics. So fun!",
   },
 ];
 

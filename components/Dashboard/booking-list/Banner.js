@@ -10,16 +10,16 @@ const BookingList = () => {
 
   // Sample bookings data
   const bookings = [
-    { id: 201, event: "HeatBeasts Summer Cup", name: "Zunaira Ahmed", date: "2025-06-18", seats: 2, status: "Confirmed" },
-    { id: 202, event: "HeatBeasts Winter Clash", name: "Rayan Khan", date: "2025-07-02", seats: 1, status: "Pending" },
-    { id: 203, event: "HeatBeasts Pro League", name: "Sana Malik", date: "2025-07-15", seats: 3, status: "Confirmed" },
-    { id: 204, event: "HeatBeasts Gaming Fest", name: "Arham Ali", date: "2025-08-01", seats: 2, status: "Cancelled" },
-    { id: 205, event: "HeatBeasts Arena Fight", name: "Ayesha Noor", date: "2025-08-10", seats: 4, status: "Confirmed" },
-    { id: 206, event: "HeatBeasts LAN Night", name: "Danish Iqbal", date: "2025-09-05", seats: 1, status: "Pending" },
-    { id: 207, event: "HeatBeasts Summer Battle", name: "Fatima Zaid", date: "2025-09-12", seats: 2, status: "Cancelled" },
-    { id: 208, event: "HeatBeasts Champions Meet", name: "Imran Ali", date: "2025-09-20", seats: 3, status: "Confirmed" },
-    { id: 209, event: "HeatBeasts Final Showdown", name: "Hiba Shah", date: "2025-10-10", seats: 2, status: "Pending" },
-    { id: 210, event: "HeatBeasts VIP Night", name: "Saad Khan", date: "2025-10-18", seats: 1, status: "Confirmed" },
+    { id: 201, event: "Esports Community Summer Cup", name: "Zunaira Ahmed", date: "2025-06-18", seats: 2, status: "Confirmed" },
+    { id: 202, event: "Esports Community Winter Clash", name: "Rayan Khan", date: "2025-07-02", seats: 1, status: "Pending" },
+    { id: 203, event: "Esports Community Pro League", name: "Sana Malik", date: "2025-07-15", seats: 3, status: "Confirmed" },
+    { id: 204, event: "Esports Community Gaming Fest", name: "Arham Ali", date: "2025-08-01", seats: 2, status: "Cancelled" },
+    { id: 205, event: "Esports Community Arena Fight", name: "Ayesha Noor", date: "2025-08-10", seats: 4, status: "Confirmed" },
+    { id: 206, event: "Esports Community LAN Night", name: "Danish Iqbal", date: "2025-09-05", seats: 1, status: "Pending" },
+    { id: 207, event: "Esports Community Summer Battle", name: "Fatima Zaid", date: "2025-09-12", seats: 2, status: "Cancelled" },
+    { id: 208, event: "Esports Community Champions Meet", name: "Imran Ali", date: "2025-09-20", seats: 3, status: "Confirmed" },
+    { id: 209, event: "Esports Community Final Showdown", name: "Hiba Shah", date: "2025-10-10", seats: 2, status: "Pending" },
+    { id: 210, event: "Esports Community VIP Night", name: "Saad Khan", date: "2025-10-18", seats: 1, status: "Confirmed" },
   ];
 
   // Filter logic

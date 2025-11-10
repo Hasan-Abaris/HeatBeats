@@ -96,7 +96,7 @@ function Blogs() {
         <div className="w-[220px] shrink-0">
           <h2 className="text-sm font-bold text-gray-900 mb-2">BLOG POSTS</h2>
           <p className="text-[12px] text-gray-600 mb-4 leading-tight">
-            Check out our HeatBeasts blog for the latest gaming insights,
+            Check out our Esports Community blog for the latest gaming insights,
             tutorials, and updates from pro players.
           </p>
           <button

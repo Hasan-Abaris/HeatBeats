@@ -11,14 +11,14 @@ export default function EventDetail() {
           {/* Event Banner */}
           <img
             src="/images/courses/pubg.jpg"
-            alt="HeatBeasts Game Event"
+            alt="Esports Community Game Event"
             className="w-full h-[350px] object-cover rounded-2xl shadow-lg"
           />
 
           {/* Event Title & Info */}
           <div>
             <h1 className="text-3xl font-bold">
-              HeatBeasts Arena Tournament 2025
+              Esports Community Arena Tournament 2025
             </h1>
             <p className="text-gray-600 mt-2">
               🎮 Multiplayer Gaming • Live E-Sports Event
@@ -32,7 +32,7 @@ export default function EventDetail() {
               About The Event
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              <b>HeatBeasts Arena Tournament</b> brings together top gamers from
+              <b>Esports Community Arena Tournament</b> brings together top gamers from
               across the country to battle it out in FPS, strategy, and battle
               royale games. Watch live matches, compete in challenges, and meet
               professional gamers. Exclusive prizes await the champions!
@@ -57,7 +57,7 @@ export default function EventDetail() {
                 </p>
                 <p className="mt-2 text-gray-500 text-sm">
                   Alex is known for his precision and fast reflexes, making him
-                  a top contender in HeatBeasts tournaments.
+                  a top contender in Esports Community tournaments.
                 </p>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function EventDetail() {
             },
             {
               icon: "https://assets-in.bmscdn.com/nmcms/synopsis/location.png",
-              label: "HeatBeasts Arena, Noida",
+              label: "Esports Community Arena, Noida",
             },
           ].map((item, i) => (
             <div

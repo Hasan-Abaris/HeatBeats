@@ -7,6 +7,7 @@ import PopTag from './PopTag';
 import RecQues from './RecQues';
 import AllCategories from './AllCategories';
 import Banner from './Banner';
+import Leaderboard from './PopTag';
 
 function Communityfaq() {
   const [activeTab, setActiveTab] = useState(questionsData.tabs[0]);
@@ -40,7 +41,7 @@ function Communityfaq() {
 
           {/* Right Sidebar */}
           <div className="w-full md:w-80 space-y-6">
-            <PopTag questionsData={questionsData} />
+            <Leaderboard questionsData={questionsData} />
             <RecQues questionsData={questionsData} />
             <AllCategories
               questionsData={questionsData}

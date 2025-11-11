@@ -37,20 +37,21 @@ export default function Header({ user, setUser }) {
     <header className="sticky top-4 z-[2000] flex justify-center w-full bg-black">
       {/* 🌟 Floating Centered Navbar Container */}
       <div className="flex items-center justify-between w-[90%] max-w-6xl bg-gradient-to-r from-[#0B0F1A] via-[#0F1425] to-[#0B0F1A] shadow-lg border border-[#1b1f2a] rounded-full px-6 lg:px-10 py-3 backdrop-blur-md">
-        
-       {/* ===== LEFT: LOGO ===== */}
-<Link href="/" className="flex items-center gap-3 hover:opacity-90 transition">
-  <div className="bg-[#7B5CFF] h-10 w-10 flex items-center justify-center rounded-xl shadow-md">
-    <span className="text-white font-bold text-lg">EC</span>
-  </div>
-  <div>
-    <h1 className="text-white text-lg font-semibold tracking-wide">
-      ESPORTS
-    </h1>
-    <p className="text-gray-400 text-xs tracking-widest">Community</p>
-  </div>
-</Link>
-
+        {/* ===== LEFT: LOGO ===== */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 hover:opacity-90 transition"
+        >
+          <div className="bg-[#7B5CFF] h-10 w-10 flex items-center justify-center rounded-xl shadow-md">
+            <span className="text-white font-bold text-lg">EC</span>
+          </div>
+          <div>
+            <h1 className="text-white text-lg font-semibold tracking-wide">
+              ESPORTS
+            </h1>
+            <p className="text-gray-400 text-xs tracking-widest">Community</p>
+          </div>
+        </Link>
 
         {/* ===== CENTER NAV LINKS ===== */}
         <nav

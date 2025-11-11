@@ -1,4 +1,7 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+import { ThumbsUp, ThumbsDown, PlayCircle, Tag } from "lucide-react";
 
 const games = [
   {
@@ -105,53 +108,146 @@ const games = [
 
 function Topgames() {
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h3 className="text-2xl font-bold mb-6 text-gray-800">Top Games</h3>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-          <thead className="bg-blue-600 text-white">
-            <tr>
-              <th className="py-3 px-4 text-left">#</th>
-              <th className="py-3 px-4 text-left">Game Name</th>
-              <th className="py-3 px-4 text-left">Played</th>
-              <th className="py-3 px-4 text-left">Category</th>
-              <th className="py-3 px-4 text-left">Likes</th>
+    <div className="p-4 sm:p-6 lg:p-8 bg-gray-50 min-h-screen">
+      <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-800">
+        Top Games
+      </h3>
+
+      {/* Mobile: Cards Layout */}
+      <div className="lg:hidden space-y-4">
+        {games.map((game) => (
+          <div
+            key={game.id}
+            className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-all duration-200"
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center font-bold text-sm">
+                  #{game.id}
+                </span>
+                <a
+                  href={game.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-lg text-gray-900 hover:text-blue-600 transition-colors line-clamp-1"
+                >
+                  {game.name}
+                </a>
+              </div>
+              <a
+                href={game.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
+              >
+                Play →
+              </a>
+            </div>
+
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 gap-4 mb-3">
+              <div className="flex items-center gap-2 text-sm">
+                <PlayCircle size={16} className="text-gray-500" />
+                <span className="font-medium">{game.played.toLocaleString()}</span>
+                <span className="text-gray-500">plays</span>
+              </div>
+              <div className="flex items-center justify-end gap-1 text-sm">
+                <span className="font-semibold text-lg">{game.likesPercent}%</span>
+                <span className="text-xs text-gray-500">like</span>
+              </div>
+            </div>
+
+            {/* Categories */}
+            <div className="flex flex-wrap gap-1 mb-4">
+              {game.category.map((cat, index) => (
+                <span
+                  key={index}
+                  className="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 text-xs font-medium px-2.5 py-1 rounded-full"
+                >
+                  {cat}
+                </span>
+              ))}
+            </div>
+
+            {/* Thumbs */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <div className="flex items-center gap-1">
+                  <ThumbsUp size={16} className="text-green-500" />
+                  <span>{game.thumbsUp}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <ThumbsDown size={16} className="text-red-500" />
+                  <span>{game.thumbsDown}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop: Table Layout */}
+      <div className="hidden lg:block overflow-x-auto">
+        <table className="min-w-full bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
+          <thead>
+            <tr className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+              <th className="py-4 px-6 text-left font-semibold">#</th>
+              <th className="py-4 px-6 text-left font-semibold">Game Name</th>
+              <th className="py-4 px-6 text-left font-semibold">Played</th>
+              <th className="py-4 px-6 text-left font-semibold">Category</th>
+              <th className="py-4 px-6 text-right font-semibold">Likes</th>
             </tr>
           </thead>
           <tbody>
             {games.map((game) => (
-              <tr key={game.id} className="border-b hover:bg-gray-100 transition duration-200">
-                <td className="py-3 px-4 font-medium">{game.id}</td>
-                <td className="py-3 px-4">
+              <tr
+                key={game.id}
+                className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-all duration-200"
+              >
+                <td className="py-4 px-6 font-semibold text-gray-900">
+                  #{game.id}
+                </td>
+                <td className="py-4 px-6">
                   <a
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors"
                   >
                     {game.name}
                   </a>
                 </td>
-                <td className="py-3 px-4">{game.played.toLocaleString()}</td>
-                <td className="py-3 px-4">
-                  {game.category.map((cat, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-200 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-                    >
-                      {cat}
-                    </span>
-                  ))}
+                <td className="py-4 px-6 font-medium text-gray-700">
+                  {game.played.toLocaleString()}
                 </td>
-                <td className="py-3 px-4 flex items-center space-x-4">
-                  <span className="text-sm font-semibold">{game.likesPercent}%</span>
-                  <div className="flex items-center text-green-600">
-                    <i className="fa fa-thumbs-up mr-1" aria-hidden="true"></i>
-                    {game.thumbsUp}
+                <td className="py-4 px-6">
+                  <div className="flex flex-wrap gap-1">
+                    {game.category.map((cat, index) => (
+                      <span
+                        key={index}
+                        className="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 text-xs font-medium px-2.5 py-1 rounded-full"
+                      >
+                        {cat}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex items-center text-red-600">
-                    <i className="fa fa-thumbs-down mr-1" aria-hidden="true"></i>
-                    {game.thumbsDown}
+                </td>
+                <td className="py-4 px-6 text-right">
+                  <div className="flex items-center justify-end gap-4">
+                    <span className="text-2xl font-bold text-gray-900">
+                      {game.likesPercent}%
+                    </span>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-1">
+                        <ThumbsUp size={16} className="text-green-500" />
+                        <span>{game.thumbsUp}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <ThumbsDown size={16} className="text-red-500" />
+                        <span>{game.thumbsDown}</span>
+                      </div>
+                    </div>
                   </div>
                 </td>
               </tr>

@@ -1,3 +1,4 @@
+"use client";
 import LiveStreamLayout from "@/components/LiveStream/LiveStreamLayout";
 import React from "react";
 

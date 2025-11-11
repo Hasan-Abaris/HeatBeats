@@ -59,7 +59,7 @@ function QuestionCard({ question, qIndex, handleVote, questionComments, handleAd
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div
           className="flex items-center gap-3 cursor-pointer" // ✅ make clickable
-          onClick={() => router.push(`/Contestdetails/`)} // ✅ route to ContentDetails page
+          onClick={() => router.push(`/profilepage/`)} // ✅ route to ContentDetails page
         >
           <img
             src={`https://ui-avatars.com/api/?name=${encodeURIComponent(question.author)}`}

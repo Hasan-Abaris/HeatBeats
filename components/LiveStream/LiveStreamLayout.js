@@ -1,18 +1,20 @@
 "use client";
-import React from "react";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Settings, Home, Compass, Radio, User } from "lucide-react";
+import { Settings, Home, Compass, Radio, User, Menu, X, Hash } from "lucide-react";
 
 export default function LiveStreamLayout({ children }) {
   const pathname = usePathname();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // ✅ Hide sidebar on specific pages (you can add more)
-  const hideSidebar = pathname === "/Livestream/message";
-  const hideSidebar1 = pathname === "/Livestream/message/profile";
+  // Hide sidebar on message or profile pages
+  const hideSidebar =
+    pathname === "/Livestream/message" ||
+    pathname.startsWith("/Livestream/message/profile");
 
-
-  // Sidebar menu
+  // Menu Items
   const menuItems = [
     { name: "For You", path: "/Livestream", icon: <Home size={22} /> },
     { name: "Explore", path: "/Livestream/explore", icon: <Compass size={22} /> },
@@ -28,119 +30,150 @@ export default function LiveStreamLayout({ children }) {
     { name: "caren", username: "CarenDe Vera", img: "https://reelboost.online/uploads/avatar/female-avatar-3.png" },
   ];
 
+  const popularHashtags = [
+    { tag: "#travel", posts: 15 },
+    { tag: "#beachtravel", posts: 6 },
+    { tag: "#food", posts: 5 },
+    { tag: "#traveldiary", posts: 4 },
+  ];
+
+  // Reusable Sidebar Content
+  const SidebarContent = () => (
+    <div className="flex flex-col h-full overflow-y-auto py-4">
+      {/* Main Navigation */}
+      <nav className="space-y-1 px-4">
+        {menuItems.map((item) => {
+          const isActive = pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              href={item.path}
+              onClick={() => setSidebarOpen(false)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                isActive
+                  ? "bg-green-50 text-green-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Suggested Accounts */}
+      <section className="mt-6 border-t border-gray-200 pt-5 px-4">
+        <h3 className="text-sm font-semibold text-gray-500 mb-3">Suggested Accounts</h3>
+        <div className="space-y-3">
+          {suggestedAccounts.map((user) => (
+            <Link
+              key={user.username}
+              href="/Livestream/message"
+              onClick={() => setSidebarOpen(false)}
+              className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <img
+                  src={user.img}
+                  alt={user.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-900 truncate">{user.name}</p>
+                <p className="text-xs text-gray-500 truncate">@{user.username}</p>
+              </div>
+            </Link>
+          ))}
+          <button className="text-sm text-green-600 font-medium hover:underline mt-2">
+            See all
+          </button>
+        </div>
+      </section>
+
+      {/* Popular Hashtags */}
+      <section className="mt-6 border-t border-gray-200 pt-5 px-4 pb-6">
+        <h3 className="text-sm font-semibold text-gray-500 mb-3">Popular Hashtags</h3>
+        <div className="space-y-3">
+          {popularHashtags.map((h) => (
+            <div
+              key={h.tag}
+              className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center flex-shrink-0">
+                <Hash size={16} className="text-gray-600" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-900">{h.tag}</p>
+                <p className="text-xs text-gray-500">{h.posts} posts</p>
+              </div>
+            </div>
+          ))}
+          <button className="text-sm text-green-600 font-medium hover:underline mt-2">
+            See all
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+
   return (
-    <div className="flex min-h-[calc(100vh-120px)] bg-gray-50 text-gray-900">
-      {/* ===== Sidebar ===== */}
+    <div className="flex min-h-screen bg-gray-50 text-gray-900">
+      {/* Mobile Menu Button */}
       {!hideSidebar && (
-        <aside className="hidden lg:flex sticky top-[80px] h-fit overflow-y-auto no-scrollbar w-[270px] py-5 shadow-md flex-col justify-between bg-white">
-          <div className="flex flex-col gap-8">
-            {/* ==== Main Menu ==== */}
-            <div className="space-y-3">
-              {menuItems.map((item) => {
-                const isActive = pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    className={`flex items-center gap-4 px-10 py-3 w-full transition-all duration-200 rounded-r-2xl ${
-                      isActive
-                        ? "text-green-600 bg-green-50"
-                        : "text-gray-800 hover:bg-gray-50"
-                    }`}
-                  >
-                    <span>{item.icon}</span>
-                    <span className="font-medium text-[16px]">{item.name}</span>
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* ==== Suggested Accounts ==== */}
-            <div className="px-10 border-t pt-4">
-              <h2 className="text-base text-gray-500 pb-5">Suggested Accounts</h2>
-              {suggestedAccounts.map((user) => (
-                <Link
-                  key={user.name}
-                  href="/message"
-                  className="flex gap-3 items-center mb-4 cursor-pointer hover:bg-gray-50 rounded-lg p-1 transition"
-                >
-                  <div className="rounded-full w-[40px] h-[40px] overflow-hidden">
-                    <img
-                      alt={user.name}
-                      src={user.img}
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <h3 className="text-xs font-medium text-dark truncate max-w-[100px]">
-                      {user.name}
-                    </h3>
-                    <p className="text-[10px] text-gray-500 truncate max-w-[80px]">
-                      {user.username}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-              <button className="cursor-pointer text-sm hover:underline text-green-600">
-                See all
-              </button>
-            </div>
-
-            {/* ==== Popular Hashtags ==== */}
-            <div className="px-10 border-t pt-4">
-              <h2 className="text-base text-gray-500 pb-5">Popular Hashtags</h2>
-              {[
-                { tag: "#travel", posts: 15 },
-                { tag: "#beachtravel", posts: 6 },
-                { tag: "#food", posts: 5 },
-                { tag: "#traveldiary", posts: 4 },
-              ].map((h) => (
-                <div key={h.tag} className="flex gap-3 items-start mb-4 cursor-pointer">
-                  <div className="rounded-full border-2 p-2 border-gray-200">
-                    <svg
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      className="text-lg text-gray-500"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M7.78428 14L8.2047 10H4V8H8.41491L8.94043 3H10.9514L10.4259 8H14.4149L14.9404 3H16.9514L16.4259 8H20V10H16.2157L15.7953 14H20V16H15.5851L15.0596 21H13.0486L13.5741 16H9.58509L9.05957 21H7.04855L7.57407 16H4V14H7.78428ZM9.7953 14H13.7843L14.2047 10H10.2157L9.7953 14Z"></path>
-                    </svg>
-                  </div>
-                  <div className="flex flex-col">
-                    <h3 className="text-sm font-medium text-dark">{h.tag}</h3>
-                    <p className="text-[11px] text-gray-500">{h.posts} posts</p>
-                  </div>
-                </div>
-              ))}
-              <button className="text-sm text-green-600 cursor-pointer hover:underline">
-                See all
-              </button>
-            </div>
-          </div>
-        </aside>
+        <button
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Open navigation menu"
+          className="lg:hidden fixed top-5 left-5 z-50 bg-white p-2.5 rounded-full shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+        >
+          <Menu size={20} />
+        </button>
       )}
 
-      {/* ===== Main Content Area ===== */}
-      <main
-        className={`flex-1 max-w-7xl mx-auto w-full px-6 py-8 ${
-          hideSidebar ? "lg:ml-0" : ""
-       
+      {/* Mobile Overlay */}
+      {sidebarOpen && !hideSidebar && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
+      {/* Sidebar */}
+      {!hideSidebar && (
+        <>
+          {/* Desktop Sidebar */}
+          <aside className="hidden lg:flex lg:w-72 bg-white shadow-lg sticky top-20 h-[calc(100vh-5rem)] overflow-hidden">
+            <SidebarContent />
+          </aside>
+
+          {/* Mobile Sidebar Drawer */}
+          <div
+            className={`fixed inset-y-0 left-0 w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${
+              sidebarOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900">Menu</h2>
+              <button
+                onClick={() => setSidebarOpen(false)}
+                aria-label="Close menu"
+                className="p-1.5 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <X size={22} />
+              </button>
+            </div>
+            <SidebarContent />
+          </div>
+        </>
+      )}
+
+      {/* Main Content */}
+      <main
+        className={`flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 transition-all duration-300 ${
+          hideSidebar ? "max-w-full" : "max-w-7xl"
         }`}
-        
       >
-        {/* ===== Main Content Area ===== */}
-      <main
-        className={`flex-1 max-w-7xl mx-auto w-full px-6 py-8 ${
-          hideSidebar1 ? "lg:ml-0" : ""
-       
-
-        }`}
-        
-      ></main>
         {children}
       </main>
     </div>

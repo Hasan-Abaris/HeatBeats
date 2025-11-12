@@ -22,14 +22,16 @@ export default function Header({ user, setUser }) {
 
   const profileOptions = [
     { name: "Dashboard", link: "/Dashboard" },
-    { name: "Add Event", link: "/Dashboard/add-event" },
-    { name: "List Event", link: "/Dashboard/list-event" },
-    { name: "Add Game", link: "/Dashboard/add-game" },
-    { name: "List Game", link: "/Dashboard/list-game" },
-    { name: "Add Tournament", link: "/Dashboard/add-tournament" },
-    { name: "List Tournament", link: "/Dashboard/list-tournament" },
-    { name: "My Tickets", link: "/Dashboard/my-tickets" },
-    { name: "Booking List", link: "/Dashboard/bookings" },
+    { name: "News", link: "/news" },
+
+    { name: "Friends", link: "/friends" },
+    { name: "Gifts", link: "/gifts" },
+    { name: "Photos", link: "/photos" },
+    { name: "Groups", link: "/groups" },
+    { name: "Packages", link: "/packages" },
+    { name: "Stories", link: "/stories" },
+    { name: "Questions", link: "/questions" },
+    { name: "Ads", link: "/ads" },
     { name: "Logout", action: handleLogout },
   ];
 

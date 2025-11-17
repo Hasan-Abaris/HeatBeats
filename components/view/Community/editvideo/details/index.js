@@ -1,6 +1,6 @@
-'use client';
-import Image from 'next/image';
-import React from 'react';
+"use client";
+import Image from "next/image";
+import React from "react";
 
 export default function DetailsPage() {
   const videoData = {
@@ -9,10 +9,10 @@ export default function DetailsPage() {
     description: `Elvish Yadav – एक ऐसा नाम जो YouTube से निकल कर रियलिटी शो जीतने तक पहुँचा! 🔥 
 From funny vines to becoming the first wild card winner of Bigg Boss OTT 2, Elvish has truly made history! 🏆 
 लेकिन controversies ने भी उनका पीछा नहीं छोड़ा!`,
-    videoLink: 'https://youtu.be/UfPQWBr59Gk',
-    filename: 'Untitled.mp4',
-    videoQuality: ['SD', 'HD'],
-    thumbnail: '/images/elvish-controversy.jpg',
+    videoLink: "https://youtu.be/UfPQWBr59Gk",
+    filename: "Untitled.mp4",
+    videoQuality: ["SD", "HD"],
+    thumbnail: "/images/elvish-controversy.jpg",
   };
 
   return (
@@ -53,8 +53,12 @@ From funny vines to becoming the first wild card winner of Bigg Boss OTT 2, Elvi
 
           <div className="text-sm space-y-1">
             <p>
-              <strong>Video link:</strong>{' '}
-              <a href={videoData.videoLink} target="_blank" className="text-blue-600 underline">
+              <strong>Video link:</strong>{" "}
+              <a
+                href={videoData.videoLink}
+                target="_blank"
+                className="text-blue-600 underline"
+              >
                 {videoData.videoLink}
               </a>
             </p>
@@ -62,13 +66,18 @@ From funny vines to becoming the first wild card winner of Bigg Boss OTT 2, Elvi
               <strong>Filename:</strong> {videoData.filename}
             </p>
             <p>
-              <strong>Video quality:</strong> {videoData.videoQuality.join(', ')}
+              <strong>Video quality:</strong>{" "}
+              {videoData.videoQuality.join(", ")}
             </p>
           </div>
 
           <div className="flex justify-end space-x-2 pt-4">
-            <button className="px-4 py-2 bg-gray-200 rounded text-sm">Undo</button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm">Save</button>
+            <button className="px-4 py-2 bg-gray-200 rounded text-sm">
+              Undo
+            </button>
+            <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm">
+              Save
+            </button>
           </div>
         </div>
       </div>

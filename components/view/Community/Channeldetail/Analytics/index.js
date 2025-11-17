@@ -12,7 +12,6 @@ import {
   Legend,
   ArcElement,
 } from 'chart.js';
-import Sidebar from '../../Channeldetail/Laout';
 
 // ✅ Register chart.js components
 ChartJS.register(
@@ -25,7 +24,7 @@ ChartJS.register(
   ArcElement
 );
 
-export default function Analyticspage() {
+export default function Analyticsnwpage() {
   const [activeTab, setActiveTab] = useState('Overview');
   const tabs = ['Overview', 'Reach', 'Engagement', 'Audience'];
 
@@ -94,10 +93,7 @@ export default function Analyticspage() {
   };
 
   return (
-    <>    
-  
     <div className="w-full bg-white rounded-lg shadow-sm border border-gray-200">
-        <Sidebar/>
       {/* Header */}
       <div className="border-b px-6 py-4">
         <h1 className="text-lg font-semibold text-gray-900">Video analytics</h1>
@@ -376,7 +372,5 @@ export default function Analyticspage() {
         )}
       </div>
     </div>
-    </>
-
   );
 }

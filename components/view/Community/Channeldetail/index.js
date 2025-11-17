@@ -1,190 +1,201 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Sidebar from "./Laout";
 
 export default function GameContentPage() {
-  const [activeTab, setActiveTab] = useState('Videos');
+  const [activeTab, setActiveTab] = useState("Videos");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const router = useRouter();
 
   const tabs = [
-    'Inspiration',
-    'Videos',
-    'Shorts',
-    'Live',
-    'Posts',
-    'Playlists',
-    'Podcasts',
-    'Promotions',
-    'Collaborations',
+    "Inspiration",
+    "Videos",
+    "Shorts",
+    "Live",
+    "Posts",
+    "Playlists",
+    "Podcasts",
+    "Promotions",
+    "Collaborations",
+  ];
+  const items = [
+    { name: "Dashboard", url: "/edit-video/details" },
+    { name: "Content", url: "/content" },
+    { name: "Analytics", url: "/edit-video/analytics" },
+    { name: "Community", url: "/community" },
+    { name: "Subtitles", url: "/subtitles" },
+    { name: "Settings", url: "/settings" },
+    { name: "Send feedback", url: "/feedback" },
   ];
 
   // Sample data for each tab
   const tabData = {
     Inspiration: [
       {
-        title: 'Game Dev Motivation',
-        description: 'Tips to stay inspired as a game developer ...READ MORE',
-        author: 'DevInspire',
-        date: 'Jan 20, 2025',
-        views: '500K',
-        thumbnail: '/images/courses/ludo.jpg',
+        title: "Game Dev Motivation",
+        description: "Tips to stay inspired as a game developer ...READ MORE",
+        author: "DevInspire",
+        date: "Jan 20, 2025",
+        views: "500K",
+        thumbnail: "/images/courses/ludo.jpg",
       },
       {
-        title: 'Indie Game Success Stories',
-        description: 'How small studios made it big ...READ MORE',
-        author: 'IndieLover',
-        date: 'Feb 15, 2025',
-        views: '750K',
-        thumbnail: '/images/courses/pubg.jpg',
+        title: "Indie Game Success Stories",
+        description: "How small studios made it big ...READ MORE",
+        author: "IndieLover",
+        date: "Feb 15, 2025",
+        views: "750K",
+        thumbnail: "/images/courses/pubg.jpg",
       },
     ],
     Videos: [
       {
-        title: 'Top 10 Unity Game Tips',
-        thumbnail: '/images/courses/unity.jpg',
+        title: "Top 10 Unity Game Tips",
+        thumbnail: "/images/courses/unity.jpg",
         views: 1200,
         comments: 5,
         likes: 100,
-        date: '10 Oct 2025',
-        visibility: 'Public',
-        restrictions: 'None',
-        author: 'UnityMaster',
+        date: "10 Oct 2025",
+        visibility: "Public",
+        restrictions: "None",
+        author: "UnityMaster",
       },
       {
-        title: 'Unreal Engine 5 Epic Tutorial',
-        thumbnail: '/images/courses/amongus-course.jpg',
+        title: "Unreal Engine 5 Epic Tutorial",
+        thumbnail: "/images/courses/amongus-course.jpg",
         views: 900,
         comments: 2,
         likes: 80,
-        date: '8 Oct 2025',
-        visibility: 'Public',
-        restrictions: 'None',
-        author: 'UnrealGuru',
+        date: "8 Oct 2025",
+        visibility: "Public",
+        restrictions: "None",
+        author: "UnrealGuru",
       },
       {
-        title: 'Top 5 Indie courses of 2025',
-        thumbnail: '/images/courses/chess.jpg',
+        title: "Top 5 Indie courses of 2025",
+        thumbnail: "/images/courses/chess.jpg",
         views: 1500,
         comments: 10,
         likes: 200,
-        date: '5 Oct 2025',
-        visibility: 'Public',
-        restrictions: 'None',
-        author: 'IndieLover',
+        date: "5 Oct 2025",
+        visibility: "Public",
+        restrictions: "None",
+        author: "IndieLover",
       },
     ],
     Shorts: [
       {
-        title: 'Quick Unity Trick',
-        thumbnail: '/images/courses/unity.jpg',
-        views: '300K',
-        date: '12 Oct 2025',
-        author: 'QuickTips',
+        title: "Quick Unity Trick",
+        thumbnail: "/images/courses/unity.jpg",
+        views: "300K",
+        date: "12 Oct 2025",
+        author: "QuickTips",
       },
       {
-        title: 'Gameplay Highlight',
-        thumbnail: '/images/courses/amongus-course.jpg',
-        views: '450K',
-        date: '11 Oct 2025',
-        author: 'GameClips',
+        title: "Gameplay Highlight",
+        thumbnail: "/images/courses/amongus-course.jpg",
+        views: "450K",
+        date: "11 Oct 2025",
+        author: "GameClips",
       },
     ],
     Live: [
       {
-        title: 'Live Unity Coding Session',
-        thumbnail: '/images/courses/unity.jpg',
-        status: 'Ended',
-        date: '9 Oct 2025',
-        viewers: '10K',
-        author: 'LiveCoder',
+        title: "Live Unity Coding Session",
+        thumbnail: "/images/courses/unity.jpg",
+        status: "Ended",
+        date: "9 Oct 2025",
+        viewers: "10K",
+        author: "LiveCoder",
       },
       {
-        title: 'Indie Game Showcase',
-        thumbnail: '/images/courses/amongus-course.jpg',
-        status: 'Upcoming',
-        date: '15 Oct 2025',
-        viewers: 'N/A',
-        author: 'IndieLover',
+        title: "Indie Game Showcase",
+        thumbnail: "/images/courses/amongus-course.jpg",
+        status: "Upcoming",
+        date: "15 Oct 2025",
+        viewers: "N/A",
+        author: "IndieLover",
       },
     ],
     Posts: [
       {
-        title: 'Community Update',
-        content: 'New game dev challenge announced! Join now! ...READ MORE',
-        date: '13 Oct 2025',
-        author: 'CommunityManager',
+        title: "Community Update",
+        content: "New game dev challenge announced! Join now! ...READ MORE",
+        date: "13 Oct 2025",
+        author: "CommunityManager",
         likes: 50,
       },
       {
-        title: 'Ask Me Anything',
-        content: 'Ask your game dev questions! ...READ MORE',
-        date: '12 Oct 2025',
-        author: 'DevGuru',
+        title: "Ask Me Anything",
+        content: "Ask your game dev questions! ...READ MORE",
+        date: "12 Oct 2025",
+        author: "DevGuru",
         likes: 75,
       },
     ],
     Playlists: [
       {
-        title: 'Unity Tutorials',
+        title: "Unity Tutorials",
         videoCount: 10,
-        thumbnail: '/images/courses/amongus-course.jpg',
-        author: 'UnityMaster',
+        thumbnail: "/images/courses/amongus-course.jpg",
+        author: "UnityMaster",
       },
       {
-        title: 'Indie Game Reviews',
+        title: "Indie Game Reviews",
         videoCount: 5,
-        thumbnail: '/images/courses/pubg.jpg',
-        author: 'IndieLover',
+        thumbnail: "/images/courses/pubg.jpg",
+        author: "IndieLover",
       },
     ],
     Podcasts: [
       {
-        title: 'Game Dev Podcast Ep 1',
-        duration: '45min',
-        date: '10 Oct 2025',
-        author: 'PodcastHost',
-        thumbnail: '/images/courses/podcast1.jpg',
+        title: "Game Dev Podcast Ep 1",
+        duration: "45min",
+        date: "10 Oct 2025",
+        author: "PodcastHost",
+        thumbnail: "/images/courses/podcast1.jpg",
       },
       {
-        title: 'Indie Dev Stories',
-        duration: '30min',
-        date: '8 Oct 2025',
-        author: 'IndieLover',
-        thumbnail: '/images/courses/podcast2.jpg',
+        title: "Indie Dev Stories",
+        duration: "30min",
+        date: "8 Oct 2025",
+        author: "IndieLover",
+        thumbnail: "/images/courses/podcast2.jpg",
       },
     ],
     Promotions: [
       {
-        title: 'Game Dev Course Discount',
-        description: '50% off our Unity course! ...READ MORE',
-        date: '14 Oct 2025',
-        author: 'PromoTeam',
-        thumbnail: '/images/courses/amongus-course.jpg',
+        title: "Game Dev Course Discount",
+        description: "50% off our Unity course! ...READ MORE",
+        date: "14 Oct 2025",
+        author: "PromoTeam",
+        thumbnail: "/images/courses/amongus-course.jpg",
       },
       {
-        title: 'New Game Launch',
-        description: 'Check out our latest indie game! ...READ MORE',
-        date: '13 Oct 2025',
-        author: 'IndieLover',
-        thumbnail: '/images/courses/unity.jpg',
+        title: "New Game Launch",
+        description: "Check out our latest indie game! ...READ MORE",
+        date: "13 Oct 2025",
+        author: "IndieLover",
+        thumbnail: "/images/courses/unity.jpg",
       },
     ],
     Collaborations: [
       {
-        title: 'Collab with Indie Devs',
-        description: 'Join our indie game jam! ...READ MORE',
-        date: '11 Oct 2025',
-        author: 'CollabMaster',
-        thumbnail: '/images/courses/amongus-course.jpg',
+        title: "Collab with Indie Devs",
+        description: "Join our indie game jam! ...READ MORE",
+        date: "11 Oct 2025",
+        author: "CollabMaster",
+        thumbnail: "/images/courses/amongus-course.jpg",
       },
       {
-        title: 'Streamer Team-Up',
-        description: 'Streaming with top gamers ...READ MORE',
-        date: '10 Oct 2025',
-        author: 'StreamerPro',
-        thumbnail: '/images/courses/unity.jpg',
+        title: "Streamer Team-Up",
+        description: "Streaming with top gamers ...READ MORE",
+        date: "10 Oct 2025",
+        author: "StreamerPro",
+        thumbnail: "/images/courses/unity.jpg",
       },
     ],
   };
@@ -194,21 +205,21 @@ export default function GameContentPage() {
   };
 
   const handleCustomizeChannel = () => {
-    setActiveTab('Inspiration');
-    router.push('/#');
+    setActiveTab("Inspiration");
+    router.push("/#");
   };
 
   const handleManageVideos = () => {
-    setActiveTab('Videos');
-    router.push('/#');
+    setActiveTab("Videos");
+    router.push("/#");
   };
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-  };     
+  };
 
   const handleAuthorClick = (authorName) => {
-    const authorSlug = authorName.toLowerCase().replace(/\s+/g, '-');
+    const authorSlug = authorName.toLowerCase().replace(/\s+/g, "-");
     router.push(`/contest-details/${authorSlug}`);
   };
 
@@ -217,29 +228,21 @@ export default function GameContentPage() {
   };
 
   return (
+    <>
+    
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <div className="w-64 bg-white border-r p-4">
-        <h2 className="font-bold text-xl mb-6">Your Channel</h2>
-        <ul className="space-y-3">
-          {['Dashboard', 'Content', 'Analytics', 'Community', 'Subtitles', 'Settings', 'Send feedback'].map((item) => (
-            <li key={item} className="hover:bg-gray-200 p-2 rounded cursor-pointer">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+
+
+
 
       {/* Main Content */}
       <div className="flex-1 p-6">
         {/* Channel Header */}
         <div className="flex items-center mb-6">
-       
           <div className="ml-4">
-            <h1 className="text-2xl font-bold">Channel content</h1>
-            <div className="mt-2 flex space-x-2">
-             
-            </div>
+            
+            <div className="mt-2 flex space-x-2"></div>
           </div>
         </div>
 
@@ -250,7 +253,9 @@ export default function GameContentPage() {
               key={tab}
               onClick={() => handleTabClick(tab)}
               className={`py-2 px-3 font-medium transition-colors ${
-                activeTab === tab ? 'border-b-2 border-green-700 text-black' : 'hover:text-green-600'
+                activeTab === tab
+                  ? "border-b-2 border-green-700 text-black"
+                  : "hover:text-green-600"
               }`}
             >
               {tab}
@@ -260,12 +265,25 @@ export default function GameContentPage() {
 
         {/* Tab Content */}
         <div className="bg-white rounded shadow p-4">
-          {activeTab === 'Videos' && (
+          {activeTab === "Videos" && (
             <table className="w-full table-auto">
               <thead className="bg-gray-50 border-b">
                 <tr>
-                  {['Video', 'Visibility', 'Restrictions', 'Date', 'Views', 'Comments', 'Likes', 'Author', 'Edits'].map((col) => (
-                    <th key={col} className="text-left px-4 py-2 font-medium text-gray-700">
+                  {[
+                    "Video",
+                    "Visibility",
+                    "Restrictions",
+                    "Date",
+                    "Views",
+                    "Comments",
+                    "Likes",
+                    "Author",
+                    "Edits",
+                  ].map((col) => (
+                    <th
+                      key={col}
+                      className="text-left px-4 py-2 font-medium text-gray-700"
+                    >
                       {col}
                     </th>
                   ))}
@@ -309,7 +327,7 @@ export default function GameContentPage() {
               </tbody>
             </table>
           )}
-          {activeTab === 'Inspiration' && (
+          {activeTab === "Inspiration" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tabData.Inspiration.map((item, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -328,12 +346,14 @@ export default function GameContentPage() {
                   >
                     By {item.author}
                   </p>
-                  <p className="text-gray-500 text-sm">{item.date} • {item.views} views</p>
+                  <p className="text-gray-500 text-sm">
+                    {item.date} • {item.views} views
+                  </p>
                 </div>
               ))}
             </div>
           )}
-          {activeTab === 'Shorts' && (
+          {activeTab === "Shorts" && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {tabData.Shorts.map((short, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -351,15 +371,20 @@ export default function GameContentPage() {
                   >
                     By {short.author}
                   </p>
-                  <p className="text-gray-500 text-sm">{short.date} • {short.views} views</p>
+                  <p className="text-gray-500 text-sm">
+                    {short.date} • {short.views} views
+                  </p>
                 </div>
               ))}
             </div>
           )}
-          {activeTab === 'Live' && (
+          {activeTab === "Live" && (
             <div className="space-y-4">
               {tabData.Live.map((live, i) => (
-                <div key={i} className="bg-gray-50 p-4 rounded-lg shadow flex items-center gap-4">
+                <div
+                  key={i}
+                  className="bg-gray-50 p-4 rounded-lg shadow flex items-center gap-4"
+                >
                   <Image
                     src={live.thumbnail}
                     width={150}
@@ -383,7 +408,7 @@ export default function GameContentPage() {
               ))}
             </div>
           )}
-          {activeTab === 'Posts' && (
+          {activeTab === "Posts" && (
             <div className="space-y-4">
               {tabData.Posts.map((post, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -395,12 +420,14 @@ export default function GameContentPage() {
                   >
                     By {post.author}
                   </p>
-                  <p className="text-gray-500 text-sm">{post.date} • {post.likes} likes</p>
+                  <p className="text-gray-500 text-sm">
+                    {post.date} • {post.likes} likes
+                  </p>
                 </div>
               ))}
             </div>
           )}
-          {activeTab === 'Playlists' && (
+          {activeTab === "Playlists" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tabData.Playlists.map((playlist, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -418,12 +445,14 @@ export default function GameContentPage() {
                   >
                     By {playlist.author}
                   </p>
-                  <p className="text-gray-500 text-sm">{playlist.videoCount} videos</p>
+                  <p className="text-gray-500 text-sm">
+                    {playlist.videoCount} videos
+                  </p>
                 </div>
               ))}
             </div>
           )}
-          {activeTab === 'Podcasts' && (
+          {activeTab === "Podcasts" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tabData.Podcasts.map((podcast, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -441,12 +470,14 @@ export default function GameContentPage() {
                   >
                     By {podcast.author}
                   </p>
-                  <p className="text-gray-500 text-sm">{podcast.date} • {podcast.duration}</p>
+                  <p className="text-gray-500 text-sm">
+                    {podcast.date} • {podcast.duration}
+                  </p>
                 </div>
               ))}
             </div>
           )}
-          {activeTab === 'Promotions' && (
+          {activeTab === "Promotions" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tabData.Promotions.map((promo, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -470,7 +501,7 @@ export default function GameContentPage() {
               ))}
             </div>
           )}
-          {activeTab === 'Collaborations' && (
+          {activeTab === "Collaborations" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tabData.Collaborations.map((collab, i) => (
                 <div key={i} className="bg-gray-50 p-4 rounded-lg shadow">
@@ -497,5 +528,6 @@ export default function GameContentPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

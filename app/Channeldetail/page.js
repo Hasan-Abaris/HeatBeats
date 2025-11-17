@@ -4,6 +4,7 @@ import React from 'react'
 function Channel() {
   return (
     <div>
+   
       <GameContentPage/>
     </div>
   )
